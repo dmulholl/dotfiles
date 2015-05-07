@@ -1,0 +1,40 @@
+
+# ----------------------------------------------------------------------------
+# Readline Settings
+# ----------------------------------------------------------------------------
+
+# Force tab autocompletion to ignore case.
+set completion-ignore-case on
+
+# List all matches when multiple completions are possible.
+set show-all-if-ambiguous on
+
+# Ask before showing all completions when there are more than 200.
+set completion-query-items 200
+
+# Show all autocomplete results at once.
+set page-completions off
+
+# Only autocomplete hidden files if the pattern explicitly begins with a dot.
+set match-hidden-files off
+
+# Add a trailing slash when autocompleting symlinks to directories.
+set mark-symlinked-directories on
+
+# Show extra file information when completing.
+set visible-stats on
+
+# More intelligent autocompletion. Requires Bash 4.
+set skip-completed-text on
+
+# Use existing text as a prefix when searching through commands using up/down.
+"\e[B": history-search-forward
+"\e[A": history-search-backward
+
+# Use Alt/Meta + Delete to delete the preceding word
+"\e[3;3~": kill-word
+
+# Allow UTF-8 input and output.
+set input-meta on
+set output-meta on
+set convert-meta off
