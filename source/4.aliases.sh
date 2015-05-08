@@ -16,6 +16,12 @@ alias dev="cd ~/dev"
 alias h="history"
 alias hist="history 25"
 
+# Git.
+alias ga="git add"
+alias gc="git commit"
+alias gl="git log"
+alias gs="git status"
+
 # Determine which variety of `ls` we're using.
 if is_osx; then
     colorflag="-G"
