@@ -46,7 +46,7 @@ function dotfiles_update() {
     e_title "Checking for updates..."
     cd $DOTFILES
     local prev_head="$(git rev-parse HEAD)"
-    # git pull
+    git pull 2> /dev/null || e_error "Cannot pull from remote repository"
     if [[ "$(git rev-parse HEAD)" != "$prev_head" ]]; then
         e_check "Dotfiles repository updated"
     else
