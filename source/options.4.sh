@@ -10,7 +10,7 @@ shopt -s cdspell
 shopt -s nullglob
 
 # Allow the ** pattern when globbing. Requires Bash 4.
-shopt -s globstar 2> /dev/null
+shopt -s globstar 2> /dev/null || is_init && e_error " .. globstar option not supported"
 
 # Automatically cd into bare directory names. Requires Bash 4.
-shopt -s autocd 2> /dev/null
+shopt -s autocd 2> /dev/null || is_init && e_error " .. autocd option not supported"

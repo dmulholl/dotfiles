@@ -22,8 +22,8 @@ function src() {
     for i in $(seq 0 9); do
         for file in $DOTFILES/source/*.$i.sh; do
             if [[ ! $file =~ "*" ]]; then
+                [[ $verbose ]] && e_arrow "Sourcing: $(basename $file)"
                 source $file
-                [[ $verbose ]] && e_check "Sourcing: $(basename $file)"
             fi
         done
     done
