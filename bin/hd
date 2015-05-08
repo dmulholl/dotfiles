@@ -2,6 +2,20 @@
 """
 Hex dump command line utility.
 
+    Usage: hd [FLAGS] [OPTIONS] [ARGS]
+
+    Arguments:
+      file           file to dump (defaults to stdin)
+
+    Options:
+      -l <int>       bytes per line in output
+      -n <int>       number of bytes to read
+      -o <int>       offset at which to begin reading
+
+    Flags:
+      -h, --help     show this help message and exit
+      -V, --version  show the program's version number and exit
+
 Author: Darren Mulholland <dmulholland@outlook.ie>
 License: Public Domain
 
