@@ -10,7 +10,9 @@ This repository isn't suitable for public use *as is*, but, as usual with these 
 Structure
 ---------
 
-* The `/bin` directory is added to the path.
+* The `/bin` directory contains executables and is added to the path.
+
+* The `/lib` directory contains all the third-party code in the repository.
 
 * The `/link` directory contains files that are symlinked into `~/` on
   initialization.
@@ -33,4 +35,4 @@ The installation can be reinitialized at any time using the `dotfiles` command.
 License
 -------
 
-This work has been placed in the public domain.
+All my own code in this repository has been placed in the public domain. The `/lib` directory contains third-party libraries and utilities subject to their own specific licenses.
