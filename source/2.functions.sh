@@ -17,9 +17,39 @@ function src() {
     done
 }
 
-# Run the dotfiles script, then (re)source all the repository's source files.
+# Update the dotfiles repository.
+function dotfiles_update() {
+    e_title "Checking for updates..."
+    cd $DOTFILES
+    local prev_head="$(git rev-parse HEAD)"
+    git pull
+    if [[ "$(git rev-parse HEAD)" != "$prev_head" ]]; then
+        e_check "Dotfiles updated"
+    else
+        e_arrow "No updates found"
+    fi
+}
+
+# Print the help text for the dotfiles command.
+function dotfiles_help() {
+    cat <<TEXT
+Usage: dotfiles
+
+  Reinitialization command for the dotfiles repository.
+  See the readme for details:
+
+  https://github.com/dmulholland/dotfiles
+TEXT
+}
+
+# Reinitialize the dotfiles repository.
 function dotfiles() {
-    $DOTFILES/bin/dotfiles "$@" && src
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        dotfiles_help
+    else
+        # dotfiles_update
+        source $DOTFILES/init.sh
+    fi
 }
 
 # Set the window title.

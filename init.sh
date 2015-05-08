@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 
 # ----------------------------------------------------------------------------
 # Dotfiles (re)initialization script
@@ -6,15 +5,6 @@
 
 # Location of the dotfiles repository.
 export DOTFILES=~/.dotfiles
-
-# Print help text.
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<TEXT
-Usage: $(basename "$0")
-
-Dotfiles initialization script. See the readme for details.
-https://github.com/dmulholland/dotfiles
-TEXT
-exit; fi
 
 # Delete any pesky .DS_Store files that may have sneaked into the repository.
 find $DOTFILES -name ".DS_Store" -delete
@@ -42,5 +32,5 @@ is_bsd && e_arrow "BSD detected"
 is_msys && e_arrow "MSys detected"
 is_cygwin && e_arrow "Cygwin detected"
 
-# Return a successful exit code.
-exit 0
+# Make sure we return a successful exit code.
+true
