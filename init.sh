@@ -9,7 +9,7 @@ export DOTFILES=~/.dotfiles
 # Delete any pesky .DS_Store files that may have sneaked into the repository.
 find $DOTFILES -name ".DS_Store" -delete
 
-# We want globbing to match on files beginning with a dot.
+# We want globbing to match on files beginning with a dot during installation.
 shopt -s dotglob
 shopt -s nullglob
 

@@ -12,5 +12,5 @@ shopt -s nullglob
 # Allow the ** pattern when globbing. Requires Bash 4.
 shopt -s globstar 2> /dev/null
 
-# Automatically cd into directory names. Requires Bash 4.
+# Automatically cd into bare directory names. Requires Bash 4.
 shopt -s autocd 2> /dev/null

@@ -22,9 +22,9 @@ function dotfiles_update() {
     e_title "Checking for updates..."
     cd $DOTFILES
     local prev_head="$(git rev-parse HEAD)"
-    git pull
+    # git pull
     if [[ "$(git rev-parse HEAD)" != "$prev_head" ]]; then
-        e_check "Dotfiles updated"
+        e_check "Dotfiles repository updated"
     else
         e_arrow "No updates found"
     fi
@@ -35,19 +35,19 @@ function dotfiles_help() {
     cat <<TEXT
 Usage: dotfiles
 
-  Reinitialization command for the dotfiles repository.
+  Reinitialization command for the dotfiles installation.
   See the readme for details:
 
   https://github.com/dmulholland/dotfiles
 TEXT
 }
 
-# Reinitialize the dotfiles repository.
+# Reinitialize the dotfiles installation.
 function dotfiles() {
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         dotfiles_help
     else
-        # dotfiles_update
+        dotfiles_update
         source $DOTFILES/init.sh
     fi
 }

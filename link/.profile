@@ -1,6 +1,6 @@
 
 # ----------------------------------------------------------------------------
-# Bootstrap file for the dotfiles repository
+# Bootstrap file for the dotfiles installation
 # ----------------------------------------------------------------------------
 
 # Location of the dotfiles repository.
