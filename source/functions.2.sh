@@ -15,25 +15,25 @@ function calc() {
 
 # Are we running on a Mac?
 function is_osx() {
-    [[ "$OSTYPE" =~ ^darwin ]] || return 1
+    [[ "$OSTYPE" =~ ^darwin ]]
 }
 
 # Are we running on a Linux box?
 function is_linux() {
-    [[ "$OSTYPE" =~ ^linux ]] || return 1
+    [[ "$OSTYPE" =~ ^linux ]]
 }
 
 # Are we running on a BSD box?
 function is_bsd() {
-    [[ "$OSTYPE" =~ ^bsd ]] || return 1
+    [[ "$OSTYPE" =~ ^bsd ]]
 }
 
 # Are we running on MSys on Windows?
 function is_msys() {
-    [[ "$OSTYPE" =~ ^msys ]] || return 1
+    [[ "$OSTYPE" =~ ^msys ]]
 }
 
 # Are we running on Cygwin on Windows?
 function is_cygwin() {
-    [[ "$OSTYPE" =~ ^cygwin ]] || return 1
+    [[ "$OSTYPE" =~ ^cygwin ]]
 }
