@@ -35,4 +35,4 @@ The installation can be reinitialized at any time using the `dotfiles` command.
 License
 -------
 
-All my own code in this repository has been placed in the public domain. The `/lib` directory contains third-party libraries and utilities subject to their own specific licenses.
+All my own code in this repository has been placed in the public domain. The `/lib` directory contains third-party libraries and utilities which are subject to their own specific licenses.
