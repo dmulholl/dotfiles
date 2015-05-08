@@ -6,14 +6,17 @@
 # Location of the dotfiles repository.
 export DOTFILES=~/.dotfiles
 
-# Delete any pesky .DS_Store files that may have sneaked into the repository.
-find $DOTFILES -name ".DS_Store" -delete
+# Set a flag to indicate that we're (re)initializing the repository.
+dotinit="on"
 
 # Load our bootstrapping functions.
 source $DOTFILES/dotfuncs.sh
 
 # Source all files in the repository's /source directory.
 src --verbose
+
+# Delete any pesky .DS_Store files that may have sneaked into the repository.
+find $DOTFILES -name ".DS_Store" -delete
 
 # Create symbolic links to all files in the repository's /link directory.
 e_title "Linking files into ~"
