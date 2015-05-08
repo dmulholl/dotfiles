@@ -35,9 +35,9 @@ export VENVHOME=~/dev/python/.virtualenvs
 function py-ac() {
     if [[ -n "$1" ]]; then
         local name="$1"
-        local activate=$VENVHOME/$name/bin/activate
-        if [[ -a activate ]]; then
-            source activate
+        local script=$VENVHOME/$name/bin/activate
+        if [[ -e $script ]]; then
+            source $script
         else
             echo "Error: no virtual environment named '$name'."
         fi
@@ -60,8 +60,7 @@ function py-mk() {
         if [[ -d $path ]]; then
             echo "Error: '$name' already exists."
         else
-            virtualenv --always-copy $path $@
-            py-ac $name
+            virtualenv --always-copy $path $@ && py-ac $name
         fi
     else
         echo "Error: you must specify a name for the new virtual environment."
@@ -74,7 +73,7 @@ function py-rm() {
         local name="$1"
         local path=$VENVHOME/$name
         if [[ -d $path ]]; then
-            rm -r path
+            rm -r $path
         else
             echo "Error: no virtual environment named '$name'."
         fi
@@ -93,7 +92,7 @@ function py-help() {
     cat <<EOF
 Usage: py <command> <args>
 
-Utility for managing Python virtual environments.
+  Utility for managing Python virtual environments.
 
 Commands:
 
