@@ -9,6 +9,11 @@ function e_check() { echo -e " \033[0;32m✔\033[0m  $@"; }
 function e_error() { echo -e " \033[0;31m✖\033[0m  $@"; }
 function e_arrow() { echo -e " \033[0;34m➜\033[0m  $@"; }
 
+# Are we (re)initializing the installation?
+function is_init() {
+    [[ $dotinit ]]
+}
+
 # Source all files in the repository's /source directory.
 function src() {
     local file verbose
