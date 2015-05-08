@@ -9,16 +9,17 @@ export DOTFILES=~/.dotfiles
 # Delete any pesky .DS_Store files that may have sneaked into the repository.
 find $DOTFILES -name ".DS_Store" -delete
 
+# Load our bootstrapping functions.
+source $DOTFILES/dotfuncs.sh
+
 # Source all files in the repository's /source directory.
-for srcfile in $DOTFILES/source/*.sh; do
-    source "$srcfile"
-done
+src --verbose
 
 # Create symbolic links to all files in the repository's /link directory.
 e_title "Linking files into ~"
-for srcfile in $DOTFILES/link/*; do
-    target=.$(basename $srcfile)
-    ln -sf "$srcfile" ~/$target && e_check "Linking: ~/$target"
+for lnkfile in $DOTFILES/link/*; do
+    target=.$(basename $lnkfile)
+    ln -sf $lnkfile ~/$target && e_check "Linking: ~/$target"
 done
 
 # Set OS-specific defaults.
