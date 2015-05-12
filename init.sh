@@ -33,5 +33,8 @@ is_bsd && e_arrow "BSD detected"
 is_msys && e_arrow "MSys detected"
 is_cygwin && e_arrow "Cygwin detected"
 
+# Unset our initialization flag.
+unset dotinit
+
 # Make sure we return a successful exit code.
 true
