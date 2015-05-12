@@ -7,7 +7,7 @@
 export DOTFILES=~/.dotfiles
 
 # Set a flag to indicate that we're (re)initializing the installation.
-dotinit="on"
+dotinit="true"
 
 # Set our backup directory, in case we need it.
 dotbackups="$DOTFILES/backups/$(date "+%Y-%m-%d-%H-%M-%S")/"
