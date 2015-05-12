@@ -63,3 +63,11 @@ function dotfiles() {
         source $DOTFILES/init.sh
     fi
 }
+
+# Backup a file before overwriting it.
+function dotfiles_backup() {
+    local file=$1
+    e_arrow " .. backing up existing file"
+    [[ -d "$dotbackups" ]] || mkdir -p "$dotbackups"
+    mv "$file" "$dotbackups"
+}

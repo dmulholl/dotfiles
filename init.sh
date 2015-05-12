@@ -6,8 +6,11 @@
 # Location of the dotfiles repository.
 export DOTFILES=~/.dotfiles
 
-# Set a flag to indicate that we're (re)initializing the repository.
+# Set a flag to indicate that we're (re)initializing the installation.
 dotinit="on"
+
+# Set our backup directory, in case we need it.
+dotbackups="$DOTFILES/backups/$(date "+%Y-%m-%d-%H-%M-%S")/"
 
 # Load our bootstrapping functions.
 source $DOTFILES/dotfuncs.sh
@@ -19,10 +22,12 @@ src --verbose
 find $DOTFILES -name ".DS_Store" -delete
 
 # Create symbolic links to all files in the repository's /link directory.
-e_title "Linking files into ~"
-for lnkfile in $DOTFILES/link/*; do
-    target=.$(basename $lnkfile)
-    ln -sf $lnkfile ~/$target && e_check "Linking: ~/$target"
+e_title "Linking files into ~/"
+for srcfile in $DOTFILES/link/*; do
+    trgfile=~/.$(basename $srcfile)
+    e_arrow "Linking: ~/$(basename $trgfile)"
+    [[ -e $trgfile ]] && [[ ! -h $trgfile ]] && dotfiles_backup $trgfile
+    ln -sf $srcfile $trgfile
 done
 
 # Set OS-specific defaults.
