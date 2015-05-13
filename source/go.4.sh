@@ -3,8 +3,7 @@
 # Go
 # ----------------------------------------------------------------------------
 
-if type go &> /dev/null; then
-    [[ $verbose ]] && e_check " .. Go installation found"
+if is_installed go; then
     export GOROOT=`go env GOROOT`
     export GOPATH=~/dev/go
 else

@@ -37,3 +37,12 @@ function is_msys() {
 function is_cygwin() {
     [[ "$OSTYPE" =~ ^cygwin ]]
 }
+
+# Test if a binary is installed on the system.
+function is_installed() {
+    if type $1 &> /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
