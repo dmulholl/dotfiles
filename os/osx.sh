@@ -36,3 +36,14 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 # Disable smart quotes.
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
+
+# ----------------------------------------------------------------------------
+# Brew
+# ----------------------------------------------------------------------------
+
+# Update brew installation and packages.
+if is_installed brew; then
+    e_arrow "Updating brew..." && brew update &> /dev/null
+    e_arrow "Upgrading brew packages..." && brew upgrade --all &> /dev/null
+fi
