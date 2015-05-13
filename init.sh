@@ -6,9 +6,6 @@
 # Location of the dotfiles repository.
 export DOTFILES=~/.dotfiles
 
-# Set a flag to indicate that we're (re)initializing the installation.
-dotinit="true"
-
 # Set our backup directory, in case we need it.
 dotbackups="$DOTFILES/backups/$(date "+%Y-%m-%d-%H-%M-%S")/"
 
@@ -37,9 +34,6 @@ is_linux && e_arrow "Linux detected"
 is_bsd && e_arrow "BSD detected"
 is_msys && e_arrow "MSys detected"
 is_cygwin && e_arrow "Cygwin detected"
-
-# Unset our initialization flag.
-unset dotinit
 
 # Make sure we return a successful exit code.
 true
