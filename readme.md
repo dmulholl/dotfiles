@@ -10,6 +10,9 @@ This repository isn't suitable for public use *as is*, but, as usual with these 
 Structure
 ---------
 
+* The `/backups` directory is automatically created if need be to store copies
+  of any files overwritten by the initialization script.
+
 * The `/bin` directory contains executables and is added to the path.
 
 * The `/lib` directory contains all the third-party code in the repository.
