@@ -6,11 +6,11 @@
 # This file should be loaded by interactive non-login shells. Interactive
 # login shells load .bash_profile which sources this file.
 
-# Location of the dotfiles repository.
+# Location of the dotfiles installation.
 export DOTFILES=~/.dotfiles
 
 # Load our bootstrapping functions.
 source $DOTFILES/dotfuncs.sh
 
-# Source all files in the repository's /source directory.
-src
+# Source all files in the installation's /source directory.
+dot src

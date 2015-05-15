@@ -3,66 +3,151 @@
 # Functions used internally by the dotfiles installation
 # ----------------------------------------------------------------------------
 
+# Log to file.
+function df_log() {
+    echo "$(date "+%Y-%m-%d %H:%M:%S" ) >> $@" >> $df_logfile
+}
+
+# Create a visible header in the log file.
+function df_log_header() {
+    df_log "--------------------------------------------------"
+    df_log "$@"
+    df_log "--------------------------------------------------"
+}
+
 # Logging functions.
-function e_title() { echo -e "\n\033[1m$@\033[0m"; }
-function e_check() { echo -e " \033[0;32m✔\033[0m  $@"; }
-function e_error() { echo -e " \033[0;31m✖\033[0m  $@"; }
-function e_arrow() { echo -e " \033[0;34m➜\033[0m  $@"; }
+function df_title() { df_log "|| $@" && echo -e "\n\033[1m$@\033[0m"; }
+function df_check() { df_log "$@" && echo -e " \033[0;32m✔\033[0m  $@"; }
+function df_error() { df_log "$@" && echo -e " \033[0;31m✖\033[0m  $@"; }
+function df_arrow() { df_log "$@" && echo -e " \033[0;34m➜\033[0m  $@"; }
+
+# Request user confirmation.
+function df_yesno() {
+    local input
+    df_log "$@"
+    while true; do
+        echo -n -e " \033[1;33m?\033[0m  $@ (y/n) "
+        read input
+        case $input in
+            [Yy]*) return 0;;
+            [Nn]*) return 1;;
+            *) df_error " .. please answer yes or no";;
+        esac
+    done
+}
+
+# Print the help text for the dotfiles command.
+function df_help() {
+    cat <<TEXT
+Usage: dot <command>
+
+  Interface to the dotfiles utility functions.
+
+Commands:
+  update    update the local repository
+  init      reinitialize the installation
+  source    source all files in /source
+  link      link all files in /link into ~/
+  log       print the log file
+TEXT
+}
+
+# Backup a file or directory before overwriting it.
+function df_backup() {
+    local target=$1
+    [[ $verbose ]] && df_arrow " .. backing up $(basename $target)"
+    [[ -d "$df_backups" ]] || mkdir -p "$df_backups"
+    mv "$target" "$df_backups"
+}
 
 # Source all files in the repository's /source directory.
-function src() {
+function df_source() {
     local file verbose
     [[ "$1" == "-v" || "$1" == "--verbose" ]] && verbose="on"
-    [[ $verbose ]] && e_title "Sourcing files..."
+    [[ $verbose ]] && df_title "Sourcing files..."
     for i in $(seq 0 9); do
         for file in $DOTFILES/source/*.$i.sh; do
             if [[ ! $file =~ "*" ]]; then
-                [[ $verbose ]] && e_arrow "Sourcing: $(basename $file)"
+                [[ $verbose ]] && df_arrow "Sourcing: $(basename $file)"
                 source $file
             fi
         done
     done
 }
 
-# Print the help text for the dotfiles command.
-function dotfiles_help() {
-    cat <<TEXT
-Usage: dotfiles
+# Create symbolic links to all files in the repository's /link directory.
+function df_link() {
+    local verbose srcfile trgfile
+    [[ "$1" == "-v" || "$1" == "--verbose" ]] && verbose="on"
+    [[ $verbose ]] && df_title "Linking files into ~/"
+    for srcfile in $DOTFILES/link/*; do
+        trgfile=~/.$(basename $srcfile)
+        [[ $verbose ]] && df_arrow "Linking: ~/$(basename $trgfile)"
+        [[ -e $trgfile ]] && [[ ! -h $trgfile ]] && df_backup $trgfile
+        ln -sf $srcfile $trgfile
+    done
+}
 
-  Reinitialization command for the dotfiles installation.
-  See the readme for details:
+# Run the OS-specific initialization scripts.
+function df_init_os() {
+    df_title "Setting OS defaults"
+    is_osx && df_arrow "OSX detected" && source $DOTFILES/os/osx.sh
+    is_linux && df_arrow "Linux detected"
+    is_bsd && df_arrow "BSD detected"
+    is_msys && df_arrow "MSys detected"
+    is_cygwin && df_arrow "Cygwin detected"
+}
 
-  https://github.com/dmulholland/dotfiles
-TEXT
+# (Re)initialize the dotfiles installation.
+function df_init() {
+    df_log_header "Initializing Installation"
+    find $DOTFILES -name ".DS_Store" -delete
+    source $DOTFILES/dotfuncs.sh
+    df_source --verbose
+    df_link --verbose
+    df_init_os
 }
 
 # Update the dotfiles repository.
-function dotfiles_update() {
-    e_title "Checking for updates..."
+function df_update() {
+    local head="$(git rev-parse HEAD)"
+    df_log_header "Updating Installation"
+    df_title "Checking for updates..."
     cd $DOTFILES
-    local prev_head="$(git rev-parse HEAD)"
-    git pull &> /dev/null || e_error "Cannot pull from remote repository"
-    if [[ "$(git rev-parse HEAD)" != "$prev_head" ]]; then
-        e_check "Dotfiles repository updated"
+    if ! git pull >> $df_logfile 2>&1; then
+        df_error "Cannot pull from the remote repository"
+        return
+    fi
+    if [[ "$(git rev-parse HEAD)" == "$head" ]]; then
+        df_check "The repository is already up to date"
     else
-        e_arrow "No updates found"
+        df_arrow "The repository has been updated"
+        df_yesno "Reinitialize the installation?" && df_init
     fi
 }
 
-# Reinitialize the dotfiles installation.
-function dotfiles() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-        dotfiles_help
+# Public interface for the suite of utility functions.
+function dot() {
+    local df_backups="$DOTFILES/backups/$(date "+%Y-%m-%d--%H-%M-%S")/"
+    local df_logfile="$DOTFILES/log.txt"
+    if [[ -n "$1" ]]; then
+        local command="$1"
+        shift
+        case $command in
+            update)
+                df_update "$@";;
+            init)
+                df_init "$@";;
+            source|src)
+                df_source "$@";;
+            link)
+                df_link "$@";;
+            log)
+                cat $df_logfile;;
+            *)
+                df_help;;
+        esac
     else
-        dotfiles_update
-        source $DOTFILES/init.sh
+        df_help
     fi
-}
-
-# Backup a file before overwriting it.
-function dotfiles_backup() {
-    local file=$1
-    e_arrow " .. backing up existing file"
-    [[ -d "$dotbackups" ]] || mkdir -p "$dotbackups"
-    mv "$file" "$dotbackups"
 }

@@ -1,2 +1,5 @@
-# Per-installation backups of overwritten files.
+# Backup copies of overwritten files.
 /backups/
+
+# The installation's log file.
+log.txt

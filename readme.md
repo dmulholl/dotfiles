@@ -10,12 +10,9 @@ This repository isn't suitable for public use *as is*, but, as usual with these 
 Structure
 ---------
 
-* The `/backups` directory is automatically created if need be to store copies
-  of any files overwritten by the initialization script.
-
 * The `/bin` directory contains executables and is added to the path.
 
-* The `/lib` directory contains all the third-party code in the repository.
+* The `/lib` directory contains third-party code.
 
 * The `/link` directory contains files that are symlinked into `~/` on
   initialization.
@@ -23,8 +20,22 @@ Structure
 * The `/os` directory contains OS-specific initialization scripts.
 
 * The `/source` directory contains files that are sourced whenever a new shell
-  is opened. The files in this directory can be re-sourced at any time using the
-  `src` command.
+  is opened.
+
+A `backups` directory is automatically created if necessary to store copies of any files overwritten by the initialization script.
+
+The `dot` command acts as an interface to the installation's utility functions:
+
+    Usage: dot <command>
+
+      Interface to the dotfiles utility functions.
+
+    Commands:
+      update    update the local repository
+      init      reinitialize the installation
+      source    source all files in /source
+      link      link all files in /link into ~/
+      log       print the log file
 
 
 Installation
@@ -32,10 +43,12 @@ Installation
 
     $ git clone https://github.com/dmulholland/dotfiles.git ~/.dotfiles && source ~/.dotfiles/init.sh
 
-The installation can be reinitialized at any time using the `dotfiles` command.
+The installation can be reinitialized at any time using the `dot init` command.
 
 
 License
 -------
 
-All my own code in this repository has been placed in the public domain. The `/lib` directory contains third-party libraries and utilities which are subject to their own specific licenses.
+All my own code in this repository has been placed in the public domain.
+
+The `/lib` directory contains third-party libraries and utilities which are subject to their own specific licenses.
