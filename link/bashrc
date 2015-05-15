@@ -1,7 +1,7 @@
 
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 # Bootstrap file for the dotfiles installation
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 
 # This file should be loaded by interactive non-login shells. Interactive
 # login shells load .bash_profile which sources this file.

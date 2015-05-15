@@ -1,7 +1,7 @@
 
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 # OSX Settings
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 
 # Always show scrollbars. Options: `WhenScrolling`, `Automatic`, `Always`.
 # defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -13,9 +13,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 # Finder
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 
 # Display the full POSIX path as the Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
@@ -27,9 +27,9 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 chflags nohidden ~/Library
 
 
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 # Messages
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 
 # Disable automatic emoji substitution.
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
@@ -38,9 +38,9 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
 
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 # Brew
-# ----------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 
 # Update the brew installation and packages.
 if is_installed brew; then
