@@ -26,7 +26,7 @@ function df_yesno() {
     local input
     df_log "$@"
     while true; do
-        echo -n -e " \033[1;33m?\033[0m  $@ (y/n) "
+        echo -n -e " \033[1;35m?\033[0m  $@ (y/n) "
         read input
         case $input in
             [Yy]*) return 0;;
