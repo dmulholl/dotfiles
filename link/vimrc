@@ -4,14 +4,19 @@
 " -------------------------------------------------------------------------
 
 " Turn off Vi compatibility.
-" Vim actually does this automatically if it finds a .vimrc file.
+" Vim actually does this automatically once it finds a .vimrc file.
 set nocompatible
 
 " Allow backspace in insert mode.
 set backspace=indent,eol,start
 
 " Turn on syntax highlighting.
-syntax on
+syntax enable
+
+" Solarized Colorscheme.
+"set background=dark
+"let g:solarized_termcolors=256
+"colorscheme solarized
 
 " Show line numbers.
 set number
@@ -39,13 +44,13 @@ set expandtab
 " Don't wrap lines.
 set nowrap
 
+" Load language plugins and indent files.
+filetype plugin indent on
+
 " Scrolling.
 " set scrolloff=10
 " set sidescrolloff=15
 " set sidescroll=1
-
-" Language-dependent indenting.
-" filetype plugin indent on
 
 " Enable mouse use in all modes.
 " set mouse=a
