@@ -84,7 +84,7 @@ function df_link() {
         trgfile=~/.$(basename $srcfile)
         [[ $verbose ]] && df_arrow "Linking: ~/$(basename $trgfile)"
         [[ -e $trgfile ]] && [[ ! -h $trgfile ]] && df_backup $trgfile
-        ln -sf $srcfile $trgfile
+        ln -sfh $srcfile $trgfile
     done
 }
 
