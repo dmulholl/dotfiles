@@ -41,7 +41,7 @@ function df_help() {
     cat <<TEXT
 Usage: dot <command>
 
-  Interface to the dotfiles utility functions.
+  Management utility for the dotfiles installation.
 
 Commands:
   update    update the local repository
