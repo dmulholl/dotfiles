@@ -18,7 +18,7 @@ alias hist="history 25"
 
 # Git.
 alias ga="git add"
-alias gc="git commit"
+alias gc="git commit -m"
 alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
