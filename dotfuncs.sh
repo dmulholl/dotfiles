@@ -83,8 +83,11 @@ function df_link() {
     for srcfile in $DOTFILES/link/*; do
         trgfile=~/.$(basename $srcfile)
         [[ $verbose ]] && df_arrow "Linking: ~/$(basename $trgfile)"
-        [[ -e $trgfile ]] && [[ ! -h $trgfile ]] && df_backup $trgfile
-        ln -sfh $srcfile $trgfile
+        if [[ -e $trgfile ]]; then
+            [[ -h $trgfile ]] || df_backup $trgfile
+            rm -rf $trgfile
+        fi
+        ln -sf $srcfile $trgfile
     done
 }
 
