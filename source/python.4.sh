@@ -73,7 +73,7 @@ function py-rm() {
         local name="$1"
         local path=$VENVHOME/$name
         if [[ -d $path ]]; then
-            rm -r $path
+            rm -rf $path
         else
             echo "Error: no virtual environment named '$name'."
         fi
