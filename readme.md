@@ -1,14 +1,12 @@
 
-Dotfiles
-========
+# Dotfiles #
 
 This is my dotfiles repository. There are many like it, but this one is mine.
 
 This repository isn't suitable for public use *as is*, but, as usual with these things, you may find useful snippets of code in it that you can repurpose to suit your own needs.
 
 
-Structure
----------
+## Structure ##
 
 * The `/bin` directory contains executables and is added to the path.
 
@@ -38,17 +36,17 @@ The `dot` command acts as an interface to the installation's utility functions:
       log       print the log file
 
 
-Installation
-------------
+## Installation ##
 
     $ git clone https://github.com/dmulholland/dotfiles.git ~/.dotfiles && source ~/.dotfiles/init.sh
 
 The installation can be reinitialized at any time using the `dot init` command.
 
 
-License
--------
+## License ##
 
 All my own code in this repository has been placed in the public domain.
 
-The `/lib` directory contains third-party libraries and utilities which are subject to their own specific licenses.
+The `/lib` directory contains third-party libraries and utilities which are subject to their own individual licenses.
+
+The `/link/vim` directory contains third-party plugins which are subject to their own individual licenses.
