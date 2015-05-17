@@ -113,10 +113,10 @@ function df_init() {
 
 # Update the dotfiles repository.
 function df_update() {
+    cd $DOTFILES
     local head="$(git rev-parse HEAD)"
     df_log_header "Updating Installation"
     df_title "Checking for updates..."
-    cd $DOTFILES
     if ! git pull >> $df_logfile 2>&1; then
         df_error "Cannot pull from the remote repository"
         return
