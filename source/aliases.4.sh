@@ -21,6 +21,7 @@ alias ga="git add"
 alias gc="git commit -m"
 alias gd="git diff"
 alias gl="git log"
+alias gp="git push origin master"
 alias gs="git status"
 
 # Determine which variety of `ls` we're using.
