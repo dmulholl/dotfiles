@@ -3,10 +3,6 @@
 " Vim Settings
 " -------------------------------------------------------------------------
 
-" Turn off Vi compatibility.
-" Vim actually does this automatically once it finds a .vimrc file.
-set nocompatible
-
 " Allow backspace in insert mode.
 set backspace=indent,eol,start
 
@@ -14,9 +10,9 @@ set backspace=indent,eol,start
 syntax enable
 
 " Solarized Colorscheme.
-"set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
+" set background=dark
+" let g:solarized_termcolors=256
+" colorscheme solarized
 
 " Show line numbers.
 set number
@@ -48,12 +44,12 @@ set nowrap
 filetype plugin indent on
 
 " Scrolling.
-" set scrolloff=10
-" set sidescrolloff=15
-" set sidescroll=1
+set scrolloff=10
+set sidescrolloff=15
+set sidescroll=1
 
-" Enable mouse use in all modes.
-" set mouse=a
+" Use case-sensitive search IFF the pattern contains uppercase letters.
+set smartcase
 
-" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-" set ttymouse=xterm2
+" Alternative to using the escape key.
+inoremap jj <ESC>
