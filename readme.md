@@ -26,7 +26,7 @@ The `dot` command acts as an interface to the installation's utility functions:
 
     Usage: dot <command>
 
-      Interface to the dotfiles utility functions.
+      Management utility for the dotfiles installation.
 
     Commands:
       update    update the local repository
@@ -38,14 +38,14 @@ The `dot` command acts as an interface to the installation's utility functions:
 
 ## Installation ##
 
-    $ git clone https://github.com/dmulholland/dotfiles.git ~/.dotfiles && source ~/.dotfiles/init.sh
+    git clone https://github.com/dmulholland/dotfiles.git ~/.dotfiles && source ~/.dotfiles/init.sh
 
 The installation can be reinitialized at any time using the `dot init` command.
 
 
 ## License ##
 
-All my own code in this repository has been placed in the public domain.
+Public domain, unless specified otherwise.
 
 The `/lib` directory contains third-party libraries and utilities which are subject to their own individual licenses.
 
