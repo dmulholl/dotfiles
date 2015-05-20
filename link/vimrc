@@ -17,7 +17,7 @@ syntax enable
 " Show line numbers.
 set number
 
-" The default is 8.
+" The default is 8 commands.
 set history=100
 
 " Reload files changed outside Vim.
@@ -45,11 +45,39 @@ filetype plugin indent on
 
 " Scrolling.
 set scrolloff=10
-set sidescrolloff=15
+set sidescrolloff=10
 set sidescroll=1
 
 " Use case-sensitive search IFF the pattern contains uppercase letters.
 set smartcase
 
+" Find the next match as the search term is being typed.
+" set incsearch
+
+" Highlight search matches.
+" set hlsearch
+
 " Alternative to using the escape key.
 inoremap jj <ESC>
+
+" Remap the <leader> key for custom shortcuts.
+let mapleader="#"
+
+" Shortcut for re-sourcing the .vimrc file.
+map <leader>rr :source ~/.vimrc<CR>
+
+" Navigating splits.
+" nnoremap <C-J> <C-W><C-J> " move down
+" nnoremap <C-K> <C-W><C-K> " move up
+" nnoremap <C-H> <C-W><C-H> " move left
+" nnoremap <C-L> <C-W><C-L> " move right
+
+" Customize the status line.
+set statusline=
+set statusline+=\ %n            " buffer number
+set statusline+=\ %t            " tail of the filename
+set statusline+=\ %m            " modified flag
+set statusline+=%=              " left-right separator
+set statusline+=\ %4l/%L        " current line / total lines
+set statusline+=\ %3v           " column number
+set statusline+=\               " trailing space
