@@ -39,16 +39,16 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 
 # -------------------------------------------------------------------------
-# Brew
+# Homebrew
 # -------------------------------------------------------------------------
 
 # Update the brew installation and packages.
 if is_installed brew; then
-    if df_yesno "Update brew?"; then
-        df_arrow "Updating brew..."
+    if df_yesno "Update Homebrew installation and packages?"; then
+        df_arrow "Updating Homebrew..."
         if brew update >> $df_logfile 2>&1; then
             df_check " .. done"
-            df_arrow "Upgrading brew packages..."
+            df_arrow "Upgrading Homebrew packages..."
             if brew upgrade --all >> $df_logfile 2>&1; then
                 df_check " .. done"
             else
