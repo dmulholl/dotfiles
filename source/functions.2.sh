@@ -5,7 +5,11 @@
 
 # Set the window title.
 function title() {
-    echo -n -e "\033]0;$1\007"
+    if [[ -n "$1" ]]; then
+        echo -n -e "\033]0;$1\007"
+    else
+        echo -n -e "\033]0;${USER}@${HOSTNAME}\007"
+    fi
 }
 
 # Python makes a nice command line calculator.
