@@ -10,6 +10,10 @@ function prompt_virtualenv() {
     fi
 }
 
+# Set the window title.
+title "$USER@$HOSTNAME"
+
+# Set the prompt.
 export PS1="
 \[$purple\]\$(prompt_virtualenv)\[$green\]\u@\h \[$yellow\]\w
 \[$normal\]\!: \$ "
