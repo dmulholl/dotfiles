@@ -14,3 +14,6 @@ shopt -s globstar 2>> $df_logfile || { [[ $verbose ]] && df_error " .. globstar 
 
 # Automatically cd into bare directory names. Requires Bash 4.
 shopt -s autocd 2>> $df_logfile || { [[ $verbose ]] && df_error " .. autocd option not supported"; }
+
+# Recheck the window size after each command.
+shopt -s checkwinsize
