@@ -16,7 +16,7 @@ function df_log_header() {
 }
 
 # Logging functions.
-function df_title() { df_log "|| $@" && echo -e "\n\033[1m$@\033[0m"; }
+function df_title() { df_log "## $@" && echo -e "\n\033[1m$@\033[0m"; }
 function df_check() { df_log "$@" && echo -e " \033[0;32m✔\033[0m  $@"; }
 function df_error() { df_log "$@" && echo -e " \033[0;31m✖\033[0m  $@"; }
 function df_arrow() { df_log "$@" && echo -e " \033[0;34m➜\033[0m  $@"; }
