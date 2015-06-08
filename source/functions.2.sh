@@ -50,3 +50,11 @@ function is_installed() {
         return 1
     fi
 }
+
+# Make a directory and cd into it in one step.
+function mkcd() {
+    if [[ -n "$1" ]]; then
+        mkdir -p "$1"
+        cd "$1"
+    fi
+}
