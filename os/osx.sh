@@ -3,9 +3,6 @@
 # OSX Settings
 # -------------------------------------------------------------------------
 
-# Always show scrollbars. Options: `WhenScrolling`, `Automatic`, `Always`.
-# defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
-
 # Disable smart quotes.
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
