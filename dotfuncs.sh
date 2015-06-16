@@ -113,12 +113,14 @@ function df_init() {
 
 # Update the dotfiles repository.
 function df_update() {
+    local old_dir="$(pwd)"
     cd $DOTFILES
     local head="$(git rev-parse HEAD)"
     df_log_header "Updating Installation"
     df_title "Checking for updates..."
     if ! git pull >> $df_logfile 2>&1; then
         df_error "Cannot pull from the remote repository"
+        cd "$old_dir"
         return
     fi
     if [[ "$(git rev-parse HEAD)" == "$head" ]]; then
@@ -127,6 +129,7 @@ function df_update() {
         df_arrow "The repository has been updated"
         df_yesno "Reinitialize the installation?" && df_init
     fi
+    cd "$old_dir"
 }
 
 # Public interface for the suite of utility functions.
