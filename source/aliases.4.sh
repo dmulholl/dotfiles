@@ -24,6 +24,9 @@ alias gl="git log"
 alias gp="git push origin master"
 alias gs="git status"
 
+# Hosts file.
+alias hosts="edit /etc/hosts"
+
 # Determine which variety of `ls` we're using.
 if is_osx; then
     colorflag="-G"
