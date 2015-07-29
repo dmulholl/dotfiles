@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# -----------------------------------------------------------------------
+# Turns a Java archive (.jar) file into a directly executable binary
+# by appending a shebang.
+#
+# Author: Darren Mulholland <dmulholland@outlook.ie>
+# License: Public Domain
+# -----------------------------------------------------------------------
+
+if [[ $# -eq 0 ]]; then
+    echo "Error: you must provide the name of a Java archive file."
+    exit 1
+fi
+
+if [[ ! -e "$1" ]]; then
+    echo "Error: the specified Java archive file does not exist."
+    exit 1
+fi
+
+file=$(basename "$1" ".jar" | tr "[:upper:]" "[:lower:]")
+
+echo '#!/usr/bin/env java -jar' > $file
+cat "$1" >> $file
+chmod +x $file
