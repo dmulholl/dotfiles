@@ -11,13 +11,13 @@ function prompt_virtualenv() {
 }
 
 # Default prompt colours.
-venvcolour=$purple
+venvcolour=$magenta
 usercolour=$green
 pathcolour=$yellow
 
 # Prompt colours on Linux.
 if is_linux; then
-    usercolour=$cyan
+    usercolour=$blue
 fi
 
 # Set the window title.
@@ -26,4 +26,4 @@ title "$USER@$HOSTNAME"
 # Set the prompt.
 export PS1="
 \[$venvcolour\]\$(prompt_virtualenv)\[$usercolour\]\u@\h \[$pathcolour\]\w
-\[$normal\]\!: \$ "
+\[$reset\]\!: \$ "

@@ -1,25 +1,60 @@
 
 # -------------------------------------------------------------------------
-# Colour Codes
+# Colour & Formatting Codes
 # -------------------------------------------------------------------------
 
-black='\033[0;30m'
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
-blue='\033[0;34m'
-purple='\033[0;35m'
-cyan='\033[0;36m'
-white='\033[0;37m'
+# Reset all attributes.
+reset='\e[0m'
 
-bblack='\033[1;30m'
-bred='\033[1;31m'
-bgreen='\033[1;32m'
-byellow='\033[1;33m'
-bblue='\033[1;34m'
-bpurple='\033[1;35m'
-bcyan='\033[1;36m'
-bwhite='\033[1;37m'
+# Formatting.
+bold='\e[1m'
+dim='\e[2m'
+underline='\e[4m'
+blink='\e[5m'
+hide='\e[8m'
 
-normal='\033[0m'
-bold='\033[1m'
+# Foreground colour, default.
+fgdefault='\e[39m'
+
+# Foreground colours, normal.
+black='\e[30m'
+red='\e[31m'
+green='\e[32m'
+yellow='\e[33m'
+blue='\e[34m'
+magenta='\e[35m'
+cyan='\e[36m'
+white='\e[37m'
+
+# Foreground colours, bright.
+bblack='\e[90m'
+bred='\e[91m'
+bgreen='\e[92m'
+byellow='\e[93m'
+bblue='\e[94m'
+bmagenta='\e[95m'
+bcyan='\e[96m'
+bwhite='\e[97m'
+
+# Print a test set of colours.
+function colours() {
+    echo -e "${fgdefault}Normal:"
+    echo -e "${fgdefault}- ${black}black"
+    echo -e "${fgdefault}- ${red}red"
+    echo -e "${fgdefault}- ${green}green"
+    echo -e "${fgdefault}- ${yellow}yellow"
+    echo -e "${fgdefault}- ${blue}blue"
+    echo -e "${fgdefault}- ${magenta}magenta"
+    echo -e "${fgdefault}- ${cyan}cyan"
+    echo -e "${fgdefault}- ${white}white"
+    echo -e
+    echo -e "${fgdefault}Bright:"
+    echo -e "${fgdefault}- ${bblack}bblack"
+    echo -e "${fgdefault}- ${bred}bred"
+    echo -e "${fgdefault}- ${bgreen}bgreen"
+    echo -e "${fgdefault}- ${byellow}byellow"
+    echo -e "${fgdefault}- ${bblue}bblue"
+    echo -e "${fgdefault}- ${bmagenta}bmagenta"
+    echo -e "${fgdefault}- ${bcyan}bcyan"
+    echo -e "${fgdefault}- ${bwhite}bwhite"
+}
