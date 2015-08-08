@@ -46,7 +46,7 @@ Usage: dot <command>
 Commands:
   update    update the local repository
   init      reinitialize the installation
-  source    source all files in /source
+  src       source all files in /source
   link      link all files in /link into ~/
   log       print the log file
 TEXT
