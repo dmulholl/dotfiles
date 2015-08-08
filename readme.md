@@ -10,7 +10,9 @@ This repository isn't suitable for public use *as is*, but, as usual with these 
 
 * The `/bin` directory contains executables and is added to the path.
 
-* The `/lib` directory contains third-party code.
+* The `/config` directory contains application configuration files.
+
+* The `/lib` directory contains libraries.
 
 * The `/link` directory contains files that are symlinked into `~/` on
   initialization.
@@ -22,7 +24,7 @@ This repository isn't suitable for public use *as is*, but, as usual with these 
 
 A `backups` directory is automatically created if necessary to store copies of any files overwritten by the initialization script.
 
-The `dot` command acts as an interface to the installation's utility functions:
+The `dot` command provides an interface to the installation's utility functions:
 
     Usage: dot <command>
 
@@ -31,7 +33,7 @@ The `dot` command acts as an interface to the installation's utility functions:
     Commands:
       update    update the local repository
       init      reinitialize the installation
-      source    source all files in /source
+      src       source all files in /source
       link      link all files in /link into ~/
       log       print the log file
 
@@ -45,8 +47,4 @@ The installation can be reinitialized at any time using the `dot init` command.
 
 ## License ##
 
-Public domain, unless specified otherwise.
-
-The `/lib` directory contains third-party libraries and utilities which are subject to their own individual licenses.
-
-The `/link/vim` directory contains third-party plugins which are subject to their own individual licenses.
+Public domain, unless specified otherwise. Third-party libraries and utilities are subject to their own specific licenses. See the individual files for details.
