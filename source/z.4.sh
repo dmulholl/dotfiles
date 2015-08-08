@@ -7,4 +7,4 @@
 export _Z_CMD="j"
 
 # Load the 'z' library.
-source $DOTFILES/lib/z.sh
+source $DOTFILES/lib/shell/z.sh

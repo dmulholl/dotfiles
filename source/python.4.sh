@@ -4,7 +4,7 @@
 # -------------------------------------------------------------------------
 
 # Add a dev directory to the module import path.
-export PYTHONPATH=~/dev/python/lib
+export PYTHONPATH=~/dev/python/lib:~/.dotfiles/lib/python
 
 # Disable the default virtualenv prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
@@ -96,10 +96,10 @@ Usage: py <command> <args>
 
 Commands:
 
-  ac <name>   activate the named virtual environment
-  ls          list all available virtual environments
-  mk <name>   make a new virtual environment
-  rm <name>   delete a virtual environment
+  act <name>   activate the named virtual environment
+  ls           list all available virtual environments
+  mk <name>    make a new virtual environment
+  rm <name>    delete a virtual environment
 EOF
 }
 
@@ -109,7 +109,7 @@ function py() {
         local command="$1"
         shift
         case "$command" in
-            "ac")
+            "ac"|"act")
                 py-ac "$@";;
             "ls")
                 py-ls "$@";;
