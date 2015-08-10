@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------
 # This script converts a Java archive (.jar) file into a directly
-# executable binary by appending a shebang.
+# executable binary by prepending a shebang.
 #
 #   $ jar2bin HelloWorld.jar
 #   $ ./helloworld
