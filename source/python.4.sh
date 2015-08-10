@@ -61,6 +61,7 @@ function py-mk() {
             echo "Error: '$name' already exists."
         else
             virtualenv --always-copy $path $@ && py-ac $name
+            pip install --upgrade pip
         fi
     else
         echo "Error: you must specify a name for the new virtual environment."
