@@ -10,7 +10,7 @@ import sys
 
 
 # Library version number.
-__version__ = "0.1.0"
+__version__ = "0.1.3"
 
 
 # Internal class for storing option data.
@@ -59,7 +59,7 @@ class ArgParser:
     def __init__(self, helptext=None, version=None):
 
         # Command line help text for the application or command.
-        self.helptext = helptext
+        self.helptext = helptext.strip()
 
         # Application version number as a string.
         self.version = version
@@ -108,6 +108,11 @@ class ArgParser:
         self.commands[command] = parser
         self.callbacks[command] = callback
         return parser
+
+    # Print the parser's help text and exit.
+    def help(self):
+        sys.stdout.write(self.helptext + "\n")
+        sys.exit()
 
     # Parse a list of arguments.
     def parse(self, args=sys.argv[1:]):
@@ -237,7 +242,7 @@ class ArgParser:
                 callback = self.callbacks[command]
                 argset = parser.parse(argstream.remainder())
                 callback(argset)
-                break;
+                return ArgSet(self.options, self.arguments, command, argset)
 
             # Is the argument the automatic 'help' command?
             elif argstream.peek() == "help":
@@ -250,9 +255,9 @@ class ArgParser:
                     else:
                         sys.exit("Error: '%s' is not a recognised command." % command)
                 else:
-                    sys.exit("Error: the help command requires an argument")
+                    sys.exit("Error: the help command requires an argument.")
 
-            # Otherwise, add argument to our list of free arguments.
+            # Otherwise, add the argument to our list of free arguments.
             else:
                 self.arguments.append(argstream.next())
 
@@ -262,7 +267,7 @@ class ArgParser:
 # An ArgSet instance represents a set of parsed arguments.
 class ArgSet:
 
-    def __init__(self, options, arguments):
+    def __init__(self, options, arguments, command=None, argset=None):
 
         # Stores a dictionary of option objects indexed by option name.
         self.options = options
@@ -270,9 +275,19 @@ class ArgSet:
         # Stores a list of positional arguments.
         self.arguments = arguments
 
-    # Enable dictionary style access: value = argset['option-name'].
-    def __getitem__(self, key):
-        return self.options[key].value
+        # Stores the command string, if a command was found.
+        self.command = command
+
+        # Stores the command's ArgSet instance, if a command was found.
+        self.argset = argset
+
+    # Enable dictionary-style access to options: value = argset['name'].
+    def __getitem__(self, name):
+        return self.options[name].value
+
+    # Enable dictionary-style assignment: argset['name'] = value.
+    def __setitem__(self, name, value):
+        self.options[name] = Option("unknown", value)
 
     # List all options and arguments for debugging.
     def __str__(self):
@@ -292,11 +307,21 @@ class ArgSet:
         else:
             lines.append("  [none]")
 
+        lines.append("\nCommand:")
+        if self.has_cmd():
+            lines.append("  %s" % self.get_cmd())
+        else:
+            lines.append("  [none]")
+
         return "\n".join(lines)
 
     # Returns the value of the specified option.
     def get_option(self, name):
         return self.options[name].value
+
+    # Returns a dictionary containing all the set's named options.
+    def get_options(self):
+        return {name: option.value for name, option in self.options.items()}
 
     # Returns true if the set contains at least one positional argument.
     def has_args(self):
@@ -327,3 +352,15 @@ class ArgSet:
             except ValueError:
                 sys.exit("Error: cannot parse '%s' as a float." % arg)
         return args
+
+    # Returns true if the set contains a command.
+    def has_cmd(self):
+        return self.command is not None
+
+    # Returns the set's command string, if a command was found.
+    def get_cmd(self):
+        return self.command
+
+    # Returns the ArgSet instance for the set's command, if a command was found.
+    def get_cmd_argset(self):
+        return self.argset
