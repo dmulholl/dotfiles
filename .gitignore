@@ -3,3 +3,7 @@
 
 # The installation's log file.
 log.txt
+
+# Python byte-compiled / optimized / DLL files.
+__pycache__/
+*.py[cod]
