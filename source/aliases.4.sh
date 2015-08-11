@@ -9,6 +9,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias -- -="cd -"
 
+# Trash.
+alias t="trash"
+
 # Shortcuts.
 alias dev="cd ~/dev"
 
