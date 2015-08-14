@@ -51,3 +51,6 @@ alias cleanup="find . -type f -name '.DS_Store' -delete"
 
 # Reload the shell.
 alias reload="exec $SHELL -l"
+
+# Help remembering `ln` argument order, because `man ln` is useless.
+alias lnh="echo ln -sv link-points-to-here link-lives-here"
