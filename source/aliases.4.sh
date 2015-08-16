@@ -12,9 +12,6 @@ alias -- -="cd -"
 # Trash.
 alias t="trash"
 
-# Shortcuts.
-alias dev="cd ~/dev"
-
 # History.
 alias h="history"
 alias hist="history 25"
