@@ -4,7 +4,7 @@
 # -------------------------------------------------------------------------
 
 # Add a dev directory to the module import path.
-export PYTHONPATH=~/dev/python/lib:~/.dotfiles/lib/python
+export PYTHONPATH=~/dev/lib:~/.dotfiles/lib/python
 
 # Disable the default virtualenv prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
