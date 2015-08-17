@@ -29,7 +29,7 @@ function syspip3() {
 # -------------------------------------------------------------------------
 
 # Store all virtual environments in the following directory.
-export VENVHOME=~/dev/python/.virtualenvs
+export VENVHOME=~/.virtualenvs
 
 # Activate a virtual environment.
 function py-ac() {
