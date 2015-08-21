@@ -29,8 +29,12 @@ function df_yesno() {
         echo -n -e " \033[1;35m?\033[0m  $@ (y/n) "
         read input
         case $input in
-            [Yy]*) return 0;;
-            [Nn]*) return 1;;
+            [Yy]*)
+                df_log "[YES]"
+                return 0;;
+            [Nn]*)
+                df_log "[NO]"
+                return 1;;
             *) df_error " .. please answer yes or no";;
         esac
     done
