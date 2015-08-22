@@ -10,7 +10,7 @@ import sys
 
 
 # Library version number.
-__version__ = "0.2.0"
+__version__ = "0.2.3"
 
 
 # Internal class for storing option data.
@@ -321,7 +321,7 @@ class ArgParser:
 
     # Returns true if at least one positional argument was found.
     def has_args(self):
-        return len(self.arguments > 0)
+        return len(self.arguments) > 0
 
     # Returns the positional arguments as a list of strings.
     def get_args(self):
