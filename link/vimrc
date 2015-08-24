@@ -81,3 +81,7 @@ set statusline+=%=              " left-right separator
 set statusline+=\ %4l/%L        " current line / total lines
 set statusline+=\ %3v           " column number
 set statusline+=\               " trailing space
+
+" Treat files with a .stx extension as markdown.
+autocmd BufNewFile,BufRead *.stx set filetype=markdown
+
