@@ -1,9 +1,8 @@
-
-# -------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Python
-# -------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 
-# Add a dev directory to the module import path.
+# Custom library directories.
 export PYTHONPATH=~/dev/lib:~/.dotfiles/lib/python
 
 # Disable the default virtualenv prompt.
@@ -14,7 +13,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Explicit system-wide Python 2 pip.
-function syspip() {
+function syspip2() {
     PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip "$@"
 }
 
@@ -23,10 +22,9 @@ function syspip3() {
     PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip3 "$@"
 }
 
-
-# -------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Virtual environment utilities
-# -------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 
 # Store all virtual environments in the following directory.
 export VENVHOME=~/.virtualenvs

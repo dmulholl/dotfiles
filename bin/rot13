@@ -1,17 +1,16 @@
 #!/usr/bin/env python
-"""
-Implementation of the ROT13 substitution cypher.
-
-Applies the cypher to the script's first argument;
-reads from stdin if no argument is supplied.
-
-    $ rot13 "foo bar"
-    $ rot13 < infile.txt
-
-Author: Darren Mulholland <dmulholland@outlook.ie>
-License: Public Domain
-
-"""
+# --------------------------------------------------------------------------
+# Implementation of the ROT13 substitution cypher.
+#
+# Applies the cypher to the script's first argument;
+# reads from stdin if no argument is supplied.
+#
+#     $ rot13 "foo bar"
+#     $ rot13 < infile.txt
+#
+# Author: Darren Mulholland <dmulholland@outlook.ie>
+# License: Public Domain
+# --------------------------------------------------------------------------
 
 import sys
 
