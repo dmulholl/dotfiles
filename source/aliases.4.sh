@@ -12,6 +12,9 @@ alias -- -="cd -"
 # Trash.
 alias t="trash"
 
+# Editor.
+alias e="edit"
+
 # History.
 alias h="history"
 alias hist="history 25"
