@@ -21,6 +21,9 @@ Usage: %s [FLAGS] [OPTIONS] [ARGUMENTS]
   Host IP defaults to localhost (127.0.0.1). Specify an IP address to serve
   only on that address or '0.0.0.0' to serve an all available IPs.
 
+  Port number defaults to 8080 as ports below 1024 require sudo on OSX.
+  Set to 0 to randomly select an available port.
+
 Arguments:
   [dirpath]         Directory to serve. Defaults to the current directory.
 
