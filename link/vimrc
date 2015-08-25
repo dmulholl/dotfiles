@@ -43,8 +43,8 @@ set nowrap
 filetype plugin indent on
 
 " Scrolling.
-set scrolloff=10
-set sidescrolloff=10
+set scrolloff=5
+set sidescrolloff=5
 set sidescroll=1
 
 " Use case-sensitive search IFF the pattern contains uppercase letters.
@@ -79,8 +79,8 @@ set statusline+=\ %m            " modified flag
 set statusline+=%=              " left-right separator
 set statusline+=\ %4l/%L        " current line / total lines
 set statusline+=\ %3v           " column number
+set statusline+=\ \ [%{&fo}]    " format options
 set statusline+=\               " trailing space
 
 " Treat files with a .stx extension as markdown.
 autocmd BufNewFile,BufRead *.stx set filetype=markdown
-
