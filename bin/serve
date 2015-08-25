@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+# --------------------------------------------------------------------------
+# Serve a directory using Python's builtin web server.
+#
+# Author: Darren Mulholland <dmulholland@outlook.ie>
+# License: Public Domain
+# --------------------------------------------------------------------------
+
+import os
+import http.server
+import sys
+import webbrowser
+import dotclio
+
+
+helptext = """
+Usage: %s [FLAGS] [OPTIONS] [ARGUMENTS]
+
+  Serve a directory using Python's builtin web server.
+
+  Host IP defaults to localhost (127.0.0.1). Specify an IP address to serve
+  only on that address or '0.0.0.0' to serve an all available IPs.
+
+Arguments:
+  [dirpath]         Directory to serve. Defaults to the current directory.
+
+Options:
+  --host, -h <str>  Host IP address. Defaults to localhost.
+  --port, -p <int>  Port number. Defaults to 8080.
+
+Flags:
+  --browser, -b     Launch the default web browser.
+  --help            Print the application's help text and exit.
+
+""" % os.path.basename(sys.argv[0])
+
+
+def main():
+    parser = dotclio.ArgParser(helptext)
+
+    parser.add_flag("browser", "b")
+    parser.add_str_option("host", "localhost", "l")
+    parser.add_int_option("port", 8080, "p")
+
+    parser.parse()
+
+    if parser.has_args():
+        os.chdir(parser.get_args()[0])
+
+    serve(parser["host"], parser["port"], parser["browser"])
+
+
+def serve(host, port, browser):
+    try:
+        server = http.server.HTTPServer(
+            (host, port),
+            http.server.SimpleHTTPRequestHandler
+        )
+    except PermissionError:
+        sys.exit("Permission error: use 'sudo' to run on a port number below 1024.")
+
+    address = server.socket.getsockname()
+
+    print("-" * 80)
+    print("Root: %s" % os.path.abspath(os.getcwd()))
+    print("Host: %s" % address[0])
+    print("Port: %s" % address[1])
+    print("Stop: Ctrl-C")
+    print("-" * 80)
+
+    if browser:
+        webbrowser.open("http://%s:%s" % (address[0], address[1]))
+
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\n" + "-" * 80 + "Stopping server...\n" + "-" * 80)
+        server.server_close()
+
+
+if __name__ == "__main__":
+    main()
