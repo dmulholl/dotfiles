@@ -30,7 +30,7 @@ function syspip3() {
 export VENVHOME=~/.virtualenvs
 
 # Activate a virtual environment.
-function py-ac() {
+function pv-ac() {
     if [[ -n "$1" ]]; then
         local name="$1"
         local script=$VENVHOME/$name/bin/activate
@@ -45,7 +45,7 @@ function py-ac() {
 }
 
 # Create a new virtual environment.
-function py-mk() {
+function pv-mk() {
     if [[ -n "$1" ]]; then
         local name="$1"
         local path=$VENVHOME/$name
@@ -58,7 +58,7 @@ function py-mk() {
         if [[ -d $path ]]; then
             echo "Error: '$name' already exists."
         else
-            virtualenv --always-copy $path $@ && py-ac $name
+            virtualenv --always-copy $path $@ && pv-ac $name
             pip install --upgrade pip
         fi
     else
@@ -67,7 +67,7 @@ function py-mk() {
 }
 
 # Delete a virtual environment.
-function py-rm() {
+function pv-rm() {
     if [[ -n "$1" ]]; then
         local name="$1"
         local path=$VENVHOME/$name
@@ -82,14 +82,14 @@ function py-rm() {
 }
 
 # List all virtual environments.
-function py-ls() {
+function pv-ls() {
     ls $VENVHOME
 }
 
 # Print help.
-function py-help() {
+function pv-help() {
     cat <<EOF
-Usage: py <command> <args>
+Usage: pv <command> <args>
 
   Utility for managing Python virtual environments.
 
@@ -103,23 +103,23 @@ EOF
 }
 
 # Public interface for the suite of utility functions.
-function py() {
+function pv() {
     if [[ -n "$1" ]]; then
         local command="$1"
         shift
         case "$command" in
             "ac"|"act")
-                py-ac "$@";;
+                pv-ac "$@";;
             "ls")
-                py-ls "$@";;
+                pv-ls "$@";;
             "mk")
-                py-mk "$@";;
+                pv-mk "$@";;
             "rm")
-                py-rm "$@";;
+                pv-rm "$@";;
             *)
-                py-help;;
+                pv-help;;
         esac
     else
-        py-help
+        pv-help
     fi
 }
