@@ -18,6 +18,10 @@ alias e="edit"
 alias h="history"
 alias hist="history 25"
 
+# Python virtual environments.
+alias act="py act"
+alias deact="deactivate"
+
 # Git.
 alias ga="git add"
 alias gc="git commit -m"
