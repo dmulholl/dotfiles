@@ -25,4 +25,3 @@ file=$(basename "$1" ".jar" | tr "[:upper:]" "[:lower:]")
 echo '#!/usr/bin/env java -jar' > $file
 cat "$1" >> $file
 chmod +x $file
-
