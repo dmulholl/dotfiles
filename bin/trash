@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
 # --------------------------------------------------------------------------
 # Safe alternative to the rm command. This script transfers deleted files
-# and directories to the OSX trash directory, $HOME/.Trash/.
+# and directories to the trash directory, $HOME/.trash/.
 #
 # Author: Darren Mulholland <dmulholland@outlook.ie>
 # License: Public Domain
 # --------------------------------------------------------------------------
 
+# The ~/.trash directory exists on OSX. We may need to create it on other
+# systems.
+if [ ! -e ~/.trash ]; then
+    mkdir ~/.trash
+fi
+
+# Move all our arguments to the trash directory.
 for arg in "$@"; do
     base=$(basename "$arg")
-    while [ -e ~/.Trash/"$base" ]; do
+    while [ -e ~/.trash/"$base" ]; do
         base="$base.$(date "+%y-%m-%d_%H-%M-%S")"
     done
-    mv "$arg" ~/.Trash/"$base"
+    mv "$arg" ~/.trash/"$base"
 done
