@@ -19,9 +19,6 @@ if is_linux; then
     usercolour=$blue
 fi
 
-# Set the window title.
-title "$USER@$HOSTNAME"
-
 # Set the prompt.
 export PS1="
 \[$venvcolour\]\$(prompt_virtualenv)\[$usercolour\]\u@\h \[$pathcolour\]\w
