@@ -95,10 +95,11 @@ Usage: pv <command> <args>
 
 Commands:
 
-  act <name>   activate the named virtual environment
-  ls           list all available virtual environments
-  mk <name>    make a new virtual environment
-  rm <name>    delete a virtual environment
+  act <name>    activate the named virtual environment
+  help          print this help message and exit
+  ls            list all available virtual environments
+  mk <name>     make a new virtual environment
+  rm <name>     delete a virtual environment
 EOF
 }
 
@@ -116,8 +117,10 @@ function pv() {
                 pv-mk "$@";;
             "rm")
                 pv-rm "$@";;
-            *)
+            "help"|"--help")
                 pv-help;;
+            *)
+                pv-ac "$command" "$@";;
         esac
     else
         pv-help
