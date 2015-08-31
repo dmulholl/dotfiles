@@ -122,14 +122,14 @@ function df_update() {
     df_log_header "Updating Installation"
     df_title "Checking for updates..."
     if ! git pull >> $df_logfile 2>&1; then
-        df_error "Cannot pull from the remote repository"
+        df_error " .. cannot pull from the remote repository"
         cd "$old_dir"
         return
     fi
     if [[ "$(git rev-parse HEAD)" == "$head" ]]; then
-        df_check "The repository is already up to date"
+        df_check " .. the repository is already up to date"
     else
-        df_arrow "The repository has been updated"
+        df_arrow " .. the repository has been updated"
         df_yesno "Reinitialize the installation?" && df_init
     fi
     cd "$old_dir"
