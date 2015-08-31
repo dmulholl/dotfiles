@@ -57,3 +57,8 @@ function mkcd() {
         cd "$1"
     fi
 }
+
+# Unicommand for the clipboard on OSX.
+function clip() {
+    [ -t 0 ] && pbpaste || pbcopy
+}
