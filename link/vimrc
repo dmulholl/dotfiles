@@ -13,11 +13,8 @@ syntax enable
 " let g:solarized_termcolors=256
 " colorscheme solarized
 
-" Show line numbers.
-set number
-
 " The default is 8 commands.
-set history=100
+set history=999
 
 " Reload files changed outside Vim.
 set autoread
@@ -60,10 +57,10 @@ set smartcase
 inoremap jj <ESC>
 
 " Remap the <leader> key for custom shortcuts.
-let mapleader="#"
+" let mapleader="#"
 
 " Shortcut for re-sourcing the .vimrc file.
-map <leader>rr :source ~/.vimrc<CR>
+map <leader>rr :source ~/.vimrc<cr>
 
 " Navigating splits.
 " nnoremap <C-J> <C-W><C-J> " move down
@@ -84,3 +81,18 @@ set statusline+=\               " trailing space
 
 " Treat files with a .stx extension as markdown.
 autocmd BufNewFile,BufRead *.stx set filetype=markdown
+
+" Turn on line numbers and relative line numbers.
+set number
+set relativenumber
+
+" Show absolute line numbers when in insert mode.
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
+" Show absolute line numbers when we lose the focus. GUI only.
+autocmd FocusLost * :set norelativenumber
+autocmd FocusGained * :set relativenumber
+
+" Toggle between relative and absolute line numbering.
+nnoremap <silent><leader>n :set relativenumber!<cr>
