@@ -8,6 +8,11 @@ PATH=$DOTFILES/bin
 # Development binaries.
 PATH=$PATH:~/dev/bin
 
+# $HOME binaies.
+if [[ -d "$HOME/bin" ]]; then
+    PATH=$PATH:$HOME/bin
+fi
+
 # Go binaries.
 if [[ -n "$GOPATH" ]]; then
     PATH=$PATH:$GOPATH/bin
