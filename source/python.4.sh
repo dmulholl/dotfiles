@@ -50,32 +50,30 @@ function pv-mk() {
         local name="$1"
         local path=$VENVHOME/$name
         shift
-
         if [[ ! -d $VENVHOME ]]; then
             mkdir -p $VENVHOME
         fi
-
         if [[ -d $path ]]; then
             echo "Error: '$name' already exists."
         else
             virtualenv --always-copy $path $@ && pv-ac $name
-            pip install --upgrade pip
         fi
     else
         echo "Error: you must specify a name for the new virtual environment."
     fi
 }
 
-# Delete a virtual environment.
+# Delete a list of virtual environments.
 function pv-rm() {
-    if [[ -n "$1" ]]; then
-        local name="$1"
-        local path=$VENVHOME/$name
-        if [[ -d $path ]]; then
-            rm -rf $path
-        else
-            echo "Error: no virtual environment named '$name'."
-        fi
+    if [[ $# -ne 0 ]]; then
+        for name in "$@"; do
+            local path=$VENVHOME/$name
+            if [[ -d $path ]]; then
+                rm -rf $path
+            else
+                echo "Error: no virtual environment named '$name'."
+            fi
+        done
     else
         echo "Error: you must specify the name of a virtual environment."
     fi
@@ -95,11 +93,11 @@ Usage: pv <command> <args>
 
 Commands:
 
-  act <name>    activate the named virtual environment
-  help          print this help message and exit
-  ls            list all available virtual environments
-  mk <name>     make a new virtual environment
-  rm <name>     delete a virtual environment
+  a, activate <name>    activate the named virtual environment
+  h, help               print this help message and exit
+  l, list               list all virtual environments
+  m, make <name>        make a new virtual environment
+  d, delete <names>     delete one or more virtual environments
 EOF
 }
 
@@ -109,15 +107,15 @@ function pv() {
         local command="$1"
         shift
         case "$command" in
-            "ac"|"act")
+            a|activate)
                 pv-ac "$@";;
-            "ls")
+            l|list)
                 pv-ls "$@";;
-            "mk")
+            m|make)
                 pv-mk "$@";;
-            "rm")
+            d|delete)
                 pv-rm "$@";;
-            "help"|"--help")
+            h|help|--help)
                 pv-help;;
             *)
                 pv-ac "$command" "$@";;
