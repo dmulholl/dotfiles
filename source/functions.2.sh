@@ -62,3 +62,9 @@ function mkcd() {
 function clip() {
     [ -t 0 ] && pbpaste || pbcopy
 }
+
+# Clean build artifacts from the current directory.
+function clean() {
+    rm -rf *.egg-info
+    rm -rf dist
+}
