@@ -29,8 +29,8 @@ function syspip3() {
 # Store all virtual environments in the following directory.
 export VENVHOME=~/.virtualenvs
 
-# Activate a virtual environment.
-function pv-ac() {
+# Activate a virtual environment. Print an error message on failure.
+function pv-activate() {
     if [[ -n "$1" ]]; then
         local name="$1"
         local script=$VENVHOME/$name/bin/activate
@@ -44,8 +44,16 @@ function pv-ac() {
     fi
 }
 
+# Silently try to activate a virtual environment. No error on failure.
+function pv-try-activate() {
+    local script=$VENVHOME/$1/bin/activate
+    if [[ -e $script ]]; then
+        source $script
+    fi
+}
+
 # Create a new virtual environment.
-function pv-mk() {
+function pv-make() {
     if [[ -n "$1" ]]; then
         local name="$1"
         local path=$VENVHOME/$name
@@ -56,7 +64,7 @@ function pv-mk() {
         if [[ -d $path ]]; then
             echo "Error: '$name' already exists."
         else
-            virtualenv --always-copy $path $@ && pv-ac $name
+            virtualenv --always-copy $path $@ && pv-activate $name
         fi
     else
         echo "Error: you must specify a name for the new virtual environment."
@@ -64,7 +72,7 @@ function pv-mk() {
 }
 
 # Delete a list of virtual environments.
-function pv-rm() {
+function pv-remove() {
     if [[ $# -ne 0 ]]; then
         for name in "$@"; do
             local path=$VENVHOME/$name
@@ -80,7 +88,7 @@ function pv-rm() {
 }
 
 # List all virtual environments.
-function pv-ls() {
+function pv-list() {
     ls $VENVHOME
 }
 
@@ -94,10 +102,11 @@ Usage: pv <command> <args>
 Commands:
 
   a, activate <name>    activate the named virtual environment
+  d, deactivate         deactivate the current virtual environment
   h, help               print this help message and exit
   l, list               list all virtual environments
   m, make <name>        make a new virtual environment
-  d, delete <names>     delete one or more virtual environments
+  r, remove <names>     delete one or more virtual environments
 EOF
 }
 
@@ -108,17 +117,19 @@ function pv() {
         shift
         case "$command" in
             a|activate)
-                pv-ac "$@";;
-            l|list)
-                pv-ls "$@";;
-            m|make)
-                pv-mk "$@";;
-            d|delete)
-                pv-rm "$@";;
+                pv-activate "$@";;
+            d|deactivate)
+                deactivate;;
             h|help|--help)
                 pv-help;;
+            l|list)
+                pv-list "$@";;
+            m|make)
+                pv-make "$@";;
+            r|remove)
+                pv-remove "$@";;
             *)
-                pv-ac "$command" "$@";;
+                pv-activate "$command" "$@";;
         esac
     else
         pv-help
