@@ -31,6 +31,11 @@ if [[ -n "$GOROOT" ]]; then
     PATH=$PATH:$GOROOT/bin
 fi
 
+# Homebrew binaries on OSX.
+if [[ -d "$HOME/.brew/bin" ]]; then
+    PATH=$PATH:$HOME/.brew/bin
+fi
+
 # Locally installed binaries.
 PATH=$PATH:/usr/local/bin
 
