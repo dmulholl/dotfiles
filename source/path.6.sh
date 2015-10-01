@@ -45,5 +45,8 @@ PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin
 # Add the default system path back on at the end.
 PATH=$PATH:$SYSPATH
 
+# Remove any duplicate entries.
+PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
+
 # Make it so.
 export PATH
