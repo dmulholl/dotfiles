@@ -67,4 +67,6 @@ function clip() {
 function clean() {
     rm -rf *.egg-info
     rm -rf dist
+    rm -rf *.pyc
+    rm -rf __pycache__
 }
