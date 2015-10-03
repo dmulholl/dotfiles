@@ -14,12 +14,12 @@ export PIP_REQUIRE_VIRTUALENV=true
 
 # Explicit system-wide Python 2 pip.
 function syspip2() {
-    PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip "$@"
+    PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
 }
 
 # Explicit system-wide Python 3 pip.
 function syspip3() {
-    PIP_REQUIRE_VIRTUALENV="" /usr/local/bin/pip3 "$@"
+    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 
 # --------------------------------------------------------------------------
