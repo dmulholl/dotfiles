@@ -21,16 +21,6 @@ if [[ -d "$HOME/dev/bin" ]]; then
     PATH=$PATH:$HOME/dev/bin
 fi
 
-# Locally compiled Go binaries.
-if [[ -n "$GOPATH" ]] && [[ "$GOPATH" != "$HOME/dev" ]]; then
-    PATH=$PATH:$GOPATH/bin
-fi
-
-# Go installation binaries.
-if [[ -n "$GOROOT" ]]; then
-    PATH=$PATH:$GOROOT/bin
-fi
-
 # Homebrew binaries on OSX.
 if [[ -d "$HOME/.brew/bin" ]]; then
     PATH=$PATH:$HOME/.brew/bin
