@@ -9,17 +9,7 @@ function prompt_virtualenv() {
     fi
 }
 
-# Default prompt colours.
-venvcolour=$magenta
-usercolour=$green
-pathcolour=$yellow
-
-# Prompt colours on Linux.
-if is_linux; then
-    usercolour=$blue
-fi
-
 # Set the prompt.
 export PS1="
-\[$venvcolour\]\$(prompt_virtualenv)\[$usercolour\]\u@\h \[$pathcolour\]\w
+\[$magenta\]\$(prompt_virtualenv)\[$green\]\u@\h \[$yellow\]\w
 \[$reset\]\!: \$ "
