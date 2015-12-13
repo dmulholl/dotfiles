@@ -71,3 +71,8 @@ function clean() {
     rm -rf __pycache__
     find . -name .DS_Store -delete
 }
+
+# Extract an archive.
+function extract() {
+    tar -xf "$1"
+}
