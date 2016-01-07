@@ -53,3 +53,6 @@ alias reload="exec $SHELL -l"
 
 # Help remembering `ln` argument order, because `man ln` is useless.
 alias lnh="echo ln -sv link-points-to-here link-lives-here"
+
+# Python unit tests.
+alias pytest="py.test"
