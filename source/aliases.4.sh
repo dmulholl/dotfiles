@@ -20,11 +20,12 @@ alias hist="history 25"
 
 # Git.
 alias ga="git add"
-alias gc="git commit -m"
+alias gc="git commit"
 alias gd="git diff"
 alias gl="git log"
-alias gp="git push origin master"
 alias gs="git status"
+
+alias gcm="git commit -m"
 
 # Hosts file.
 alias hosts="edit /etc/hosts"
