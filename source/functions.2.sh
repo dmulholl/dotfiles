@@ -70,6 +70,7 @@ function clean() {
     rm -rf *.pyc
     rm -rf __pycache__
     find . -name .DS_Store -delete
+    find . -name "*.class" -delete
 }
 
 # Extract an archive.
