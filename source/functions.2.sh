@@ -66,9 +66,8 @@ function clip() {
 # Clean build artifacts from the current directory.
 function clean() {
     rm -rf *.egg-info
-    rm -rf dist
-    rm -rf *.pyc
-    rm -rf __pycache__
+    rm -rf dist build
+    rm -rf *.pyc __pycache__
     find . -name .DS_Store -delete
     find . -name "*.class" -delete
 }
