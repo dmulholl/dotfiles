@@ -57,3 +57,7 @@ alias lnh="echo ln -sv link-points-to-here link-lives-here"
 
 # Python unit tests.
 alias pytest="py.test"
+
+# Tree.
+alias t2="tree -L 2"
+alias t3="tree -L 3"
