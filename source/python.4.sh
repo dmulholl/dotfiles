@@ -101,12 +101,12 @@ Usage: pv <command> <args>
 
 Commands:
 
-  a, activate <name>    activate the named virtual environment
-  d, deactivate         deactivate the current virtual environment
-  h, help               print this help message and exit
-  l, list               list all virtual environments
-  m, make <name>        make a new virtual environment
-  r, remove <names>     delete one or more virtual environments
+  a, activate <name>       activate the named virtual environment
+  d, deactivate            deactivate the current virtual environment
+  h, help                  print this help message and exit
+  l, ls, list              list all virtual environments
+  m, mk, make <name>       make a new virtual environment
+  r, rm, remove <names>    delete one or more virtual environments
 EOF
 }
 
@@ -122,11 +122,11 @@ function pv() {
                 deactivate;;
             h|help|--help)
                 pv-help;;
-            l|list)
+            l|ls|list)
                 pv-list "$@";;
-            m|make)
+            m|mk|make)
                 pv-make "$@";;
-            r|remove)
+            r|rm|remove)
                 pv-remove "$@";;
             *)
                 pv-activate "$command" "$@";;
