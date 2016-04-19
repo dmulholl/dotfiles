@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------
 
 # Global Ark extensions directory.
-export ARK_EXT=~/dev/www/arkplugins
+export ARK_EXT=~/dev/src/ark-plugins/global
 
 # Global Ark themes directory.
-export ARK_THEMES=~/dev/src/themes
+export ARK_THEMES=~/dev/src/ark-themes
