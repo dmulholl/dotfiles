@@ -22,8 +22,8 @@ alias hist="history 25"
 alias ga="git add"
 alias gc="git commit"
 alias gd="git diff"
-alias gl="git log"
-alias gs="git status"
+alias gl="git log --oneline --graph"
+alias gs="git status --short --branch"
 
 alias gcm="git commit -m"
 
