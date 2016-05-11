@@ -24,7 +24,6 @@ alias gc="git commit"
 alias gd="git diff"
 alias gl="git log --oneline --graph"
 alias gs="git status --short --branch"
-
 alias gcm="git commit -m"
 
 # Hosts file.
@@ -61,3 +60,6 @@ alias pytest="py.test"
 # Tree.
 alias t2="tree -L 2"
 alias t3="tree -L 3"
+
+# Calendar. (Install gcal as it has lots more options.)
+alias cal="gcal --starting-day=1"
