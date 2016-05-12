@@ -8,7 +8,7 @@
 #     $ rot13 "foo bar"
 #     $ rot13 < infile.txt
 #
-# Author: Darren Mulholland <dmulholland@outlook.ie>
+# Author: Darren Mulholland <darren@mulholland.xyz>
 # License: Public Domain
 # --------------------------------------------------------------------------
 
