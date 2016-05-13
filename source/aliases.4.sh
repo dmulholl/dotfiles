@@ -45,9 +45,6 @@ alias ll="ls -al ${colorflag}"
 alias show="defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder /System/Library/CoreServices/Finder.app"
 alias hide="defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder /System/Library/CoreServices/Finder.app"
 
-# Recursively delete `.DS_Store` files.
-alias cleanup="find . -type f -name '.DS_Store' -delete"
-
 # Reload the shell.
 alias reload="exec $SHELL -l"
 
@@ -63,3 +60,6 @@ alias t3="tree -L 3"
 
 # Calendar. (Install gcal as it has lots more options.)
 alias cal="gcal --starting-day=1"
+
+# Default to GnuPG v2.
+alias gpg="gpg2"
