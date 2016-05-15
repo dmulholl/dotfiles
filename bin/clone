@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# --------------------------------------------------------------------------
+# Mirror the contents of a source directory to a destination directory.
+# --------------------------------------------------------------------------
+
+# Print the utility's help text.
+print_help() {
+    cat <<EOF
+Usage: clone <source> <destination>
+
+  Mirror the contents of the source directory to the destination directory.
+
+Arguments:
+  <source>          Source directory.
+  <destination>     Destination directory.
+
+Flags:
+  --help            Print this help text and exit.
+EOF
+}
+
+# Check for the presence of the --help flag.
+if [[ $* == *--help* ]]; then
+    print_help
+    exit 0
+fi
+
+# We require source and destination arguments.
+if [[ ! $# -eq 2 ]]; then
+    print_help
+    exit 1
+fi
+
+# The slash at the end of the source directory is important. It means copy
+# the *content* of the directory.
+src="${1%/}/"
+dst="$2"
+
+# Run rsync in mirroring mode.
+rsync -avz --delete \
+      --exclude ".Spotlight*" \
+      --exclude ".Trashes" \
+      --exclude ".fseventd" \
+      --exclude ".DS_Store" \
+      --exclude ".trash" \
+      -- "$src" "$dst"
