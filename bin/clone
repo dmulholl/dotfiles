@@ -31,16 +31,18 @@ if [[ ! $# -eq 2 ]]; then
     exit 1
 fi
 
-# The slash at the end of the source directory is important. It means copy
-# the *content* of the directory.
+# The slash at the end of the source directory path is important. It means copy
+# the *contents* of the directory.
 src="${1%/}/"
-dst="$2"
+
+# A slash at the end of the destination path can cause problems when copying to
+# the root of a drive.
+dst="${2%/}"
 
 # Run rsync in mirroring mode.
 rsync -avz --delete \
       --exclude ".Spotlight*" \
       --exclude ".Trashes" \
       --exclude ".fseventd" \
-      --exclude ".DS_Store" \
       --exclude ".trash" \
       -- "$src" "$dst"
