@@ -8,7 +8,7 @@ print_help() {
     cat <<EOF
 Usage: clone <source> <destination>
 
-  Mirror the contents of the source directory to the destination directory.
+  Mirror the contents of a source directory to a destination directory.
 
 Arguments:
   <source>          Source directory.
