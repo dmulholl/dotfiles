@@ -13,6 +13,8 @@ alias t="trash"
 
 # Editor.
 alias e="edit"
+alias atom="atom -a"
+alias a="atom -a"
 
 # History.
 alias h="history"
