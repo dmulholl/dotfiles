@@ -71,7 +71,7 @@ function clean() {
     find . -name ".DS_Store" -delete
     find . -name "._.DS_Store" -delete
 
-    if [[ "$1" == "-f" || "$1" == "--full" ]]; then
+    if [[ "$1" == "-a" || "$1" == "--all" || "$1" == "all" ]]; then
         find . -name "dist" -exec rm -r "{}" +
         find . -name "build" -exec rm -r "{}" +
         find . -name "*.class" -delete
