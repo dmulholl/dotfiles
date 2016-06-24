@@ -26,10 +26,11 @@ alias gc="git commit"
 alias gd="git diff"
 alias gl="git log --oneline --graph"
 alias gs="git status --short --branch"
-alias gcm="git commit -m"
+alias push="git push"
+alias commit="git commit"
 
 # Hosts file.
-alias hosts="edit /etc/hosts"
+alias hosts="sudo vim /etc/hosts"
 
 # Determine which variety of `ls` we're using.
 if is_osx; then
