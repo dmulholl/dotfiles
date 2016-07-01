@@ -33,7 +33,7 @@ alias commit="git commit"
 alias hosts="sudo vim /etc/hosts"
 
 # Determine which variety of `ls` we're using.
-if is_osx; then
+if is_mac; then
     colorflag="-G"
 else
     colorflag="--color"

@@ -97,7 +97,7 @@ function df_link() {
 # Run the OS-specific initialization scripts.
 function df_init_os() {
     df_title "Setting OS defaults"
-    is_osx && df_arrow "OSX detected" && source $DOTFILES/os/osx.sh
+    is_mac && df_arrow "OSX detected" && source $DOTFILES/os/osx.sh
     is_linux && df_arrow "Linux detected"
     is_bsd && df_arrow "BSD detected"
     is_msys && df_arrow "MSys detected"
