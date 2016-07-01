@@ -9,7 +9,21 @@ function prompt_virtualenv() {
     fi
 }
 
-# Set the prompt.
-export PS1="
+# Prompt for use on Macs.
+prompt_mac="
 \[$magenta\]\$(prompt_virtualenv)\[$green\]\u@\h \[$yellow\]\w
 \[$reset\]\!: \$ "
+
+# Promot for use on Linux.
+prompt_linux="
+\[$magenta\]\$(prompt_virtualenv)\[$blue\]\u@\h \[$yellow\]\w
+\[$reset\]\!: \$ "
+
+# Export the appropriate prompt.
+if is_mac; then
+    export PS1=$prompt_mac
+fi
+
+if is_linux; then
+    export PS1=$prompt_linux
+fi
