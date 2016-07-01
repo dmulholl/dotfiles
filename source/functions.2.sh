@@ -17,7 +17,7 @@ function calc() {
 }
 
 # Are we running on a Mac?
-function is_osx() {
+function is_mac() {
     [[ "$OSTYPE" =~ ^darwin ]]
 }
 
