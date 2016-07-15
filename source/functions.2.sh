@@ -77,3 +77,10 @@ function clean() {
         find . -name "*.class" -delete
     fi
 }
+
+# Update the brew installation.
+function brewup() {
+    brew update
+    brew upgrade --all
+    brew cleanup
+}
