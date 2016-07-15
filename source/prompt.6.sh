@@ -14,7 +14,7 @@ prompt_mac="
 \[$magenta\]\$(prompt_virtualenv)\[$green\]\u@\h \[$yellow\]\w
 \[$reset\]\!: \$ "
 
-# Promot for use on Linux.
+# Prompt for use on Linux.
 prompt_linux="
 \[$magenta\]\$(prompt_virtualenv)\[$blue\]\u@\h \[$yellow\]\w
 \[$reset\]\!: \$ "

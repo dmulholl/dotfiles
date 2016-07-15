@@ -77,8 +77,3 @@ function clean() {
         find . -name "*.class" -delete
     fi
 }
-
-# Extract an archive.
-function extract() {
-    tar -xf "$1"
-}

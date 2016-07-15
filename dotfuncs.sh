@@ -2,26 +2,51 @@
 # Functions used internally by the dotfiles installation
 # --------------------------------------------------------------------------
 
+# Public 'dot' interface for the suite of dotfiles utility functions.
+function dot() {
+    local df_backups="$DOTFILES/backups/$(date "+%Y-%m-%d--%H-%M-%S")/"
+    if [[ -n "$1" ]]; then
+        local command="$1"
+        shift
+        case $command in
+            update)
+                df_update "$@";;
+            init)
+                df_init "$@";;
+            source|src)
+                df_source "$@";;
+            link)
+                df_link "$@";;
+            log)
+                cat $DOTFILES/log.txt;;
+            *)
+                df_help;;
+        esac
+    else
+        df_help
+    fi
+}
+
 # Log to file.
 function df_log() {
-    echo "$(date "+%Y-%m-%d %H:%M:%S" ) >> $@" >> $df_logfile
+    echo "$(date "+%Y-%m-%d %H:%M:%S" ) >> $@" >> $DOTFILES/log.txt
 }
 
 # Create a visible header in the log file.
 function df_log_header() {
-    df_log "--------------------------------------------------"
+    df_log "-------------------------------------------------------"
     df_log "$@"
-    df_log "--------------------------------------------------"
+    df_log "-------------------------------------------------------"
 }
 
-# Logging functions.
+# Logging functions. Print to both the log file and stdout.
 function df_title() { df_log "## $@" && echo -e "\n\033[1m$@\033[0m"; }
 function df_check() { df_log "$@" && echo -e " \033[0;32m✔\033[0m  $@"; }
 function df_error() { df_log "$@" && echo -e " \033[0;31m✖\033[0m  $@"; }
 function df_arrow() { df_log "$@" && echo -e " \033[0;34m➜\033[0m  $@"; }
 
 # Request user confirmation.
-function df_yesno() {
+function df_confirm() {
     local input
     df_log "$@"
     while true; do
@@ -31,10 +56,9 @@ function df_yesno() {
             [Yy]*)
                 df_log "[YES]"
                 return 0;;
-            [Nn]*)
+            *)
                 df_log "[NO]"
                 return 1;;
-            *) df_error " .. please answer yes or no";;
         esac
     done
 }
@@ -121,7 +145,7 @@ function df_update() {
     local head="$(git rev-parse HEAD)"
     df_log_header "Updating Installation"
     df_title "Checking for updates..."
-    if ! git pull >> $df_logfile 2>&1; then
+    if ! git pull >> $DOTFILES/log.txt 2>&1; then
         df_error " .. cannot pull from the remote repository"
         cd "$old_dir"
         return
@@ -130,33 +154,7 @@ function df_update() {
         df_check " .. the repository is already up to date"
     else
         df_arrow " .. the repository has been updated"
-        df_yesno "Reinitialize the installation?" && df_init
+        df_confirm "Reinitialize the installation?" && df_init
     fi
     cd "$old_dir"
-}
-
-# Public interface for the suite of utility functions.
-function dot() {
-    local df_backups="$DOTFILES/backups/$(date "+%Y-%m-%d--%H-%M-%S")/"
-    local df_logfile="$DOTFILES/log.txt"
-    if [[ -n "$1" ]]; then
-        local command="$1"
-        shift
-        case $command in
-            update)
-                df_update "$@";;
-            init)
-                df_init "$@";;
-            source|src)
-                df_source "$@";;
-            link)
-                df_link "$@";;
-            log)
-                cat $df_logfile;;
-            *)
-                df_help;;
-        esac
-    else
-        df_help
-    fi
 }
