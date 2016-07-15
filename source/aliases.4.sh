@@ -66,3 +66,6 @@ alias cal="gcal --starting-day=1"
 
 # Default to GnuPG v2.
 alias gpg="gpg2"
+
+# Command for managing Python virtual environments.
+alias py="pv"
