@@ -89,7 +89,7 @@ function pv-remove() {
 
 # List all virtual environments.
 function pv-list() {
-    ls $VENVHOME
+    /bin/ls -m $VENVHOME
 }
 
 # Print help.
@@ -107,7 +107,11 @@ Commands:
   l, ls, list              list all virtual environments
   m, mk, make <name>       make a new virtual environment
   r, rm, remove <names>    delete one or more virtual environments
+
+Environments:
+
 EOF
+    echo -n "  " && /bin/ls -m $VENVHOME
 }
 
 # Public interface for the suite of utility functions.
