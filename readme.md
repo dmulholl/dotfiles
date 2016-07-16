@@ -17,7 +17,7 @@ This repository isn't suitable for public use *as is*, but, as usual with these 
 * The `/link` directory contains files that are symlinked into `~/` on
   initialization.
 
-* The `/os` directory contains OS-specific initialization scripts.
+* The `/mac` directory contains OSX-specific system administration commands.
 
 * The `/source` directory contains files that are sourced whenever a new shell
   is opened.
