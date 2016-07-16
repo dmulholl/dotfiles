@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# --------------------------------------------------------------------------
+# Custom tweaks to a selection of default OSX settings.
+# --------------------------------------------------------------------------
+
+# Print the command's help text.
+help() {
+    cat <<EOF
+Usage: mac defaults
+
+  Apply custom tweaks to a selection of default OSX settings.
+
+Flags:
+  --help            Display this help text and exit.
+EOF
+}
+
+# Parse the command's arguments.
+case "$1" in
+    --help)
+        help
+        exit 0
+        ;;
+    "")
+        # Fall through and execute the commands below.
+        ;;
+    *)
+        echo "Error: unsupported command argument."
+        exit 1
+        ;;
+esac
+
+# --------------------------------------------------------------------------
+# Disable 'smart quotes' globally.
+# --------------------------------------------------------------------------
+
+# Disable smart quotes.
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes.
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# --------------------------------------------------------------------------
+# Finder settings.
+# --------------------------------------------------------------------------
+
+# Display the full POSIX path as the Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# --------------------------------------------------------------------------
+# Messages settings.
+# --------------------------------------------------------------------------
+
+# Disable automatic emoji substitution.
+defaults write com.apple.messageshelper.MessageController \
+    SOInputLineSettings \
+    -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
+
+# Disable smart quotes.
+defaults write com.apple.messageshelper.MessageController \
+    SOInputLineSettings \
+    -dict-add "automaticQuoteSubstitutionEnabled" -bool false

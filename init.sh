@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------
-# Dotfiles initialization script
+# Dotfiles initialization script.
 # --------------------------------------------------------------------------
 
 # Location of the dotfiles installation.

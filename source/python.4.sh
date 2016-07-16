@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------
-# Python
+# Python settings.
 # --------------------------------------------------------------------------
 
 # Custom library directories.
@@ -23,7 +23,7 @@ function syspip3() {
 }
 
 # --------------------------------------------------------------------------
-# Virtual environment utilities
+# Virtual environment utilities.
 # --------------------------------------------------------------------------
 
 # Store all virtual environments in the following directory.

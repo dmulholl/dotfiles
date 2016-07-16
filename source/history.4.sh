@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------
-# History
+# Shell history settings.
 # --------------------------------------------------------------------------
 
 # Append to the history file on shell exit rather than overwriting it.

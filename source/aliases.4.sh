@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------
-# Aliases
+# Shell aliases.
 # --------------------------------------------------------------------------
 
 # Navigation.
@@ -43,10 +43,6 @@ fi
 alias ls="ls ${colorflag}"
 alias la="ls -a ${colorflag}"
 alias ll="ls -al ${colorflag}"
-
-# Show/hide files in OSX Finder.
-alias show="defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder /System/Library/CoreServices/Finder.app"
-alias hide="defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder /System/Library/CoreServices/Finder.app"
 
 # Reload the shell.
 alias reload="exec $SHELL -l"

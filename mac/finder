@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# --------------------------------------------------------------------------
+# Finder commands.
+# --------------------------------------------------------------------------
+
+# Print the command's help text.
+help() {
+    cat <<EOF
+Usage: mac finder
+
+  Finder customization commands.
+
+Flags:
+  --help            Display this help text and exit.
+
+Commands:
+  showhidden        Show hidden files.
+  hidehidden        Hide hidden files.
+EOF
+}
+
+# Parse the command's arguments.
+case "$1" in
+    ""|--help)
+        help
+        exit 0
+        ;;
+    showhidden)
+        defaults write com.apple.finder AppleShowAllFiles TRUE
+        killall Finder /System/Library/CoreServices/Finder.app
+        ;;
+    hidehidden)
+        defaults write com.apple.finder AppleShowAllFiles FALSE
+        killall Finder /System/Library/CoreServices/Finder.app
+        ;;
+    *)
+        echo "Error: unsupported command argument."
+        exit 1
+        ;;
+esac

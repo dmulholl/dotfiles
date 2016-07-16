@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------
-# Bootstrap file for the dotfiles installation
+# Bootstrap file for the dotfiles installation.
 # -------------------------------------------------------------------------
 
 # This file should be loaded by interactive login shells, e.g. when logging

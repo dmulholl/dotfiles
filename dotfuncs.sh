@@ -136,7 +136,7 @@ EOF
 # Run the OS-specific initialization scripts.
 function dot_init_os() {
     dot_title "Setting OS defaults"
-    is_mac && dot_arrow "OSX detected" && source $DOTFILES/os/osx.sh
+    is_mac && dot_arrow "OSX detected"
     is_linux && dot_arrow "Linux detected"
     is_bsd && dot_arrow "BSD detected"
     is_msys && dot_arrow "MSys detected"
