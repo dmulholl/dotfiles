@@ -130,7 +130,6 @@ EOF
     source $DOTFILES/dotfuncs.sh
     dot_source --verbose
     dot_link --verbose
-    dot_init_os
 }
 
 # Run the OS-specific initialization scripts.
