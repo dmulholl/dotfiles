@@ -6,7 +6,7 @@
 # Print the command's help text.
 help() {
     cat <<EOF
-Usage: mac finder
+Usage: mac finder COMMAND
 
   Finder customization commands.
 
