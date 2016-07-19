@@ -10,6 +10,7 @@ import os
 import http.server
 import sys
 import webbrowser
+import sys
 import dotclio
 
 
@@ -19,21 +20,21 @@ Usage: %s [FLAGS] [OPTIONS] [ARGUMENTS]
   Serve a directory using Python's builtin web server.
 
   Host IP defaults to localhost (127.0.0.1). Specify an IP address to serve
-  only on that address or '0.0.0.0' to serve an all available IPs.
+  only on that address or '0.0.0.0' to serve on all available IPs.
 
-  Port number defaults to 8080 as ports below 1024 require sudo on OSX.
-  Set to 0 to randomly select an available port.
+  Port number defaults to 0 which randomly selects an available port. Note
+  that port numbers below 1024 require root authorization.
 
 Arguments:
-  [dirpath]         Directory to serve. Defaults to the current directory.
+  [dirpath]           Directory to serve. Defaults to the current directory.
 
 Options:
-  --host, -h <str>  Host IP address. Defaults to localhost.
-  --port, -p <int>  Port number. Defaults to 8080.
+  -h, --host <str>    Host IP address. Defaults to localhost.
+  -p, --port <int>    Port number. Defaults to 0, i.e. random.
 
 Flags:
-  --browser, -b     Launch the default web browser.
-  --help            Print the application's help text and exit.
+  -b, --browser       Launch the default web browser.
+      --help          Print the application's help text and exit.
 
 """ % os.path.basename(sys.argv[0])
 
@@ -41,14 +42,17 @@ Flags:
 def main():
     parser = dotclio.ArgParser(helptext)
 
-    parser.add_flag("browser", "b")
-    parser.add_str_option("host", "localhost", "l")
-    parser.add_int_option("port", 8080, "p")
+    parser.add_flag("browser b")
+    parser.add_str("host h", "localhost")
+    parser.add_int("port p", 0)
 
     parser.parse()
 
     if parser.has_args():
-        os.chdir(parser.get_args()[0])
+        if os.path.isdir(parser.get_arg(0)):
+            os.chdir(parser.get_arg(0))
+        else:
+            sys.exit("Error: '%s' is not a directory." % parser.get_arg(0))
 
     serve(parser["host"], parser["port"], parser["browser"])
 
@@ -60,7 +64,9 @@ def serve(host, port, browser):
             http.server.SimpleHTTPRequestHandler
         )
     except PermissionError:
-        sys.exit("Permission error: use 'sudo' to run on a port number below 1024.")
+        sys.exit("Error: use 'sudo' to run on a port below 1024.")
+    except OSError:
+        sys.exit("Error: address already in use. Choose a different port.")
 
     address = server.socket.getsockname()
 
@@ -72,7 +78,7 @@ def serve(host, port, browser):
     print("-" * 80)
 
     if browser:
-        webbrowser.open("http://%s:%s" % (address[0], address[1]))
+        webbrowser.open("http://%s:%s" % (host, address[1]))
 
     try:
         server.serve_forever()
