@@ -42,10 +42,15 @@ function mac-help() {
     cat <<EOF
 Usage: mac [FLAGS] COMMAND
 
-  System administration utility for OSX.
+  System administration utility for OSX. To view the help text for a command
+  use either the 'help' command or the command's '--help' flag:
+
+    $ mac help <command>
+
+    $ mac <command> --help
 
 Flags:
-  --help        Print this help text and exit.
+  --help      Print this help text and exit.
 
 Commands:
 
