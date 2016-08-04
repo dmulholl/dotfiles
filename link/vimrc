@@ -39,10 +39,12 @@ set nowrap
 " Load language plugins and indent files.
 filetype plugin indent on
 
-" Scrolling.
+" Vertical scrolling.
 set scrolloff=5
-set sidescrolloff=5
-set sidescroll=1
+
+" Horizontal scrolling.
+" set sidescrolloff=5
+" set sidescroll=1
 
 " Use case-sensitive search IFF the pattern contains uppercase letters.
 set smartcase
