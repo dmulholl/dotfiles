@@ -22,6 +22,9 @@ function syspip3() {
     PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 
+# Enable pyenv.
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 # --------------------------------------------------------------------------
 # Virtual environment utilities.
 # --------------------------------------------------------------------------
