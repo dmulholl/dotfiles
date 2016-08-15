@@ -65,3 +65,6 @@ alias gpg="gpg2"
 
 # Command for managing Python virtual environments.
 alias py="pv"
+
+# Ark development version.
+alias dark="python3 ~/dev/src/ark/ark"
