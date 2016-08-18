@@ -27,8 +27,10 @@ set visible-stats on
 set skip-completed-text on
 
 # Use existing text as a prefix when searching through commands using up/down.
-"\e[B": history-search-forward
 "\e[A": history-search-backward
+"\e[B": history-search-forward
+"\C-p": history-search-backward
+"\C-n": history-search-forward
 
 # Use Alt/Meta + Delete to delete the preceding word
 "\e[3;3~": kill-word
