@@ -8,10 +8,8 @@ set backspace=indent,eol,start
 " Turn on syntax highlighting.
 syntax enable
 
-" Solarized Colorscheme.
-" set background=dark
-" let g:solarized_termcolors=256
-" colorscheme solarized
+" Colorscheme.
+colorscheme dusk
 
 " The default is 8 commands.
 set history=999
@@ -59,7 +57,7 @@ set smartcase
 inoremap jj <ESC>
 
 " Remap the <leader> key for custom shortcuts.
-" let mapleader="#"
+let mapleader=","
 
 " Shortcut for re-sourcing the .vimrc file.
 map <leader>rr :source ~/.vimrc<cr>
