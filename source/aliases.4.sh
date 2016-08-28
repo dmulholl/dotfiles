@@ -68,3 +68,5 @@ alias py="pv"
 
 # Ark development version.
 alias dark="python3 ~/dev/src/ark/ark"
+alias ivy="python3 ~/dev/src/ivy/ivy"
+
