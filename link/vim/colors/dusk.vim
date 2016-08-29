@@ -24,3 +24,4 @@ hi Constant     ctermfg=6
 hi Character    ctermfg=6
 hi Number       ctermfg=6
 hi Visual                           ctermbg=235
+hi Search                           ctermbg=237
