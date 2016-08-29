@@ -23,3 +23,4 @@ hi PreProc      ctermfg=5
 hi Constant     ctermfg=6
 hi Character    ctermfg=6
 hi Number       ctermfg=6
+hi Visual                           ctermbg=235
