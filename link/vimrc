@@ -40,10 +40,6 @@ filetype plugin indent on
 " Vertical scrolling.
 set scrolloff=5
 
-" Horizontal scrolling.
-" set sidescrolloff=5
-" set sidescroll=1
-
 " Use case-sensitive search IFF the pattern contains uppercase letters.
 set smartcase
 
@@ -57,7 +53,7 @@ set smartcase
 inoremap jj <ESC>
 
 " Remap the <leader> key for custom shortcuts.
-let mapleader=","
+" let mapleader="\<Space>"
 
 " Shortcut for re-sourcing the .vimrc file.
 map <leader>rr :source ~/.vimrc<cr>
