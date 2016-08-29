@@ -41,13 +41,14 @@ filetype plugin indent on
 set scrolloff=5
 
 " Use case-sensitive search IFF the pattern contains uppercase letters.
+set ignorecase
 set smartcase
 
 " Find the next match as the search term is being typed.
-" set incsearch
+set incsearch
 
 " Highlight search matches.
-" set hlsearch
+set hlsearch
 
 " Alternative to using the escape key.
 inoremap jj <ESC>
