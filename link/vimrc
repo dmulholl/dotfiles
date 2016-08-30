@@ -12,7 +12,7 @@ syntax enable
 colorscheme dusk
 
 " The default is 8 commands.
-set history=999
+set history=9999
 
 " Reload files changed outside Vim.
 set autoread
