@@ -31,8 +31,8 @@ if [[ ! $# -eq 2 ]]; then
     exit 1
 fi
 
-# The slash at the end of the source directory path is important. It means copy
-# the *contents* of the directory.
+# The slash at the end of the source directory path is important. It means 
+# copy the *contents* of the directory.
 src="${1%/}/"
 
 # A slash at the end of the destination path can cause problems when copying to
