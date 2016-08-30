@@ -54,7 +54,7 @@ set hlsearch
 inoremap jj <ESC>
 
 " Remap the <leader> key for custom shortcuts.
-" let mapleader="\<Space>"
+let mapleader="\<Space>"
 
 " Shortcut for re-sourcing the .vimrc file.
 map <leader>rr :source ~/.vimrc<cr>
