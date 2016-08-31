@@ -23,7 +23,7 @@ hi PreProc          ctermfg=5
 hi Constant         ctermfg=6
 hi Character        ctermfg=6
 hi Number           ctermfg=6
-hi Visual                               ctermbg=235
+hi Visual                               ctermbg=237
 hi Search                               ctermbg=237
 hi MatchParen                           ctermbg=none        cterm=underline
 hi StatusLine       ctermfg=244         ctermbg=0
