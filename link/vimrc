@@ -37,8 +37,11 @@ set nowrap
 " Load language plugins and indent files.
 filetype plugin indent on
 
-" Vertical scrolling.
+" Vertical scroll offset.
 set scrolloff=5
+
+" Horizontal scroll rate. The default is 0 which scrolls by half a screen.
+set sidescroll=1
 
 " Use case-sensitive search IFF the pattern contains uppercase letters.
 set ignorecase
