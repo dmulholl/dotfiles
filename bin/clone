@@ -40,7 +40,7 @@ src="${1%/}/"
 dst="${2%/}"
 
 # Run rsync in mirroring mode.
-rsync -avz --delete \
+rsync -av --delete \
       --exclude ".Spotlight*" \
       --exclude ".Trashes" \
       --exclude ".fseventd" \
