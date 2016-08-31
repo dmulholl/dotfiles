@@ -75,6 +75,7 @@ function clean() {
         find . -name "dist" -exec rm -r "{}" +
         find . -name "build" -exec rm -r "{}" +
         find . -name "*.class" -delete
+        find . -name "._*" -delete
     fi
 }
 
