@@ -21,10 +21,9 @@ alias h="history"
 alias hist="history 25"
 
 # Git.
-alias ga="git add"
-alias gc="git commit"
-alias gd="git diff"
 alias gl="git log --oneline --graph"
+alias gl5="git log --oneline --graph -5"
+alias gl10="git log --oneline --graph -10"
 alias gs="git status --short --branch"
 alias push="git push"
 alias commit="git commit"
@@ -69,4 +68,3 @@ alias py="pv"
 # Ark development version.
 alias dark="python3 ~/dev/src/ark/ark"
 alias ivy="python3 ~/dev/src/ivy/ivy"
-
