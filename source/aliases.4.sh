@@ -18,7 +18,8 @@ alias a="atom -a"
 
 # History.
 alias h="history"
-alias hist="history 25"
+alias h5="history 5"
+alias h10="history 10"
 
 # Git.
 alias gl="git log --oneline --graph"
