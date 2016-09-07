@@ -27,4 +27,6 @@ hi Visual                               ctermbg=237
 hi Search                               ctermbg=237
 hi MatchParen                           ctermbg=none        cterm=underline
 hi StatusLine       ctermfg=244         ctermbg=0
-hi ErrorMsg                             ctermbg=52
+hi ErrorMsg         ctermfg=7           ctermbg=52
+hi Question         ctermfg=7
+hi ModeMsg          ctermfg=8
