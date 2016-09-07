@@ -27,3 +27,4 @@ hi Visual                               ctermbg=237
 hi Search                               ctermbg=237
 hi MatchParen                           ctermbg=none        cterm=underline
 hi StatusLine       ctermfg=244         ctermbg=0
+hi ErrorMsg                             ctermbg=52
