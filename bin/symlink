@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# --------------------------------------------------------------------------
+# Create a symbolic link. I can never remember the order of the arguments
+# for 'ln' or make sense of its man page.
+# --------------------------------------------------------------------------
+
+# Print the utility's help text.
+print_help() {
+    cat <<EOF
+Usage: symlink <target> <location>
+
+  Create a symbolic link at <location> pointing to <target>.
+
+Arguments:
+  <target>          The symlink will point to this target file.
+  <location>        The symlink will be created at this location.
+
+Flags:
+  --help            Print this help text and exit.
+EOF
+}
+
+# Check for the presence of the --help flag.
+if [[ $* == *--help* ]]; then
+    print_help
+    exit 0
+fi
+
+# We require two arguments.
+if [[ ! $# -eq 2 ]]; then
+    print_help
+    exit 1
+fi
+
+# Create the symlink.
+ln -sv "$1" "$2"
