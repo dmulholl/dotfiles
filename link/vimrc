@@ -62,6 +62,12 @@ let mapleader="\<Space>"
 " Shortcut for re-sourcing the .vimrc file.
 map <leader>rr :source ~/.vimrc<cr>
 
+" Hotkey for toggling word wrapping.
+map <leader>w :set wrap!<cr>
+
+" Wrap lines at word boundaries.
+set linebreak
+
 " Navigating splits.
 " nnoremap <C-J> <C-W><C-J> " move down
 " nnoremap <C-K> <C-W><C-K> " move up
