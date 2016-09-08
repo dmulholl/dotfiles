@@ -25,7 +25,7 @@ hi Character        ctermfg=6
 hi Number           ctermfg=6
 hi Visual                               ctermbg=237
 hi Search                               ctermbg=237
-hi MatchParen                           ctermbg=none        cterm=underline
+hi MatchParen                           ctermbg=53          cterm=bold
 hi StatusLine       ctermfg=244         ctermbg=0
 hi ErrorMsg         ctermfg=7           ctermbg=52
 hi Question         ctermfg=7
