@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------
 
 # Custom library directories.
-export PYTHONPATH=~/dev/lib:~/.dotfiles/lib/python
+export PYTHONPATH=~/lib:~/.dotfiles/lib/python
 
 # Disable the default virtualenv prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true

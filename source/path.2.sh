@@ -22,7 +22,7 @@ if [[ -d "$HOME/dev/bin" ]]; then
 fi
 
 # Homebrew binaries on OSX.
-if [[ -d "$HOME/.brew/bin" ]]; then
+if [[ -d "$HOME/.homebrew/bin" ]]; then
     PATH=$PATH:$HOME/.brew/bin
 fi
 
