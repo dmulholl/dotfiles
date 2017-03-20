@@ -23,7 +23,7 @@ fi
 
 # Homebrew binaries on OSX.
 if [[ -d "$HOME/.homebrew/bin" ]]; then
-    PATH=$PATH:$HOME/.brew/bin
+    PATH=$PATH:$HOME/.homebrew/bin
 fi
 
 # Locally installed binaries.
