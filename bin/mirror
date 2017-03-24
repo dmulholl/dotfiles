@@ -6,7 +6,7 @@
 # Print the utility's help text.
 print_help() {
     cat <<EOF
-Usage: clone <source> <destination>
+Usage: mirror <source> <destination>
 
   Mirror the contents of a source directory to a destination directory.
 
@@ -31,7 +31,7 @@ if [[ ! $# -eq 2 ]]; then
     exit 1
 fi
 
-# The slash at the end of the source directory path is important. It means 
+# The slash at the end of the source directory path is important. It means
 # copy the *contents* of the directory.
 src="${1%/}/"
 
