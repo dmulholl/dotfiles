@@ -66,5 +66,5 @@ alias gpg="gpg2"
 alias py="pv"
 
 # Ark development version.
-alias dark="python3 ~/dev/src/ark/ark"
-alias ivy="python3 ~/dev/src/ivy/ivy"
+alias dark="python3 ~/src/ark/ark"
+alias ivy="python3 ~/src/ivy/ivy"
