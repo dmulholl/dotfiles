@@ -12,13 +12,13 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 # to accidentally mess with the system or homebrew Python installations.
 export PIP_REQUIRE_VIRTUALENV=true
 
-# Install a package using the homebrew version of Python 2.
-function brewpip2() {
+# Install a package using the global version of Python 2.
+function dotpip2() {
     PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
 }
 
-# Install a package using the homebrew version of Python 3.
-function brewpip3() {
+# Install a package using the global version of Python 3.
+function dotpip3() {
     PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 
@@ -33,7 +33,7 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 export VENVHOME=~/.virtualenvs
 
 # Activate a virtual environment. Print an error message on failure.
-function pv-activate() {
+function dotpy-activate() {
     if [[ -n "$1" ]]; then
         local name="$1"
         local script=$VENVHOME/$name/bin/activate
@@ -48,7 +48,7 @@ function pv-activate() {
 }
 
 # Silently try to activate a virtual environment. No error on failure.
-function pv-try-activate() {
+function dotpy-try-activate() {
     local script=$VENVHOME/$1/bin/activate
     if [[ -e $script ]]; then
         source $script
@@ -56,7 +56,7 @@ function pv-try-activate() {
 }
 
 # Create a new virtual environment.
-function pv-make() {
+function dotpy-make() {
     if [[ -n "$1" ]]; then
         local name="$1"
         local path=$VENVHOME/$name
@@ -67,7 +67,7 @@ function pv-make() {
         if [[ -d $path ]]; then
             echo "Error: '$name' already exists."
         else
-            virtualenv --always-copy $path $@ && pv-activate $name
+            virtualenv --always-copy $path $@ && dotpy-activate $name
         fi
     else
         echo "Error: you must specify a name for the new virtual environment."
@@ -75,7 +75,7 @@ function pv-make() {
 }
 
 # Delete a list of virtual environments.
-function pv-remove() {
+function dotpy-remove() {
     if [[ $# -ne 0 ]]; then
         for name in "$@"; do
             local path=$VENVHOME/$name
@@ -91,12 +91,12 @@ function pv-remove() {
 }
 
 # List all virtual environments.
-function pv-list() {
+function dotpy-list() {
     /bin/ls -m $VENVHOME
 }
 
 # Print help.
-function pv-help() {
+function dotpy-help() {
     cat <<EOF
 Usage: pv <command> <args>
 
@@ -118,27 +118,27 @@ EOF
 }
 
 # Public interface for the suite of utility functions.
-function pv() {
+function dotpy() {
     if [[ -n "$1" ]]; then
         local command="$1"
         shift
         case "$command" in
             a|activate)
-                pv-activate "$@";;
+                dotpy-activate "$@";;
             d|deactivate)
                 deactivate;;
             h|help|--help)
-                pv-help;;
+                dotpy-help;;
             l|ls|list)
-                pv-list "$@";;
+                dotpy-list "$@";;
             m|mk|make)
-                pv-make "$@";;
+                dotpy-make "$@";;
             r|rm|remove)
-                pv-remove "$@";;
+                dotpy-remove "$@";;
             *)
-                pv-activate "$command" "$@";;
+                dotpy-activate "$command" "$@";;
         esac
     else
-        pv-help
+        dotpy-help
     fi
 }

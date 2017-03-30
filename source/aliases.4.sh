@@ -62,9 +62,6 @@ alias cal="gcal --starting-day=1"
 # Default to GnuPG v2.
 alias gpg="gpg2"
 
-# Command for managing Python virtual environments.
-alias py="pv"
-
 # Ark development version.
 alias dark="python3 ~/src/ark/ark"
 alias ivy="python3 ~/src/ivy/ivy"

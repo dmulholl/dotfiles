@@ -12,4 +12,4 @@ source $DOTFILES/dotfuncs.sh
 dot init
 
 # Activate the default Python 3 virtual enivronment if available.
-pv-try-activate py3
+dotpy-try-activate py3
