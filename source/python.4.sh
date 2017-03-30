@@ -98,7 +98,7 @@ function dotpy-list() {
 # Print help.
 function dotpy-help() {
     cat <<EOF
-Usage: pv <command> <args>
+Usage: dotpy <command> <args>
 
   Utility for managing Python virtual environments.
 
