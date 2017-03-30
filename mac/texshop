@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# --------------------------------------------------------------------------
+# Customize the TexShop application.
+# --------------------------------------------------------------------------
+
+# Print the command's help text.
+help() {
+    cat <<EOF
+Usage: mac texshop COMMAND
+
+  Customize TexShop.
+
+Flags:
+  --help            Display this help text and exit.
+
+Commands:
+  dusk              Apply the Dusk colour scheme.
+EOF
+}
+
+# Parse the command's arguments.
+case "$1" in
+
+    ""|--help)
+        help
+        exit 0
+        ;;
+
+    dusk)
+
+        # Background
+        defaults write TeXShop background_R 0.17
+        defaults write TeXShop background_G 0.19
+        defaults write TeXShop background_B 0.20
+
+        # Commands
+        defaults write TeXShop commandred 0.40
+        defaults write TeXShop commandgreen 0.55
+        defaults write TeXShop commandblue 0.69
+
+        # Comments
+        defaults write TeXShop commentred 0.40
+        defaults write TeXShop commentgreen 0.45
+        defaults write TeXShop commentblue 0.48
+
+        # Foreground
+        defaults write TeXShop foreground_R 0.89
+        defaults write TeXShop foreground_G 0.89
+        defaults write TeXShop foreground_B 0.89
+
+        # Index
+        defaults write TeXShop indexred 0.83
+        defaults write TeXShop indexgreen 0.59
+        defaults write TeXShop indexblue 0.27
+
+        # Marker
+        defaults write TeXShop markerred 0.58
+        defaults write TeXShop markergreen 0.78
+        defaults write TeXShop markerblue 0.39
+
+        # Insertion Point
+        defaults write TeXShop insertionpoint_R 0.91
+        defaults write TeXShop insertionpoint_G 0.89
+        defaults write TeXShop insertionpoint_B 0.72
+
+        # Highlighted Parenthesis Background
+        defaults write TeXShop highlightContentRed 0.20
+        defaults write TeXShop highlightContentGreen 0.25
+        defaults write TeXShop highlightContentBlue 0.25
+
+        # Line Spacing
+        defaults write TeXShop SourceInterlineSpace 5.0
+        ;;
+
+    reset)
+        defaults write TeXShop SourceInterlineSpace 1.0
+        ;;
+
+    *)
+        echo "Error: unsupported command argument."
+        exit 1
+        ;;
+
+esac
