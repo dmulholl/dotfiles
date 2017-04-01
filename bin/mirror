@@ -20,13 +20,13 @@ EOF
 }
 
 # Check for the presence of the --help flag.
-if [[ $* == *--help* ]]; then
+if test "$1" = "--help" || test "$1" = "-h"; then
     print_help
     exit 0
 fi
 
 # We require source and destination arguments.
-if [[ ! $# -eq 2 ]]; then
+if test $# -ne 2; then
     print_help
     exit 1
 fi
@@ -35,8 +35,8 @@ fi
 # copy the *contents* of the directory.
 src="${1%/}/"
 
-# A slash at the end of the destination path can cause problems when copying to
-# the root of a drive.
+# A slash at the end of the destination path can cause problems when copying
+# to the root of a drive.
 dst="${2%/}"
 
 # Reset the maximum number of files that the application can have open.
