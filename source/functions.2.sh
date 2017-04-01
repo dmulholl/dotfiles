@@ -98,14 +98,3 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
-
-# Ensure that any active virtual environment is deactivated before running
-# the backup command.
-function backup {
-    if [ -n "$VIRTUAL_ENV" ]; then
-        echo "Deactivating virtual environment."
-        deactivate
-    fi
-    command backup "$@"
-}
-
