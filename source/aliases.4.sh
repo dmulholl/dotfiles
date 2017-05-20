@@ -62,6 +62,7 @@ alias cal="gcal --starting-day=1"
 # Default to GnuPG v2.
 alias gpg="gpg2"
 
-# Ark development version.
-alias dark="python3 ~/src/ark/ark"
-alias ivy="python3 ~/src/ivy/ivy"
+# Local development versions.
+alias arkd="python3 ~/src/ark/ark"
+alias ivyd="python3 ~/src/ivy/ivy"
+alias maltd="python3 ~/src/malt/malt"
