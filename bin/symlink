@@ -33,4 +33,4 @@ if [[ ! $# -eq 2 ]]; then
 fi
 
 # Create the symlink.
-ln -sv "$1" "$2"
+ln -svf "$1" "$2"
