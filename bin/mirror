@@ -46,6 +46,8 @@ ulimit -n 4096
 rsync -av --delete \
       --exclude ".Spotlight*" \
       --exclude ".Trashes" \
-      --exclude ".fseventd" \
       --exclude ".trash" \
+      --exclude ".fseventd" \
+      --exclude ".fseventsd" \
+      --exclude ".DS_Store" \
       -- "$src" "$dst"
