@@ -8,8 +8,10 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias -- -="cd -"
 
-# Trash.
+# Misc.
 alias t="trash"
+alias ic="ironclad"
+alias lock="mac lock"
 
 # Editor.
 alias atom="atom -a"
