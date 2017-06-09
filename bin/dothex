@@ -10,33 +10,38 @@ import argparse
 import os
 import signal
 import sys
+import shutil
 
 
 # Application version number.
-__version__ = '1.2.0'
+__version__ = '2.0.0'
 
 
 # Command line help text.
-helptext = """\
-Usage: %s [FLAGS] [OPTIONS] ARGUMENTS
+helptext = """
+Usage: %s [FLAGS] [OPTIONS] [ARGUMENTS]
+
+  Hexdump utility.
 
 Arguments:
-  <file>     file to dump (default: stdin)
+  [file]                File to dump. Defaults to reading from stdin.
 
 Options:
-  -l <int>   bytes per line in output (default: 16)
-  -n <int>   number of bytes to read
-  -o <int>   byte offset at which to begin reading
+  -l, --line <int>      Bytes per line in output (defaults to 16).
+  -n, --number <int>    Number of bytes to read.
+  -o, --offset <int>    Byte offset at which to begin reading.
 
 Flags:
-  --help     display this help text and exit
-  --version  display version number and exit""" % os.path.basename(sys.argv[0])
+      --help            Display this help text and exit.
+      --version         Display version number and exit.
+
+""" % os.path.basename(sys.argv[0])
 
 
 # Custom argparse 'action' to print our own help text instead of the default.
 class HelpAction(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
-        print(helptext)
+        print(helptext.strip())
         sys.exit()
 
 
@@ -75,7 +80,7 @@ def writeln(offset, buffer, bytes_per_line):
 
     # Write a character for each byte in the printable ascii range.
     for i in range(len(buffer)):
-        write('%c' % buffer[i] if 32 <= buffer[i] <= 126 else '.')
+        write('%c' % buffer[i] if 32 <= buffer[i] <= 126 else '·')
 
     write('\n')
 
@@ -89,6 +94,10 @@ def dump(file, offset, bytes_to_read, bytes_per_line):
             file.seek(offset)
         else:
             sys.exit('Error: %s is not seekable.' % file.name)
+
+    # Print a line.
+    cols, _ = shutil.get_terminal_size()
+    print("─" * cols)
 
     # Read and dump one line per iteration.
     while True:
@@ -115,6 +124,8 @@ def dump(file, offset, bytes_to_read, bytes_per_line):
             bytes_to_read -= len(buffer)
         else:
             break
+
+    print("─" * cols)
 
 
 def main():
@@ -144,13 +155,13 @@ def main():
     )
 
     # Options.
-    parser.add_argument('-l',
+    parser.add_argument('-l', '--line',
         help='bytes per line in output (default: 16)',
         default=16,
         type=int,
         dest='bpl',
     )
-    parser.add_argument('-n',
+    parser.add_argument('-n', '--number',
         nargs='?',
         help='number of bytes to read (default: 256)',
         type=int,
@@ -158,7 +169,7 @@ def main():
         const=256,
         dest='btr',
     )
-    parser.add_argument('-o',
+    parser.add_argument('-o', '--offset',
         help='offset at which to begin reading (default: 0)',
         type=int,
         default=0,
