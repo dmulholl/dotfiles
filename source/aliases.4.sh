@@ -10,8 +10,8 @@ alias -- -="cd -"
 
 # Misc.
 alias t="trash"
-alias ic="ironclad"
-alias lock="mac lock"
+alias i="ironclad"
+alias l="mac lock"
 
 # Editor.
 alias atom="atom -a"
@@ -27,8 +27,10 @@ alias gl="git log --oneline --graph"
 alias gl5="git log --oneline --graph -5"
 alias gl10="git log --oneline --graph -10"
 alias gs="git status --short --branch"
-alias push="git push"
-alias commit="git commit"
+alias gp="git push"
+alias gc="git commit"
+alias gh="git commit -am Housekeeping && git push"
+alias gr="git commit -am 'Update readme' && git push"
 
 # Hosts file.
 alias hosts="sudo vim /etc/hosts"
