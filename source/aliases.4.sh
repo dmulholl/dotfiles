@@ -23,18 +23,27 @@ alias h5="history 5"
 alias h10="history 10"
 
 # Git.
+alias ga="git add"
+alias gaa="git add --all"
+
+alias gc="git commit"
+
+alias gch="git commit -am Housekeeping"
+alias gchp="git commit -am Housekeeping && git push"
+
+alias gcd="git commit -am 'Update documentation'"
+alias gcdp="git commit -am 'Update documentation'"
+
+alias gcr="git commit -am 'Update readme'"
+alias gcrp="git commit -am 'Update readme' && git push"
+
 alias gl="git log --oneline --graph"
 alias gl5="git log --oneline --graph -5"
 alias gl10="git log --oneline --graph -10"
-alias gs="git status --short --branch"
+
 alias gp="git push"
-alias gc="git commit"
-alias gch="git commit -am Housekeeping"
-alias gchp="git commit -am Housekeeping && git push"
-alias gcr="git commit -am 'Update readme'"
-alias gcrp="git commit -am 'Update readme' && git push"
-alias gcd="git commit -am 'Update documentation'"
-alias gcdp="git commit -am 'Update documentation'"
+
+alias gs="git status --short --branch"
 
 # Hosts file.
 alias hosts="sudo vim /etc/hosts"
