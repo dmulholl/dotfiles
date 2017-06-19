@@ -28,14 +28,17 @@ alias gaa="git add --all"
 
 alias gc="git commit"
 
-alias gch="git commit -am Housekeeping"
-alias gchp="git commit -am Housekeeping && git push"
+alias gcah="git commit -am Housekeeping"
+alias gcahp="git commit -am Housekeeping && git push"
 
-alias gcd="git commit -am 'Update documentation'"
-alias gcdp="git commit -am 'Update documentation'"
+alias gcad="git commit -am 'Update documentation'"
+alias gcadp="git commit -am 'Update documentation'"
 
-alias gcr="git commit -am 'Update readme'"
-alias gcrp="git commit -am 'Update readme' && git push"
+alias gcm="git commit -m"
+alias gcam="git commit -am"
+
+alias gcar="git commit -am 'Update readme'"
+alias gcarp="git commit -am 'Update readme' && git push"
 
 alias gl="git log --oneline --graph"
 alias gl5="git log --oneline --graph -5"
