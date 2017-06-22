@@ -40,6 +40,8 @@ alias gcam="git commit -am"
 alias gcar="git commit -am 'Update readme'"
 alias gcarp="git commit -am 'Update readme' && git push"
 
+alias gd="git diff"
+
 alias gl="git log --oneline --graph"
 alias gl5="git log --oneline --graph -5"
 alias gl10="git log --oneline --graph -10"
