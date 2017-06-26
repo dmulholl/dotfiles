@@ -6,7 +6,7 @@
 shopt -s histappend
 
 # Don't add matching entries to the history file.
-export HISTIGNORE=$'?:??:???:exit:hist:history'
+export HISTIGNORE=$'?:??:???:exit:history'
 
 # Ignore commands starting with a space; ignore sequential duplicates.
 export HISTCONTROL="ignorespace:ignoredups"

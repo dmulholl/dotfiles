@@ -1,15 +1,9 @@
 # --------------------------------------------------------------------------
-# Dotfiles initialization script.
+# Initialization script for new dotfiles installations.
 # --------------------------------------------------------------------------
 
-# Location of the dotfiles installation.
-export DOTFILES=~/.dotfiles
+# Load the bootstrapping file.
+source ~/.dotfiles/boot.sh
 
-# Load our bootstrapping functions.
-source $DOTFILES/dotfuncs.sh
-
-# Initialize the installation.
+# Run the initialization routine.
 dot init
-
-# Activate the default Python 3 virtual enivronment if available.
-dotpy-try-activate py3

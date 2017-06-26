@@ -1,18 +1,7 @@
 # -------------------------------------------------------------------------
 # Bootstrap file for the dotfiles installation.
+#
+# In theory, this file should be loaded by 'interactive non-login shells'.
 # -------------------------------------------------------------------------
 
-# This file should be loaded by interactive non-login shells. Interactive
-# login shells load .bash_profile which sources this file.
-
-# Location of the dotfiles installation.
-export DOTFILES=~/.dotfiles
-
-# Load our bootstrapping functions.
-source $DOTFILES/dotfuncs.sh
-
-# Source all files in the installation's /source directory.
-dot src
-
-# Activate the default Python 3 virtual enivronment if available.
-dotpy-try-activate py3
+source ~/.dotfiles/boot.sh

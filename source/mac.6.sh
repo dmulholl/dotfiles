@@ -2,9 +2,9 @@
 # System administration commands for OSX.
 # --------------------------------------------------------------------------
 
-# The 'mac' command provides the interface to the suite of utility scripts.
+# The 'mac' command provides the interface to a suite of utility scripts.
 function mac() {
-    if [[ -n "$1" ]]; then
+    if test -n "$1"; then
         local command="$1"
         shift
         case "$command" in
@@ -12,8 +12,8 @@ function mac() {
                 mac-help
                 ;;
             help)
-                if [[ -n "$1" ]]; then
-                    if [[ -f $DOTFILES/mac/$1 ]]; then
+                if test -n "$1"; then
+                    if test -f $DOTFILES/mac/$1; then
                         $DOTFILES/mac/$1 --help
                     else
                         echo "Error: '$1' is not a recognised command."
@@ -24,7 +24,7 @@ function mac() {
                 fi
                 ;;
             *)
-                if [[ -f $DOTFILES/mac/$command ]]; then
+                if test -f $DOTFILES/mac/$command; then
                     $DOTFILES/mac/$command $@
                 else
                     echo "Error: '$command' is not a recognised command."

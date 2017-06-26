@@ -1,29 +1,31 @@
 # --------------------------------------------------------------------------
 # Set the command prompt.
+#
+# Note that escaped square brackets \[ and \] are used to enclose sequences
+# of non-printing characters. This stops Bash getting confused about the
+# actual length of the prompt.
 # --------------------------------------------------------------------------
 
 # Echo the currently active Python virtual environment.
 function prompt_virtualenv() {
-    if [ -n "$VIRTUAL_ENV" ]; then
+    if test -n "$VIRTUAL_ENV"; then
         echo "[$(basename $VIRTUAL_ENV)] "
     fi
 }
 
-# Prompt for use on Macs.
-prompt_mac="
+# Prompt for use on Mac.
+mac_prompt="
 \[$magenta\]\$(prompt_virtualenv)\[$green\]\u@\h \[$yellow\]\w
-\[$reset\]\!: \$ "
+\[$resetclrs\]\!: \$ "
 
 # Prompt for use on Linux.
-prompt_linux="
+lnx_prompt="
 \[$magenta\]\$(prompt_virtualenv)\[$blue\]\u@\h \[$yellow\]\w
-\[$reset\]\!: \$ "
+\[$resetclrs\]\!: \$ "
 
 # Export the appropriate prompt.
 if is_mac; then
-    export PS1=$prompt_mac
-fi
-
-if is_linux; then
-    export PS1=$prompt_linux
+    export PS1=$mac_prompt
+elif is_linux; then
+    export PS1=$lnx_prompt
 fi

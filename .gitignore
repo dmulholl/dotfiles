@@ -8,5 +8,5 @@ log.txt
 __pycache__/
 *.py[cod]
 
-# Vim temporary fies.
+# Vim temporary files.
 *.swp

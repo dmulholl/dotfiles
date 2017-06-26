@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------
 
 # Reset all attributes.
-reset='\e[0m'
+resetclrs='\e[0m'
 
 # Formatting.
 bold='\e[1m'

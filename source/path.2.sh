@@ -3,7 +3,7 @@
 # --------------------------------------------------------------------------
 
 # Store a copy of the default path.
-if [[ -z "$SYSPATH" ]]; then
+if test -z "$SYSPATH"; then
     SYSPATH=$PATH
     export SYSPATH
 fi
@@ -12,17 +12,17 @@ fi
 PATH=$DOTFILES/bin
 
 # $HOME binaries.
-if [[ -d "$HOME/bin" ]]; then
+if test -d "$HOME/bin"; then
     PATH=$PATH:$HOME/bin
 fi
 
 # Development binaries.
-if [[ -d "$HOME/dev/bin" ]]; then
+if test -d "$HOME/dev/bin"; then
     PATH=$PATH:$HOME/dev/bin
 fi
 
 # Homebrew binaries on OSX.
-if [[ -d "$HOME/.homebrew/bin" ]]; then
+if test -d "$HOME/.homebrew/bin"; then
     PATH=$PATH:$HOME/.homebrew/bin
 fi
 
