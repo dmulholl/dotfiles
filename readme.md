@@ -31,11 +31,11 @@ The `dot` command provides an interface to the installation's utility functions:
       Management utility for the dotfiles installation.
 
     Commands:
-      update    update the local repository
-      init      reinitialize the installation
-      src       source all files in /source
-      link      link all files in /link into ~/
-      log       print the log file
+      update    Update the local dotfiles repository.
+      init      (Re)initialize the installation.
+      src       Source all files in ~/.dotfiles/source.
+      link      Link all files in ~/.dotfiles/link into ~/.
+      log       Print the log file to stdout.
 
 
 ## Installation
