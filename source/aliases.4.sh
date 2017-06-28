@@ -13,7 +13,6 @@ alias t="trash"
 alias i="ironclad"
 alias l="mac lock"
 alias atom="atom -a"
-alias status="echo $?"
 
 # History.
 alias h="history"
