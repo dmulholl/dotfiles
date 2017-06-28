@@ -12,10 +12,8 @@ alias -- -="cd -"
 alias t="trash"
 alias i="ironclad"
 alias l="mac lock"
-
-# Editor.
 alias atom="atom -a"
-alias code="echo $?"
+alias status="echo $?"
 
 # History.
 alias h="history"

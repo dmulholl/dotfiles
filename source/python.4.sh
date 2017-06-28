@@ -104,12 +104,12 @@ Usage: dotpy <command> <args>
 
 Commands:
 
-  a, activate <name>       activate the named virtual environment
-  d, deactivate            deactivate the current virtual environment
-  h, help                  print this help message and exit
-  l, ls, list              list all virtual environments
-  m, mk, make <name>       make a new virtual environment
-  r, rm, remove <names>    delete one or more virtual environments
+  a, activate <name>       Activate the named virtual environment.
+  d, deactivate            Deactivate the current virtual environment.
+  h, help                  Print this help message and exit.
+  l, ls, list              List all virtual environments.
+  m, mk, make <name>       Make a new virtual environment.
+  r, rm, remove <names>    Delete one or more virtual environments.
 
 Environments:
 

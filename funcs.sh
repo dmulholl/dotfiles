@@ -70,8 +70,8 @@ function dot_link() {
     for srcfile in $DOTFILES/link/*; do
         dstfile=~/.$(basename $srcfile)
         [[ $verbose ]] && dot_arrow "Linking: ~/$(basename $dstfile)"
-        if [[ -e $dstfile ]]; then
-            [[ -h $dstfile ]] || dot_backup $dstfile
+        if test -e $dstfile; then
+            test -h $dstfile || dot_backup $dstfile
             rm -rf $dstfile
         fi
         ln -sf $srcfile $dstfile
@@ -128,7 +128,7 @@ function dot_update() {
 
 # Log to file.
 function dot_log() {
-    echo "$(date "+%Y-%m-%d %H:%M:%S" ) >> $@" >> $DOTFILES/log.txt
+    echo "$(date "+%Y-%m-%d %H:%M:%S" ) :: $@" >> $DOTFILES/log.txt
 }
 
 # Create a visible header in the log file.

@@ -3,9 +3,8 @@
 # --------------------------------------------------------------------------
 
 # Store a copy of the default path.
-if test -z "$SYSPATH"; then
-    SYSPATH=$PATH
-    export SYSPATH
+if test -z "$DOTSYSPATH"; then
+    export DOTSYSPATH=$PATH
 fi
 
 # Start with the dotfiles binaries.
@@ -33,7 +32,7 @@ PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Add the default system path back on at the end.
-PATH=$PATH:$SYSPATH
+PATH=$PATH:$DOTSYSPATH
 
 # Remove any duplicate entries.
 PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
