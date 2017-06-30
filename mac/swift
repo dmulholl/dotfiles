@@ -10,6 +10,8 @@ Usage: mac swift [ARGUMENTS]
 
   Select the Swift version to use on the command line.
 
+  This command is currently disabled.
+
 Arguments:
   <version>         Select version 2 or 3 (beta).
 
@@ -25,10 +27,10 @@ case "$1" in
         exit 0
         ;;
     2)
-        sudo xcode-select -s /Applications/Xcode.app
+        #sudo xcode-select -s /Applications/Xcode.app
         ;;
     3)
-        sudo xcode-select -s ~/Applications/Xcode-beta.app
+        #sudo xcode-select -s ~/Applications/Xcode-beta.app
         ;;
     *)
         echo "Error: unsupported argument."
