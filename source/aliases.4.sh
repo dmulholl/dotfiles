@@ -67,16 +67,17 @@ alias hosts="sudo vim /etc/hosts"
 
 # Determine which variety of `ls` we're using.
 if is_mac; then
-    colorflag="-G"
+    lsflags="-F"
 else
-    colorflag="--color"
+    lsflags="--color"
 fi
 
 # Add colour support and variants to `ls`.
-alias la="ls ${colorflag} -a"
-alias ll="ls ${colorflag} -l"
-alias lla="ls ${colorflag} -la"
-alias ls="ls ${colorflag}"
+alias la="ls ${lsflags} -a"
+alias ll="ls ${lsflags} -l"
+alias lla="ls ${lsflags} -la"
+alias lal="ls ${lsflags} -la"
+alias ls="ls ${lsflags}"
 
 # Reload the shell.
 alias reload="exec $SHELL -l"
