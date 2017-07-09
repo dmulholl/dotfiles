@@ -6,26 +6,21 @@
 # actual length of the prompt.
 # --------------------------------------------------------------------------
 
-# Echo the currently active Python virtual environment.
-function prompt_virtualenv() {
-    if test -n "$VIRTUAL_ENV"; then
-        echo "[$(basename $VIRTUAL_ENV)] "
-    fi
+function prompt_data() {
+    echo -n "[$?"
+
+    # Active Python virtual environment.
+    [ $VIRTUAL_ENV ] && echo -n ":$(basename $VIRTUAL_ENV)"
+
+    # Git branch name.
+    local branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)
+    [ $branch ] && echo -n ":$branch"
+
+    echo -n "]"
 }
 
-# Prompt for use on Mac.
-mac_prompt="
-\[$magenta\]\$(prompt_virtualenv)\[$green\]\u@\h \[$yellow\]\w
-\[$resetclrs\]\!: \$ "
+prompt="
+\[$magenta\]\$(prompt_data) \[$green\]\u@\h \[$yellow\]\w
+\[$resetclrs\]\$ "
 
-# Prompt for use on Linux.
-lnx_prompt="
-\[$magenta\]\$(prompt_virtualenv)\[$blue\]\u@\h \[$yellow\]\w
-\[$resetclrs\]\!: \$ "
-
-# Export the appropriate prompt.
-if is_mac; then
-    export PS1=$mac_prompt
-elif is_linux; then
-    export PS1=$lnx_prompt
-fi
+export PS1=$prompt
