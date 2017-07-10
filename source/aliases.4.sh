@@ -65,19 +65,13 @@ alias gs="git status --short --branch"
 # Hosts file.
 alias hosts="sudo vim /etc/hosts"
 
-# Determine which variety of `ls` we're using.
-if is_mac; then
-    lsflags="-F"
-else
-    lsflags="--color"
-fi
-
-# Add colour support and variants to `ls`.
-alias la="ls ${lsflags} -a"
-alias ll="ls ${lsflags} -l"
-alias lla="ls ${lsflags} -la"
-alias lal="ls ${lsflags} -la"
-alias ls="ls ${lsflags}"
+# Directory listings.
+alias la="ls -Fa"
+alias lal="ls -Falh"
+alias ll="ls -Flh"
+alias lla="ls -Flha"
+alias ls="ls -F"
+alias dush="du -sh"
 
 # Reload the shell.
 alias reload="exec $SHELL -l"
