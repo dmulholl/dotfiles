@@ -37,7 +37,7 @@ alias gcah="git commit -am Housekeeping"
 alias gcahp="git commit -am Housekeeping && git push"
 
 alias gcad="git commit -am 'Update documentation'"
-alias gcadp="git commit -am 'Update documentation'"
+alias gcadp="git commit -am 'Update documentation' && git push"
 
 alias gcm="git commit -m"
 alias gcam="git commit -am"
