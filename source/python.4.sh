@@ -8,17 +8,17 @@ export PYTHONPATH=~/lib:~/.dotfiles/lib/python
 # Disable the default virtualenv prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
-# Require a virtual environment to be active for pip to function. We don't want
-# to accidentally mess with the system or homebrew Python installations.
+# Require a virtual environment to be active for pip to function. We don't w
+# want o accidentally mess with the system or homebrew Python installations.
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Install a package using the global version of Python 2.
-function dotpip2() {
+function syspip2() {
     PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
 }
 
 # Install a package using the global version of Python 3.
-function dotpip3() {
+function syspip3() {
     PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 
