@@ -1,19 +1,17 @@
 #!/usr/bin/env bash
 # --------------------------------------------------------------------------
-# Set the Swift version to use.
+# Set the Xcode version to use on the command line.
 # --------------------------------------------------------------------------
 
 # Print the command's help text.
 help() {
     cat <<EOF
-Usage: mac swift [ARGUMENTS]
+Usage: mac xcode [ARGUMENTS]
 
-  Select the Swift version to use on the command line.
-
-  This command is currently disabled.
+  Select the Xcode version to use on the command line.
 
 Arguments:
-  <version>         Select version 2 or 3 (beta).
+  <version>         One of 'release', 'beta'.
 
 Flags:
   --help            Display this help text and exit.
@@ -26,11 +24,11 @@ case "$1" in
         help
         exit 0
         ;;
-    2)
-        #sudo xcode-select -s /Applications/Xcode.app
+    release)
+        sudo xcode-select -s /Applications/Xcode.app
         ;;
-    3)
-        #sudo xcode-select -s ~/Applications/Xcode-beta.app
+    beta)
+        sudo xcode-select -s /Applications/Xcode-beta.app
         ;;
     *)
         echo "Error: unsupported argument."
