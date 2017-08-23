@@ -9,19 +9,23 @@
 
 # The ~/.trash directory exists on OSX. We may need to create it on other
 # systems.
-if [ ! -e "$HOME/.trash" ]; then
+if [[ ! -e "$HOME/.trash" ]]; then
     mkdir "$HOME/.trash"
 fi
 
 # Move all our arguments to the trash directory.
 for arg in "$@"; do
-    if [ ! -e "$arg" ]; then
+    if [[ "$arg" == "." || "$arg" == ".." ]]; then
+        continue
+    fi
+
+    if [[ ! -e "$arg" ]]; then
         echo "Error: '$arg' does not exist."
         continue
     fi
 
     base=$(basename "$arg")
-    while [ -e "$HOME/.trash/$base" ]; do
+    while [[ -e "$HOME/.trash/$base" ]]; do
         base="$base.$(date "+%y-%m-%d_%H-%M-%S")"
     done
 
