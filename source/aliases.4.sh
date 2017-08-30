@@ -12,6 +12,7 @@ alias -- -="cd -"
 alias t="trash"
 alias i="ironclad"
 alias l="mac lock"
+alias s="mac sleep"
 alias atom="atom -a"
 alias ydl="youtube-dl"
 
