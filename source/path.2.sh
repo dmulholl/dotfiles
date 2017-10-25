@@ -21,8 +21,8 @@ if test -d "$HOME/dev/bin"; then
 fi
 
 # Homebrew binaries on OSX.
-if test -d "$HOME/.homebrew/bin"; then
-    PATH=$PATH:$HOME/.homebrew/bin
+if test -d "$HOME/.brew/bin"; then
+    PATH=$PATH:$HOME/.brew/bin
 fi
 
 # Locally installed binaries.
