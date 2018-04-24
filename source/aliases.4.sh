@@ -19,7 +19,7 @@ alias lck="mac lock"
 alias slp="mac sleep"
 
 # History.
-alias h="history"
+alias h="history 25"
 alias h1="history 10"
 alias h2="history 20"
 alias h3="history 30"
@@ -50,7 +50,7 @@ alias gcarp="git commit -am 'Update readme' && git push"
 
 alias gd="git diff"
 
-alias gl="git log --oneline --graph"
+alias gl="git log --oneline --graph -25"
 alias gl1="git log --oneline --graph -10"
 alias gl2="git log --oneline --graph -20"
 alias gl3="git log --oneline --graph -30"
@@ -98,3 +98,6 @@ alias gpg="gpg2"
 alias arkd="python3 ~/src/ark/ark"
 alias ivyd="python3 ~/src/ivy/ivy"
 alias maltd="python3 ~/src/malt/malt"
+
+# Editor
+alias atom="atom -a"
