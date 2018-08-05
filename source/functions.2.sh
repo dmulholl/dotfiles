@@ -67,6 +67,7 @@ function clip() {
 function clean() {
     find . -name "*.egg-info" -exec rm -r "{}" +
     find . -name "__pycache__" -exec rm -r "{}" +
+    find . -name ".pytest_cache" -exec rm -r "{}" +
     find . -name "*.pyc" -delete
     find . -name ".DS_Store" -delete
     find . -name "._.DS_Store" -delete
