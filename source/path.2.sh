@@ -25,6 +25,11 @@ if test -d "$HOME/.brew/bin"; then
     PATH=$PATH:$HOME/.brew/bin
 fi
 
+# Rust installation.
+if test -d "$HOME/.cargo/bin"; then
+    PATH=$PATH:$HOME/.cargo/bin
+fi
+
 # Locally installed binaries.
 PATH=$PATH:/usr/local/bin
 

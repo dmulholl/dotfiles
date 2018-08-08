@@ -95,9 +95,9 @@ alias cal="gcal --starting-day=1"
 alias gpg="gpg2"
 
 # Local development versions.
-alias arkd="python3 ~/src/ark/ark"
 alias ivyd="python3 ~/src/ivy/ivy"
 alias maltd="python3 ~/src/malt/malt"
+alias lux="python3 ~/src/lux/lux"
 
 # Editor
 alias atom="atom -a"
