@@ -1,10 +1,10 @@
-# --------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Set the command prompt.
 #
 # Note that escaped square brackets \[ and \] are used to enclose sequences
 # of non-printing characters. This stops Bash getting confused about the
 # actual length of the prompt.
-# --------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 function prompt_data() {
     echo -n "[$?"
