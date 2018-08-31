@@ -12,7 +12,7 @@ function title() {
 }
 
 # Python makes a nice command line calculator.
-function calc() {
+function pycalc() {
     python3 -c "from math import *; print($*)"
 }
 
