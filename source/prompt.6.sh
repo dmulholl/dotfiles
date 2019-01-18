@@ -4,6 +4,8 @@
 # Note that escaped square brackets \[ and \] are used to enclose sequences
 # of non-printing characters. This stops Bash getting confused about the
 # actual length of the prompt.
+#
+# Prompt options:  |▶  |►  |▸  |▷  $|  $:
 # ------------------------------------------------------------------------------
 
 function prompt_data() {
@@ -21,6 +23,6 @@ function prompt_data() {
 
 prompt="
 \[$magenta\]\$(prompt_data) \[$green\]\u@\h \[$yellow\]\w
-\[$resetclrs\]\$ "
+\[$magenta\] \$: \[$resetclrs\]"
 
 export PS1=$prompt

@@ -1,6 +1,6 @@
 [user]
 	name = Darren Mulholland
-	email = darren@mulholland.xyz
+	email = dmulholl@tcd.ie
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
