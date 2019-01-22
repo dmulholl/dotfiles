@@ -9,17 +9,16 @@ alias ....="cd ../../.."
 alias -- -="cd -"
 
 # Misc.
-alias tsh="trash"
 alias irn="ironclad"
-alias atm="atom -a"
 alias ydl="youtube-dl"
+alias etc="atom -a ~/etc"
 
 # Lock & sleep.
 alias lck="mac lock"
 alias slp="mac sleep"
 
 # History.
-alias h="history 25"
+alias hist="history 25"
 alias h1="history 10"
 alias h2="history 20"
 alias h3="history 30"
