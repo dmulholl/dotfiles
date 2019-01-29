@@ -93,10 +93,8 @@ alias cal="gcal --starting-day=1"
 # Default to GnuPG v2.
 alias gpg="gpg2"
 
-# Local development versions.
-alias ivyd="python3 ~/src/ivy/ivy"
-alias maltd="python3 ~/src/malt/malt"
-alias lux="python3 ~/src/lux/lux"
+# Local development versions of Python packages.
+alias iv="python3 ~/src/ivy/ivy"
 
 # Editor
 alias atom="atom -a"
