@@ -13,9 +13,10 @@ alias irn="ironclad"
 alias ydl="youtube-dl"
 alias etc="atom -a ~/etc"
 
-# Lock & sleep.
+# Mac.
 alias lck="mac lock"
 alias slp="mac sleep"
+alias dir="open ."
 
 # History.
 alias hist="history 25"
@@ -94,7 +95,7 @@ alias cal="gcal --starting-day=1"
 alias gpg="gpg2"
 
 # Local development versions of Python packages.
-alias iv="python3 ~/src/ivy/ivy"
+alias ivy="python3 ~/src/ivy/ivy"
 
 # Editor
 alias atom="atom -a"
