@@ -21,7 +21,9 @@ function prompt_data() {
     echo -n "]"
 }
 
-prompt="
+termtitle="\[\e]0;\w\a\]"
+
+prompt="$termtitle
 \[$magenta\]\$(prompt_data) \[$green\]\u@\h \[$yellow\]\w
 \[$magenta\] \$: \[$resetclrs\]"
 
