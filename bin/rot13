@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# --------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Implementation of the ROT13 substitution cypher.
 #
 # Applies the cypher to the script's first argument;
@@ -10,7 +10,7 @@
 #
 # Author: Darren Mulholland <darren@mulholland.xyz>
 # License: Public Domain
-# --------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 import sys
 
