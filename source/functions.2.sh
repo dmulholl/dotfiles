@@ -92,11 +92,3 @@ function man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
-
-# Print a line of dashes across the width of the terminal.
-function dashes() {
-    for (( i=0; i<$COLUMNS; i++ )); do
-        echo -n "-"
-    done
-    echo
-}
