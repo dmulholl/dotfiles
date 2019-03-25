@@ -3,6 +3,59 @@
 # Print a line across the width of the terminal.
 # ------------------------------------------------------------------------------
 
+# Check for a colour argument.
+case "$1" in
+    black)
+        echo -ne "\e[30m"
+        ;;
+    red)
+        echo -ne "\e[31m"
+        ;;
+    green)
+        echo -ne "\e[32m"
+        ;;
+    yellow)
+        echo -ne "\e[33m"
+        ;;
+    blue)
+        echo -ne "\e[34m"
+        ;;
+    magenta)
+        echo -ne "\e[35m"
+        ;;
+    cyan)
+        echo -ne "\e[36m"
+        ;;
+    white)
+        echo -ne "\e[37m"
+        ;;
+    brightblack)
+        echo -ne "\e[90m"
+        ;;
+    brightred)
+        echo -ne "\e[91m"
+        ;;
+    brightgreen)
+        echo -ne "\e[92m"
+        ;;
+    brightyellow)
+        echo -ne "\e[93m"
+        ;;
+    brightblue)
+        echo -ne "\e[94m"
+        ;;
+    brightmagenta)
+        echo -ne "\e[95m"
+        ;;
+    brightcyan)
+        echo -ne "\e[96m"
+        ;;
+    brightwhite)
+        echo -ne "\e[97m"
+        ;;
+esac
+
+# Get the terminal width.
 cols=$(tput cols)
 
 for (( i=0; i<$cols; i++ )); do
@@ -10,3 +63,8 @@ for (( i=0; i<$cols; i++ )); do
 done
 
 echo
+
+# If we had a colour argument, reset to default.
+if test -n "$1"; then
+    echo -ne "\e[39m"
+fi
