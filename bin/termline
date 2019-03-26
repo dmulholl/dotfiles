@@ -3,8 +3,31 @@
 # Print a coloured line across the width of the terminal.
 # ──────────────────────────────────────────────────────────────────────────────
 
+# Print the help text.
+print_help() {
+    cat <<EOF
+Usage: termline [FLAG] [ARG]
+
+  Print a line across the width of the terminal.
+
+  Color names: black, red, green, yellow, blue, magenta, cyan, white,
+  bright-black, bright-red, bright-green, bright-yellow, bright-blue,
+  bright-magenta, bright-cyan, bright-white.
+
+Arguments:
+  [color]           One of 16 named colors or a color code between 0 and 255.
+
+Flags:
+  -h, --help        Print this help text and exit.
+EOF
+}
+
 # Check for a colour argument.
 case "$1" in
+    --help|-h)
+        print_help
+        exit 0
+        ;;
     black)
         echo -ne "\e[30m"
         ;;
@@ -53,6 +76,9 @@ case "$1" in
     bright-white)
         echo -ne "\e[97m"
         ;;
+    *)
+        echo -ne "\e[38;5;$1m"
+        ;;
 esac
 
 # Get the terminal width.
@@ -63,7 +89,7 @@ for (( i=0; i<$cols; i++ )); do
 done
 echo
 
-# If we had a colour argument, reset to default.
+# Reset the foreground colour to its default.
 if test -n "$1"; then
     echo -ne "\e[39m"
 fi
