@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# ------------------------------------------------------------------------------
-# Print a line across the width of the terminal.
-# ------------------------------------------------------------------------------
+# ──────────────────────────────────────────────────────────────────────────────
+# Print a coloured line across the width of the terminal.
+# ──────────────────────────────────────────────────────────────────────────────
 
 # Check for a colour argument.
 case "$1" in
@@ -29,28 +29,28 @@ case "$1" in
     white)
         echo -ne "\e[37m"
         ;;
-    brightblack)
+    bright-black|grey|gray)
         echo -ne "\e[90m"
         ;;
-    brightred)
+    bright-red)
         echo -ne "\e[91m"
         ;;
-    brightgreen)
+    bright-green)
         echo -ne "\e[92m"
         ;;
-    brightyellow)
+    bright-yellow)
         echo -ne "\e[93m"
         ;;
-    brightblue)
+    bright-blue)
         echo -ne "\e[94m"
         ;;
-    brightmagenta)
+    bright-magenta)
         echo -ne "\e[95m"
         ;;
-    brightcyan)
+    bright-cyan)
         echo -ne "\e[96m"
         ;;
-    brightwhite)
+    bright-white)
         echo -ne "\e[97m"
         ;;
 esac
@@ -61,7 +61,6 @@ cols=$(tput cols)
 for (( i=0; i<$cols; i++ )); do
     echo -n "─"
 done
-
 echo
 
 # If we had a colour argument, reset to default.
