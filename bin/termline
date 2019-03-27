@@ -8,14 +8,14 @@ print_help() {
     cat <<EOF
 Usage: termline [FLAG] [ARG]
 
-  Print a line across the width of the terminal.
+  Print a coloured line across the width of the terminal.
 
   Color names: black, red, green, yellow, blue, magenta, cyan, white,
   bright-black, bright-red, bright-green, bright-yellow, bright-blue,
   bright-magenta, bright-cyan, bright-white.
 
 Arguments:
-  [color]           One of 16 named colors or a color code between 0 and 255.
+  [color]           A named colour or a colour code between 0 and 255.
 
 Flags:
   -h, --help        Print this help text and exit.
@@ -75,6 +75,8 @@ case "$1" in
         ;;
     bright-white)
         echo -ne "\e[97m"
+        ;;
+    "")
         ;;
     *)
         echo -ne "\e[38;5;$1m"
