@@ -20,6 +20,11 @@ if test -d "$HOME/dev/bin"; then
     PATH=$PATH:$HOME/dev/bin
 fi
 
+# Go binaries.
+if test -d "$HOME/dev/go/bin"; then
+    PATH=$PATH:$HOME/dev/go/bin
+fi
+
 # Homebrew binaries on OSX.
 if test -d "$HOME/.brew/bin"; then
     PATH=$PATH:$HOME/.brew/bin

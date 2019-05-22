@@ -95,7 +95,7 @@ alias cal="gcal --starting-day=1"
 alias gpg="gpg2"
 
 # Local development versions of Python packages.
-alias ivy="python3 ~/src/ivy/ivy"
+alias ivy="python3 ~/dev/src/ivy/ivy"
 
 # Editor
 alias atom="atom -a"
