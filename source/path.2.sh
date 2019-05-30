@@ -25,7 +25,7 @@ if test -d "$HOME/dev/go/bin"; then
     PATH=$PATH:$HOME/dev/go/bin
 fi
 
-# Homebrew binaries on OSX.
+# Boxed homebrew binaries on OSX.
 if test -d "$HOME/.brew/bin"; then
     PATH=$PATH:$HOME/.brew/bin
 fi
