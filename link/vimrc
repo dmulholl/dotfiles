@@ -102,3 +102,6 @@ autocmd FocusGained * :set relativenumber
 
 " Toggle between relative and absolute line numbering.
 nnoremap <silent><leader>n :set relativenumber!<cr>
+
+" Show the current command as we're typing it.
+set showcmd
