@@ -17,6 +17,7 @@ hi CursorLineNr     ctermfg=233
 hi StatusLine       ctermfg=238         ctermbg=0
 hi Visual                               ctermbg=235
 hi Search                               ctermbg=235
+hi NonText          ctermfg=4
 
 hi Comment          ctermfg=238
 hi Constant         ctermfg=3
