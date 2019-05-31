@@ -10,23 +10,24 @@ endif
 
 let colors_name = "dusk"
 
-hi Comment          ctermfg=8
 hi Normal           ctermfg=none        ctermbg=none
-hi NonText          ctermfg=none        ctermbg=none
-hi LineNr           ctermfg=8
-hi CursorLineNr     ctermfg=8
-hi String           ctermfg=3
-hi Keyword          ctermfg=2
-hi Statement        ctermfg=2
-hi Function         ctermfg=4
+
+hi LineNr           ctermfg=233
+hi CursorLineNr     ctermfg=233
+hi StatusLine       ctermfg=238         ctermbg=0
+hi Visual                               ctermbg=235
+hi Search                               ctermbg=235
+
+hi Comment          ctermfg=238
+hi Constant         ctermfg=3
+hi Identifier       ctermfg=2
+hi Statement        ctermfg=5
 hi PreProc          ctermfg=5
-hi Constant         ctermfg=6
-hi Character        ctermfg=6
-hi Number           ctermfg=6
-hi Visual                               ctermbg=237
-hi Search                               ctermbg=237
-hi MatchParen                           ctermbg=53          cterm=bold
-hi StatusLine       ctermfg=244         ctermbg=0
-hi ErrorMsg         ctermfg=7           ctermbg=52
-hi Question         ctermfg=7
-hi ModeMsg          ctermfg=8
+hi Type             ctermfg=4
+hi Special          ctermfg=6
+hi Underlined       ctermfg=2
+hi Ignore           ctermfg=238
+hi Error                                ctermbg=52
+hi Todo             ctermfg=2
+
+hi MatchParen                           ctermbg=8          cterm=bold
