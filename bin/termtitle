@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+# ──────────────────────────────────────────────────────────────────────────────
+# Print a title across the width of the terminal.
+# ──────────────────────────────────────────────────────────────────────────────
+
+import shutil
+import sys
+import math
+
+helptext = "Usage: termtitle [line-color] [text-color] <text>"
+
+def get_color_code(arg):
+    if arg == "black":
+        return "\x1B[30m"
+    elif arg == "red":
+        return "\x1B[31m"
+    elif arg == "green":
+        return "\x1B[32m"
+    elif arg == "yellow":
+        return "\x1B[33m"
+    elif arg == "blue":
+        return "\x1B[34m"
+    elif arg == "magenta":
+        return "\x1B[35m"
+    elif arg == "cyan":
+        return "\x1B[36m"
+    elif arg == "white":
+        return "\x1B[37m"
+    else:
+        return "\x1B[38;5;%sm" % arg
+
+def parse_args():
+    line_color = ""
+    text_color = ""
+    if len(sys.argv) == 1:
+        sys.exit(helptext)
+    elif len(sys.argv) == 2:
+        text = sys.argv[1]
+    elif len(sys.argv) == 3:
+        line_color = get_color_code(sys.argv[1])
+        text = sys.argv[2]
+    elif len(sys.argv) == 4:
+        line_color = get_color_code(sys.argv[1])
+        text_color = get_color_code(sys.argv[2])
+        text = sys.argv[3]
+    else:
+        sys.exit(helptext)
+    return line_color, text_color, text
+
+def main():
+    line_color, text_color, text = parse_args()
+    cols, _ = shutil.get_terminal_size()
+    leading = math.floor((cols - len(text) - 4)/2)
+    trailing = cols - len(text) - 4 - leading
+    sys.stdout.write(line_color)
+    sys.stdout.write("─" * cols + "\n ·" + "\x1B[39m")
+    sys.stdout.write(text_color)
+    sys.stdout.write(" " * leading + text + " " * trailing)
+    sys.stdout.write(line_color)
+    sys.stdout.write("· \n" + "─" * cols + "\n" + "\x1B[39m")
+
+if __name__ == "__main__":
+    main()
+
