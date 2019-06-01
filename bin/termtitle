@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ──────────────────────────────────────────────────────────────────────────────
-# Print a title across the width of the terminal.
+# Print a centered title across the width of the terminal.
 # ──────────────────────────────────────────────────────────────────────────────
 
 import shutil
@@ -26,6 +26,22 @@ def get_color_code(arg):
         return "\x1B[36m"
     elif arg == "white":
         return "\x1B[37m"
+    elif arg == "bright-black" or arg == "grey" or arg == "gray":
+        return "\x1B[90m"
+    elif arg == "bright-red":
+        return "\x1B[91m"
+    elif arg == "bright-green":
+        return "\x1B[92m"
+    elif arg == "bright-yellow":
+        return "\x1B[93m"
+    elif arg == "bright-blue":
+        return "\x1B[94m"
+    elif arg == "bright-magenta":
+        return "\x1B[95m"
+    elif arg == "bright-cyan":
+        return "\x1B[96m"
+    elif arg == "bright-white":
+        return "\x1B[97m"
     else:
         return "\x1B[38;5;%sm" % arg
 
