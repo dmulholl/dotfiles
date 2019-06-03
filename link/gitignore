@@ -8,3 +8,9 @@ __pycache__/
 # Pytest
 .cache/
 .pytest_cache
+
+# Vim
+*.swp
+
+# Local notes.
+/local.txt
