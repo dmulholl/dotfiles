@@ -13,4 +13,4 @@ __pycache__/
 *.swp
 
 # Local notes.
-/local.txt
+/*.tmp.txt
