@@ -3,6 +3,6 @@
 # ------------------------------------------------------------------------------
 
 # Source Swift completion.
-if [ -n "`which swift`" ]; then
+if is_installed swift; then
 	eval "`swift package completion-tool generate-bash-script`"
 fi
