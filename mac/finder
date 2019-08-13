@@ -14,8 +14,8 @@ Flags:
   --help            Display this help text and exit.
 
 Commands:
-  showhidden        Show hidden files.
-  hidehidden        Hide hidden files.
+  show              Show hidden files.
+  hide              Hide hidden files.
 EOF
 }
 
@@ -25,11 +25,11 @@ case "$1" in
         help
         exit 0
         ;;
-    showhidden)
+    show)
         defaults write com.apple.finder AppleShowAllFiles TRUE
         killall Finder /System/Library/CoreServices/Finder.app
         ;;
-    hidehidden)
+    hide)
         defaults write com.apple.finder AppleShowAllFiles FALSE
         killall Finder /System/Library/CoreServices/Finder.app
         ;;
