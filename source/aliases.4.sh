@@ -34,21 +34,16 @@ alias h9="history 90"
 alias ga="git add"
 alias gaa="git add --all"
 
+alias gp="git push"
+alias gd="git diff"
+alias gs="git status --short --branch"
+
 alias gc="git commit"
-
-alias gcah="git commit -am Housekeeping"
-alias gcahp="git commit -am Housekeeping && git push"
-
-alias gcad="git commit -am 'Update documentation'"
-alias gcadp="git commit -am 'Update documentation' && git push"
-
 alias gcm="git commit -m"
 alias gcam="git commit -am"
-
+alias gcah="git commit -am Housekeeping"
+alias gcad="git commit -am 'Update documentation'"
 alias gcar="git commit -am 'Update readme'"
-alias gcarp="git commit -am 'Update readme' && git push"
-
-alias gd="git diff"
 
 alias gl="git log --oneline --graph -25"
 alias gl1="git log --oneline --graph -10"
@@ -60,10 +55,6 @@ alias gl6="git log --oneline --graph -60"
 alias gl7="git log --oneline --graph -70"
 alias gl8="git log --oneline --graph -80"
 alias gl9="git log --oneline --graph -90"
-
-alias gp="git push"
-
-alias gs="git status --short --branch"
 
 # Hosts file.
 alias hosts="sudo vim /etc/hosts"
