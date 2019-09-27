@@ -1,8 +1,7 @@
-# -------------------------------------------------------------------------
-# Bootstrap file for the dotfiles installation.
-#
-# This file should load whenever a new shell instance is initialized.
-# -------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+# Bootstrap file for the dotfiles installation. This file should load whenever
+# a new shell instance is initialized.
+# ------------------------------------------------------------------------------
 
 # We only want to run this file once per shell instance.
 if test -n "$dotbootstrapped"; then
