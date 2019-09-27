@@ -1,0 +1,189 @@
+" ------------------------------------------------------------------------------
+" Vim Settings
+" ------------------------------------------------------------------------------
+
+" Vim-Plug.
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug '/usr/local/opt/fzf'
+"Plug 'junegunn/fzf.vim'
+Plug 'cespare/vim-toml'
+call plug#end()
+
+" Allow backspace in insert mode.
+set backspace=indent,eol,start
+
+" Turn on syntax highlighting.
+syntax enable
+
+" Colorscheme.
+colorscheme dusk
+
+" The default is 8 commands.
+set history=9999
+
+" Reload files changed outside Vim.
+set autoread
+
+" Allow hidden buffers.
+set hidden
+
+" Indentation.
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set expandtab
+
+" Don't wrap lines.
+set nowrap
+
+" Load language plugins and indent files.
+filetype plugin on
+filetype indent on
+
+" Use case-sensitive search IFF the pattern contains uppercase letters.
+set ignorecase
+set smartcase
+
+" Find the next match as the search term is being typed.
+set incsearch
+
+" Highlight search matches.
+set hlsearch
+
+" Alternative to using the escape key.
+inoremap jj <ESC>
+
+" Wrap lines at word boundaries.
+set linebreak
+
+" Navigating splits.
+" nnoremap <C-J> <C-W><C-J> " move down
+" nnoremap <C-K> <C-W><C-K> " move up
+" nnoremap <C-H> <C-W><C-H> " move left
+" nnoremap <C-L> <C-W><C-L> " move right
+
+" Set custom filetypes.
+autocmd BufNewFile,BufRead *.stx set filetype=markdown
+autocmd BufNewFile,BufRead *.sh set filetype=bash
+
+" Enable mouse support.
+set mouse=a
+
+" Turn off modelines.
+set nomodeline
+
+" ------------------------------------------------------------
+" Finding Files
+" ------------------------------------------------------------
+
+" Search into subfolders.
+set path+=**
+
+" Display all matching files on tab-complete.
+" set wildmenu
+
+" ------------------------------------------------------------
+" Scrolling
+" ------------------------------------------------------------
+
+" Vertical scroll offset.
+set scrolloff=5
+
+" Horizontal scroll rate. The default is 0 which scrolls by half a screen.
+set sidescroll=1
+
+" Buffer scrolling with ctrl-n and ctrl-p.
+map <c-n> <c-e>
+map <c-p> <c-y>
+
+" ------------------------------------------------------------
+" Leader Shortcuts
+" ------------------------------------------------------------
+
+" Remap the <leader> key for custom shortcuts.
+let mapleader="\<Space>"
+
+" Shortcut for re-sourcing the vimrc file.
+map <leader>r :source ~/.vim/vimrc<cr>
+
+" Hotkey for toggling word wrapping.
+map <leader>w :set wrap!<cr>
+
+" Toggle spellcheck.
+nnoremap <leader>s :set spell!<cr>
+
+" Fuzzy finder.
+map <leader>f :FZF<cr>
+
+"-------------------------------------------------------------
+" Status Line
+" ------------------------------------------------------------
+
+" Always show the status line.
+set laststatus=2
+
+" Customize the status line.
+set statusline=
+set statusline+=\ \ %n          " buffer number
+set statusline+=\ \ %t          " tail of the filename
+set statusline+=\ %m            " modified flag
+set statusline+=%=              " left-right separator
+set statusline+=\ %4l/%L        " current line / total lines
+set statusline+=\ %3v           " column number
+set statusline+=\ \ %{&fo}      " format options
+set statusline+=\ \ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ \ %{&fileformat}
+set statusline+=\ \ %y          " filetype
+set statusline+=\ \             " trailing space
+
+" Show the current command as we're typing it.
+set showcmd
+
+" ------------------------------------------------------------
+" Line Numbers
+" ------------------------------------------------------------
+
+" Turn on line numbers and relative line numbers.
+set number
+set relativenumber
+
+" Show absolute line numbers when in insert mode.
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
+" Show absolute line numbers when we lose the focus. GUI only.
+autocmd FocusLost * :set norelativenumber
+autocmd FocusGained * :set relativenumber
+
+" Toggle between relative and absolute line numbering.
+map <silent><leader>n :set relativenumber!<cr>
+
+" ------------------------------------------------------------
+" Clipboard
+" ------------------------------------------------------------
+
+" Default to using the system clipboard instead of register 0.
+set clipboard=unnamed
+
+" ------------------------------------------------------------
+" NERDTree
+" ------------------------------------------------------------
+  
+" Toggle NT on and off.
+map <Leader>t :NERDTreeToggle<Enter>
+
+" Close NT when opening a file.
+let NERDTreeQuitOnOpen = 1
+
+" Don't show the '?' help prompt.
+let NERDTreeMinimalUI = 1
+
+" Open NT when Vim starts if no files were specified.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close Vim if the only window left is NT.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

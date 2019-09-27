@@ -10,3 +10,9 @@ __pycache__/
 
 # Vim temporary files.
 *.swp
+
+# Vim-Plug plugins.
+/link/vim/plugged/
+
+# Misc.
+.netrwhist

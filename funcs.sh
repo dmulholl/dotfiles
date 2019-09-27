@@ -62,7 +62,10 @@ function dot_source() {
     done
 }
 
-# Create symbolic links to all files in the repository's /link directory.
+# Create a symbolic link in the home directory to each file or directory in the
+# /link directory, adding a leading dot to each name. If a file with the same
+# name exists in the home directory (and isn't a symbolic link), that file is
+# backed up to the /backups directory before being replaced.
 function dot_link() {
     local verbose srcfile trgfile
     [[ "$1" == "-v" || "$1" == "--verbose" ]] && verbose="on"
@@ -71,7 +74,7 @@ function dot_link() {
         dstfile=~/.$(basename $srcfile)
         [[ $verbose ]] && dot_arrow "Linking: ~/$(basename $dstfile)"
         if test -e $dstfile; then
-            test -h $dstfile || dot_backup $dstfile
+            test -L $dstfile || dot_backup $dstfile
             rm -rf $dstfile
         fi
         ln -sf $srcfile $dstfile

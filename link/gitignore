@@ -9,7 +9,7 @@ __pycache__/
 .cache/
 .pytest_cache
 
-# Vim
+# Vim temporary files.
 *.swp
 
 # Local notes.
