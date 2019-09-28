@@ -15,13 +15,14 @@ hi Normal           ctermfg=none        ctermbg=none
 " Interface elements.
 hi LineNr           ctermfg=233
 hi CursorLineNr     ctermfg=233
-hi StatusLine       ctermfg=240         ctermbg=0
+hi StatusLine       ctermfg=242         ctermbg=0
 hi StatusLineNC     ctermfg=236         ctermbg=0
 hi Visual                               ctermbg=235
 hi Search                               ctermbg=235
 hi NonText          ctermfg=233
 hi MatchParen                           ctermbg=8           cterm=bold
 hi ErrorMsg         ctermfg=9           ctermbg=0           
+hi VertSplit        ctermfg=236         ctermbg=236
 
 " Spellcheck.
 hi SpellBad                             ctermbg=52
