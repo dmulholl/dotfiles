@@ -60,10 +60,14 @@ inoremap jj <ESC>
 set linebreak
 
 " Navigating splits.
-" nnoremap <C-J> <C-W><C-J> " move down
-" nnoremap <C-K> <C-W><C-K> " move up
-" nnoremap <C-H> <C-W><C-H> " move left
-" nnoremap <C-L> <C-W><C-L> " move right
+nnoremap <C-J> <C-W><C-J> 
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-H> <C-W><C-H> 
+nnoremap <C-L> <C-W><C-L>
+
+" Open new split panes to the right and to the bottom.
+set splitbelow
+set splitright
 
 " Set custom filetypes.
 autocmd BufNewFile,BufRead *.stx set filetype=markdown
