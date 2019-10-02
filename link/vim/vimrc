@@ -87,7 +87,9 @@ set nomodeline
 set path+=**
 
 " Display all matching files on tab-complete.
-" set wildmenu
+set wildmenu
+set wildignorecase
+set wildmode=longest:list,full
 
 " ------------------------------------------------------------
 " Scrolling
