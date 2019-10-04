@@ -79,6 +79,9 @@ set mouse=a
 " Turn off modelines.
 set nomodeline
 
+" Assume .tex files are latex by default.
+let g:tex_flavor = "latex"
+
 " ------------------------------------------------------------
 " Finding Files
 " ------------------------------------------------------------
@@ -123,6 +126,12 @@ nnoremap <leader>s :set spell!<cr>
 
 " Fuzzy finder.
 map <leader>f :FZF<cr>
+
+" Save and compile a latex file.
+autocmd FileType tex nmap <buffer> <leader>l :w <bar> !xelatex %<cr>
+
+" Open compiled pdf in viewer.
+autocmd FileType tex nmap <buffer> <leader>v :!open -a preview %:r.pdf<cr><cr>
 
 "-------------------------------------------------------------
 " Status Line
