@@ -131,7 +131,7 @@ map <leader>f :FZF<cr>
 autocmd FileType tex nmap <buffer> <leader>l :w <bar> !xelatex %<cr>
 
 " Open compiled pdf in viewer.
-autocmd FileType tex nmap <buffer> <leader>v :!open -a preview %:r.pdf<cr><cr>
+autocmd FileType tex nmap <buffer> <leader>v :!open -a skim %:r.pdf<cr><cr>
 
 "-------------------------------------------------------------
 " Status Line
