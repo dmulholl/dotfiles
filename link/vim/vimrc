@@ -82,6 +82,10 @@ set nomodeline
 " Assume .tex files are latex by default.
 let g:tex_flavor = "latex"
 
+" Insert blank lines in normal mode.
+nnoremap <Enter> :call append(line('.'), '')<CR>
+nnoremap <S-Enter> :call append(line('.')-1, '')<CR>
+
 " ------------------------------------------------------------
 " Finding Files
 " ------------------------------------------------------------
