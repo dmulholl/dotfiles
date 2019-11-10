@@ -32,7 +32,7 @@ The `dot` command provides an interface to the installation's utility functions:
 
     Commands:
       update    Update the local dotfiles repository.
-      init      (Re)initialize the installation.
+      init      Initialize/reinitialize the installation.
       src       Source all files in ~/.dotfiles/source.
       link      Link all files in ~/.dotfiles/link into ~/.
       log       Print the log file to stdout.
@@ -40,7 +40,7 @@ The `dot` command provides an interface to the installation's utility functions:
 
 ## Installation
 
-    git clone https://github.com/dmulholland/dotfiles.git ~/.dotfiles && source ~/.dotfiles/init.sh
+    git clone https://github.com/dmulholland/dotfiles.git ~/.dotfiles && source ~/.dotfiles/admin/init.sh
 
 The installation can be reinitialized at any time using the `dot init` command.
 

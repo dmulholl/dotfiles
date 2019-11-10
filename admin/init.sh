@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 
 # Load the bootstrapping file.
-source ~/.dotfiles/boot.sh
+source ~/.dotfiles/admin/boot.sh
 
 # Run the initialization routine.
 dot init

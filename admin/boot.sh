@@ -13,7 +13,7 @@ dotbootstrapped="true"
 export DOTFILES=~/.dotfiles
 
 # Load the installation's admin functions.
-source $DOTFILES/funcs.sh
+source $DOTFILES/admin/funcs.sh
 
 # Source all files in the installation's /source directory.
 dot src

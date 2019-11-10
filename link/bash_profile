@@ -6,4 +6,4 @@
 # as login shells.
 # ------------------------------------------------------------------------------
 
-source ~/.dotfiles/boot.sh
+source ~/.dotfiles/admin/boot.sh
