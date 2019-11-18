@@ -11,7 +11,7 @@ __pycache__/
 # Vim temporary files.
 *.swp
 
-# Vim-Plug plugins.
+# Vim-Plug plugins. (Each plugin is a Git repo itself.)
 /link/vim/plugged/
 
 # Misc.

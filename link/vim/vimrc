@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree'
 Plug '/usr/local/opt/fzf'
 "Plug 'junegunn/fzf.vim'
 Plug 'cespare/vim-toml'
+Plug 'sirver/ultisnips'
 call plug#end()
 
 " Allow backspace in insert mode.
@@ -206,3 +207,12 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Close Vim if the only window left is NT.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" ------------------------------------------------------------
+" UltiSnips
+" ------------------------------------------------------------
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
