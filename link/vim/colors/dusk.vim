@@ -46,3 +46,8 @@ hi Todo             ctermfg=2           ctermbg=none
 " NERDTree plugin.
 hi NERDTreeDir      ctermfg=4
 hi NERDTreeDirSlash ctermfg=4
+
+" Markdown.
+hi markdownItalic   ctermfg=5
+hi markdownBold     ctermfg=4
+hi markdownH1       ctermfg=5
