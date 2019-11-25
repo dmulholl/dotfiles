@@ -148,7 +148,7 @@ set laststatus=2
 " Customize the status line.
 set statusline=
 set statusline+=\ \ %n          " buffer number
-set statusline+=\ \ %t          " tail of the filename
+set statusline+=\ \ %F          " filename
 set statusline+=\ %m            " modified flag
 set statusline+=%=              " left-right separator
 set statusline+=\ %4l/%L        " current line / total lines
