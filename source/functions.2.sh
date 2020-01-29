@@ -89,6 +89,8 @@ function clean() {
         find . -name "*.fls" -delete
         find . -name "*.xdv" -delete
         find . -name "*.fdb_latexmk" -delete
+        find . -name "*.bbl" -delete
+        find . -name "*.blg" -delete
     fi
 }
 

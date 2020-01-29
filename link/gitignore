@@ -17,6 +17,8 @@ __pycache__/
 
 # Latex build files.
 *.aux
+*.bbl
+*.blg
 *.dvi
 *.fdb_latexmk
 *.fls
