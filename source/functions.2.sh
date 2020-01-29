@@ -82,7 +82,13 @@ function clean() {
         find . -name "*.aux" -delete
         find . -name "*.toc" -delete
         find . -name "*.out" -delete
-        find . -name "*.lo[fgt]" -delete
+        find . -name "*.lof" -delete
+        find . -name "*.log" -delete
+        find . -name "*.lot" -delete
+        find . -name "*.dvi" -delete
+        find . -name "*.fls" -delete
+        find . -name "*.xdv" -delete
+        find . -name "*.fdb_latexmk" -delete
     fi
 }
 
