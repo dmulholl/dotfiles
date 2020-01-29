@@ -132,11 +132,11 @@ nnoremap <leader>s :set spell!<cr>
 " Fuzzy finder.
 map <leader>f :FZF<cr>
 
-" Save and compile a latex file.
-autocmd FileType tex nmap <buffer> <leader>l :w <bar> !xelatex %<cr>
+" Latex: save all open files and compile 'main.tex'.
+autocmd FileType tex nmap <buffer> <leader>x :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
 
-" Open compiled pdf in viewer.
-autocmd FileType tex nmap <buffer> <leader>v :!open -a skim %:r.pdf<cr><cr>
+" Latex: open the compiled pdf.
+autocmd FileType tex nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
 
 "-------------------------------------------------------------
 " Status Line
