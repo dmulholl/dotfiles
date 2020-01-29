@@ -83,9 +83,9 @@ set nomodeline
 " Assume .tex files are latex by default.
 let g:tex_flavor = "latex"
 
-" Insert blank lines in normal mode.
+" Insert blank lines in normal mode. Shift-Enter doesn't work in the terminal.
 nnoremap <Enter> :call append(line('.'), '')<CR>
-nnoremap <S-Enter> :call append(line('.')-1, '')<CR>
+nnoremap <C-O> :call append(line('.')-1, '')<CR>
 
 " ------------------------------------------------------------
 " Finding Files
