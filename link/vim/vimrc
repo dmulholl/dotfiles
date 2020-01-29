@@ -201,10 +201,6 @@ let NERDTreeQuitOnOpen = 1
 " Don't show the '?' help prompt.
 let NERDTreeMinimalUI = 1
 
-" Open NT when Vim starts if no files were specified.
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " Close Vim if the only window left is NT.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
