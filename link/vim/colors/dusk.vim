@@ -55,4 +55,4 @@ hi markdownH1       ctermfg=5
 " Clear unwanted highlights.
 hi clear texItalStyle
 hi clear texBoldStyle
-hi clear texEmpStyle
+hi clear texEmphStyle
