@@ -88,5 +88,9 @@ alias gpg="gpg2"
 # Local development versions of Python packages.
 alias iv="python3 ~/dev/src/ivy/ivy"
 
-# Editor
+# Editor.
 alias atom="atom -a"
+
+# Fuzy finder.
+alias ff="fzf"
+
