@@ -138,6 +138,9 @@ autocmd FileType tex nmap <buffer> <leader>x :wa <bar> !latexmk --xelatex main &
 " Latex: open the compiled pdf.
 autocmd FileType tex nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
 
+" Identify the syntax highlighting group under the cursor.
+map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 "-------------------------------------------------------------
 " Status Line
 " ------------------------------------------------------------
@@ -211,4 +214,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+
+
 
