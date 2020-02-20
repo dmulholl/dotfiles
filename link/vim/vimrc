@@ -19,6 +19,7 @@ syntax enable
 
 " Colorscheme.
 colorscheme dusk
+autocmd BufRead * :colorscheme dusk
 
 " The default is 8 commands.
 set history=9999
@@ -214,7 +215,4 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-
-
 
