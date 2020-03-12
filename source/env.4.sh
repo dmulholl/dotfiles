@@ -6,4 +6,3 @@ export LESS="--tabs=4 -RFX"
 
 export FZF_DEFAULT_COMMAND="rg --files"
 
-
