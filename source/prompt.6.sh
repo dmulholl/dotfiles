@@ -12,6 +12,10 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
+parse_git_dirty() {
+    [[ -z $(git status --porcelain) ]] || echo "*"
+}
+
 prompt_data() {
     echo -n "[$?"
 
@@ -23,9 +27,9 @@ prompt_data() {
     fi
 
     # Git branch name.
-    # local branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)
     local branch=$(parse_git_branch)
-    [ $branch ] && echo -n ":$branch"
+    local dirty=$(parse_git_dirty)
+    [ $branch ] && echo -n ":${branch}${dirty}"
 
     echo -n "]"
 }
