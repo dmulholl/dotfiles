@@ -19,4 +19,4 @@ source $DOTFILES/admin/funcs.sh
 dot src
 
 # Try to activate the default Python virtual environment if it's available.
-dotpy-try-activate py3
+dotpy-try-activate base

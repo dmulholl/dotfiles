@@ -15,8 +15,12 @@ parse_git_branch() {
 prompt_data() {
     echo -n "[$?"
 
-    # Active Python virtual environment.
-    [ $VIRTUAL_ENV ] && echo -n ":$(basename $VIRTUAL_ENV)"
+    # Python enviroment.
+    if [ $CONDA_PREFIX ]; then
+        echo -n ":conda($(basename $CONDA_DEFAULT_ENV))"
+    elif [ $VIRTUAL_ENV ]; then
+        echo -n ":dotpy($(basename $VIRTUAL_ENV))"
+    fi
 
     # Git branch name.
     # local branch=$(git branch 2> /dev/null | grep '^*' | colrm 1 2)

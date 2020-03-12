@@ -8,8 +8,8 @@ export PYTHONPATH=~/dev/lib:~/.dotfiles/lib/python
 # Disable the default virtualenv prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
-# Require a virtual environment to be active for pip to function. We don't w
-# want o accidentally mess with the system or homebrew Python installations.
+# Require a virtual environment to be active for pip to function. We don't
+# want to accidentally mess with the system or homebrew Python installations.
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Install a package using the global version of Python 2.
@@ -30,13 +30,13 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # --------------------------------------------------------------------------
 
 # Store all virtual environments in the following directory.
-export VENVHOME=~/.virtualenvs
+export DOTPYENVS=~/.dotpyenvs
 
 # Activate a virtual environment. Print an error message on failure.
 function dotpy-activate() {
     if [[ -n "$1" ]]; then
         local name="$1"
-        local script=$VENVHOME/$name/bin/activate
+        local script=$DOTPYENVS/$name/bin/activate
         if [[ -e $script ]]; then
             source $script
         else
@@ -49,7 +49,7 @@ function dotpy-activate() {
 
 # Silently try to activate a virtual environment. No error on failure.
 function dotpy-try-activate() {
-    local script=$VENVHOME/$1/bin/activate
+    local script=$DOTPYENVS/$1/bin/activate
     if [[ -e $script ]]; then
         source $script
     fi
@@ -59,10 +59,10 @@ function dotpy-try-activate() {
 function dotpy-make() {
     if [[ -n "$1" ]]; then
         local name="$1"
-        local path=$VENVHOME/$name
+        local path=$DOTPYENVS/$name
         shift
-        if [[ ! -d $VENVHOME ]]; then
-            mkdir -p $VENVHOME
+        if [[ ! -d $DOTPYENVS ]]; then
+            mkdir -p $DOTPYENVS
         fi
         if [[ -d $path ]]; then
             echo "Error: '$name' already exists."
@@ -78,7 +78,7 @@ function dotpy-make() {
 function dotpy-remove() {
     if [[ $# -ne 0 ]]; then
         for name in "$@"; do
-            local path=$VENVHOME/$name
+            local path=$DOTPYENVS/$name
             if [[ -d $path ]]; then
                 rm -rf $path
             else
@@ -92,7 +92,7 @@ function dotpy-remove() {
 
 # List all virtual environments.
 function dotpy-list() {
-    /bin/ls -m $VENVHOME
+    /bin/ls -m $DOTPYENVS
 }
 
 # Print help.
@@ -104,17 +104,17 @@ Usage: dotpy <command> <args>
 
 Commands:
 
-  a, activate <name>       Activate the named virtual environment.
-  d, deactivate            Deactivate the current virtual environment.
-  h, help                  Print this help message and exit.
-  l, ls, list              List all virtual environments.
-  m, mk, make <name>       Make a new virtual environment.
-  r, rm, remove <names>    Delete one or more virtual environments.
+  activate <name>       Activate the named virtual environment.
+  deactivate            Deactivate the current virtual environment.
+  help                  Print this help message and exit.
+  list                  List all virtual environments.
+  make <name>           Make a new virtual environment.
+  remove <names>        Delete one or more virtual environments.
 
 Environments:
 
 EOF
-    echo -n "  " && /bin/ls -m $VENVHOME
+    echo -n "  " && /bin/ls -m $DOTPYENVS
 }
 
 # Public interface for the suite of utility functions.
