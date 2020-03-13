@@ -13,7 +13,7 @@ parse_git_branch() {
 }
 
 parse_git_dirty() {
-    [[ -z $(git status --porcelain) ]] || echo "*"
+    [[ -z $(git status --porcelain 2> /dev/null) ]] || echo "*"
 }
 
 prompt_data() {
