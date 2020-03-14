@@ -102,6 +102,9 @@ Usage: dotpy <command> <args>
 
   Utility for managing Python virtual environments.
 
+  Note: the 'make' command uses 'virtualenv' and accepts all the same
+  arguments as that tool.
+
 Commands:
 
   activate <name>       Activate the named virtual environment.
