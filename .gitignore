@@ -12,7 +12,7 @@ __pycache__/
 *.swp
 
 # Vim-Plug plugins. (Each plugin is a Git repo itself.)
-/link/vim/plugged/
+/link/vim/vimplug/
 
 # Misc.
 .netrwhist

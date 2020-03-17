@@ -3,12 +3,12 @@
 " ------------------------------------------------------------------------------
 
 " Vim-Plug.
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/vimplug')
 Plug 'scrooloose/nerdtree'
 Plug '/usr/local/opt/fzf'
-"Plug 'junegunn/fzf.vim'
 Plug 'cespare/vim-toml'
 Plug 'sirver/ultisnips'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " Allow backspace in insert mode.
@@ -62,9 +62,9 @@ inoremap jj <ESC>
 set linebreak
 
 " Navigating splits.
-nnoremap <C-J> <C-W><C-J> 
+nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
-nnoremap <C-H> <C-W><C-H> 
+nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
 
 " Open new split panes to the right and to the bottom.
@@ -121,10 +121,13 @@ map <c-p> <c-y>
 " Remap the <leader> key for custom shortcuts.
 let mapleader="\<Space>"
 
-" Shortcut for re-sourcing the vimrc file.
-map <leader>r :source ~/.vim/vimrc<cr>
+" Edit the vimrc file.
+map <leader>ve :e ~/.vim/vimrc<cr>
 
-" Hotkey for toggling word wrapping.
+" Re-source the vimrc file.
+map <leader>vr :source ~/.vim/vimrc<cr>
+
+" Toggle word-wrapping.
 map <leader>w :set wrap!<cr>
 
 " Toggle spellcheck.
@@ -133,15 +136,25 @@ nnoremap <leader>s :set spell!<cr>
 " Fuzzy finder.
 map <leader>f :FZF<cr>
 
+" Save and execute the current file.
+map <leader>x :w <bar> !"%:p"<cr>
+
 " Latex: save all open files and compile 'main.tex'.
-autocmd FileType tex nmap <buffer> <leader>x :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
+autocmd FileType tex nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
 
 " Latex: open the compiled pdf.
 autocmd FileType tex nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
 
+" Python: save and execute the current file.
+autocmd FileType python nmap <buffer> <leader>p :w <bar> !python "%:p"<cr>
+
 " Identify the syntax highlighting group under the cursor.
 map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+" Commenting.
+autocmd FileType python nmap <buffer> <leader>c 0i# <esc>
+autocmd FileType python nmap <buffer> <leader>u 0xx 
+ 
 "-------------------------------------------------------------
 " Status Line
 " ------------------------------------------------------------
@@ -195,7 +208,7 @@ set clipboard=unnamed
 " ------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------
-  
+
 " Toggle NT on and off.
 map <Leader>t :NERDTreeToggle<Enter>
 
@@ -215,4 +228,3 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
