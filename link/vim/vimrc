@@ -26,6 +26,7 @@ set history=9999
 
 " Reload files changed outside Vim.
 set autoread
+autocmd CursorHold * checktime
 
 " Allow hidden buffers.
 set hidden
