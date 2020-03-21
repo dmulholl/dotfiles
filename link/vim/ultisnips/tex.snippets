@@ -50,9 +50,40 @@ snippet fig "figure" b
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{$1}
-    \caption{$2}
-	\label{fig:$3}
+    \caption[$2]{$3}
+	\label{fig:$4}
 \end{figure}
 endsnippet
 
+snippet subfig "subfigure" b
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$1}
+        \caption{$2}
+        \label{fig:$3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$4}
+        \caption{$5}
+        \label{fig:$6}
+    \end{subfigure}
+    \caption[$7]{$8}
+    \label{fig:$9}
+\end{figure}
+endsnippet
+
+snippet tab "table" b
+\begin{table}
+	\centering
+	\begin{tabular}{$1}
+		$2
+	\end{tabular}
+	\caption{$3}
+	\label{tab:$4}
+\end{table}
+endsnippet
 
