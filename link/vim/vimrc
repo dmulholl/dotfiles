@@ -89,6 +89,9 @@ let g:tex_flavor = "latex"
 nnoremap <Enter> :call append(line('.'), '')<CR>
 nnoremap <C-O> :call append(line('.')-1, '')<CR>
 
+" Show as much of the last line as possible.
+set display=lastline
+
 " ------------------------------------------------------------
 " Finding Files
 " ------------------------------------------------------------
