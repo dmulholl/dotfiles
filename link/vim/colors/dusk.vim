@@ -15,8 +15,10 @@ hi Normal           ctermfg=none        ctermbg=none
 " Interface elements.
 hi LineNr           ctermfg=233
 hi CursorLineNr     ctermfg=233
-hi StatusLine       ctermfg=242         ctermbg=0
-hi StatusLineNC     ctermfg=236         ctermbg=0
+hi StatusLine       ctermfg=242         ctermbg=0           cterm=reverse
+hi StatusLineNC     ctermfg=236         ctermbg=0           cterm=reverse
+hi StatusLineTerm   ctermfg=242         ctermbg=0           cterm=reverse
+hi StatusLineTermNC ctermfg=236         ctermbg=0           cterm=reverse
 hi Visual                               ctermbg=235
 hi Search                               ctermbg=235
 hi NonText          ctermfg=233
