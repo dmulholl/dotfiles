@@ -144,10 +144,10 @@ map <leader>f :FZF<cr>
 map <leader>x :w <bar> !"%:p"<cr>
 
 " Latex: save all open files and compile 'main.tex'.
-autocmd FileType tex nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
+autocmd FileType tex,bib nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
 
 " Latex: open the compiled pdf.
-autocmd FileType tex nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
+autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
 
 " Python: save and execute the current file.
 autocmd FileType python nmap <buffer> <leader>p :w <bar> !python "%:p"<cr>
