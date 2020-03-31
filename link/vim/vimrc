@@ -143,6 +143,9 @@ map <leader>f :FZF<cr>
 " Save and execute the current file.
 map <leader>x :w <bar> !"%:p"<cr>
 
+"Save and open the current file.
+map <leader>o :w <bar> !open "%:p"<cr>
+
 " Latex: save all open files and compile 'main.tex'.
 autocmd FileType tex,bib nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
 
@@ -155,10 +158,6 @@ autocmd FileType python nmap <buffer> <leader>p :w <bar> !python "%:p"<cr>
 " Identify the syntax highlighting group under the cursor.
 map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" Commenting.
-autocmd FileType python nmap <buffer> <leader>c 0i# <esc>
-autocmd FileType python nmap <buffer> <leader>u 0xx 
- 
 "-------------------------------------------------------------
 " Status Line
 " ------------------------------------------------------------
@@ -224,6 +223,8 @@ let NERDTreeMinimalUI = 1
 
 " Close Vim if the only window left is NT.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let NERDTreeHijackNetrw=1
 
 " ------------------------------------------------------------
 " UltiSnips

@@ -57,6 +57,8 @@ hi NERDTreeDirSlash         ctermfg=4
 hi markdownItalic           ctermfg=5
 hi markdownBold             ctermfg=4
 hi markdownH1               ctermfg=5
+hi markdownH2               ctermfg=5
+hi markdownH3               ctermfg=5
 
 " Clear unwanted Latex highlights.
 hi clear texItalStyle
