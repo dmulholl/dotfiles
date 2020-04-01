@@ -146,6 +146,9 @@ map <leader>x :w <bar> !"%:p"<cr>
 "Save and open the current file.
 map <leader>o :w <bar> !open "%:p"<cr>
 
+" Open the directory containing the current file.
+map <leader>d :!open "%:p:h"<cr> 
+
 " Latex: save all open files and compile 'main.tex'.
 autocmd FileType tex,bib nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
 
