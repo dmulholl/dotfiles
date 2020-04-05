@@ -9,9 +9,9 @@ alias ....="cd ../../.."
 alias -- -="cd -"
 
 # Misc.
-alias irn="ironclad"
 alias ydl="youtube-dl"
 alias etc="atom -a ~/etc"
+alias irn="ironclad"
 
 # Mac.
 alias lck="mac lock"
@@ -19,7 +19,6 @@ alias slp="mac sleep"
 alias dir="open ."
 
 # History.
-alias hist="history 25"
 alias h1="history 10"
 alias h2="history 20"
 alias h3="history 30"
@@ -93,4 +92,3 @@ alias atom="atom -a"
 
 # Fuzy finder.
 alias ff="fzf"
-

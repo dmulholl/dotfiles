@@ -1,14 +1,15 @@
-" ------------------------------------------------------------------------------
+" ---------------------------------------------------------------------------------------
 " Vim Settings
-" ------------------------------------------------------------------------------
+" ---------------------------------------------------------------------------------------
 
-" Vim-Plug.
+" Vim-Plug. Run :PlugUpdate to install or update plugins.
 call plug#begin('~/.vim/vimplug')
 Plug 'scrooloose/nerdtree'
 Plug '/usr/local/opt/fzf'
 Plug 'cespare/vim-toml'
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Allow backspace in insert mode.
@@ -45,16 +46,6 @@ set nowrap
 " Load language plugins and indent files.
 filetype plugin on
 filetype indent on
-
-" Use case-sensitive search IFF the pattern contains uppercase letters.
-set ignorecase
-set smartcase
-
-" Find the next match as the search term is being typed.
-set incsearch
-
-" Highlight search matches.
-set hlsearch
 
 " Alternative to using the escape key.
 inoremap jj <ESC>
@@ -93,6 +84,20 @@ nnoremap <C-O> :call append(line('.')-1, '')<CR>
 set display=lastline
 
 " ------------------------------------------------------------
+" Search
+" ------------------------------------------------------------
+
+" Use case-sensitive search IFF the pattern contains uppercase letters.
+set ignorecase
+set smartcase
+
+" Find the next match as the search term is being typed.
+set incsearch
+
+" Highlight search matches.
+set hlsearch
+
+" ------------------------------------------------------------
 " Finding Files
 " ------------------------------------------------------------
 
@@ -109,10 +114,10 @@ set wildmode=longest:list,full
 " ------------------------------------------------------------
 
 " Vertical scroll offset.
-set scrolloff=5
+set scrolloff=1
 
 " Horizontal scroll rate. The default is 0 which scrolls by half a screen.
-set sidescroll=1
+set sidescroll=5
 
 " Buffer scrolling with ctrl-n and ctrl-p.
 map <c-n> <c-e>
@@ -216,18 +221,17 @@ set clipboard=unnamed
 " ------------------------------------------------------------
 
 " Toggle NT on and off.
-map <Leader>t :NERDTreeToggle<Enter>
+map <leader>t :NERDTreeToggle<cr>
 
 " Close NT when opening a file.
 let NERDTreeQuitOnOpen = 1
 
-" Don't show the '?' help prompt.
+" Nicer UI.
 let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " Close Vim if the only window left is NT.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-let NERDTreeHijackNetrw=1
 
 " ------------------------------------------------------------
 " UltiSnips
