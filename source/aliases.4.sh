@@ -55,8 +55,9 @@ alias gl7="git log --oneline --graph -70"
 alias gl8="git log --oneline --graph -80"
 alias gl9="git log --oneline --graph -90"
 
-# Hosts file.
+# Vim.
 alias hosts="sudo vim /etc/hosts"
+alias etc="cd ~/dev/etc && vim"
 
 # Directory listings.
 alias la="ls -Fa"

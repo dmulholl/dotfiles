@@ -15,7 +15,7 @@ Arguments:
   <destination>     Destination directory.
 
 Flags:
-  --help            Print this help text and exit.
+  -h, --help        Print this help text and exit.
 EOF
 }
 
