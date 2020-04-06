@@ -7,21 +7,21 @@
 # Print the utility's help text.
 print_help() {
     cat <<EOF
-Usage: symlink <target> <location>
+Usage: symlink <linkfile> <targetfile>
 
-  Create a symbolic link at <location> pointing to <target>.
+  Create a symbolic link at <linkfile> pointing to <targetfile>.
 
 Arguments:
-  <target>          The symlink will point to this target file.
-  <location>        The symlink will be created at this location.
+  <linkfile>        The symlink will be created at this location.
+  <targetfile>      The symlink will point to this location.
 
 Flags:
-  --help            Print this help text and exit.
+  -h, --help        Print this help text and exit.
 EOF
 }
 
 # Check for the presence of the --help flag.
-if [[ $* == *--help* ]]; then
+if test "$1" = "--help" || test "$1" = "-h"; then
     print_help
     exit 0
 fi
@@ -33,4 +33,4 @@ if [[ ! $# -eq 2 ]]; then
 fi
 
 # Create the symlink.
-ln -svf "$1" "$2"
+ln -svf "$2" "$1"
