@@ -8,15 +8,20 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias -- -="cd -"
 
-# Misc.
+# Doubles.
+alias ff="fzf"
+alias dd="deploydocs"
+alias iv="python3 ~/dev/src/ivy/ivy"
+
+# Triples.
 alias ydl="youtube-dl"
 alias etc="atom -a ~/etc"
 alias irn="ironclad"
-
-# Mac.
 alias lck="mac lock"
 alias slp="mac sleep"
 alias dir="open ."
+alias cal="gcal --starting-day=1"
+alias gpg="gpg2"
 
 # History.
 alias h1="history 10"
@@ -74,22 +79,12 @@ alias reload="exec $SHELL -l"
 alias pytest="py.test"
 
 # Tree.
+alias tt="tree"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
 alias t4="tree -L 4"
 alias t5="tree -L 5"
 
-# Calendar. (Install gcal as it has lots more options.)
-alias cal="gcal --starting-day=1"
-
-# Default to GnuPG v2.
-alias gpg="gpg2"
-
-# Local development versions of Python packages.
-alias iv="python3 ~/dev/src/ivy/ivy"
-
 # Editor.
 alias atom="atom -a"
 
-# Fuzy finder.
-alias ff="fzf"
