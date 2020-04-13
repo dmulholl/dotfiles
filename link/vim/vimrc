@@ -83,6 +83,9 @@ nnoremap <C-O> :call append(line('.')-1, '')<cr>
 " Show as much of the last line as possible.
 set display=lastline
 
+" Allow the cursor to move past the last character.
+set virtualedit=all
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
