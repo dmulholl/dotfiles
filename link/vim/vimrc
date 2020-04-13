@@ -86,6 +86,9 @@ set display=lastline
 " Allow the cursor to move past the last character.
 set virtualedit=all
 
+" Clear the splash screen.
+set shortmess+=I
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
