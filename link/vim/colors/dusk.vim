@@ -19,12 +19,14 @@ hi StatusLine               ctermfg=242         ctermbg=0           cterm=revers
 hi StatusLineNC             ctermfg=236         ctermbg=0           cterm=reverse
 hi StatusLineTerm           ctermfg=242         ctermbg=0           cterm=reverse
 hi StatusLineTermNC         ctermfg=236         ctermbg=0           cterm=reverse
-hi Visual                                       ctermbg=235
-hi Search                                       ctermbg=235
+hi Visual                                       ctermbg=237
 hi NonText                  ctermfg=233
 hi MatchParen                                   ctermbg=8           cterm=bold
 hi ErrorMsg                 ctermfg=9           ctermbg=0           
 hi VertSplit                ctermfg=236         ctermbg=236
+
+" Search.
+hi Search                   ctermfg=none          ctermbg=237
 
 " Spellcheck.
 hi SpellBad                                     ctermbg=52
@@ -34,7 +36,6 @@ hi SpellCap                                     ctermbg=none
 
 " Content categories.
 hi Comment                  ctermfg=240
-
 hi Constant                 ctermfg=3
 hi Identifier               ctermfg=4                               cterm=bold
 hi Statement                ctermfg=5

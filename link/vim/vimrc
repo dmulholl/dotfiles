@@ -48,7 +48,7 @@ filetype plugin on
 filetype indent on
 
 " Alternative to using the escape key.
-inoremap jj <ESC>
+inoremap jj <esc>
 
 " Wrap lines at word boundaries.
 set linebreak
@@ -77,8 +77,8 @@ set nomodeline
 let g:tex_flavor = "latex"
 
 " Insert blank lines in normal mode. Shift-Enter doesn't work in the terminal.
-nnoremap <Enter> :call append(line('.'), '')<CR>
-nnoremap <C-O> :call append(line('.')-1, '')<CR>
+nnoremap <Enter> :call append(line('.'), '')<cr>
+nnoremap <C-O> :call append(line('.')-1, '')<cr>
 
 " Show as much of the last line as possible.
 set display=lastline
@@ -128,7 +128,7 @@ map <c-p> <c-y>
 " ------------------------------------------------------------
 
 " Remap the <leader> key for custom shortcuts.
-let mapleader="\<Space>"
+let mapleader="\<space>"
 
 " Edit the vimrc file.
 map <leader>ve :e ~/.vim/vimrc<cr>
@@ -164,7 +164,13 @@ autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><c
 autocmd FileType python nmap <buffer> <leader>p :w <bar> !python "%:p"<cr>
 
 " Identify the syntax highlighting group under the cursor.
-map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+
+" Buffer selector. Type a number or unique partial name.
+map <leader>b :ls<cr>:b<space>
+
+" Alternate buffer. Swap back and forth between buffers.
+map <leader>a :b#<cr>
 
 "-------------------------------------------------------------
 " Status Line
@@ -175,7 +181,7 @@ set laststatus=2
 
 " Customize the status line.
 set statusline=
-set statusline+=\ \ %n          " buffer number
+set statusline+=\ [%n]          " buffer number
 set statusline+=\ \ %F          " filename
 set statusline+=\ %m            " modified flag
 set statusline+=%=              " left-right separator
@@ -185,7 +191,7 @@ set statusline+=\ \ %{&fo}      " format options
 set statusline+=\ \ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ \ %{&fileformat}
 set statusline+=\ \ %y          " filetype
-set statusline+=\ \             " trailing space
+set statusline+=\               " trailing space
 
 " Show the current command as we're typing it.
 set showcmd
