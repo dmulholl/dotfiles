@@ -126,8 +126,8 @@ set scrolloff=1
 set sidescroll=5
 
 " Buffer scrolling with ctrl-n and ctrl-p.
-map <c-n> <c-e>
-map <c-p> <c-y>
+nnoremap <c-n> <c-e>
+nnoremap <c-p> <c-y>
 
 " ------------------------------------------------------------
 " Leader Shortcuts
@@ -137,28 +137,44 @@ map <c-p> <c-y>
 let mapleader="\<space>"
 
 " Edit the vimrc file.
-map <leader>ve :e ~/.vim/vimrc<cr>
+nnoremap <leader>ve :e ~/.vim/vimrc<cr>
 
 " Re-source the vimrc file.
-map <leader>vr :source ~/.vim/vimrc<cr>
+nnoremap <leader>vr :source ~/.vim/vimrc<cr>
 
 " Toggle word-wrapping.
-map <leader>w :set wrap!<cr>
+nnoremap <leader>w :set wrap!<cr>
 
 " Toggle spellcheck.
 nnoremap <leader>s :set spell!<cr>
 
 " Fuzzy finder.
-map <leader>f :FZF<cr>
+nnoremap <leader>f :FZF<cr>
 
 " Save and execute the current file.
-map <leader>x :w <bar> !"%:p"<cr>
+nnoremap <leader>x :w <bar> !"%:p"<cr>
 
 "Save and open the current file.
-map <leader>o :w <bar> !open "%:p"<cr>
+nnoremap <leader>o :w <bar> !open "%:p"<cr>
 
 " Open the directory containing the current file.
-map <leader>d :!open "%:p:h"<cr> 
+nnoremap <leader>d :!open "%:p:h"<cr> 
+
+" Identify the syntax highlighting group under the cursor.
+nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+
+" Buffer selector. Type a number or unique partial name.
+nnoremap <leader>b :ls<cr>:b<space>
+
+" Alternate buffer. Swap back and forth between buffers.
+nnoremap <leader>a :b#<cr>
+
+" Change a word, then change the next occurance of it by hitting dot.
+nnoremap <leader>c *``cgn
+
+"-------------------------------------------------------------
+" File-Type Specific Leader Shortcuts
+" ------------------------------------------------------------
 
 " Latex: save all open files and compile 'main.tex'.
 autocmd FileType tex,bib nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
@@ -168,15 +184,6 @@ autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><c
 
 " Python: save and execute the current file.
 autocmd FileType python nmap <buffer> <leader>p :w <bar> !python "%:p"<cr>
-
-" Identify the syntax highlighting group under the cursor.
-map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
-
-" Buffer selector. Type a number or unique partial name.
-map <leader>b :ls<cr>:b<space>
-
-" Alternate buffer. Swap back and forth between buffers.
-map <leader>a :b#<cr>
 
 "-------------------------------------------------------------
 " Status Line
@@ -188,7 +195,7 @@ set laststatus=2
 " Customize the status line.
 set statusline=
 set statusline+=\ [%n]          " buffer number
-set statusline+=\ \ %F          " filename
+set statusline+=\ %F          " filename
 set statusline+=\ %m            " modified flag
 set statusline+=%=              " left-right separator
 set statusline+=\ %4l/%L        " current line / total lines
@@ -219,7 +226,7 @@ autocmd FocusLost * :set norelativenumber
 autocmd FocusGained * :set relativenumber
 
 " Toggle between relative and absolute line numbering.
-map <silent><leader>n :set relativenumber!<cr>
+nnoremap <silent><leader>n :set relativenumber!<cr>
 
 " ------------------------------------------------------------
 " Clipboard
@@ -233,7 +240,7 @@ set clipboard=unnamed
 " ------------------------------------------------------------
 
 " Toggle NT on and off.
-map <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
 
 " Close NT when opening a file.
 let NERDTreeQuitOnOpen = 1

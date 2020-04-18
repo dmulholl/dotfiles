@@ -107,3 +107,18 @@ function man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
+
+# Interactive mv command for renaming files.
+function mv() {
+    if [ "$#" -ne 1 ]; then
+        command mv "$@"
+        return
+    fi
+    if [ ! -f "$1" ]; then
+        command file "$@"
+        return
+    fi
+    read -ei "$1" newfilename
+    mv -v "$1" "$newfilename"
+}
+
