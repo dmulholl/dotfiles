@@ -121,4 +121,3 @@ function mv() {
     read -ei "$1" newfilename
     mv -v "$1" "$newfilename"
 }
-

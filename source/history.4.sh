@@ -5,6 +5,9 @@
 # Append to the history file on shell exit rather than overwriting it.
 shopt -s histappend
 
+# Verify a command before running it.
+shopt -s histverify
+
 # Don't add matching entries to the history file.
 export HISTIGNORE=$'?:??:???:exit:history'
 
