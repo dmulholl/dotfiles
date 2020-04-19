@@ -41,7 +41,7 @@ move_cursor_to_start_of_ps1() {
     if [ "$command_rows" -gt 1 ]; then
         let vertical_movement="$command_rows + 1"
     else
-        command=$(history 1 | sed 's/^\s*[0-9]*\s*//')
+        command=$(history 1 | sed 's/^  [0-9]*  //' | cut -c 15-)
         command_length=${#command}
         ps1_prompt_length=${#PS1_PROMPT}
         let total_length="$command_length + $ps1_prompt_length"
@@ -53,6 +53,8 @@ move_cursor_to_start_of_ps1() {
 
 set_termtitle="\[\e]0;\w\a\]"
 
+# Save the cursor position, jump up and overwrite the time placeholder, then
+# jump back to the saved position.
 export PS0="\$(tput sc)\$(move_cursor_to_start_of_ps1)\[$fgc_magenta\][\A]\[$fgc_default\]\$(tput rc)"
 
 export PS1="$set_termtitle
