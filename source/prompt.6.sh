@@ -55,10 +55,10 @@ set_termtitle="\[\e]0;\w\a\]"
 
 # Save the cursor position, jump up and overwrite the time placeholder, then
 # jump back to the saved position.
-export PS0="\$(tput sc)\$(move_cursor_to_start_of_ps1)\[$fgc_magenta\][\A]\[$fgc_default\]\$(tput rc)"
+export PS0="\$(tput sc)\$(move_cursor_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_default\]\$(tput rc)"
 
 export PS1="$set_termtitle
-\[$fgc_magenta\][--:--] \$(print_prompt_data) \[$fgc_green\]\u@\h \[$fgc_yellow\]\w
+\[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_green\]\u@\h \[$fgc_yellow\]\w
 \[$fgc_yellow\] >> \[$fgc_default\]"
 
 export PS2="\[$fgc_yellow\] >> \[$fgc_default\]"
