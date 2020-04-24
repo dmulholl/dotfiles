@@ -27,7 +27,7 @@ function syspip3() {
 # --------------------------------------------------------------------------
 
 # Store all virtual environments in the following directory.
-export DOTPYENVS=~/.dotpyenvs
+export DOTPYENVS=~/.cache/dotpyenvs
 
 # Activate a virtual environment. Print an error message on failure.
 function dotpy-activate() {
