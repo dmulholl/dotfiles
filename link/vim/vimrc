@@ -172,7 +172,7 @@ nnoremap <leader>a :b#<cr>
 " Change a word, then change the next occurance of it by hitting dot.
 nnoremap <leader>c *``cgn
 
-"-------------------------------------------------------------
+" ------------------------------------------------------------
 " File-Type Specific Leader Shortcuts
 " ------------------------------------------------------------
 
@@ -185,29 +185,23 @@ autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><c
 " Python: save and execute the current file.
 autocmd FileType python nmap <buffer> <leader>p :w <bar> !python "%:p"<cr>
 
-"-------------------------------------------------------------
+" ------------------------------------------------------------
 " Status Line
 " ------------------------------------------------------------
 
 " Always show the status line.
 set laststatus=2
 
-" Customize the status line.
-set statusline=
-set statusline+=\ [%n]          " buffer number
-set statusline+=\ %F          " filename
-set statusline+=\ %m            " modified flag
-set statusline+=%=              " left-right separator
-set statusline+=\ %4l/%L        " current line / total lines
-set statusline+=\ %3v           " column number
-set statusline+=\ \ %{&fo}      " format options
-set statusline+=\ \ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\ \ %{&fileformat}
-set statusline+=\ \ %y          " filetype
-set statusline+=\               " trailing space
-
 " Show the current command as we're typing it.
 set showcmd
+                                                                                        
+set statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %#StatusA3#%=%m\ \%4l/%L\ \ %3v\ \ %{&fo}\ \ %{&fileencoding?&fileencoding:&encoding}\ \ %{&fileformat}\ \ %y\ \ 
+
+augroup select_statusline
+    autocmd!
+    autocmd WinEnter * :setlocal statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %#StatusA3#%=%m\ \%4l/%L\ \ %3v\ \ %{&fo}\ \ %{&fileencoding?&fileencoding:&encoding}\ \ %{&fileformat}\ \ %y\ \ 
+    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %F\ \ %#StatusI3#%=%m\ \%4l/%L\ \ %3v\ \ %{&fo}\ \ %{&fileencoding?&fileencoding:&encoding}\ \ %{&fileformat}\ \ %y\ \ 
+augroup END                                  
 
 " ------------------------------------------------------------
 " Line Numbers
