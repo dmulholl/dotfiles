@@ -138,10 +138,10 @@ nnoremap <c-p> <c-y>
 let mapleader="\<space>"
 
 " Edit the vimrc file.
-nnoremap <leader>ve :e ~/.vim/vimrc<cr>
+nnoremap <leader>e :e ~/.vim/vimrc<cr>
 
 " Re-source the vimrc file.
-nnoremap <leader>vr :source ~/.vim/vimrc<cr>
+nnoremap <leader>r :source ~/.vim/vimrc<cr>
 
 " Toggle word-wrapping.
 nnoremap <leader>w :set wrap!<cr>
@@ -159,7 +159,7 @@ nnoremap <leader>x :w <bar> !"%:p"<cr>
 nnoremap <leader>o :w <bar> !open "%:p"<cr>
 
 " Open the directory containing the current file.
-nnoremap <leader>d :!open "%:p:h"<cr> 
+nnoremap <leader>d :!open "%:p:h"<cr>
 
 " Identify the syntax highlighting group under the cursor.
 nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
@@ -187,6 +187,18 @@ autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><c
 autocmd FileType python nmap <buffer> <leader>p :w <bar> !python "%:p"<cr>
 
 " ------------------------------------------------------------
+" Trim Whitespace
+" ------------------------------------------------------------
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd BufWritePre * :call TrimWhitespace()
+
+" ------------------------------------------------------------
 " Status Line
 " ------------------------------------------------------------
 
@@ -195,14 +207,14 @@ set laststatus=2
 
 " Show the current command as we're typing it.
 set showcmd
-                                                                                        
-set statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ \ 
-                                                                      
-augroup select_statusline                                                 
+
+set statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+
+augroup select_statusline
     autocmd!
-    autocmd WinEnter * :setlocal statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ \ 
-    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ \ 
-augroup END                                  
+    autocmd WinEnter * :setlocal statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+augroup END
 
 " ------------------------------------------------------------
 " Line Numbers
