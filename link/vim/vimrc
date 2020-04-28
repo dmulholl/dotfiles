@@ -27,7 +27,8 @@ set history=9999
 
 " Reload files changed outside Vim.
 set autoread
-autocmd CursorHold * checktime
+autocmd CursorHold,CursorHoldI,FocusGained,BufEnter,WinEnter * :checktime
+set updatetime=1000
 
 " Allow hidden buffers.
 set hidden
@@ -195,12 +196,12 @@ set laststatus=2
 " Show the current command as we're typing it.
 set showcmd
                                                                                         
-set statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %#StatusA3#%=%m\ \%4l/%L\ \ %3v\ \ %{&fo}\ \ %{&fileencoding?&fileencoding:&encoding}\ \ %{&fileformat}\ \ %y\ \ 
-
-augroup select_statusline
+set statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ \ 
+                                                                      
+augroup select_statusline                                                 
     autocmd!
-    autocmd WinEnter * :setlocal statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %#StatusA3#%=%m\ \%4l/%L\ \ %3v\ \ %{&fo}\ \ %{&fileencoding?&fileencoding:&encoding}\ \ %{&fileformat}\ \ %y\ \ 
-    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %F\ \ %#StatusI3#%=%m\ \%4l/%L\ \ %3v\ \ %{&fo}\ \ %{&fileencoding?&fileencoding:&encoding}\ \ %{&fileformat}\ \ %y\ \ 
+    autocmd WinEnter * :setlocal statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ \ 
+    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ \ 
 augroup END                                  
 
 " ------------------------------------------------------------
