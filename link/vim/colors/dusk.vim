@@ -18,7 +18,7 @@ hi CursorLineNr             ctermfg=233
 hi Visual                                       ctermbg=237
 hi NonText                  ctermfg=233
 hi MatchParen                                   ctermbg=8           cterm=bold
-hi ErrorMsg                 ctermfg=9           ctermbg=0           
+hi ErrorMsg                 ctermfg=9           ctermbg=0
 hi VertSplit                ctermfg=234         ctermbg=234
 
 " Status line.
@@ -31,6 +31,7 @@ hi StatusLineTermNC         ctermfg=234         ctermbg=0           cterm=revers
 hi StatusA1                 ctermfg=black       ctermbg=4
 hi StatusA2                 ctermfg=245         ctermbg=236
 hi StatusA3                 ctermfg=245         ctermbg=234
+hi StatusA4                 ctermfg=black       ctermbg=6
 hi StatusI1                 ctermfg=black       ctermbg=238
 hi StatusI2                 ctermfg=black       ctermbg=236
 hi StatusI3                 ctermfg=black       ctermbg=234
