@@ -90,6 +90,10 @@ set virtualedit=all
 " Clear the splash screen.
 set shortmess+=I
 
+" Move to the start/end of the line in insert mode.
+inoremap <C-A> <esc>0i
+inoremap <C-E> <esc>A
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
