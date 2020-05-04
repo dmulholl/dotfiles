@@ -90,9 +90,16 @@ set virtualedit=all
 " Clear the splash screen.
 set shortmess+=I
 
-" Move to the start/end of the line in insert mode.
-inoremap <C-A> <esc>0i
-inoremap <C-E> <esc>A
+" Move around in insert mode.
+inoremap <c-a> <esc>0i
+inoremap <c-e> <esc>A
+inoremap <c-b> <esc>i
+inoremap <c-f> <esc>2li
+inoremap <c-j> <esc>gjli
+inoremap <c-k> <esc>gkli
+
+" Faster escacpe from insert mode.
+set noesckeys
 
 " ------------------------------------------------------------
 " Search
@@ -212,15 +219,12 @@ set laststatus=2
 " Show the current command as we're typing it.
 set showcmd
 
-" set statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
-
-set statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+set statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
 
 augroup select_statusline
     autocmd!
-    autocmd WinEnter * :setlocal statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
-    " autocmd WinEnter * :setlocal statusline=%#StatusA1#\ \ %n\ \ %#StatusA2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
-    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %F\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+    autocmd WinEnter,BufEnter * :setlocal statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
 augroup END
 
 " ------------------------------------------------------------
