@@ -39,6 +39,7 @@ alias ga="git add"
 alias gaa="git add --all"
 
 alias gp="git push"
+alias gpt="git push --tags"
 alias gd="git diff --color | diff-so-fancy | less --tabs=4 -RFX"
 alias gs="git status --short --branch"
 

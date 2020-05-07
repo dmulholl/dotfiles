@@ -85,7 +85,7 @@ nnoremap <C-O> :call append(line('.')-1, '')<cr>
 set display=lastline
 
 " Allow the cursor to move past the last character.
-set virtualedit=all
+" set virtualedit=all
 
 " Clear the splash screen.
 set shortmess+=I
