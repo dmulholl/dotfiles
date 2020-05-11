@@ -49,6 +49,7 @@ alias gcam="git commit -am"
 alias gcah="git commit -am Housekeeping"
 alias gcad="git commit -am 'Update documentation'"
 alias gcar="git commit -am 'Update readme'"
+alias gcab="git commit -am Backup"
 
 alias gl="git log --oneline --graph -25"
 alias gl1="git log --oneline --graph -10"

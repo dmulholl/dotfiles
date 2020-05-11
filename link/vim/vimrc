@@ -84,9 +84,6 @@ nnoremap <C-O> :call append(line('.')-1, '')<cr>
 " Show as much of the last line as possible.
 set display=lastline
 
-" Allow the cursor to move past the last character.
-" set virtualedit=all
-
 " Clear the splash screen.
 set shortmess+=I
 
@@ -97,9 +94,6 @@ inoremap <c-b> <esc>i
 inoremap <c-f> <esc>2li
 inoremap <c-j> <esc>gjli
 inoremap <c-k> <esc>gkli
-
-" Faster escacpe from insert mode.
-set noesckeys
 
 " ------------------------------------------------------------
 " Search
@@ -194,8 +188,8 @@ autocmd FileType tex,bib nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex ma
 " Latex: open the compiled pdf.
 autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
 
-" Python: save and execute the current file.
-autocmd FileType python nmap <buffer> <leader>p :w <bar> !python "%:p"<cr>
+" Save and interpret the current file.
+autocmd FileType python nmap <buffer> <leader>i :w <bar> !python "%:p"<cr>
 
 " ------------------------------------------------------------
 " Trim Whitespace
@@ -225,7 +219,7 @@ augroup select_statusline
     autocmd!
     autocmd WinEnter,BufEnter * :setlocal statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
     autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
-augroup END
+augroup end
 
 " ------------------------------------------------------------
 " Line Numbers
