@@ -36,7 +36,7 @@ print_prompt_data() {
     echo -n "]"
 }
 
-move_cursor_to_start_of_ps1() {
+move_to_start_of_ps1() {
     command_rows=$(history 1 | wc -l)
     if [ "$command_rows" -gt 1 ]; then
         let vertical_movement="$command_rows + 1"
@@ -55,9 +55,9 @@ set_termtitle="\[\e]0;\w\a\]"
 
 # Save the cursor position, jump up and overwrite the time placeholder, then
 # jump back to the saved position.
-export PS0="\$(tput sc)\$(move_cursor_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_default\]\$(tput rc)"
+export PS0="\$(tput sc)\$(move_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_default\]\$(tput rc)"
 
-export PS1="$set_termtitle
+export PS1="
 \[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_green\]\u@\h \[$fgc_yellow\]\w
 \[$fgc_yellow\] >> \[$fgc_default\]"
 
