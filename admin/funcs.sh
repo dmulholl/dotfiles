@@ -88,7 +88,7 @@ function dot_init() {
  Initializing Dotfiles Installation
 ────────────────────────────────────
 EOF
-    source $DOTFILES/funcs.sh
+    source $DOTFILES/admin/funcs.sh
     dot_log_header "Initializing Installation"
     dot_source --verbose
     dot_link --verbose
