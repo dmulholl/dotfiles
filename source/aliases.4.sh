@@ -15,7 +15,6 @@ alias iv="python3 ~/dev/src/ivy/ivy"
 
 # Triples.
 alias ydl="youtube-dl"
-alias etc="atom -a ~/etc"
 alias irn="ironclad"
 alias lck="mac lock"
 alias slp="mac sleep"
@@ -33,6 +32,7 @@ alias h6="history 60"
 alias h7="history 70"
 alias h8="history 80"
 alias h9="history 90"
+alias hh="history 25"
 
 # Git.
 alias ga="git add"
@@ -64,7 +64,7 @@ alias gl9="git log --oneline --graph -90"
 
 # Vim.
 alias hosts="sudo vim /etc/hosts"
-alias etc="cd ~/dev/etc && vim"
+alias notes="cd ~/dev/notes && vim"
 
 # Directory listings.
 alias la="ls -Fa"
@@ -89,4 +89,4 @@ alias t5="tree -L 5"
 
 # Editor.
 alias atom="atom -a"
-
+alias code="code -a"
