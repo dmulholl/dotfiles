@@ -5,7 +5,8 @@
 " Vim-Plug. Run :PlugUpdate to install or update plugins.
 call plug#begin('~/.vim/vimplug')
 Plug 'scrooloose/nerdtree'
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'cespare/vim-toml'
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-commentary'
@@ -155,7 +156,8 @@ nnoremap <leader>w :set wrap!<cr>
 nnoremap <leader>s :set spell!<cr>
 
 " Fuzzy finder.
-nnoremap <leader>f :FZF<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>b :Buffers<cr>
 
 " Save and execute the current file.
 nnoremap <leader>x :w <bar> !"%:p"<cr>
@@ -170,7 +172,7 @@ nnoremap <leader>d :!open "%:p:h"<cr>
 nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 " Buffer selector. Type a number or unique partial name.
-nnoremap <leader>b :ls<cr>:b<space>
+" nnoremap <leader>b :ls<cr>:b<space>
 
 " Alternate buffer. Swap back and forth between buffers.
 nnoremap <leader>a :b#<cr>
