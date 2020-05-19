@@ -17,7 +17,7 @@ hi LineNr                   ctermfg=233
 hi CursorLineNr             ctermfg=233
 hi Visual                                       ctermbg=237
 hi NonText                  ctermfg=233
-hi MatchParen                                   ctermbg=8           cterm=bold
+hi MatchParen                                   ctermbg=236         cterm=bold
 hi ErrorMsg                 ctermfg=9           ctermbg=0
 hi VertSplit                ctermfg=234         ctermbg=234
 
