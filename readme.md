@@ -2,9 +2,6 @@
 
 This is my dotfiles repository. There are many like it, but this one is mine.
 
-
-## Structure
-
 * The `/bin` directory contains executables and is added to the path.
 
 * The `/config` directory contains application configuration files.
