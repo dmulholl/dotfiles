@@ -83,15 +83,13 @@ function dot_update() {
     local old_dir="$(pwd)"
     cd ~/.dotfiles
     local head="$(git rev-parse HEAD)"
-    echo "Checking for updates..."
+    echo "Checking for updates."
     if ! git pull; then
         echo "Error: cannot pull from the remote repository."
         cd "$old_dir"
         return
     fi
-    if [[ "$(git rev-parse HEAD)" == "$head" ]]; then
-        echo "The repository is already up to date."
-    else
+    if [[ "$(git rev-parse HEAD)" != "$head" ]]; then
         echo "The repository has been updated. Reinitializing now."
         dot_init
     fi

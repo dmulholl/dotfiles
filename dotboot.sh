@@ -1,5 +1,6 @@
 # ------------------------------------------------------------------------------
-# Bootstrap file - will be sourced whenever a new shell instance is initialized.
+# Bootstrap file - this file gets sourced whenever a new shell instance is 
+# initialized. 
 # ------------------------------------------------------------------------------
 
 # We only want to run this file once per shell instance.
@@ -9,7 +10,7 @@ fi
 dotbootstrapped="true"
 
 # Load the `dot` command.
-source ~/.dotfiles/admin.sh
+source ~/.dotfiles/dotfuncs.sh
 
 # Source all files in the installation's /source directory.
 dot src
