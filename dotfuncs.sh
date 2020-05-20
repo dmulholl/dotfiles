@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Admin functions for the `dot` command. Test edit.
+# Admin functions for the `dot` command.
 # ------------------------------------------------------------------------------
 
 function dot() {
@@ -83,14 +83,14 @@ function dot_update() {
     local old_dir="$(pwd)"
     cd ~/.dotfiles
     local head="$(git rev-parse HEAD)"
-    echo "Checking for updates."
+    echo "Checking for updates..."
     if ! git pull; then
-        echo "Error: cannot pull from the remote repository."
+        echo "Error: can't update automatically."
         cd "$old_dir"
         return
     fi
     if [[ "$(git rev-parse HEAD)" != "$head" ]]; then
-        echo "The repository has been updated. Reinitializing now."
+        echo "Updated. Reinitializing now..."
         dot_init
     fi
     cd "$old_dir"
