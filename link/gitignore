@@ -11,6 +11,7 @@ __pycache__/
 
 # Vim temporary files.
 *.swp
+.netrwhist
 
 # Local notes.
 /*.tmp.txt
@@ -28,4 +29,3 @@ __pycache__/
 *.lot
 *.out
 *.xdv
-

@@ -8,7 +8,7 @@ if test -z "$DOTSYSPATH"; then
 fi
 
 # Start with the dotfiles binaries.
-PATH=$DOTFILES/bin
+PATH=~/.dotfiles/bin
 
 # $HOME binaries.
 if test -d "$HOME/bin"; then

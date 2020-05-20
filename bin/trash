@@ -2,9 +2,6 @@
 # ------------------------------------------------------------------------------
 # Safe alternative to the rm command. This script transfers deleted files
 # and directories to the trash directory, $HOME/.trash/.
-#
-# Author: Darren Mulholland <darren@mulholland.xyz>
-# License: Public Domain
 # ------------------------------------------------------------------------------
 
 # The ~/.trash directory exists on OSX. We may need to create it on other

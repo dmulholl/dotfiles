@@ -51,8 +51,6 @@ move_to_start_of_ps1() {
     tput cuu $vertical_movement
 }
 
-set_termtitle="\[\e]0;\w\a\]"
-
 simple_prompt="
 \[$fgc_magenta\](--:--) \[$fgc_green\]\u \[$fgc_yellow\]\w
 \[$fgc_yellow\] >> \[$fgc_default\]"

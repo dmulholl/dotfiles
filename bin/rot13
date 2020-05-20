@@ -7,9 +7,6 @@
 #
 #     $ rot13 "foo bar"
 #     $ rot13 < infile.txt
-#
-# Author: Darren Mulholland <darren@mulholland.xyz>
-# License: Public Domain
 # ------------------------------------------------------------------------------
 
 import sys

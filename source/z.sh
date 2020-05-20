@@ -1,9 +1,9 @@
 # ------------------------------------------------------------------------------
-# Initialization script for new dotfiles installations.
+# Set up the z jump utility.
 # ------------------------------------------------------------------------------
 
-# Load the bootstrapping file.
-source ~/.dotfiles/admin/boot.sh
+# Use 'j' as the jump command instead of the default 'z'.
+export _Z_CMD="j"
 
-# Run the initialization routine.
-dot init
+# Load the 'z' library.
+source ~/.dotfiles/lib/shell/z.sh

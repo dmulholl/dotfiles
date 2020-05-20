@@ -5,9 +5,6 @@
 #
 #   $ jar2bin HelloWorld.jar
 #   $ ./helloworld
-#
-# Author: Darren Mulholland <darren@mulholland.xyz>
-# License: Public Domain
 # ------------------------------------------------------------------------------
 
 if [[ $# -eq 0 ]]; then

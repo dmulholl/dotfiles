@@ -6,8 +6,6 @@
 function title() {
     if test -n "$1"; then
         echo -n -e "\e]0;$1\007"
-    else
-        echo -n -e "\e]0;${USER}@${HOSTNAME}\007"
     fi
 }
 
