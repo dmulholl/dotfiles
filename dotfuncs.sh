@@ -61,19 +61,19 @@ function dot_source() {
 # Create a symlink in $HOME to each file or directory in /link.
 # Backup any existing files before overwriting.
 function dot_link() {
-    for srcfile in ~/.dotfiles/link/*; do
-        dstfile="~/.$(basename $srcfile)"
-        if test -e $dstfile; then
-            test -L $dstfile || dot_backup $dstfile
-            rm -rf $dstfile
+    for targetfile in ~/.dotfiles/link/*; do
+        linkfile=~/.$(basename $targetfile)
+        if test -e $linkfile; then
+            test -L $linkfile || dot_backup $linkfile
+            rm -rf $linkfile
         fi
-        ln -sf $srcfile $dstfile
+        ln -svf $targetfile $linkfile
     done
 }
 
 # Initialize/reinitialize the dotfiles installation.
 function dot_init() {
-    source ~/.dotfiles/admin.sh
+    source ~/.dotfiles/dotfuncs.sh
     dot_source
     dot_link
 }
