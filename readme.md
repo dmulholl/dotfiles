@@ -2,8 +2,6 @@
 
 This is my dotfiles repository. There are many like it, but this one is mine.
 
-This repository isn't suitable for public use *as is*, but, as usual with these things, you may find useful snippets of code in it that you can repurpose to suit your own needs.
-
 
 ## Structure
 
@@ -39,7 +37,8 @@ The `dot` command provides an interface to the installation's utility functions:
 
 ## Installation
 
-    git clone https://github.com/dmulholland/dotfiles.git ~/.dotfiles && source ~/.dotfiles/admin/init.sh
+    git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles
+    source ~/.dotfiles/admin/init.sh
 
 The installation can be reinitialized at any time using the `dot init` command.
 
