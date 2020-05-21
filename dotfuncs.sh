@@ -3,27 +3,18 @@
 # ------------------------------------------------------------------------------
 
 function dot() {
-    local dot_backupdir="~/.dotfiles/backups/$(date "+%Y-%m-%d--%H-%M-%S")/"
-    if test -n "$1"; then
-        local command="$1"
-        shift
-        case $command in
-            update)
-                dot_update "$@";;
-            init)
-                dot_init "$@";;
-            source|src)
-                dot_source "$@";;
-            link)
-                dot_link "$@";;
-            log)
-                cat ~/.dotfiles/log.txt;;
-            *)
-                dot_help;;
-        esac
-    else
-        dot_help
-    fi
+    case "$1" in
+        update)
+            dot_update;;
+        init)
+            dot_init;;
+        source|src)
+            dot_source;;
+        link)
+            dot_link;;
+        *)
+            dot_help;;
+    esac
 }
 
 # Print the help text for the dotfiles command.
@@ -36,7 +27,6 @@ Usage: dot <command>
 Commands:
   init      (Re)initialize the installation.
   link      Link all files in ~/.dotfiles/link into ~/.
-  log       Show the log file.
   src       Source all files in ~/.dotfiles/source.
   update    Update the local dotfiles repository.
 EOF
@@ -59,13 +49,11 @@ function dot_source() {
 }
 
 # Create a symlink in $HOME to each file or directory in /link.
-# Backup any existing files before overwriting.
 function dot_link() {
     for targetfile in ~/.dotfiles/link/*; do
         linkfile=~/.$(basename $targetfile)
         if test -e $linkfile; then
-            test -L $linkfile || dot_backup $linkfile
-            rm -rf $linkfile
+            test -L $linkfile || mv $linkfile $linkfile.dotbackup
         fi
         ln -svf $targetfile $linkfile
     done
@@ -96,11 +84,6 @@ function dot_update() {
     cd "$old_dir"
 }
 
-# This function logs its arguments to file.
-function dot_log() {
-    echo "$(date "+%Y-%m-%d %H:%M:%S" ) :: $@" >> ~/.dotfiles/log.txt
-}
-
 # Request user confirmation. First argument is used as the prompt string.
 function dot_confirm() {
     local input
@@ -116,11 +99,4 @@ function dot_confirm() {
                 return 1;;
         esac
     done
-}
-
-# Backup a file or directory before overwriting it.
-function dot_backup() {
-    local target=$1
-    [[ -d "$dot_backupdir" ]] || mkdir -p "$dot_backupdir"
-    mv "$target" "$dot_backupdir"
 }
