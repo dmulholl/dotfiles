@@ -22,13 +22,13 @@ function dot_help() {
     cat <<EOF
 Usage: dot <command>
 
-  Management utility for the dotfiles installation.
+  Dotfiles management utility. To update the installation,  first update
+  the local .dotfiles git repository, then run `dot init`.
 
 Commands:
-  init      (Re)initialize the installation.
+  init      Initialize/reinitialize the installation.
   link      Link all files in ~/.dotfiles/link into ~/.
   src       Source all files in ~/.dotfiles/source.
-  update    Update the local dotfiles repository.
 EOF
 }
 
@@ -66,24 +66,6 @@ function dot_init() {
     dot_link
 }
 
-# Update the dotfiles repository.
-function dot_update() {
-    local old_dir="$(pwd)"
-    cd ~/.dotfiles
-    local head="$(git rev-parse HEAD)"
-    echo "Checking for updates..."
-    if ! git pull; then
-        echo "Error: can't update automatically."
-        cd "$old_dir"
-        return
-    fi
-    if [[ "$(git rev-parse HEAD)" != "$head" ]]; then
-        echo "Updated. Reinitializing now..."
-        dot_init
-    fi
-    cd "$old_dir"
-}
-
 # Request user confirmation. First argument is used as the prompt string.
 function dot_confirm() {
     local input
@@ -92,10 +74,8 @@ function dot_confirm() {
         read input
         case $input in
             [Yy]*)
-                dot_log "[YES]"
                 return 0;;
             *)
-                dot_log "[NO]"
                 return 1;;
         esac
     done
