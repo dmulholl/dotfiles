@@ -119,3 +119,18 @@ function mv() {
     read -ei "$1" newfilename
     mv -v "$1" "$newfilename"
 }
+
+# Request user confirmation. First argument is used as the prompt string.
+function confirm() {
+    local input
+    while true; do
+        echo -n -e " \e[1;35m?\e[0m  $@ (y/n) "
+        read input
+        case $input in
+            [Yy]*)
+                return 0;;
+            *)
+                return 1;;
+        esac
+    done
+}
