@@ -1,8 +1,0 @@
-# Backup copies of overwritten files.
-/backups/
-
-# The installation's log file.
-log.txt
-
-# Vim-Plug plugins. (Each plugin is a Git repo itself.)
-/link/vim/vimplug/
