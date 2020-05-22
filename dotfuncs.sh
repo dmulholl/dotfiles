@@ -53,7 +53,11 @@ function dot_link() {
     for targetfile in ~/.dotfiles/link/*; do
         linkfile=~/.$(basename $targetfile)
         if test -e $linkfile; then
-            test -L $linkfile || mv $linkfile $linkfile.dotbackup
+            if test -L $linkfile; then
+                rm $linkfile
+            else
+                mv $linkfile dotbackup$linkfile
+            fi
         fi
         ln -svf $targetfile $linkfile
     done
