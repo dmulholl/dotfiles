@@ -65,4 +65,5 @@ export PS0="\$(tput sc)\$(move_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_defaul
 
 export PS2="\[$fgc_yellow\] >> \[$fgc_default\]"
 
+# export PS1="$simple_prompt"
 export PS1="$normal_prompt"
