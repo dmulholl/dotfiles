@@ -76,3 +76,23 @@ hi markdownH3               ctermfg=5
 hi clear texItalStyle
 hi clear texBoldStyle
 hi clear texEmphStyle
+
+" Syntext.
+hi stxHeadingText           ctermfg=5
+hi stxHeadingDelimiter      ctermfg=3
+hi stxHeadingLine           ctermfg=3
+hi stxMeta                  ctermfg=240
+hi stxRefText               ctermfg=4
+hi stxRefDelimiter          ctermfg=240
+hi stxRefUrl                ctermfg=3
+hi stxRefTitle              ctermfg=5
+hi stxRefTitleDelimiter     ctermfg=5
+hi stxLinkText              ctermfg=4               cterm=underline
+hi stxLinkDelimiter         ctermfg=240
+hi stxLinkUrl               ctermfg=240
+hi stxLinkRef               ctermfg=240
+hi stxAutoLink              ctermfg=4
+hi stxAutoLinkDelimiter     ctermfg=240
+hi stxFootnoteRef           ctermfg=240
+hi stxUListMarker            ctermfg=1
+hi stxOListMarker           ctermfg=1
