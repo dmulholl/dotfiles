@@ -8,18 +8,18 @@ syn region stxHeadingText matchgroup=stxHeadingDelim start="^\s*#\+\s\+" end="#*
 syn match stxHeadingLine "^\s*----\+\s*$"
 
 " Link references.
-syn region stxRefText matchgroup=stxRefDelim start="^ \{0,3\}!\=\[" end="\]:" oneline keepend nextgroup=stxRefUrl skipwhite
+syn region stxRefText matchgroup=stxRefDelim start="^ \{0,3\}!\=\[" end="\]:" oneline nextgroup=stxRefUrl skipwhite
 syn match stxRefUrl "\S\+" nextgroup=stxRefTitle skipwhite contained
-syn region stxRefTitle matchgroup=stxRefTitleDelim start=+"+ end=+"+ keepend contained
-syn region stxRefTitle matchgroup=stxRefTitleDelim start=+'+ end=+'+ keepend contained
+syn region stxRefTitle matchgroup=stxRefTitleDelim start=+"+ end=+"+ contained
+syn region stxRefTitle matchgroup=stxRefTitleDelim start=+'+ end=+'+ contained
 
 " Links.
 syn region stxLinkText matchgroup=stxLinkDelim start="!\=\[\%(\%(\_[^][]\|\[\_[^][]*\]\)*]\%([[(]\)\)\@=" end="\]\%([[(]\)\@=" nextgroup=stxLinkUrl,stxLinkRef oneline
-syn region stxLinkUrl matchgroup=stxLinkDelim start="(" end=")" keepend contained
-syn region stxLinkRef matchgroup=stxLinkDelim start="\[" end="\]" keepend contained
+syn region stxLinkUrl matchgroup=stxLinkDelim start="(" end=")" contained
+syn region stxLinkRef matchgroup=stxLinkDelim start="\[" end="\]" contained
 
 " Automatic links.
-syn region stxAutoLink matchgroup=stxAutoLinkDelim start="<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=" end=">" keepend oneline
+syn region stxAutoLink matchgroup=stxAutoLinkDelim start="<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=" end=">" oneline
 
 " Footnotes.
 syn match stxFootnoteRef "\[^[^\]]\+\]"
