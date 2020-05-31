@@ -23,7 +23,7 @@ function dot_help() {
 Usage: dot <command>
 
   Dotfiles management utility. To update the installation,  first update
-  the local .dotfiles git repository, then run `dot init`.
+  the local .dotfiles git repository, then run 'dot init'.
 
 Commands:
   init      Initialize/reinitialize the installation.
