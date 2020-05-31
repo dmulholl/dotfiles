@@ -46,7 +46,7 @@ hi SpellRare                                    ctermbg=none
 hi SpellCap                                     ctermbg=none
 
 " Content categories.
-hi Comment                  ctermfg=240
+hi Comment                  ctermfg=240                             cterm=italic
 hi Constant                 ctermfg=3
 hi Identifier               ctermfg=4                               cterm=bold
 hi Statement                ctermfg=5
@@ -79,8 +79,8 @@ hi clear texEmphStyle
 
 " Syntext.
 hi stxHeadingText           ctermfg=5
-hi stxHeadingDelim          ctermfg=3
-hi stxHeadingLine           ctermfg=3
+hi stxHeadingDelim          ctermfg=240
+hi stxHeadingLine           ctermfg=240
 hi stxMeta                  ctermfg=240
 hi stxRefText               ctermfg=4
 hi stxRefDelim              ctermfg=240
@@ -96,4 +96,10 @@ hi stxAutoLinkDelim         ctermfg=240
 hi stxFootnoteRef           ctermfg=240
 hi stxUListMarker           ctermfg=1
 hi stxOListMarker           ctermfg=1
+hi stxBlockquote                                                    cterm=italic
+hi stxTagLine               ctermfg=240
+hi stxDLTerm                ctermfg=5
+hi stxDLTermDelim           ctermfg=240
+hi stxEntity                ctermfg=240
+
 

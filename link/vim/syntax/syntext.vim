@@ -28,6 +28,16 @@ syn match stxFootnoteRef "\[^[^\]]\+\]"
 syn match stxUListMarker "^\s*[-*+]\s\+"
 syn match stxOListMarker "^\s*[#][.]\s\+"
 
+" Definition lists.
+syn region stxDLTerm matchgroup=stxDLTermDelim start="\[\[" end="\]\]" oneline contains=stxEntity
+
+" Tags.
+syn match stxTagLine "^\s*:.\+$"
+" syn region stxBlockquote matchgroup=stxTagLine start="^\s*::: quote.*$" end="^\s*::: end$"
+
+" HTML entities.
+syn match stxEntity "&[#a-zA-Z0-9]\+;"
+
 " Default highlighting styles.
 hi def link stxMeta Comment
 
