@@ -41,6 +41,7 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 set expandtab
+set breakindent
 
 " Don't wrap lines.
 set nowrap
@@ -96,6 +97,10 @@ inoremap <c-b> <esc>i
 inoremap <c-f> <esc>2li
 inoremap <c-j> <esc>gjli
 inoremap <c-k> <esc>gkli
+
+" Enable italics in Mac Terminal.
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 
 " ------------------------------------------------------------
 " Search
