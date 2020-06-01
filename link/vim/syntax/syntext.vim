@@ -28,6 +28,10 @@ syn match stxFootnoteRef "\[^[^\]]\+\]"
 syn match stxUListMarker "^\s*[-*+]\s\+"
 syn match stxOListMarker "^\s*[#][.]\s\+"
 
+" Block lists.
+syn match stxUListMarker "^\s*([-*+])\s\+"
+syn match stxOListMarker "^\s*([#])\s\+"
+
 " Definition lists.
 syn region stxDLTerm matchgroup=stxDLTermDelim start="\[\[" end="\]\]" oneline contains=stxEntity
 
