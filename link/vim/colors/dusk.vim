@@ -102,4 +102,5 @@ hi stxDLTerm                ctermfg=5
 hi stxDLTermDelim           ctermfg=240
 hi stxEntity                ctermfg=240
 
-
+" Rust.
+hi rustCommentLineDoc       ctermfg=240

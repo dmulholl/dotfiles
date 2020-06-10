@@ -20,7 +20,7 @@ alias lck="mac lock"
 alias slp="mac sleep"
 alias dir="open ."
 alias cal="gcal --starting-day=1"
-alias gpg="gpg2"
+alias int="intspector"
 
 # History.
 alias h1="history 10"
@@ -49,7 +49,7 @@ alias gcam="git commit -am"
 alias gcah="git commit -am Housekeeping"
 alias gcad="git commit -am 'Update documentation'"
 alias gcar="git commit -am 'Update readme'"
-alias gcab="git commit -am Backup"
+alias gcas="git commit -am Snapshot"
 
 alias gl="git log --oneline --graph -25"
 alias gl1="git log --oneline --graph -10"
@@ -64,7 +64,7 @@ alias gl9="git log --oneline --graph -90"
 
 # Vim.
 alias hosts="sudo vim /etc/hosts"
-alias notes="cd ~/dev/docs/notes && vim"
+alias notes="cd ~/dev/lit/notes && vim"
 
 # Directory listings.
 alias la="ls -Fa"

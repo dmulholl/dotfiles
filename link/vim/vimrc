@@ -235,15 +235,15 @@ augroup end
 
 " Turn on line numbers and relative line numbers.
 set number
-set relativenumber
+" set relativenumber
 
 " Show absolute line numbers when in insert mode.
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
+" autocmd InsertEnter * :set norelativenumber
+" autocmd InsertLeave * :set relativenumber
 
 " Show absolute line numbers when we lose the focus. GUI only.
-autocmd FocusLost * :set norelativenumber
-autocmd FocusGained * :set relativenumber
+" autocmd FocusLost * :set norelativenumber
+" autocmd FocusGained * :set relativenumber
 
 " Toggle between relative and absolute line numbering.
 nnoremap <silent><leader>n :set relativenumber!<cr>
