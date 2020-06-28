@@ -23,6 +23,7 @@ syn region stxAutoLink matchgroup=stxAutoLinkDelim start="<\%(\w\+:\|[[:alnum:]_
 
 " Footnotes.
 syn match stxFootnoteRef "\[^[^\]]\+\]"
+syn match stxFootnoteRef "\[fn:[^\]]\+\]"
 
 " Lists.
 syn match stxUListMarker "^\s*[-*+]\s\+"

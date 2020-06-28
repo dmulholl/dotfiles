@@ -81,11 +81,11 @@ alias reload="exec $SHELL -l"
 alias pytest="py.test"
 
 # Tree.
-alias tt="tree"
-alias t2="tree -L 2"
-alias t3="tree -L 3"
-alias t4="tree -L 4"
-alias t5="tree -L 5"
+alias tt="tree -F"
+alias t2="tree -F -L 2"
+alias t3="tree -F -L 3"
+alias t4="tree -F -L 4"
+alias t5="tree -F -L 5"
 
 # Editor.
 alias atom="atom -a"
