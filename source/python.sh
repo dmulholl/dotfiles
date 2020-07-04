@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 
 # Custom library directories.
-export PYTHONPATH=~/dev/lib/python:~/.dotfiles/lib/python
+export PYTHONPATH=~/dev/lib/python
 
 # Disable the default virtualenv prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
@@ -26,10 +26,56 @@ function syspip3() {
 # Virtual environment utilities.
 # --------------------------------------------------------------------------
 
-# Store all virtual environments in the following directory.
 export DOTPYENVS=~/.cache/dotpyenvs
 
-# Activate a virtual environment. Print an error message on failure.
+function dotpy-help() {
+    cat <<EOF
+Usage: dotpy <command> <args>
+
+  Utility for managing Python virtual environments.
+
+  * The 'make' command uses 'virtualenv' and accepts all the same arguments.
+  * The 'make' command automatically uses the --always-copy flag.
+
+Commands:
+
+  activate, a <name>    Activate the named virtual environment.
+  deactivate, d         Deactivate the current virtual environment.
+  delete <names>        Delete one or more virtual environments.
+  list                  List virtual environments.
+  make <name>           Make a new virtual environment.
+
+Environments:
+
+EOF
+    echo -n "  " && /bin/ls -m $DOTPYENVS
+}
+
+function dotpy() {
+    if [[ -n "$1" ]]; then
+        local command="$1"
+        shift
+        case "$command" in
+            a|activate)
+                dotpy-activate "$@";;
+            d|deactivate)
+                deactivate;;
+            h|help|--help)
+                dotpy-help;;
+            l|ls|list)
+                dotpy-list "$@";;
+            m|mk|make)
+                dotpy-make "$@";;
+            delete)
+                dotpy-remove "$@";;
+            *)
+                dotpy-activate "$command" "$@";;
+        esac
+    else
+        dotpy-help
+    fi
+}
+
 function dotpy-activate() {
     if [[ -n "$1" ]]; then
         local name="$1"
@@ -44,7 +90,6 @@ function dotpy-activate() {
     fi
 }
 
-# Silently try to activate a virtual environment. No error on failure.
 function dotpy-try-activate() {
     local script=$DOTPYENVS/$1/bin/activate
     if [[ -e $script ]]; then
@@ -52,7 +97,6 @@ function dotpy-try-activate() {
     fi
 }
 
-# Create a new virtual environment.
 function dotpy-make() {
     if [[ -n "$1" ]]; then
         local name="$1"
@@ -71,7 +115,6 @@ function dotpy-make() {
     fi
 }
 
-# Delete a list of virtual environments.
 function dotpy-remove() {
     if [[ $# -ne 0 ]]; then
         for name in "$@"; do
@@ -87,58 +130,7 @@ function dotpy-remove() {
     fi
 }
 
-# List all virtual environments.
 function dotpy-list() {
     /bin/ls -m $DOTPYENVS
 }
 
-# Print help.
-function dotpy-help() {
-    cat <<EOF
-Usage: dotpy <command> <args>
-
-  Utility for managing Python virtual environments.
-
-  Note: the 'make' command uses 'virtualenv' and accepts all the same
-  arguments as that tool.
-
-Commands:
-
-  activate <name>       Activate the named virtual environment.
-  deactivate            Deactivate the current virtual environment.
-  help                  Print this help message and exit.
-  list                  List all virtual environments.
-  make <name>           Make a new virtual environment.
-  remove <names>        Delete one or more virtual environments.
-
-Environments:
-
-EOF
-    echo -n "  " && /bin/ls -m $DOTPYENVS
-}
-
-# Public interface for the suite of utility functions.
-function dotpy() {
-    if [[ -n "$1" ]]; then
-        local command="$1"
-        shift
-        case "$command" in
-            a|activate)
-                dotpy-activate "$@";;
-            d|deactivate)
-                deactivate;;
-            h|help|--help)
-                dotpy-help;;
-            l|ls|list)
-                dotpy-list "$@";;
-            m|mk|make)
-                dotpy-make "$@";;
-            r|rm|remove)
-                dotpy-remove "$@";;
-            *)
-                dotpy-activate "$command" "$@";;
-        esac
-    else
-        dotpy-help
-    fi
-}

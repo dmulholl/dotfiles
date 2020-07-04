@@ -4,10 +4,16 @@
 
 function j() {
     case "$1" in
+        src)
+            cd ~/dev/src;;
+        etc)
+            cd ~/dev/etc;;
+        bin)
+            cd ~/dev/bin;;
         dm)
             cd ~/dev/www/dmulholl.com;;
-        src|code)
-            cd ~/dev/src;;
+        notes)
+            cd ~/dev/etc/notes;;
         *)
             jj "$@";;
     esac

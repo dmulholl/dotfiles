@@ -64,7 +64,7 @@ alias gl9="git log --oneline --graph -90"
 
 # Vim.
 alias hosts="sudo vim /etc/hosts"
-alias notes="cd ~/dev/lit/notes && vim"
+alias notes="cd ~/dev/etc/notes && vim"
 
 # Directory listings.
 alias la="ls -Fa"
