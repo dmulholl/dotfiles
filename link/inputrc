@@ -39,3 +39,8 @@ set skip-completed-text on
 set input-meta on
 set output-meta on
 set convert-meta off
+
+# Open the command line buffer in $EDITOR, then execute the output as a command.
+"\C-o": edit-and-execute-command
+
+
