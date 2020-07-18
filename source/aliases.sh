@@ -8,6 +8,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias -- -="cd -"
 
+# Singles.
+alias v="vim"
+
 # Doubles.
 alias ff="fzf"
 alias dd="deploydocs"
