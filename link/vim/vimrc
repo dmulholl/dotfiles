@@ -11,6 +11,7 @@ Plug 'cespare/vim-toml'
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'wincent/terminus'
 call plug#end()
 
 " Allow backspace in insert mode.
@@ -34,21 +35,21 @@ set updatetime=1000
 " Allow hidden buffers.
 set hidden
 
+" Load language plugins and indent files.
+filetype plugin on
+filetype indent on
+
 " Indentation.
 set autoindent
 set smartindent
 set smarttab
 set shiftwidth=4
-set tabstop=4
-set expandtab
-set breakindent
+set tabstop=4           " Display width for <tab> characters.
+set expandtab           " Insert spaces instead of tabs.
+set breakindent         " Maintain visual indent when wrapping lines.
 
 " Don't wrap lines.
 set nowrap
-
-" Load language plugins and indent files.
-filetype plugin on
-filetype indent on
 
 " Alternative to using the escape key.
 inoremap jj <esc>
@@ -101,6 +102,9 @@ inoremap <c-k> <esc>gkli
 " Enable italics in Mac Terminal.
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
+
+" Highlight the current line.
+set cursorline
 
 " ------------------------------------------------------------
 " Search

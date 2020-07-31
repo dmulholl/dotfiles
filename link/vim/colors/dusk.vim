@@ -14,12 +14,13 @@ hi Normal                   ctermfg=none        ctermbg=none
 
 " Interface elements.
 hi LineNr                   ctermfg=233
-hi CursorLineNr             ctermfg=233
-hi Visual                                       ctermbg=237
+hi CursorLineNr             ctermfg=248         ctermbg=233         cterm=none
+hi Visual                                       ctermbg=235
 hi NonText                  ctermfg=233
 hi MatchParen                                   ctermbg=236         cterm=bold
 hi ErrorMsg                 ctermfg=9           ctermbg=0
 hi VertSplit                ctermfg=234         ctermbg=234
+hi CursorLine                                   ctermbg=233         cterm=none
 
 " Status line.
 hi StatusLine               ctermfg=234         ctermbg=245         cterm=reverse
