@@ -13,14 +13,14 @@ let colors_name = "dusk"
 hi Normal                   ctermfg=none        ctermbg=none
 
 " Interface elements.
-hi LineNr                   ctermfg=233
+hi LineNr                   ctermfg=236
 hi CursorLineNr             ctermfg=248         ctermbg=233         cterm=none
+hi CursorLine                                   ctermbg=233         cterm=none
 hi Visual                                       ctermbg=235
 hi NonText                  ctermfg=233
 hi MatchParen                                   ctermbg=236         cterm=bold
 hi ErrorMsg                 ctermfg=9           ctermbg=0
 hi VertSplit                ctermfg=234         ctermbg=234
-hi CursorLine                                   ctermbg=233         cterm=none
 
 " Status line.
 hi StatusLine               ctermfg=234         ctermbg=245         cterm=reverse
@@ -47,7 +47,7 @@ hi SpellRare                                    ctermbg=none
 hi SpellCap                                     ctermbg=none
 
 " Content categories.
-hi Comment                  ctermfg=240                             cterm=italic
+hi Comment                  ctermfg=242                             cterm=italic
 hi Constant                 ctermfg=3
 hi Identifier               ctermfg=4                               cterm=bold
 hi Statement                ctermfg=5
@@ -80,28 +80,28 @@ hi clear texEmphStyle
 
 " Syntext.
 hi stxHeadingText           ctermfg=5
-hi stxHeadingDelim          ctermfg=240
-hi stxHeadingLine           ctermfg=240
-hi stxMeta                  ctermfg=240
+hi stxHeadingDelim          ctermfg=242
+hi stxHeadingLine           ctermfg=242
+hi stxMeta                  ctermfg=242
 hi stxRefText               ctermfg=4
-hi stxRefDelim              ctermfg=240
+hi stxRefDelim              ctermfg=242
 hi stxRefUrl                ctermfg=3
 hi stxRefTitle              ctermfg=5
 hi stxRefTitleDelim         ctermfg=5
 hi stxLinkText              ctermfg=4                               cterm=underline
-hi stxLinkDelim             ctermfg=240
-hi stxLinkUrl               ctermfg=240
-hi stxLinkRef               ctermfg=240
+hi stxLinkDelim             ctermfg=242
+hi stxLinkUrl               ctermfg=242
+hi stxLinkRef               ctermfg=242
 hi stxAutoLink              ctermfg=4
-hi stxAutoLinkDelim         ctermfg=240
-hi stxFootnoteRef           ctermfg=240
+hi stxAutoLinkDelim         ctermfg=242
+hi stxFootnoteRef           ctermfg=242
 hi stxUListMarker           ctermfg=1
 hi stxOListMarker           ctermfg=1
 hi stxBlockquote                                                    cterm=italic
-hi stxTagLine               ctermfg=240
+hi stxTagLine               ctermfg=242
 hi stxDLTerm                ctermfg=5
-hi stxDLTermDelim           ctermfg=240
-hi stxEntity                ctermfg=240
+hi stxDLTermDelim           ctermfg=242
+hi stxEntity                ctermfg=242
 
 " Rust.
-hi rustCommentLineDoc       ctermfg=240
+hi rustCommentLineDoc       ctermfg=242
