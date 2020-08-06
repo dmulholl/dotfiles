@@ -11,7 +11,6 @@ Plug 'cespare/vim-toml'
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-" Plug 'wincent/terminus'
 call plug#end()
 
 " Allow backspace in insert mode.
@@ -69,7 +68,6 @@ set splitright
 
 " Set custom filetypes.
 autocmd BufNewFile,BufRead *.stx set filetype=syntext
-autocmd BufNewFile,BufRead *.sxt set filetype=syntext
 autocmd BufNewFile,BufRead *.sh set filetype=bash
 
 " Enable mouse support.
@@ -176,7 +174,7 @@ nnoremap <leader>x :w <bar> !"%:p"<cr>
 nnoremap <leader>o :w <bar> !open "%:p"<cr>
 
 " Open the directory containing the current file.
-nnoremap <leader>d :!open "%:p:h"<cr>
+nnoremap <leader>d :!open "%:p:h"<cr><cr>
 
 " Identify the syntax highlighting group under the cursor.
 nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
@@ -189,6 +187,12 @@ nnoremap <leader>a :b#<cr>
 
 " Change a word, then change the next occurance of it by hitting dot.
 nnoremap <leader>c *``cgn
+
+" Open a terminal window.
+nnoremap <leader>t :term<cr>
+
+" Unhighlight search terms.
+nnoremap <leader>u /blahblahblah<cr>
 
 " ------------------------------------------------------------
 " File-Type Specific Leader Shortcuts
@@ -264,7 +268,8 @@ set clipboard=unnamed
 " ------------------------------------------------------------
 
 " Toggle NT on and off.
-nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>p :NERDTreeToggle<cr>
 
 " Close NT when opening a file.
 let NERDTreeQuitOnOpen = 1
