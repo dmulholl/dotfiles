@@ -13,12 +13,12 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Install a package using the global version of Python 2.
-function syspip2() {
+function syspip2 {
     PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
 }
 
 # Install a package using the global version of Python 3.
-function syspip3() {
+function syspip3 {
     PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 
@@ -28,7 +28,7 @@ function syspip3() {
 
 export DOTPYENVS=~/.cache/dotpyenvs
 
-function dotpy-help() {
+function dotpy-help {
     cat <<EOF
 Usage: dotpy <command> <args>
 
@@ -51,7 +51,7 @@ EOF
     echo -n "  " && /bin/ls -m $DOTPYENVS
 }
 
-function dotpy() {
+function dotpy {
     if [[ -n "$1" ]]; then
         local command="$1"
         shift
@@ -76,7 +76,7 @@ function dotpy() {
     fi
 }
 
-function dotpy-activate() {
+function dotpy-activate {
     if [[ -n "$1" ]]; then
         local name="$1"
         local script=$DOTPYENVS/$name/bin/activate
@@ -90,14 +90,14 @@ function dotpy-activate() {
     fi
 }
 
-function dotpy-try-activate() {
+function dotpy-try-activate {
     local script=$DOTPYENVS/$1/bin/activate
     if [[ -e $script ]]; then
         source $script
     fi
 }
 
-function dotpy-make() {
+function dotpy-make {
     if [[ -n "$1" ]]; then
         local name="$1"
         local path=$DOTPYENVS/$name
@@ -115,7 +115,7 @@ function dotpy-make() {
     fi
 }
 
-function dotpy-remove() {
+function dotpy-remove {
     if [[ $# -ne 0 ]]; then
         for name in "$@"; do
             local path=$DOTPYENVS/$name
@@ -130,7 +130,7 @@ function dotpy-remove() {
     fi
 }
 
-function dotpy-list() {
+function dotpy-list {
     /bin/ls -m $DOTPYENVS
 }
 

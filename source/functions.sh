@@ -3,44 +3,44 @@
 # ------------------------------------------------------------------------------
 
 # Set the window title.
-function title() {
+function title {
     if test -n "$1"; then
         echo -n -e "\e]0;$1\007"
     fi
 }
 
 # Python makes a nice command line calculator.
-function pycalc() {
+function pycalc {
     python3 -c "from math import *; print($*)"
 }
 
 # Are we running on a Mac?
-function is_mac() {
+function is_mac {
     [[ "$OSTYPE" =~ ^darwin ]]
 }
 
 # Are we running on a Linux box?
-function is_linux() {
+function is_linux {
     [[ "$OSTYPE" =~ ^linux ]]
 }
 
 # Are we running on a BSD box?
-function is_bsd() {
+function is_bsd {
     [[ "$OSTYPE" =~ ^bsd ]]
 }
 
 # Are we running on MSys on Windows?
-function is_msys() {
+function is_msys {
     [[ "$OSTYPE" =~ ^msys ]]
 }
 
 # Are we running on Cygwin on Windows?
-function is_cygwin() {
+function is_cygwin {
     [[ "$OSTYPE" =~ ^cygwin ]]
 }
 
 # Test if a binary is installed on the system.
-function is_installed() {
+function is_installed {
     if type $1 &> /dev/null; then
         return 0
     else
@@ -49,7 +49,7 @@ function is_installed() {
 }
 
 # Make a directory and cd into it in one step.
-function mkcd() {
+function mkcd {
     if test -n "$1"; then
         mkdir -p "$1"
         cd "$1"
@@ -57,12 +57,12 @@ function mkcd() {
 }
 
 # Unicommand for the clipboard on OSX.
-function clip() {
+function clip {
     test -t 0 && pbpaste || pbcopy
 }
 
 # Clean build artifacts from the current directory.
-function clean() {
+function clean {
     find . -name ".DS_Store" -delete
     find . -name "._.DS_Store" -delete
     find . -name "._*" -delete
@@ -94,7 +94,7 @@ function clean() {
 }
 
 # Colourized man pages.
-function man() {
+function man {
     env \
         LESS_TERMCAP_mb=$(printf "\e[1;31m") \
         LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -107,8 +107,8 @@ function man() {
 }
 
 # Interactive mv command for renaming files.
-function mv() {
-    if [ "$#" -ne 1 ]; then
+function mv {
+    if [ $# -ne 1 ]; then
         command mv "$@"
         return
     fi
@@ -116,12 +116,12 @@ function mv() {
         command file "$@"
         return
     fi
-    read -ei "$1" newfilename
-    mv -v "$1" "$newfilename"
+    read -ei "$1" new_filename
+    mv -v "$1" "$new_filename"
 }
 
 # Request user confirmation. First argument is used as the prompt string.
-function confirm() {
+function confirm {
     local input
     while true; do
         echo -n -e " \e[1;35m?\e[0m  $@ (y/n) "

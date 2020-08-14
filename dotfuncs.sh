@@ -2,7 +2,7 @@
 # Admin functions for the `dot` command.
 # ------------------------------------------------------------------------------
 
-function dot() {
+function dot {
     case "$1" in
         update)
             dot_update;;
@@ -18,7 +18,7 @@ function dot() {
 }
 
 # Print the help text for the dotfiles command.
-function dot_help() {
+function dot_help {
     cat <<EOF
 Usage: dot <command>
 
@@ -33,7 +33,7 @@ EOF
 }
 
 # Source all files in /source.
-function dot_source() {
+function dot_source {
     source ~/.dotfiles/source/colours.sh
     source ~/.dotfiles/source/functions.sh
     source ~/.dotfiles/source/options.sh
@@ -50,7 +50,7 @@ function dot_source() {
 }
 
 # Create a symlink in $HOME to each file or directory in /link.
-function dot_link() {
+function dot_link {
     for targetfile in ~/.dotfiles/link/*; do
         linkfile=~/.$(basename $targetfile)
         if test -e $linkfile; then
@@ -65,7 +65,7 @@ function dot_link() {
 }
 
 # Initialize/reinitialize the dotfiles installation.
-function dot_init() {
+function dot_init {
     source ~/.dotfiles/dotfuncs.sh
     dot_source
     dot_link
