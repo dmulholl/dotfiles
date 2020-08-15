@@ -112,10 +112,6 @@ function mv {
         command mv "$@"
         return
     fi
-    if [ ! -f "$1" ]; then
-        command file "$@"
-        return
-    fi
     read -ei "$1" new_filename
     mv -v "$1" "$new_filename"
 }
