@@ -68,7 +68,7 @@ function clean {
     find . -name "._*" -delete
     find . -name ".*.swp" -delete
 
-    if test "$1" == "python" || test "$1" == "all"; then
+    if test "$1" == "python" || test "$1" == "py" || test "$1" == "all"; then
         find . -name "*.egg-info" -exec rm -r "{}" +
         find . -name "__pycache__" -exec rm -r "{}" +
         find . -name ".pytest_cache" -exec rm -r "{}" +
