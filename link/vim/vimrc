@@ -48,7 +48,7 @@ set expandtab           " Insert spaces instead of tabs.
 set breakindent         " Maintain visual indent when wrapping lines.
 
 " Don't wrap lines.
-set nowrap
+set wrap
 
 " Alternative to using the escape key.
 inoremap jj <esc>
