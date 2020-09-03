@@ -104,13 +104,14 @@ let &t_ZR="\e[23m"
 " Highlight the current line.
 set cursorline
 
-" Create a central directory for all of Vim's temporary files.
-silent! mkdir -p ~/.cache/vim
-
 " Relocate backup files, swap files, and undo files to a central location.
+silent! mkdir -p ~/.cache/vim
 set backupdir=~/.cache/vim//
 set directory=~/.cache/vim//
 set undodir=~/.cache/vim//
+
+" Exit from visual mode immediately after hitting the <esc> key.
+set ttimeoutlen=0
 
 " ------------------------------------------------------------
 " Search
