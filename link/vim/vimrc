@@ -113,6 +113,10 @@ set undodir=~/.cache/vim//
 " Exit from visual mode immediately after hitting the <esc> key.
 set ttimeoutlen=0
 
+" Recognize 0b and 0x as prefixes for binary and hex integers.
+" Do not treat leading zeros as indicating octal.
+set nrformats=bin,hex
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
