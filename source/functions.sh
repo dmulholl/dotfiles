@@ -132,7 +132,7 @@ function confirm {
 }
 
 # Create a new git version tag.
-function tag {
+function maketag {
     if test -n "$1"; then
         git tag -am "Version $1" $1
     fi

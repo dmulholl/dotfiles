@@ -28,7 +28,7 @@ Usage: dot <command>
 Commands:
   init      Initialize/reinitialize the installation.
   link      Link all files in ~/.dotfiles/link into ~/.
-  src       Source all files in ~/.dotfiles/source.
+  source    Source all files in ~/.dotfiles/source.
 EOF
 }
 
