@@ -120,7 +120,7 @@ function mv {
 function confirm {
     local input
     while true; do
-        echo -n -e " \e[1;35m?\e[0m  $@ (y/n) "
+        echo -n -e "$@ (y/n) "
         read input
         case $input in
             [Yy]*)
@@ -132,7 +132,7 @@ function confirm {
 }
 
 # Create a new git version tag.
-function maketag {
+function tag {
     if test -n "$1"; then
         git tag -am "Version $1" $1
     fi

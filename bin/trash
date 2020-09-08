@@ -23,7 +23,7 @@ for arg in "$@"; do
 
     base=$(basename "$arg")
     while [[ -e "$HOME/.trash/$base" ]]; do
-        base="$base.$(date "+%y-%m-%d_%H-%M-%S")"
+        base="$base.$(date "+%Y-%m-%d.%H-%M-%S")"
     done
 
     mv "$arg" "$HOME/.trash/$base"
