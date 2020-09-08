@@ -47,14 +47,14 @@ set tabstop=4           " Display width for <tab> characters.
 set expandtab           " Insert spaces instead of tabs.
 set breakindent         " Maintain visual indent when wrapping lines.
 
-" Don't wrap lines.
+" Default to wrapping lines.
 set wrap
-
-" Alternative to using the escape key.
-inoremap jj <esc>
 
 " Wrap lines at word boundaries.
 set linebreak
+
+" Alternative to using the escape key.
+inoremap jj <esc>
 
 " Navigating splits.
 nnoremap <C-J> <C-W><C-J>
@@ -79,7 +79,7 @@ set nomodeline
 " Assume .tex files are latex by default.
 let g:tex_flavor = "latex"
 
-" Insert blank lines in normal mode. Shift-Enter doesn't work in the terminal.
+" Insert blank lines in normal mode. (Shift-Enter doesn't work in the terminal.)
 nnoremap <Enter> :call append(line('.'), '')<cr>
 nnoremap <C-O> :call append(line('.')-1, '')<cr>
 
@@ -92,10 +92,6 @@ set shortmess+=I
 " Move around in insert mode.
 inoremap <c-a> <esc>0i
 inoremap <c-e> <esc>A
-inoremap <c-b> <esc>i
-inoremap <c-f> <esc>2li
-inoremap <c-j> <esc>gjli
-inoremap <c-k> <esc>gkli
 
 " Enable italics in Mac Terminal.
 let &t_ZH="\e[3m"
@@ -120,10 +116,6 @@ set nrformats=bin,hex
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
-
-" Use case-sensitive search IFF the pattern contains uppercase letters.
-set ignorecase
-set smartcase
 
 " Find the next match as the search term is being typed.
 set incsearch
@@ -204,9 +196,6 @@ nnoremap <leader>c *``cgn
 " Open a terminal window.
 nnoremap <leader>t :term<cr>
 
-" Unhighlight search terms.
-nnoremap <leader>u /blahblahblah<cr>
-
 " ------------------------------------------------------------
 " File-Type Specific Leader Shortcuts
 " ------------------------------------------------------------
@@ -254,17 +243,8 @@ augroup end
 " Line Numbers
 " ------------------------------------------------------------
 
-" Turn on line numbers and relative line numbers.
+" Show line numbers.
 set number
-" set relativenumber
-
-" Show absolute line numbers when in insert mode.
-" autocmd InsertEnter * :set norelativenumber
-" autocmd InsertLeave * :set relativenumber
-
-" Show absolute line numbers when we lose the focus. GUI only.
-" autocmd FocusLost * :set norelativenumber
-" autocmd FocusGained * :set relativenumber
 
 " Toggle between relative and absolute line numbering.
 nnoremap <silent><leader>n :set relativenumber!<cr>
@@ -281,7 +261,6 @@ set clipboard=unnamed
 " ------------------------------------------------------------
 
 " Toggle NT on and off.
-nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>p :NERDTreeToggle<cr>
 
 " Close NT when opening a file.
