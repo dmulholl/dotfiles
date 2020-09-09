@@ -26,11 +26,6 @@ autocmd BufRead * :colorscheme dusk
 " The default is 8 commands.
 set history=9999
 
-" Reload files changed outside Vim.
-set autoread
-autocmd CursorHold,CursorHoldI,FocusGained,BufEnter,WinEnter * :checktime
-set updatetime=1000
-
 " Allow hidden buffers.
 set hidden
 
