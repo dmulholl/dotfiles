@@ -75,8 +75,7 @@ set nomodeline
 let g:tex_flavor = "latex"
 
 " Insert blank lines in normal mode. (Shift-Enter doesn't work in the terminal.)
-nnoremap <Enter> :call append(line('.'), '')<cr>
-nnoremap <C-O> :call append(line('.')-1, '')<cr>
+" nnoremap <Enter> :call append(line('.'), '')<cr>
 
 " Show as much of the last line as possible.
 set display=lastline
@@ -107,6 +106,19 @@ set ttimeoutlen=0
 " Recognize 0b and 0x as prefixes for binary and hex integers.
 " Do not treat leading zeros as indicating octal.
 set nrformats=bin,hex
+
+" In command mode, make ctrl-p and ctrl-n match the existing prefix when
+" scrolling backwards and forwards through the command history. The simplest
+" way to achieve this is to map to the up and down keys which already have
+" this behaviour:
+"
+"   cnoremap <C-P> <Up>
+"   cnoremap <C-N> <Down>
+"
+" The additional code below is to preserve existing ctrl-p and ctrl-n
+" behaviour in wildmenus.
+cnoremap <expr> <C-P> wildmenumode() ? "\<C-P>" : "\<Up>"
+cnoremap <expr> <C-N> wildmenumode() ? "\<C-N>" : "\<Down>"
 
 " ------------------------------------------------------------
 " Search
@@ -141,6 +153,7 @@ set scrolloff=1
 set sidescroll=5
 
 " Buffer scrolling with ctrl-n and ctrl-p.
+" (By default they act just like j and k.)
 nnoremap <c-n> <c-e>
 nnoremap <c-p> <c-y>
 

@@ -12,15 +12,19 @@ let colors_name = "dusk"
 
 hi Normal                   ctermfg=none        ctermbg=none
 
-" Interface elements.
+" Interface elements. Search :h highlight-groups.
 hi LineNr                   ctermfg=236
 hi CursorLineNr             ctermfg=248         ctermbg=233         cterm=none
 hi CursorLine                                   ctermbg=233         cterm=none
 hi Visual                                       ctermbg=235
 hi NonText                  ctermfg=233
 hi MatchParen                                   ctermbg=236         cterm=bold
-hi ErrorMsg                 ctermfg=9           ctermbg=0
+hi ErrorMsg                 ctermfg=1           ctermbg=0
+hi WarningMsg               ctermfg=6           ctermbg=0
 hi VertSplit                ctermfg=234         ctermbg=234
+hi ModeMsg                  ctermfg=8
+hi MoreMsg                  ctermfg=2
+hi Question                 ctermfg=2
 
 " Status line.
 hi StatusLine               ctermfg=234         ctermbg=245         cterm=reverse
@@ -32,7 +36,7 @@ hi StatusLineTermNC         ctermfg=234         ctermbg=0           cterm=revers
 hi StatusA1                 ctermfg=black       ctermbg=4
 hi StatusA2                 ctermfg=245         ctermbg=236
 hi StatusA3                 ctermfg=245         ctermbg=234
-hi StatusA4                 ctermfg=black       ctermbg=6
+hi StatusA4                 ctermfg=black       ctermbg=1
 hi StatusI1                 ctermfg=black       ctermbg=238
 hi StatusI2                 ctermfg=black       ctermbg=236
 hi StatusI3                 ctermfg=black       ctermbg=234
