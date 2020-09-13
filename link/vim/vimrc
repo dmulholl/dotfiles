@@ -207,11 +207,14 @@ nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 " Alternate buffer. Swap back and forth between buffers.
 nnoremap <leader>a :b#<cr>
 
-" Change a word, then change the next occurance of it by hitting dot.
+" Change the word under the cursor, then change the next occurance of it by hitting dot.
 nnoremap <leader>c *``cgn
 
 " Open a terminal window.
 nnoremap <leader>t :term<cr>
+
+" Stop highlighting the last search term.
+nnoremap <leader><space> :noh<cr>
 
 " ------------------------------------------------------------
 " File-Type Specific Leader Shortcuts
@@ -270,7 +273,7 @@ nnoremap <silent><leader>n :set relativenumber!<cr>
 " Clipboard
 " ------------------------------------------------------------
 
-" Default to using the system clipboard instead of register 0.
+" Use the system clipboard as the unnamed (i.e. default) register.
 set clipboard=unnamed
 
 " ------------------------------------------------------------
