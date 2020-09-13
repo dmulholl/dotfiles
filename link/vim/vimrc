@@ -34,13 +34,15 @@ filetype plugin on
 filetype indent on
 
 " Indentation.
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=4
-set tabstop=4           " Display width for <tab> characters.
-set expandtab           " Insert spaces instead of tabs.
+set autoindent          " Copy new-line indentation from the previous line.
+set smartindent         " Insert extra level of indentation in some cases.
 set breakindent         " Maintain visual indent when wrapping lines.
+
+" Tabs.
+set expandtab           " Insert spaces instead of tabs when the <tab> key is pressed.
+set tabstop=4           " Number of spaces to insert, also display-with for <tab> characters.
+set shiftwidth=4        " Autoindent size, also determines the operation of >> and ==.
+set smarttab            " <BS> will delete a 'shiftwidth' worth of spaces at line start.
 
 " Default to wrapping lines.
 set wrap
@@ -120,6 +122,9 @@ set nrformats=bin,hex
 cnoremap <expr> <C-P> wildmenumode() ? "\<C-P>" : "\<Up>"
 cnoremap <expr> <C-N> wildmenumode() ? "\<C-N>" : "\<Down>"
 
+" Show a vertical guideline for text width.
+set colorcolumn=100
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
@@ -135,7 +140,11 @@ set hlsearch
 " ------------------------------------------------------------
 
 " Search into subfolders.
-set path+=**
+" set path+=**
+
+" Set path to the directory of the current file, plus the current working
+" directory and all subfolders.
+set path=.,**
 
 " Display all matching files on tab-complete.
 set wildmenu

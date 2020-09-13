@@ -25,6 +25,7 @@ hi VertSplit                ctermfg=234         ctermbg=234
 hi ModeMsg                  ctermfg=8
 hi MoreMsg                  ctermfg=2
 hi Question                 ctermfg=2
+hi ColorColumn                                  ctermbg=233
 
 " Status line.
 hi StatusLine               ctermfg=234         ctermbg=245         cterm=reverse
