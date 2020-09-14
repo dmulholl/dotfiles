@@ -8,8 +8,8 @@ set completion-ignore-case on
 # List all matches when multiple completions are possible.
 set show-all-if-ambiguous on
 
-# Ask before showing all completions when there are more than 200.
-set completion-query-items 200
+# Ask before showing all completions when there are more than 100.
+set completion-query-items 100
 
 # Show all autocomplete results at once.
 set page-completions off
@@ -26,13 +26,15 @@ set visible-stats on
 # More intelligent autocompletion. Requires Bash 4.
 set skip-completed-text on
 
-# Use existing text as a prefix when searching through commands using up/down.
+# Enable prefix-matching when scrolling the command history with UP and DOWN.
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# Enable prefix-matching when scrolling the command history with Ctrl-P/N.
 "\C-p": history-search-backward
 "\C-n": history-search-forward
 
-# Use Alt/Meta + Delete to delete the preceding word
+# Use Alt/Meta + Delete to delete the preceding word.
 "\e[3;3~": kill-word
 
 # Allow UTF-8 input and output.
