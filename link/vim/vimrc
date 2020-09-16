@@ -79,8 +79,8 @@ set nomodeline
 " Assume .tex files are latex by default.
 let g:tex_flavor = "latex"
 
-" Insert blank lines in normal mode. (Shift-Enter doesn't work in the terminal.)
-" nnoremap <Enter> :call append(line('.'), '')<cr>
+" Insert blank lines below the cursor in normal mode.
+nnoremap <C-_> :call append(line('.'), '')<cr>
 
 " Show as much of the last line as possible.
 set display=lastline
