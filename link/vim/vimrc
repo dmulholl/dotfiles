@@ -88,10 +88,6 @@ set display=lastline
 " Clear the splash screen.
 set shortmess+=I
 
-" Move around in insert mode.
-inoremap <c-a> <esc>0i
-inoremap <c-e> <esc>A
-
 " Enable italics in Mac Terminal.
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
