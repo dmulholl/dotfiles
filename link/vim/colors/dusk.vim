@@ -12,9 +12,9 @@ let colors_name = "dusk"
 
 hi Normal                   ctermfg=none        ctermbg=none
 
-" Interface elements. Search :h highlight-groups.
+" Interface elements. For explanations search :h highlight-groups.
 hi LineNr                   ctermfg=236
-hi CursorLineNr             ctermfg=248         ctermbg=233         cterm=none
+hi CursorLineNr             ctermfg=15          ctermbg=233         cterm=none
 hi CursorLine                                   ctermbg=233         cterm=none
 hi Visual                                       ctermbg=235
 hi NonText                  ctermfg=233

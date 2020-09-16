@@ -135,6 +135,11 @@ set incsearch
 " Highlight search matches.
 set hlsearch
 
+" Stop highlighting the last search term. Highlighting will be re-enabled after
+" the next search. (This shortcut piggy-backs the :noh command on Ctrl-L which
+" clears and redraws the screen.)
+nnoremap <silent> <C-l> :<C-u>noh<cr><C-l>
+
 " ------------------------------------------------------------
 " Finding Files
 " ------------------------------------------------------------
@@ -208,12 +213,18 @@ nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 nnoremap <leader>a :b#<cr>
 
 " Change the word under the cursor, then change the next occurance of it by hitting dot.
+" Can use 'n' to preview or skip over the next match.
+"   *   -- search for the word under the cursor
+"   ``  -- jump back to the first instance
+"   c   -- operation: change
+"   gn  -- motion: perform the operation on the next match
 nnoremap <leader>c *``cgn
 
 " Open a terminal window.
 nnoremap <leader>t :term<cr>
 
-" Stop highlighting the last search term.
+" Stop highlighting the last search term. Highlighting will be re-enabled for
+" the next search.
 nnoremap <leader><space> :noh<cr>
 
 " ------------------------------------------------------------
