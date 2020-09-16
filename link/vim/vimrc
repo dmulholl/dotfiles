@@ -65,7 +65,10 @@ set splitright
 
 " Set custom filetypes.
 autocmd BufNewFile,BufRead *.stx set filetype=syntext
-autocmd BufNewFile,BufRead *.sh set filetype=bash
+
+" Use zsh highlighting for all shell scripts as the sh/bash highlighters are
+" broken.
+autocmd BufNewFile,BufRead *.sh set filetype=zsh
 
 " Enable mouse support.
 set mouse=a
