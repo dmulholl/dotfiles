@@ -212,7 +212,7 @@ nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 " Alternate buffer. Swap back and forth between buffers.
 nnoremap <leader>a :b#<cr>
 
-" Change the word under the cursor, then change the next occurance of it by hitting dot.
+" Change the word under the cursor, then change subsequent occurances by hitting dot.
 " Can use 'n' to preview or skip over the next match.
 "   *   -- search for the word under the cursor
 "   ``  -- jump back to the first instance
