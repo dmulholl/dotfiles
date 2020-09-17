@@ -66,8 +66,7 @@ set splitright
 " Set custom filetypes.
 autocmd BufNewFile,BufRead *.stx set filetype=syntext
 
-" Use zsh highlighting for all shell scripts as the sh/bash highlighters are
-" broken.
+" Use zsh highlighting for all shell scripts as the sh/bash highlighters are broken.
 autocmd BufNewFile,BufRead *.sh set filetype=zsh
 
 " Enable mouse support.
@@ -82,7 +81,7 @@ let g:tex_flavor = "latex"
 " Insert blank lines below the cursor in normal mode.
 nnoremap <C-_> :call append(line('.'), '')<cr>
 
-" Show as much of the last line as possible.
+" Show as much of the last line as possible when wrapping is enabled.
 set display=lastline
 
 " Clear the splash screen.
