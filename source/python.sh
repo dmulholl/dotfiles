@@ -28,7 +28,7 @@ function syspip3 {
 
 export DOTPYENVS=~/.cache/dotpyenvs
 
-function dotpy-help {
+function dotpy_help {
     cat <<EOF
 Usage: dotpy <command> <args>
 
@@ -57,26 +57,26 @@ function dotpy {
         shift
         case "$command" in
             a|activate)
-                dotpy-activate "$@";;
+                dotpy_activate "$@";;
             d|deactivate)
                 deactivate;;
             h|help|--help)
-                dotpy-help;;
+                dotpy_help;;
             l|ls|list)
-                dotpy-list "$@";;
+                dotpy_list "$@";;
             m|mk|make)
-                dotpy-make "$@";;
+                dotpy_make "$@";;
             delete)
-                dotpy-remove "$@";;
+                dotpy_remove "$@";;
             *)
-                dotpy-activate "$command" "$@";;
+                dotpy_activate "$command" "$@";;
         esac
     else
-        dotpy-help
+        dotpy_help
     fi
 }
 
-function dotpy-activate {
+function dotpy_activate {
     if [[ -n "$1" ]]; then
         local name="$1"
         local script=$DOTPYENVS/$name/bin/activate
@@ -90,14 +90,14 @@ function dotpy-activate {
     fi
 }
 
-function dotpy-try-activate {
+function dotpy_try_activate {
     local script=$DOTPYENVS/$1/bin/activate
     if [[ -e $script ]]; then
         source $script
     fi
 }
 
-function dotpy-make {
+function dotpy_make {
     if [[ -n "$1" ]]; then
         local name="$1"
         local path=$DOTPYENVS/$name
@@ -108,14 +108,14 @@ function dotpy-make {
         if [[ -d $path ]]; then
             echo "Error: '$name' already exists."
         else
-            virtualenv --always-copy $path $@ && dotpy-activate $name
+            virtualenv --always-copy $path $@ && dotpy_activate $name
         fi
     else
         echo "Error: you must specify a name for the new virtual environment."
     fi
 }
 
-function dotpy-remove {
+function dotpy_remove {
     if [[ $# -ne 0 ]]; then
         for name in "$@"; do
             local path=$DOTPYENVS/$name
@@ -130,7 +130,7 @@ function dotpy-remove {
     fi
 }
 
-function dotpy-list {
+function dotpy_list {
     /bin/ls -m $DOTPYENVS
 }
 

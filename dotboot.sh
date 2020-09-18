@@ -12,7 +12,7 @@ dotbooted="true"
 source ~/.dotfiles/dotfuncs.sh
 
 # Source all files in the /source directory.
-dot src
+dot_source
 
 # Try to activate the default Python virtual environment if it's available.
-dotpy-try-activate base
+dotpy_try_activate base
