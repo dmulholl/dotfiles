@@ -73,6 +73,8 @@ hi Todo                     ctermfg=2           ctermbg=none
 
 " Python.
 hi pythonDecoratorName      ctermfg=5
+hi pythonString             ctermfg=2
+hi pythonQuotes             ctermfg=2
 
 " NERDTree plugin.
 hi NERDTreeDir              ctermfg=4
