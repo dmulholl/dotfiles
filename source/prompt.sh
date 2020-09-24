@@ -55,15 +55,23 @@ simple_prompt="
 \[$fgc_magenta\](--:--) \[$fgc_green\]\u \[$fgc_yellow\]\w
 \[$fgc_yellow\] >> \[$fgc_default\]"
 
-normal_prompt="
+mac_prompt="
 \[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_green\]\u@\h \[$fgc_yellow\]\w
 \[$fgc_yellow\] >> \[$fgc_default\]"
 
-# Save the cursor position, jump up and overwrite the time placeholder, then
-# jump back to the saved position.
+linux_prompt="
+\[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_red\]\u@\h \[$fgc_yellow\]\w
+\[$fgc_yellow\] >> \[$fgc_default\]"
+
+# Bash expands and displays PS0 after it reads a command but before executing it.
+# This PS0 saves the cursor position, jumps up and overwrites the time placeholder,
+# then jumps back to the saved position.
 export PS0="\$(tput sc)\$(move_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_default\]\$(tput rc)"
 
 export PS2="\[$fgc_yellow\] >> \[$fgc_default\]"
 
-# export PS1="$simple_prompt"
-export PS1="$normal_prompt"
+if is_linux; then
+    export PS1="$linux_prompt"
+else
+    export PS1="$mac_prompt"
+fi
