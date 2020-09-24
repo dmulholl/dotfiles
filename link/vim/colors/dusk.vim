@@ -31,8 +31,8 @@ hi ColorColumn                                  ctermbg=233
 " Popup menus.
 hi Pmenu                    ctermfg=246         ctermbg=17
 hi PmenuSel                 ctermfg=15          ctermbg=53
-" hi PmenuSbar
-" hi PmenuThumb
+hi PmenuSbar                                    ctermbg=19
+hi PmenuThumb                                   ctermbg=21
 
 " Status line.
 hi StatusLine               ctermfg=234         ctermbg=245         cterm=reverse
