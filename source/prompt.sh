@@ -60,7 +60,7 @@ mac_prompt="
 \[$fgc_yellow\] >> \[$fgc_default\]"
 
 linux_prompt="
-\[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_red\]\u@\h \[$fgc_yellow\]\w
+\[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_blue\]\u@\h \[$fgc_yellow\]\w
 \[$fgc_yellow\] >> \[$fgc_default\]"
 
 # Bash expands and displays PS0 after it reads a command but before executing it.
