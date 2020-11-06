@@ -219,7 +219,7 @@ nnoremap <leader>a :b#<cr>
 nnoremap <leader>c *``cgn
 
 " Open a terminal window.
-nnoremap <leader>t :term<cr>
+nnoremap <leader>t :term <cr><C-w>:res 20<cr>
 
 " Stop highlighting the last search term. Highlighting will be re-enabled for
 " the next search.
