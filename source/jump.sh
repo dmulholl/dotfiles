@@ -12,8 +12,6 @@ function j() {
             cd ~/dev/bin;;
         dm)
             cd ~/dev/www/dmulholl.com;;
-        notes)
-            cd ~/dev/etc/notes;;
         *)
             jj "$@";;
     esac
