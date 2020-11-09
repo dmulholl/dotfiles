@@ -130,6 +130,9 @@ set colorcolumn=100
 " Show line numbers.
 set number
 
+" Use the system clipboard as the unnamed (i.e. default) register.
+set clipboard=unnamed
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
@@ -274,13 +277,6 @@ augroup select_statusline
     autocmd WinEnter,BufEnter * :setlocal statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
     autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
 augroup end
-
-" ------------------------------------------------------------
-" Clipboard
-" ------------------------------------------------------------
-
-" Use the system clipboard as the unnamed (i.e. default) register.
-set clipboard=unnamed
 
 " ------------------------------------------------------------
 " NERDTree
