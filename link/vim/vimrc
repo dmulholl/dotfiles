@@ -79,7 +79,11 @@ set nomodeline
 let g:tex_flavor = "latex"
 
 " Insert a blank line below the cursor in normal mode.
-nnoremap <enter> :call append(line('.'), '')<cr>
+nnoremap <Enter> :call append(line('.'), '')<CR>
+
+" Insert a blank line above the cursor in normal mode.
+" (Won't work in terminals.)
+nnoremap <S-Enter> :call append(line('.')-1, '')<CR>
 
 " Show as much of the last line as possible when wrapping is enabled.
 set display=lastline
@@ -123,6 +127,9 @@ cnoremap <expr> <C-N> wildmenumode() ? "\<C-N>" : "\<Down>"
 " Show a vertical guideline for text width.
 set colorcolumn=100
 
+" Show line numbers.
+set number
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
@@ -132,11 +139,6 @@ set incsearch
 
 " Highlight search matches.
 set hlsearch
-
-" Stop highlighting the last search term. Highlighting will be re-enabled after
-" the next search. (This shortcut piggy-backs the :noh command on Ctrl-L which
-" clears and redraws the screen.)
-nnoremap <silent> <C-l> :<C-u>noh<cr><C-l>
 
 " ------------------------------------------------------------
 " Finding Files
@@ -166,8 +168,8 @@ set sidescroll=5
 
 " Buffer scrolling with ctrl-n and ctrl-p.
 " (By default they act just like j and k.)
-nnoremap <c-n> <c-e>
-nnoremap <c-p> <c-y>
+nnoremap <C-N> <C-E>
+nnoremap <C-P> <C-Y>
 
 " ------------------------------------------------------------
 " Leader Shortcuts
@@ -176,39 +178,15 @@ nnoremap <c-p> <c-y>
 " Remap the <leader> key for custom shortcuts.
 let mapleader="\<space>"
 
-" Edit the vimrc file.
-nnoremap <leader>e :e ~/.vim/vimrc<cr>
+" Stop highlighting the last search term. Highlighting will be re-enabled for
+" the next search.
+nnoremap <leader><space> :noh<cr>
 
-" Re-source the vimrc file.
-nnoremap <leader>r :source ~/.vim/vimrc<cr>
-
-" Toggle word-wrapping.
-nnoremap <leader>w :set wrap!<cr>
-
-" Toggle spellcheck.
-nnoremap <leader>s :set spell!<cr>
-
-" Fuzzy finder.
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>b :Buffers<cr>
-
-" Save and execute the current file.
-nnoremap <leader>x :w <bar> !"%:p"<cr>
-
-"Save and open the current file.
-nnoremap <leader>o :w <bar> !open "%:p"<cr>
-
-" Open the directory containing the current file.
-nnoremap <leader>d :!open "%:p:h"<cr><cr>
-
-" Identify the syntax highlighting group under the cursor.
-nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
-
-" Buffer selector. Type a number or unique partial name.
-" nnoremap <leader>b :ls<cr>:b<space>
-
-" Alternate buffer. Swap back and forth between buffers.
+" Alternate buffer. Swap back and forth between the latest buffers.
 nnoremap <leader>a :b#<cr>
+
+" FZF - fuzzy buffer finder.
+nnoremap <leader>b :Buffers<cr>
 
 " Change the word under the cursor, then change subsequent occurances by hitting dot.
 " Can use 'n' to preview or skip over the next match.
@@ -218,12 +196,41 @@ nnoremap <leader>a :b#<cr>
 "   gn  -- motion: perform the operation on the next match
 nnoremap <leader>c *``cgn
 
+" Open the directory containing the current file.
+nnoremap <leader>d :!open "%:p:h"<cr><cr>
+
+" Edit the vimrc file.
+nnoremap <leader>e :e ~/.vim/vimrc<cr>
+
+" FZF - fuzzy file finder.
+nnoremap <leader>f :Files<cr>
+
+" Identify the syntax highlighting group under the cursor.
+nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+
+" Toggle between relative and absolute line numbering.
+nnoremap <silent><leader>n :set relativenumber!<cr>
+
+"Save and open the current file.
+nnoremap <leader>o :w <bar> !open "%:p"<cr>
+
+" Toggle NerdTree file browser on and off.
+nnoremap <leader>p :NERDTreeToggle<cr>
+
+" Re-source the vimrc file.
+nnoremap <leader>r :source ~/.vim/vimrc<cr>
+
+" Toggle spellcheck.
+nnoremap <leader>s :set spell!<cr>
+
 " Open a terminal window.
 nnoremap <leader>t :term <cr><C-w>:res 20<cr>
 
-" Stop highlighting the last search term. Highlighting will be re-enabled for
-" the next search.
-nnoremap <leader><space> :noh<cr>
+" Toggle word-wrapping.
+nnoremap <leader>w :set wrap!<cr>
+
+" Save and execute the current file.
+nnoremap <leader>x :w <bar> !"%:p"<cr>
 
 " ------------------------------------------------------------
 " File-Type Specific Leader Shortcuts
@@ -269,16 +276,6 @@ augroup select_statusline
 augroup end
 
 " ------------------------------------------------------------
-" Line Numbers
-" ------------------------------------------------------------
-
-" Show line numbers.
-set number
-
-" Toggle between relative and absolute line numbering.
-nnoremap <silent><leader>n :set relativenumber!<cr>
-
-" ------------------------------------------------------------
 " Clipboard
 " ------------------------------------------------------------
 
@@ -288,9 +285,6 @@ set clipboard=unnamed
 " ------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------
-
-" Toggle NT on and off.
-nnoremap <leader>p :NERDTreeToggle<cr>
 
 " Close NT when opening a file.
 let NERDTreeQuitOnOpen = 1
