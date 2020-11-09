@@ -78,8 +78,8 @@ set nomodeline
 " Assume .tex files are latex by default.
 let g:tex_flavor = "latex"
 
-" Insert blank lines below the cursor in normal mode.
-nnoremap <C-_> :call append(line('.'), '')<cr>
+" Insert a blank line below the cursor in normal mode.
+nnoremap <enter> :call append(line('.'), '')<cr>
 
 " Show as much of the last line as possible when wrapping is enabled.
 set display=lastline
