@@ -169,8 +169,7 @@ set scrolloff=1
 " Horizontal scroll rate. The default is 0 which scrolls by half a screen.
 set sidescroll=5
 
-" Buffer scrolling with ctrl-n and ctrl-p.
-" (By default they act just like j and k.)
+" Buffer scrolling with ctrl-n and ctrl-p. (By default they act just like j and k.)
 nnoremap <C-N> <C-E>
 nnoremap <C-P> <C-Y>
 
@@ -220,8 +219,8 @@ nnoremap <leader>o :w <bar> !open "%:p"<cr>
 " Toggle NerdTree file browser on and off.
 nnoremap <leader>p :NERDTreeToggle<cr>
 
-" Re-source the vimrc file.
-nnoremap <leader>r :source ~/.vim/vimrc<cr>
+" Reload the vimrc file and redraw the screen.
+nnoremap <leader>r :source ~/.vim/vimrc <bar> noh <bar> redraw<cr>
 
 " Toggle spellcheck.
 nnoremap <leader>s :set spell!<cr>
