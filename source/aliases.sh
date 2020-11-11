@@ -15,6 +15,7 @@ alias v="vim"
 alias ff="fzf"
 alias dd="deploydocs"
 alias iv="python3 ~/dev/src/ivy/ivy"
+alias vi="vim"
 
 # Triples.
 alias ydl="youtube-dl"
@@ -67,23 +68,12 @@ alias gl9="git log --oneline --graph -90"
 
 alias gco="git checkout"
 
-# Vim.
-alias hosts="sudo vim /etc/hosts"
-alias notes="cd ~/dev/etc/notes && vim"
-
 # Directory listings.
 alias la="ls -Fa"
 alias lal="ls -Falh"
 alias ll="ls -Flh"
 alias lla="ls -Flha"
 alias ls="ls -F"
-alias dush="du -sh"
-
-# Reload the shell.
-alias reload="exec $SHELL -l"
-
-# Python unit tests.
-alias pytest="py.test"
 
 # Tree.
 alias tt="tree -F"
@@ -92,6 +82,11 @@ alias t3="tree -F -L 3"
 alias t4="tree -F -L 4"
 alias t5="tree -F -L 5"
 
-# Editor.
+# Editors.
 alias atom="atom -a"
 alias code="code -a"
+
+# Miscellanea.
+alias hosts="sudo vim /etc/hosts"
+alias pytest="py.test"
+alias dush="du -sh"
