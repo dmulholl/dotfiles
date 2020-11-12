@@ -25,11 +25,6 @@ if test -d "$HOME/dev/go/bin"; then
     PATH=$PATH:$HOME/dev/go/bin
 fi
 
-# Boxed homebrew binaries on OSX.
-if test -d "$HOME/.brew/bin"; then
-    PATH=$PATH:$HOME/.brew/bin
-fi
-
 # Rust installation.
 if test -d "$HOME/.cargo/bin"; then
     PATH=$PATH:$HOME/.cargo/bin
