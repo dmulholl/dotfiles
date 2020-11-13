@@ -14,7 +14,7 @@ __pycache__/
 .netrwhist
 
 # Local notes.
-/*.tmp.txt
+/local.txt
 
 # Latex build files.
 *.aux
