@@ -2,31 +2,20 @@
 # Python settings.
 # ------------------------------------------------------------------------------
 
-# Custom library directories.
+# Add this directory to Python's import path.
 export PYTHONPATH=~/dev/lib/python
 
 # Disable the default virtualenv prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
-# Require a virtual environment to be active for pip to function. We don't
-# want to accidentally mess with the system or homebrew Python installations.
+# Require a virtual environment to be active for pip to function.
+# To use pip outside a virtual environment run:
+#
+#     PIP_REQUIRE_VIRTUALENV="" pip
+#
 export PIP_REQUIRE_VIRTUALENV=true
 
-# Install a package using the global version of Python 2.
-function syspip2 {
-    PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
-}
-
-# Install a package using the global version of Python 3.
-function syspip3 {
-    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
-}
-
-# --------------------------------------------------------------------------
-# Virtual environment utilities.
-# --------------------------------------------------------------------------
-
-export DOTPYENVS=~/.cache/dotpyenvs
+export DOTPYENVS=~/.pyenvs
 
 function dotpy_help {
     cat <<EOF
@@ -34,16 +23,12 @@ Usage: dotpy <command> <args>
 
   Utility for managing Python virtual environments.
 
-  * The 'make' command uses 'virtualenv' and accepts all the same arguments.
-  * The 'make' command automatically uses the --always-copy flag.
-
 Commands:
 
-  activate, a <name>    Activate the named virtual environment.
-  deactivate, d         Deactivate the current virtual environment.
-  delete <names>        Delete one or more virtual environments.
-  list                  List virtual environments.
-  make <name>           Make a new virtual environment.
+  a, activate <name>    Activate the named virtual environment.
+  d, deactivate         Deactivate the current virtual environment.
+     delete <names>     Delete one or more virtual environments.
+  m, make <name>        Make a new virtual environment.
 
 Environments:
 
@@ -62,11 +47,9 @@ function dotpy {
                 deactivate;;
             h|help|--help)
                 dotpy_help;;
-            l|ls|list)
-                dotpy_list "$@";;
-            m|mk|make)
+            m|make)
                 dotpy_make "$@";;
-            delete)
+            del|delete)
                 dotpy_remove "$@";;
             *)
                 dotpy_activate "$command" "$@";;
@@ -98,21 +81,30 @@ function dotpy_try_activate {
 }
 
 function dotpy_make {
-    if [[ -n "$1" ]]; then
-        local name="$1"
-        local path=$DOTPYENVS/$name
-        shift
-        if [[ ! -d $DOTPYENVS ]]; then
-            mkdir -p $DOTPYENVS
-        fi
-        if [[ -d $path ]]; then
-            echo "Error: '$name' already exists."
-        else
-            virtualenv --always-copy $path $@ && dotpy_activate $name
-        fi
-    else
-        echo "Error: you must specify a name for the new virtual environment."
+    if [[ -z "$1" ]]; then
+        echo "Error: missing name argument."
+        return 1
     fi
+
+    local name="$1"
+    local path=$DOTPYENVS/$name
+
+    if [[ -d $path ]]; then
+        echo "Error: '$name' already exists."
+        return 1
+    fi
+
+    if is_installed deactivate; then
+        deactivate
+    fi
+
+    if [[ ! -d $DOTPYENVS ]]; then
+        mkdir -p $DOTPYENVS
+    fi
+
+    which python
+    python --version
+    python -m venv $path && dotpy_activate $name
 }
 
 function dotpy_remove {
@@ -128,9 +120,5 @@ function dotpy_remove {
     else
         echo "Error: you must specify the name of a virtual environment."
     fi
-}
-
-function dotpy_list {
-    /bin/ls -m $DOTPYENVS
 }
 
