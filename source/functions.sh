@@ -39,7 +39,7 @@ function is_cygwin {
     [[ "$OSTYPE" =~ ^cygwin ]]
 }
 
-# Test if a binary is installed on the system.
+# Test if a binary, alias, or function is available.
 function is_installed {
     if type $1 &> /dev/null; then
         return 0
