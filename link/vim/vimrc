@@ -133,6 +133,10 @@ set number
 " Use the system clipboard as the unnamed (i.e. default) register.
 set clipboard=unnamed
 
+" Hard wrap lines at 100 characters.
+autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
+autocmd BufNewFile,BufRead *.stx setlocal textwidth=100
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
@@ -170,8 +174,8 @@ set scrolloff=1
 set sidescroll=5
 
 " Buffer scrolling with ctrl-n and ctrl-p. (By default they act just like j and k.)
-nnoremap <C-N> <C-E>
-nnoremap <C-P> <C-Y>
+nnoremap <C-N> <C-E>gj
+nnoremap <C-P> <C-Y>gk
 
 " ------------------------------------------------------------
 " Leader Shortcuts
@@ -269,12 +273,12 @@ set laststatus=2
 " Show the current command as we're typing it.
 set showcmd
 
-set statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+set statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ <%{&tw}>\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
 
 augroup select_statusline
     autocmd!
-    autocmd WinEnter,BufEnter * :setlocal statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
-    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+    autocmd WinEnter,BufEnter * :setlocal statusline=%#StatusA4#%{&modified?'\ \ \ '.bufnr('%').'\ \ ':''}%#StatusA1#%{&modified?'':'\ \ \ '.bufnr('%').'\ \ '}%#StatusA2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusA3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ <%{&tw}>\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
+    autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}\ \ <%{&tw}>\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
 augroup end
 
 " ------------------------------------------------------------
