@@ -12,29 +12,34 @@ PATH=~/.dotfiles/bin
 
 # $HOME binaries.
 if test -d "$HOME/bin"; then
-    PATH=$PATH:$HOME/bin
+    PATH="$PATH:$HOME/bin"
 fi
 
-# Development binaries.
+# Dev binaries.
 if test -d "$HOME/dev/bin"; then
-    PATH=$PATH:$HOME/dev/bin
+    PATH="$PATH:$HOME/dev/bin"
 fi
 
 # Go binaries.
 if test -d "$HOME/dev/go/bin"; then
-    PATH=$PATH:$HOME/dev/go/bin
+    PATH="$PATH:$HOME/dev/go/bin"
 fi
 
-# Rust installation.
+# Rust binaries.
 if test -d "$HOME/.cargo/bin"; then
-    PATH=$PATH:$HOME/.cargo/bin
+    PATH="$PATH:$HOME/.cargo/bin"
 fi
 
-# Locally installed binaries.
-PATH=$PATH:/usr/local/bin
+# Macports binaries.
+if test -d "/opt/local/bin"; then
+    PATH="$PATH:/opt/local/bin:/opt/local/sbin"
+fi
+
+# Locally binaries.
+PATH="$PATH:/usr/local/bin"
 
 # System binaries.
-PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin
+PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Add the default system path back on at the end.
 PATH=$PATH:$DOTSYSPATH
