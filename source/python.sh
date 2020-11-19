@@ -5,21 +5,19 @@
 # Add this directory to Python's import path.
 export PYTHONPATH=~/dev/lib/python
 
-# Disable the default virtualenv prompt.
+# Stop fucking with my prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # Require a virtual environment to be active for pip to function.
-# To use pip outside a virtual environment run:
-#
-#     PIP_REQUIRE_VIRTUALENV="" pip
-#
 export PIP_REQUIRE_VIRTUALENV=true
 
+# Storage location for virtual environments.
 export DOTPYENVS=~/.pyenvs
+
 
 function dotpy_help {
     cat <<EOF
-Usage: dotpy <command> <args>
+Usage: dotpy <command>
 
   Utility for managing Python virtual environments.
 
@@ -36,6 +34,7 @@ EOF
     echo -n "  " && /bin/ls -m $DOTPYENVS
 }
 
+
 function dotpy {
     if [[ -n "$1" ]]; then
         local command="$1"
@@ -50,28 +49,33 @@ function dotpy {
             m|make)
                 dotpy_make "$@";;
             del|delete)
-                dotpy_remove "$@";;
+                dotpy_delete "$@";;
             *)
-                dotpy_activate "$command" "$@";;
+                dotpy_activate "$command";;
         esac
     else
         dotpy_help
     fi
 }
 
+
 function dotpy_activate {
-    if [[ -n "$1" ]]; then
-        local name="$1"
-        local script=$DOTPYENVS/$name/bin/activate
-        if [[ -e $script ]]; then
-            source $script
-        else
-            echo "Error: no virtual environment named '$name'."
-        fi
+    if [[ -z "$1" ]]; then
+        echo "Error: missing name argument."
+        return 1
+    fi
+
+    local name="$1"
+    local script="$DOTPYENVS/$name/bin/activate"
+
+    if [[ -e $script ]]; then
+        source $script
     else
-        echo "Error: you must specify the name of a virtual environment."
+        echo "Error: no virtual environment named '$name'."
+        return 1
     fi
 }
+
 
 function dotpy_try_activate {
     local script=$DOTPYENVS/$1/bin/activate
@@ -79,6 +83,7 @@ function dotpy_try_activate {
         source $script
     fi
 }
+
 
 function dotpy_make {
     if [[ -z "$1" ]]; then
@@ -107,18 +112,21 @@ function dotpy_make {
     python -m venv $path && dotpy_activate $name
 }
 
-function dotpy_remove {
-    if [[ $# -ne 0 ]]; then
-        for name in "$@"; do
-            local path=$DOTPYENVS/$name
-            if [[ -d $path ]]; then
-                rm -rf $path
-            else
-                echo "Error: no virtual environment named '$name'."
-            fi
-        done
-    else
-        echo "Error: you must specify the name of a virtual environment."
+
+function dotpy_delete {
+    if [[ $# -eq 0 ]]; then
+        echo "Error: missing name argument(s)."
+        return 1
     fi
+
+    for name in "$@"; do
+        local path=$DOTPYENVS/$name
+        if [[ -d $path ]]; then
+            rm -rf $path
+        else
+            echo "Error: no virtual environment named '$name'."
+            return 1
+        fi
+    done
 }
 
