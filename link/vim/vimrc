@@ -236,7 +236,7 @@ nnoremap <leader>t :term <cr><C-w>:res 20<cr>
 nnoremap <leader>w :set wrap!<cr>
 
 " Save and execute the current file.
-nnoremap <leader>x :w <bar> !"%:p"<cr>
+nnoremap <leader>x :w <bar> !clear -x && "%:p"<cr>
 
 " ------------------------------------------------------------
 " File-Type Specific Leader Shortcuts
