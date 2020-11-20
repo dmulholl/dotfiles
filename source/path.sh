@@ -3,12 +3,12 @@
 # ------------------------------------------------------------------------------
 
 # Store a copy of the default path.
-if test -z "$DOTSYSPATH"; then
-    export DOTSYSPATH=$PATH
+if test -z "$DEFAULT_PATH"; then
+    export DEFAULT_PATH=$PATH
 fi
 
 # Start with the dotfiles binaries.
-PATH=~/.dotfiles/bin
+PATH="$HOME/.dotfiles/bin"
 
 # $HOME binaries.
 if test -d "$HOME/bin"; then
@@ -35,17 +35,8 @@ if test -d "/opt/local/bin"; then
     PATH="$PATH:/opt/local/bin:/opt/local/sbin"
 fi
 
-# Locally binaries.
-PATH="$PATH:/usr/local/bin"
-
-# System binaries.
-PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
-
 # Add the default system path back on at the end.
-PATH=$PATH:$DOTSYSPATH
-
-# Remove any duplicate entries.
-PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
+PATH=$PATH:$DEFAULT_PATH
 
 # Make it so.
 export PATH
