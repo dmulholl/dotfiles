@@ -18,5 +18,5 @@ export HISTCONTROL="ignorespace:ignoredups"
 export HISTTIMEFORMAT="%h %d %H:%M  "
 
 # More history.
-export HISTSIZE=9999
-export HISTFILESIZE=9999
+export HISTSIZE=1024
+export HISTFILESIZE=4096
