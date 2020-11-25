@@ -36,7 +36,7 @@ if test -d "/opt/local/bin"; then
 fi
 
 # Add the default system path back on at the end.
-PATH=$PATH:$DEFAULT_PATH
+PATH="$PATH:$DEFAULT_PATH"
 
 # Make it so.
 export PATH
