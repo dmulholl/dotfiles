@@ -13,4 +13,4 @@
 	last = log -1 HEAD
 	unstage = reset HEAD --
 	amend = commit --amend
-	alias = !git config --list | grep alias | sed s/^......//
+	alias = !git config --list | grep alias | sed s/^alias.//

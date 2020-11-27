@@ -51,13 +51,25 @@ move_to_start_of_ps1() {
     tput cuu $vertical_movement
 }
 
+print_num_jobs() {
+    jobs -p | wc -l | tr -d " "
+}
+
+print_arrows() {
+    if [[ "$(print_num_jobs)" -gt "1" ]]; then
+        echo -n ">>>"
+    else
+        echo -n ">>"
+    fi
+}
+
 simple_prompt="
 \[$fgc_magenta\](--:--) \[$fgc_green\]\u \[$fgc_yellow\]\w
 \[$fgc_yellow\] >> \[$fgc_default\]"
 
 mac_prompt="
 \[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_green\]\u@\h \[$fgc_yellow\]\w
-\[$fgc_yellow\] >> \[$fgc_default\]"
+\[$fgc_yellow\] \$(print_arrows) \[$fgc_default\]"
 
 linux_prompt="
 \[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_blue\]\u@\h \[$fgc_yellow\]\w
@@ -68,7 +80,7 @@ linux_prompt="
 # then jumps back to the saved position.
 export PS0="\$(tput sc)\$(move_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_default\]\$(tput rc)"
 
-export PS2="\[$fgc_yellow\] >> \[$fgc_default\]"
+export PS2="\[$fgc_yellow\]\$(print_num_jobs) >> \[$fgc_default\]"
 
 if is_linux; then
     export PS1="$linux_prompt"
