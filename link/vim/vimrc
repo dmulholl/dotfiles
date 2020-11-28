@@ -98,8 +98,12 @@ let &t_ZR="\e[23m"
 " Highlight the current line.
 set cursorline
 
+" Create the cache directory if it doesn't already exist.
+if !isdirectory($HOME . "/.cache/vim")
+    call mkdir($HOME . "/.cache/vim", "p")
+endif
+
 " Relocate backup files, swap files, and undo files to a central location.
-silent! mkdir -p ~/.cache/vim
 set backupdir=~/.cache/vim//
 set directory=~/.cache/vim//
 set undodir=~/.cache/vim//
