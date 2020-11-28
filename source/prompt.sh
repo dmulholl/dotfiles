@@ -87,3 +87,4 @@ if is_linux; then
 else
     export PS1="$mac_prompt"
 fi
+
