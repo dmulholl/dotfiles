@@ -155,9 +155,6 @@ set hlsearch
 " Finding Files
 " ------------------------------------------------------------
 
-" Search into subfolders.
-" set path+=**
-
 " Set path to the directory of the current file, plus the current working
 " directory and all subfolders.
 set path=.,**
@@ -218,6 +215,9 @@ nnoremap <leader>f :Files<cr>
 " Identify the syntax highlighting group under the cursor.
 nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
+" Save all open files, clear the screen, and run make.
+nnoremap <leader>m :wa <bar> !clear -x && make
+
 " Toggle between relative and absolute line numbering.
 nnoremap <silent><leader>n :set relativenumber!<cr>
 
@@ -239,8 +239,8 @@ nnoremap <leader>t :term <cr><C-w>:res 20<cr>
 " Toggle word-wrapping.
 nnoremap <leader>w :set wrap!<cr>
 
-" Save and execute the current file.
-nnoremap <leader>x :w <bar> !clear -x && "%:p"<cr>
+" Save all open files, clear the screen, and execute the current file.
+nnoremap <leader>x :wa <bar> !clear -x && "%:p"<cr>
 
 " ------------------------------------------------------------
 " File-Type Specific Leader Shortcuts
@@ -251,9 +251,6 @@ autocmd FileType tex,bib nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex ma
 
 " Latex: open the compiled pdf.
 autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
-
-" Save and interpret the current file.
-autocmd FileType python nmap <buffer> <leader>i :w <bar> !python "%:p"<cr>
 
 " ------------------------------------------------------------
 " Trim Whitespace
