@@ -57,7 +57,7 @@ print_num_jobs() {
 
 print_arrows() {
     if [[ "$(print_num_jobs)" -gt "1" ]]; then
-        echo -n ">>>"
+        echo -n "\$\$"
     else
         echo -n ">>"
     fi
