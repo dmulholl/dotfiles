@@ -85,6 +85,7 @@ export PS2="\[$fgc_yellow\]\$(print_num_jobs) >> \[$fgc_default\]"
 if is_linux; then
     export PS1="$linux_prompt"
 else
+    # export PS1="$simple_prompt"
     export PS1="$mac_prompt"
 fi
 

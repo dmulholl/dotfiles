@@ -39,9 +39,18 @@ function is_cygwin {
     [[ "$OSTYPE" =~ ^cygwin ]]
 }
 
-# Test if a binary, alias, or function is available.
-function is_installed {
+# Test if an executable, alias, or function is available to be called.
+function is_available {
     if type $1 &> /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Test if an executable is installed on $PATH.
+function is_installed {
+    if which $1 &> /dev/null; then
         return 0
     else
         return 1
@@ -137,3 +146,9 @@ function tag {
         git tag -am "Version $1" $1
     fi
 }
+
+# Print $PATH in readable form.
+function showpath {
+    echo $PATH | tr ':' '\n'
+}
+
