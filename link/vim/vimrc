@@ -141,6 +141,10 @@ set clipboard=unnamed
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
 autocmd BufNewFile,BufRead *.stx setlocal textwidth=100
 
+" Show tabs.
+set list
+set listchars=tab:\|->
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------

@@ -28,6 +28,9 @@ hi MoreMsg                  ctermfg=2
 hi Question                 ctermfg=2
 hi ColorColumn                                  ctermbg=233
 
+" Visible whitespace.
+hi SpecialKey               ctermfg=236
+
 " Popup menus.
 hi Pmenu                    ctermfg=246         ctermbg=17
 hi PmenuSel                 ctermfg=15          ctermbg=53
