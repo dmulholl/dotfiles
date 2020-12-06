@@ -226,10 +226,10 @@ nnoremap <leader>m :wa <bar> !clear -x && make
 nnoremap <silent><leader>n :set relativenumber!<cr>
 
 "Save and open the current file.
-nnoremap <leader>o :w <bar> !open "%:p"<cr>
+" nnoremap <leader>o :w <bar> !open "%:p"<cr>
 
 " Toggle NerdTree file browser on and off.
-nnoremap <leader>p :NERDTreeToggle<cr>
+nnoremap <leader>o :NERDTreeToggle<cr>
 
 " Reload the vimrc file and redraw the screen.
 nnoremap <leader>r :source ~/.vim/vimrc <bar> noh <bar> redraw<cr>

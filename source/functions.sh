@@ -148,7 +148,7 @@ function tag {
 }
 
 # Print $PATH in readable form.
-function showpath {
+function path {
     echo $PATH | tr ':' '\n'
 }
 
