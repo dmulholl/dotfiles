@@ -69,11 +69,12 @@ alias gl9="git log --oneline --graph -90"
 alias gco="git checkout"
 
 # Directory listings.
-alias la="ls -Fa"
-alias lal="ls -Falh"
-alias ll="ls -Flh"
-alias lla="ls -Flha"
 alias ls="ls -F"
+alias la="ls -Fa"
+alias ll="ls -Flh"
+
+alias lla="ls -Flha"
+alias lal="ls -Falh"
 
 # Tree.
 alias tt="tree -F"
