@@ -238,7 +238,7 @@ nnoremap <leader>r :source ~/.vim/vimrc <bar> noh <bar> redraw<cr>
 nnoremap <leader>s :set spell!<cr>
 
 " Open a terminal window.
-nnoremap <leader>t :term <cr><C-w>:res 20<cr>
+nnoremap <leader>t :term <cr><C-w>:res 25<cr>
 
 " Toggle word-wrapping.
 nnoremap <leader>w :set wrap!<cr>
