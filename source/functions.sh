@@ -142,8 +142,18 @@ function confirm {
 
 # Create a new git version tag.
 function tag {
-    if test -n "$1"; then
-        git tag -am "Version $1" $1
+    if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+        echo "Usage: tag <tagname> [commit]"
+        return
+    fi
+    if [ $# -eq 0 ]; then
+        git tag
+    fi
+    if [ $# -eq 1 ]; then
+        git tag -am "Version $1" "$1"
+    fi
+    if [ $# -eq 2 ]; then
+        git tag -am "Version $1" "$1" "$2"
     fi
 }
 
