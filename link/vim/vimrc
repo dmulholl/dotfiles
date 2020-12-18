@@ -155,6 +155,12 @@ set incsearch
 " Highlight search matches.
 set hlsearch
 
+" Automatically center matches on the screen.
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
 " ------------------------------------------------------------
 " Finding Files
 " ------------------------------------------------------------
