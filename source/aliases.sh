@@ -66,6 +66,7 @@ alias gl7="git log --oneline --graph -70"
 alias gl8="git log --oneline --graph -80"
 alias gl9="git log --oneline --graph -90"
 
+alias gb="git branch"
 alias gco="git checkout"
 
 # Directory listings.
