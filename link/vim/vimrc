@@ -44,14 +44,8 @@ set tabstop=4           " Number of spaces to insert, also display-with for <tab
 set shiftwidth=4        " Autoindent size, also determines the operation of >> and ==.
 set smarttab            " <BS> will delete a 'shiftwidth' worth of spaces at line start.
 
-" Default to wrapping lines.
-set wrap
-
-" Wrap lines at word boundaries.
-set linebreak
-
 " Alternative to using the escape key.
-inoremap jj <esc>
+" inoremap jj <esc>
 
 " Shortcuts for navigating splits.
 nnoremap <C-J> <C-W><C-J>
@@ -138,8 +132,8 @@ set number
 set clipboard=unnamed
 
 " Hard wrap lines at 100 characters.
-autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
-autocmd BufNewFile,BufRead *.stx setlocal textwidth=100
+" autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
+" autocmd BufNewFile,BufRead *.stx setlocal textwidth=100
 
 " Show tabs.
 set list
@@ -247,7 +241,8 @@ nnoremap <leader>s :set spell!<cr>
 nnoremap <leader>t :term <cr><C-w>:res 25<cr>
 
 " Toggle word-wrapping.
-nnoremap <leader>w :set wrap!<cr>
+" nnoremap <leader>w :set wrap!<cr>
+map <leader>w :call ToggleWrap()<CR>
 
 " Save all open files, clear the screen, and execute the current file.
 nnoremap <leader>x :wa <bar> !clear -x && "%:p"<cr>
@@ -261,6 +256,42 @@ autocmd FileType tex,bib nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex ma
 
 " Latex: open the compiled pdf.
 autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
+
+" ------------------------------------------------------------
+" Word Wrapping
+" ------------------------------------------------------------
+
+" Wrap lines at word boundaries.
+set linebreak
+
+let s:wrapenabled = 0
+set nowrap
+
+function! ToggleWrap()
+    set wrap!
+    if s:wrapenabled
+        unmap j
+        unmap k
+        unmap 0
+        unmap ^
+        unmap $
+        let s:wrapenabled = 0
+    else
+        nnoremap j gj
+        nnoremap k gk
+        nnoremap 0 g0
+        nnoremap ^ g^
+        nnoremap $ g$
+        vnoremap j gj
+        vnoremap k gk
+        vnoremap 0 g0
+        vnoremap ^ g^
+        vnoremap $ g$
+        let s:wrapenabled = 1
+    endif
+endfunction
+
+call ToggleWrap()
 
 " ------------------------------------------------------------
 " Trim Whitespace
