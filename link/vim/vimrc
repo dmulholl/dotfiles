@@ -1,6 +1,6 @@
-" ---------------------------------------------------------------------------------------
-" Vim Settings
-" ---------------------------------------------------------------------------------------
+" ------------------------------------------------------------
+" Plugins
+" ------------------------------------------------------------
 
 " Vim-Plug. Run :PlugUpdate to install or update plugins.
 call plug#begin('~/.vim/vimplug')
@@ -11,7 +11,12 @@ Plug 'cespare/vim-toml'
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'matze/vim-move'
 call plug#end()
+
+" ------------------------------------------------------------
+" General Settings
+" ------------------------------------------------------------
 
 " Allow backspace in insert mode.
 set backspace=indent,eol,start
@@ -45,13 +50,13 @@ set shiftwidth=4        " Autoindent size, also determines the operation of >> a
 set smarttab            " <BS> will delete a 'shiftwidth' worth of spaces at line start.
 
 " Alternative to using the escape key.
-" inoremap jj <esc>
+inoremap jj <esc>
 
 " Shortcuts for navigating splits.
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-L> <C-W><C-L>
 
 " Open new split panes to the right and to the bottom.
 set splitbelow
@@ -139,6 +144,9 @@ set clipboard=unnamed
 set list
 set listchars=tab:\|->
 
+" Set the modifier key for the vim-move plugin to Ctrl.
+let g:move_key_modifier = 'C'
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
@@ -217,16 +225,19 @@ nnoremap <leader>e :e ~/.vim/vimrc<cr>
 nnoremap <leader>f :Files<cr>
 
 " Identify the syntax highlighting group under the cursor.
-nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+nnoremap <leader>g :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+
+" Navigate splits.
+nnoremap <leader>h <C-W><C-H>
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
 
 " Save all open files, clear the screen, and run make.
 nnoremap <leader>m :wa <bar> !clear -x && make
 
 " Toggle between relative and absolute line numbering.
 nnoremap <silent><leader>n :set relativenumber!<cr>
-
-"Save and open the current file.
-" nnoremap <leader>o :w <bar> !open "%:p"<cr>
 
 " Toggle NerdTree file browser on and off.
 nnoremap <leader>o :NERDTreeToggle<cr>
