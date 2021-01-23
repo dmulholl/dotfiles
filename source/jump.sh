@@ -11,7 +11,7 @@ function j() {
         bin)
             cd ~/dev/bin;;
         dm)
-            cd ~/dev/www/dmulholl.com;;
+            cd ~/dev/web/dmulholl.com;;
         *)
             jj "$@";;
     esac
