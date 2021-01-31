@@ -1,4 +1,4 @@
-" Vim syntax file
+" Syntax definition file for Syntext.
 
 " Metadata region.
 syn region stxMeta start="\%^---$" end="^---$"
