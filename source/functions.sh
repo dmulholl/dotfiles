@@ -48,8 +48,8 @@ function is_available {
     fi
 }
 
-# Test if an executable is installed on $PATH.
-function is_installed {
+# Test if a script or binary is available to be called.
+function is_exe {
     if which $1 &> /dev/null; then
         return 0
     else

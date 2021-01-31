@@ -99,7 +99,7 @@ function dotpy_make {
         return 1
     fi
 
-    if is_installed deactivate; then
+    if is_available deactivate; then
         deactivate
     fi
 
