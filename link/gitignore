@@ -13,8 +13,9 @@ __pycache__/
 *.swp
 .netrwhist
 
-# Project notes.
+# Temporary files.
 /notes.txt
+tmp/
 
 # Latex build files.
 *.aux
