@@ -51,7 +51,7 @@ set shiftround          " Align indents to a multiple of 'shiftwidth'.
 set smarttab            " <BS> will delete a 'shiftwidth' worth of spaces at line start.
 
 " Alternative to using the escape key.
-inoremap jj <esc>
+" inoremap jj <esc>
 
 " Shortcuts for navigating splits.
 " nnoremap <C-J> <C-W><C-J>

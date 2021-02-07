@@ -14,7 +14,6 @@ alias v="vim"
 # Doubles.
 alias ff="fzf"
 alias dd="deploydocs"
-alias iv="python3 ~/dev/src/ivy/ivy"
 alias vi="vim"
 
 # Triples.
@@ -92,3 +91,8 @@ alias code="code -a"
 alias hosts="sudo vim /etc/hosts"
 alias pytest="py.test"
 alias dush="du -sh"
+
+# Python.
+alias iv="python3 ~/dev/src/ivy/ivy"
+alias pyro="python3 ~/dev/src/pyro/pyro"
+
