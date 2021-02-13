@@ -88,4 +88,3 @@ else
     # export PS1="$simple_prompt"
     export PS1="$mac_prompt"
 fi
-

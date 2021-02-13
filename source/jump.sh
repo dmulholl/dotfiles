@@ -4,10 +4,10 @@
 
 function j() {
     case "$1" in
+        dev)
+            cd ~/dev;;
         src)
             cd ~/dev/src;;
-        etc)
-            cd ~/dev/etc;;
         bin)
             cd ~/dev/bin;;
         dm)
