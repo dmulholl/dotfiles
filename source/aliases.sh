@@ -19,8 +19,6 @@ alias vi="vim"
 # Triples.
 alias ydl="youtube-dl"
 alias irn="ironclad"
-alias lck="mac lock"
-alias slp="mac sleep"
 alias dir="open ."
 alias cal="gcal --starting-day=1"
 alias int="intspector"
@@ -42,7 +40,7 @@ alias ga="git add"
 alias gaa="git add --all"
 
 alias gp="git push"
-alias gpt="git push --tags"
+alias gpt="git push && git push --tags"
 alias gd="git diff --color | diff-so-fancy | less --tabs=4 -RFX"
 alias gs="git status --short --branch"
 
@@ -96,3 +94,8 @@ alias dush="du -sh"
 alias iv="python3 ~/dev/src/ivy/ivy"
 alias pyro="python3 ~/dev/src/pyro/pyro"
 
+# Jumps.
+alias jb="j bin"
+alias jd="j dev"
+alias js="j src"
+alias jt="j txt"
