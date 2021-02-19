@@ -144,7 +144,7 @@ set clipboard=unnamed
 
 " Show tabs.
 set list
-set listchars=tab:\|->
+set listchars=tab:\|->,trail:·
 
 " Set the modifier key for the vim-move plugin to Ctrl.
 let g:move_key_modifier = 'C'
