@@ -19,8 +19,12 @@ call plug#end()
 " General Settings
 " ------------------------------------------------------------
 
-" Allow backspace in insert mode.
+" Sane behaviour for <BS> and Ctrl-H in insert mode.
+" (Delete indents, line endings, and beyond the insert point.)
 set backspace=indent,eol,start
+
+" Allow Ctrl-D to forward-delete in insert mode.
+inoremap <C-d> <Del>
 
 " Turn on syntax highlighting.
 syntax enable
