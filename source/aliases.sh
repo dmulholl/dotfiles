@@ -90,9 +90,10 @@ alias hosts="sudo vim /etc/hosts"
 alias pytest="py.test"
 alias dush="du -sh"
 
-# Python.
+# Dev.
 alias iv="python3 ~/dev/src/ivy/ivy"
 alias pyro="python3 ~/dev/src/pyro/pyro"
+alias vimvd="~/dev/src/vimv/target/debug/vimv"
 
 # Jumps.
 alias jb="j bin"
