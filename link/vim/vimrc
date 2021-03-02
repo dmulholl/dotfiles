@@ -262,8 +262,7 @@ nnoremap <leader>s :set spell!<cr>
 nnoremap <leader>t :term <cr><C-w>:res 25<cr>
 
 " Toggle word-wrapping.
-" nnoremap <leader>w :set wrap!<cr>
-map <leader>w :call ToggleWrap()<CR>
+nnoremap <leader>w :call ToggleWrap()<CR>
 
 " Save all open files, clear the screen, and execute the current file.
 nnoremap <leader>x :wa <bar> !clear -x && "%:p"<cr>
@@ -273,7 +272,7 @@ nnoremap <leader>x :wa <bar> !clear -x && "%:p"<cr>
 " ------------------------------------------------------------
 
 " Latex: save all open files and compile 'main.tex'.
-autocmd FileType tex,bib nmap <buffer> <leader>l :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
+autocmd FileType tex,bib nmap <buffer> <leader>m :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
 
 " Latex: open the compiled pdf.
 autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>

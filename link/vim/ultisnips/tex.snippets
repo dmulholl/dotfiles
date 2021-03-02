@@ -26,12 +26,12 @@ snippet // "fraction"
 \\frac{$1}{$2}
 endsnippet
 
-snippet bo "bold" w
+snippet bf "bold" w
 \textbf{$1}
 endsnippet
 
 snippet it "italic" w
-\emph{$1}
+\textit{$1}
 endsnippet
 
 snippet s "section" b
@@ -63,7 +63,7 @@ snippet fig "figure" b
     \centering
     \includegraphics[width=\textwidth]{$1}
     \caption[$2]{$3}
-	\label{fig:$4}
+    \label{fig:$4}
 \end{figure}
 endsnippet
 
@@ -90,12 +90,12 @@ endsnippet
 
 snippet tab "table" b
 \begin{table}
-	\centering
-	\begin{tabular}{$1}
-		$2
-	\end{tabular}
-	\caption{$3}
-	\label{tab:$4}
+    \centering
+    \begin{tabular}{$1}
+        $2
+    \end{tabular}
+    \caption{$3}
+    \label{tab:$4}
 \end{table}
 endsnippet
 
