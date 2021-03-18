@@ -1,48 +1,48 @@
-snippet st
+snippet st "" i
 size_t
 endsnippet
 
-snippet i8
+snippet i8 "" i
 int8_t
 endsnippet
 
-snippet i16
+snippet i16 "" i
 int16_t
 endsnippet
 
-snippet i32
+snippet i32 "" i
 int32_t
 endsnippet
 
-snippet i64
+snippet i64 "" i
 int64_t
 endsnippet
 
-snippet u8
+snippet u8 "" i
 uint8_t
 endsnippet
 
-snippet u16
+snippet u16 "" i
 uint16_t
 endsnippet
 
-snippet u32
+snippet u32 "" i
 uint32_t
 endsnippet
 
-snippet u64
+snippet u64 "" i
 uint64_t
 endsnippet
 
-snippet ih
+snippet ih "insert header"
 #include "$1.h"
 endsnippet
 
-snippet ish
+snippet ish "insert standard header"
 #include <$1.h>
 endsnippet
 
-snippet hg
+snippet hg "header guard"
 #ifndef $1
 #define $1
 
@@ -57,3 +57,12 @@ int main(int argc, const char* argv[]) {
     return 0;
 }
 endsnippet
+
+snippet if "initialize file"
+#include <stdio.h>
+
+int main(int argc, const char* argv[]) {
+    printf("hello world\n");$1
+    return 0;
+}
+
