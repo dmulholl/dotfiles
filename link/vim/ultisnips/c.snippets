@@ -1,46 +1,22 @@
-snippet st "" i
-size_t
+snippet if "initialize file"
+#include <stdio.h>
+
+int main(int argc, const char* argv[]) {
+    printf("hello world\n");$1
+    return 0;
+}
 endsnippet
 
-snippet i8 "" i
-int8_t
-endsnippet
 
-snippet i16 "" i
-int16_t
-endsnippet
-
-snippet i32 "" i
-int32_t
-endsnippet
-
-snippet i64 "" i
-int64_t
-endsnippet
-
-snippet u8 "" i
-uint8_t
-endsnippet
-
-snippet u16 "" i
-uint16_t
-endsnippet
-
-snippet u32 "" i
-uint32_t
-endsnippet
-
-snippet u64 "" i
-uint64_t
-endsnippet
-
-snippet ih "insert header"
+snippet lh "local header"
 #include "$1.h"
 endsnippet
 
-snippet ish "insert standard header"
+
+snippet sh "standard header"
 #include <$1.h>
 endsnippet
+
 
 snippet hg "header guard"
 #ifndef $1
@@ -51,18 +27,56 @@ $2
 #endif
 endsnippet
 
-snippet main
+
+snippet st "" i
+size_t
+endsnippet
+
+
+snippet i8 "" i
+int8_t
+endsnippet
+
+
+snippet i16 "" i
+int16_t
+endsnippet
+
+
+snippet i32 "" i
+int32_t
+endsnippet
+
+
+snippet i64 "" i
+int64_t
+endsnippet
+
+
+snippet u8 "" i
+uint8_t
+endsnippet
+
+
+snippet u16 "" i
+uint16_t
+endsnippet
+
+
+snippet u32 "" i
+uint32_t
+endsnippet
+
+
+snippet u64 "" i
+uint64_t
+endsnippet
+
+
+snippet main "main()"
 int main(int argc, const char* argv[]) {
     $1
     return 0;
 }
 endsnippet
-
-snippet if "initialize file"
-#include <stdio.h>
-
-int main(int argc, const char* argv[]) {
-    printf("hello world\n");$1
-    return 0;
-}
 
