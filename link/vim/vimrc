@@ -157,6 +157,9 @@ let g:move_key_modifier = 'C'
 au InsertEnter * set ignorecase
 au InsertLeave * set noignorecase
 
+" Set preferred cindent indentation-style for case statements.
+set cinoptions=l1
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
