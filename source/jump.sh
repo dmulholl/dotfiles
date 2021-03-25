@@ -12,6 +12,8 @@ function j() {
             cd ~/dev/bin;;
         dm)
             cd ~/dev/web/dmulholl.com;;
+        vim)
+            cd ~/.vim;;
         *)
             jj "$@";;
     esac
