@@ -63,6 +63,7 @@ hi SpellCap                                     ctermbg=none
 
 " Content categories.
 hi Comment                  ctermfg=242                             cterm=italic
+hi Todo                     ctermfg=242                             cterm=italic
 hi Constant                 ctermfg=3
 hi Identifier               ctermfg=4                               cterm=bold
 hi Statement                ctermfg=5
@@ -122,3 +123,6 @@ hi stxEntity                ctermfg=242
 
 " Rust.
 hi rustCommentLineDoc       ctermfg=242
+
+" C.
+hi cTodo                    ctermfg=242                             cterm=italic
