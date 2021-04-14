@@ -92,7 +92,7 @@ alias dush="du -sh"
 
 # Dev.
 alias iv="python3 ~/dev/src/ivy/ivy"
-alias pyro="python3 ~/dev/src/pyro/pyro"
+alias proto="python3 ~/dev/src/proto/proto"
 alias vimvd="~/dev/src/vimv/target/debug/vimv"
 
 # Jumps.
