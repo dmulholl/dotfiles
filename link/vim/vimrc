@@ -70,6 +70,7 @@ set splitright
 
 " Set custom filetypes.
 autocmd BufNewFile,BufRead *.stx set filetype=syntext
+autocmd BufNewFile,BufRead *.pyro set filetype=pyro
 
 " Use zsh highlighting for all shell scripts as the sh/bash highlighters are broken.
 autocmd BufNewFile,BufRead *.sh set filetype=zsh
