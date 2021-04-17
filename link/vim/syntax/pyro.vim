@@ -3,7 +3,7 @@
 syn match pyroComment "#.*$"
 
 " syn region pyroString start="\"" end="\"" skip=+\\"+
-syn region pyroString start=+"+ end=+"+ skip=+\\"+
+syn region pyroString start=+"+ end=+"+ skip=+\\\\\|\\"+
 
 syn match pyroNumber "\<\d\+\>"
 
