@@ -2,15 +2,15 @@
 
 syn match pyroComment "#.*$"
 
-" syn region pyroString start="\"" end="\"" skip=+\\"+
 syn region pyroString start=+"+ end=+"+ skip=+\\\\\|\\"+
+syn region pyroString start=+`+ end=+`+
 
 syn match pyroNumber "\<\d\+\>"
 " syn match pyroBuiltin "$\w\+"
 
 syn keyword pyroKeyword if else var and or xor def class echo for while return break continue
 syn keyword pyroAssert assert
-syn keyword pyroImport import as
+syn keyword pyroImport import as from
 syn keyword pyroConstant true false null self super
 
 syn match pyroBuiltin "\<$clock\>"

@@ -56,7 +56,7 @@ set shiftround          " Align indents to a multiple of 'shiftwidth'.
 set smarttab            " <BS> will delete a 'shiftwidth' worth of spaces at line start.
 
 " Alternative to using the escape key.
-" inoremap jj <esc>
+inoremap jj <esc>
 
 " Shortcuts for navigating splits.
 " nnoremap <C-J> <C-W><C-J>
@@ -153,7 +153,7 @@ set list
 set listchars=tab:\|->,trail:·
 
 " Set the modifier key for the vim-move plugin to Ctrl.
-let g:move_key_modifier = 'C'
+let g:move_key_modifier = 'M'
 
 " Make autocompletion case-insensitive.
 au InsertEnter * set ignorecase
@@ -161,6 +161,9 @@ au InsertLeave * set noignorecase
 
 " Set preferred cindent indentation-style for case statements.
 set cinoptions=l1
+
+" Don't highlight {} inside brackets as an error.
+let c_no_curly_error=1
 
 " ------------------------------------------------------------
 " Search
@@ -239,8 +242,10 @@ nnoremap <leader>e :e ~/.vim/vimrc<cr>
 " FZF - fuzzy file finder.
 nnoremap <leader>f :Files<cr>
 
-" Identify the syntax highlighting group under the cursor.
-nnoremap <leader>g :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+" Swap between .c and .h files in the same directory.
+" (% is the current filename, :r removes the extension.)
+nnoremap <leader>gh :e %:r.h<cr>
+nnoremap <leader>gc :e %:r.c<cr>
 
 " Navigate splits.
 nnoremap <leader>h <C-W><C-H>
@@ -249,7 +254,7 @@ nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
 
 " Save all open files, clear the screen, and run make.
-nnoremap <leader>m :wa <bar> !clear -x && make
+nnoremap <leader>m :wa <bar> !clear -x && make<cr>
 
 " Toggle between relative and absolute line numbering.
 nnoremap <silent><leader>n :set relativenumber!<cr>
@@ -263,8 +268,11 @@ nnoremap <leader>r :source ~/.vim/vimrc <bar> noh <bar> redraw<cr>
 " Toggle spellcheck.
 nnoremap <leader>s :set spell!<cr>
 
+" Identify the syntax highlighting group under the cursor.
+nnoremap <leader>sh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
+
 " Open a terminal window.
-nnoremap <leader>t :term <cr><C-w>:res 25<cr>
+nnoremap <leader>t :term <cr><C-w>:res 50<cr>
 
 " Toggle word-wrapping.
 nnoremap <leader>w :call ToggleWrap()<CR>
