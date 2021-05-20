@@ -153,7 +153,7 @@ set list
 set listchars=tab:\|->,trail:·
 
 " Set the modifier key for the vim-move plugin to Ctrl.
-let g:move_key_modifier = 'M'
+let g:move_key_modifier = 'C'
 
 " Make autocompletion case-insensitive.
 au InsertEnter * set ignorecase
