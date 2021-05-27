@@ -4,16 +4,27 @@ syn match pyroComment "#.*$"
 
 syn region pyroString start=+"+ end=+"+ skip=+\\\\\|\\"+
 syn region pyroString start=+`+ end=+`+
+syn region pyroChar start=+'+ end=+'+
 
-syn match pyroNumber "\<\d\+\>"
-" syn match pyroBuiltin "$\w\+"
-
-syn keyword pyroKeyword if else var and or xor def class echo for while return break continue
+syn keyword pyroKeyword var def class
+syn keyword pyroKeyword if else for while iter
+syn keyword pyroKeyword return break continue
+syn keyword pyroKeyword and nand or nor xor xnor
+syn keyword pyroKeyword try echo
 syn keyword pyroAssert assert
 syn keyword pyroImport import as from
 syn keyword pyroConstant true false null self super
 
-syn match pyroBuiltin "\<$clock\>"
+syn match pyroBuiltin "\<$\w\+\>"
+
+" Numbers.
+syn case ignore
+syn match pyroNumber "\<\d\+\>"
+syn match pyroNumber "\<0x\x\+\>"
+syn match pyroNumber "\<0o\o\+\>"
+syn match pyroNumber "\<\d\+\.\d*\(e[-+]\=\d\+\)\=\>"
+syn match pyroNumber "\<\d\+e[-+]\=\d\+\>"
+syn case match
 
 " Default highlighting styles.
 hi def link pyroComment Comment
@@ -24,5 +35,6 @@ hi def link pyroImport PreProc
 hi def link pyroConstant Special
 hi def link pyroNumber Constant
 hi def link pyroBuiltin Type
+hi def link pyroChar Constant
 
 let b:current_syntax = "pyro"
