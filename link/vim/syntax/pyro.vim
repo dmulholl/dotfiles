@@ -2,20 +2,20 @@
 
 syn match pyroComment "#.*$"
 
+syn match pyroBuiltin "\$\w\+\>"
+
 syn region pyroString start=+"+ end=+"+ skip=+\\\\\|\\"+
 syn region pyroString start=+`+ end=+`+
 syn region pyroChar start=+'+ end=+'+
 
 syn keyword pyroKeyword var def class
-syn keyword pyroKeyword if else for while iter
+syn keyword pyroKeyword if else for while iter in loop
 syn keyword pyroKeyword return break continue
 syn keyword pyroKeyword and nand or nor xor xnor
 syn keyword pyroKeyword try echo
 syn keyword pyroAssert assert
 syn keyword pyroImport import as from
 syn keyword pyroConstant true false null self super
-
-syn match pyroBuiltin "\<$\w\+\>"
 
 " Numbers.
 syn case ignore
@@ -34,7 +34,7 @@ hi def link pyroAssert PreProc
 hi def link pyroImport PreProc
 hi def link pyroConstant Special
 hi def link pyroNumber Constant
-hi def link pyroBuiltin Type
+hi def link pyroBuiltin Normal
 hi def link pyroChar Constant
 
 let b:current_syntax = "pyro"
