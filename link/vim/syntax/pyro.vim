@@ -9,7 +9,7 @@ syn region pyroString start=+`+ end=+`+
 syn region pyroChar start=+'+ end=+'+
 
 syn keyword pyroKeyword var def class
-syn keyword pyroKeyword if else for while iter in loop
+syn keyword pyroKeyword if else for while in loop
 syn keyword pyroKeyword return break continue
 syn keyword pyroKeyword and nand or nor xor xnor
 syn keyword pyroKeyword try echo
