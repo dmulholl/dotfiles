@@ -6,7 +6,7 @@ syn match pyroBuiltin "\$\w\+\>"
 
 syn region pyroString start=+"+ end=+"+ skip=+\\\\\|\\"+
 syn region pyroString start=+`+ end=+`+
-syn region pyroChar start=+'+ end=+'+
+syn region pyroChar start=+'+ end=+'+ skip=+\\\\\|\\'+
 
 syn keyword pyroKeyword var def class
 syn keyword pyroKeyword if else for while in loop
