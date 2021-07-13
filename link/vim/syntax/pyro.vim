@@ -11,7 +11,7 @@ syn region pyroChar start=+'+ end=+'+ skip=+\\\\\|\\'+
 syn keyword pyroKeyword var def class
 syn keyword pyroKeyword if else for while in loop
 syn keyword pyroKeyword return break continue
-syn keyword pyroKeyword and nand or nor xor xnor
+syn keyword pyroKeyword and nand or nor xor xnor not
 syn keyword pyroKeyword try echo
 syn keyword pyroAssert assert
 syn keyword pyroImport import as from
@@ -19,9 +19,10 @@ syn keyword pyroConstant true false null self super
 
 " Numbers.
 syn case ignore
-syn match pyroNumber "\<\d\+\>"
-syn match pyroNumber "\<0x\x\+\>"
-syn match pyroNumber "\<0o\o\+\>"
+syn match pyroNumber "\<\(\d\|_\)\+\>"
+syn match pyroNumber "\<0x\(\x\|_\)\+\>"
+syn match pyroNumber "\<0o\(\o\|_\)\+\>"
+syn match pyroNumber "\<0b[01_]\+\>"
 syn match pyroNumber "\<\d\+\.\d*\(e[-+]\=\d\+\)\=\>"
 syn match pyroNumber "\<\d\+e[-+]\=\d\+\>"
 syn case match
