@@ -17,6 +17,8 @@ export HISTCONTROL="ignorespace:ignoredups"
 # Add a timestamp to history entries.
 export HISTTIMEFORMAT="%h %d %H:%M  "
 
-# More history.
-export HISTSIZE=1024
-export HISTFILESIZE=4096
+# Maximum number of commands stored in memory while a Bash session is ongoing.
+export HISTSIZE=10000
+
+# Maximum number of lines stored in the history file.
+export HISTFILESIZE=250000
