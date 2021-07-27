@@ -165,6 +165,9 @@ set cinoptions=l1
 " Don't highlight {} inside brackets as an error.
 let c_no_curly_error=1
 
+" Reselect pasted text.
+nnoremap gp `[v`]
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
