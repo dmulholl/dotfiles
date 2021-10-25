@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # This bootstrap file gets sourced whenever a new shell instance is initialized.
 # ------------------------------------------------------------------------------
-#
+
 # Only run this file once per shell instance.
 if test -n "$dotbooted"; then
     return
