@@ -17,11 +17,13 @@ alias dd="deploydocs"
 alias vi="vim"
 
 # Triples.
-alias ydl="youtube-dl"
 alias irn="ironclad"
 alias dir="open ."
 alias cal="gcal --starting-day=1"
 alias int="intspector"
+
+# Quads.
+alias ytdl="youtube-dl"
 
 # History.
 alias h1="history 10"
