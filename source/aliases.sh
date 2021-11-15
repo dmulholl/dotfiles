@@ -24,6 +24,7 @@ alias int="intspector"
 
 # Quads.
 alias ytdl="youtube-dl"
+alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
 
 # History.
 alias h1="history 10"

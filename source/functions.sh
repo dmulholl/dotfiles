@@ -161,4 +161,3 @@ function tag {
 function path {
     echo $PATH | tr ':' '\n'
 }
-
