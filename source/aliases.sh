@@ -15,16 +15,30 @@ alias v="vim"
 alias ff="fzf"
 alias dd="deploydocs"
 alias vi="vim"
+alias iv="python3 ~/dev/src/ivy/ivy"
 
 # Triples.
 alias irn="ironclad"
 alias dir="open ."
 alias cal="gcal --starting-day=1"
 alias int="intspector"
+alias pyt="pyd test ~/dev/src/pyro/tests/*.pyro"
 
 # Quads.
 alias ytdl="youtube-dl"
 alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
+alias pytv="pyd test -v ~/dev/src/pyro/tests/*.pyro"
+alias dush="du -sh"
+alias atom="atom -a"
+alias code="code -a"
+
+# Quints.
+alias proto="python3 ~/dev/src/proto/proto"
+alias vimvd="~/dev/src/vimv/target/debug/vimv"
+alias hosts="sudo vim /etc/hosts"
+
+# Sexts.
+alias pytest="py.test"
 
 # History.
 alias h1="history 10"
@@ -41,11 +55,12 @@ alias hh="history 25"
 # Git.
 alias ga="git add"
 alias gaa="git add --all"
-
 alias gp="git push"
 alias gpt="git push && git push --tags"
 alias gd="git diff --color | diff-so-fancy | less --tabs=4 -RFX"
 alias gs="git status --short --branch"
+alias gb="git branch"
+alias gco="git checkout"
 
 alias gc="git commit"
 alias gcm="git commit -m"
@@ -66,14 +81,10 @@ alias gl7="git log --oneline --graph -70"
 alias gl8="git log --oneline --graph -80"
 alias gl9="git log --oneline --graph -90"
 
-alias gb="git branch"
-alias gco="git checkout"
-
 # Directory listings.
 alias ls="ls -F"
 alias la="ls -Fa"
 alias ll="ls -Flh"
-
 alias lla="ls -Flha"
 alias lal="ls -Falh"
 
@@ -83,20 +94,6 @@ alias t2="tree -F -L 2"
 alias t3="tree -F -L 3"
 alias t4="tree -F -L 4"
 alias t5="tree -F -L 5"
-
-# Editors.
-alias atom="atom -a"
-alias code="code -a"
-
-# Miscellanea.
-alias hosts="sudo vim /etc/hosts"
-alias pytest="py.test"
-alias dush="du -sh"
-
-# Dev.
-alias iv="python3 ~/dev/src/ivy/ivy"
-alias proto="python3 ~/dev/src/proto/proto"
-alias vimvd="~/dev/src/vimv/target/debug/vimv"
 
 # Jumps.
 alias jb="j bin"
