@@ -16,6 +16,8 @@ alias ff="fzf"
 alias dd="deploydocs"
 alias vi="vim"
 alias iv="python3 ~/dev/src/ivy/ivy"
+alias md="make debug"
+alias mc="make check"
 
 # Triples.
 alias irn="ironclad"
