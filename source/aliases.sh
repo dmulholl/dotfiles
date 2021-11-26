@@ -20,6 +20,7 @@ alias md="make debug"
 alias mc="make check"
 alias pd="pyrod"
 alias pt="pyrod test ~/dev/src/pyro/tests/*.pyro"
+alias vp="vim ~/dev/txt/pyro.txt"
 
 # Triples.
 alias irn="ironclad"
