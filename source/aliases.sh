@@ -18,18 +18,19 @@ alias vi="vim"
 alias iv="python3 ~/dev/src/ivy/ivy"
 alias md="make debug"
 alias mc="make check"
+alias pd="pyrod"
+alias pt="pyrod test ~/dev/src/pyro/tests/*.pyro"
 
 # Triples.
 alias irn="ironclad"
 alias dir="open ."
 alias cal="gcal --starting-day=1"
 alias int="intspector"
-alias pyt="pyd test ~/dev/src/pyro/tests/*.pyro"
+alias ptv="pyrod test -v ~/dev/src/pyro/tests/*.pyro"
 
 # Quads.
 alias ytdl="youtube-dl"
 alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
-alias pytv="pyd test -v ~/dev/src/pyro/tests/*.pyro"
 alias dush="du -sh"
 alias atom="atom -a"
 alias code="code -a"
