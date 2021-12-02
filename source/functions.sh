@@ -125,6 +125,16 @@ function mv {
     mv -v "$1" "$new_filename"
 }
 
+# Interactive cp command for copying files.
+function cp {
+    if [ $# -ne 1 ]; then
+        command cp "$@"
+        return
+    fi
+    read -ei "$1" new_filename
+    cp "$1" "$new_filename"
+}
+
 # Request user confirmation. First argument is used as the prompt string.
 function confirm {
     local input
