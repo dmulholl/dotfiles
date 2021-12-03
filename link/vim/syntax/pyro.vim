@@ -1,5 +1,5 @@
 " Syntax definition file for the Pyro programming language.
-" v0.3.0
+" v0.3.1
 
 " Comments.
 syn match pyroComment "#.*$"
@@ -35,12 +35,12 @@ syn case match
 " Default highlighting styles.
 hi def link pyroComment Comment
 hi def link pyroString String
+hi def link pyroChar String
 hi def link pyroKeyword Statement
 hi def link pyroAssert PreProc
 hi def link pyroImport PreProc
 hi def link pyroConstant Special
 hi def link pyroNumber Constant
 hi def link pyroSpecial Normal
-hi def link pyroChar Constant
 
 let b:current_syntax = "pyro"

@@ -65,10 +65,10 @@ hi SpellCap                                     ctermbg=none
 hi Comment                  ctermfg=242                             cterm=italic
 hi Todo                     ctermfg=242                             cterm=italic
 hi Constant                 ctermfg=3
-hi PreProc                  ctermfg=5
+hi PreProc                  ctermfg=5                               cterm=bold
 hi String                   ctermfg=2
-hi Identifier               ctermfg=4                               cterm=bold
-hi Statement                ctermfg=4
+hi Identifier               ctermfg=4
+hi Statement                ctermfg=4                               cterm=bold
 hi Type                     ctermfg=4
 hi Special                  ctermfg=3
 hi Underlined               ctermfg=2
