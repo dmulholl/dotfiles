@@ -30,7 +30,7 @@ alias int="intspector"
 alias ptv="pyrod test -v ~/dev/src/pyro/tests/*.pyro"
 
 # Quads.
-alias ytdl="youtube-dl"
+alias ytdl="yt-dlp -f mp4"
 alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
 alias dush="du -sh"
 alias atom="atom -a"

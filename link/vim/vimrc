@@ -39,14 +39,15 @@ set history=9999
 " Allow hidden buffers.
 set hidden
 
+" Indentation.
+set autoindent          " Copy new-line indentation from the previous line.
+"set smartindent         " Insert extra level of indentation in some cases.
+set breakindent         " Maintain visual indent when wrapping lines.
+set cindent " try instead of smartindent
+
 " Load language plugins and indent files.
 filetype plugin on
 filetype indent on
-
-" Indentation.
-set autoindent          " Copy new-line indentation from the previous line.
-set smartindent         " Insert extra level of indentation in some cases.
-set breakindent         " Maintain visual indent when wrapping lines.
 
 " Tabs.
 set expandtab           " Insert spaces instead of tabs when the <tab> key is pressed.
