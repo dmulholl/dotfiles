@@ -10,10 +10,13 @@ shopt -s cdspell
 shopt -s nullglob
 
 # Allow the ** pattern when globbing. Requires Bash 4.
-shopt -s globstar 
+shopt -s globstar
 
 # Automatically cd into bare directory names. Requires Bash 4.
-shopt -s autocd 
+shopt -s autocd
 
 # Recheck the window size after each command.
 shopt -s checkwinsize
+
+# Turn on Vim mode.
+set -o vi
