@@ -45,4 +45,6 @@ set convert-meta off
 # Open the command line buffer in $EDITOR, then execute the output as a command.
 "\C-o": edit-and-execute-command
 
-
+# Make Ctrl-L clear the screen even in vi-insert mode.
+set keymap vi-insert
+"\C-L": clear-screen
