@@ -73,7 +73,7 @@ mac_prompt="
 
 linux_prompt="
 \[$fgc_magenta\](--:--) \$(print_prompt_data) \[$fgc_blue\]\u@\h \[$fgc_yellow\]\w
-\[$fgc_yellow\] >> \[$fgc_default\]"
+\[$fgc_yellow\] \$(print_arrows) \[$fgc_default\]"
 
 # Bash expands and displays PS0 after it reads a command but before executing it.
 # This PS0 saves the cursor position, jumps up and overwrites the time placeholder,
