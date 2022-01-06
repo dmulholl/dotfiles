@@ -51,13 +51,15 @@ move_to_start_of_ps1() {
     tput cuu $vertical_movement
 }
 
+# Prints the number of jobs currently in the background.
 print_num_jobs() {
     jobs -p | wc -l | tr -d " "
 }
 
 print_arrows() {
+    # The number of jobs is always 1 too many when the function runs inside the prompt.
     if [[ "$(print_num_jobs)" -gt "1" ]]; then
-        echo -n "\$\$"
+        echo -n "$(($(print_num_jobs) - 1))>"
     else
         echo -n ">>"
     fi
