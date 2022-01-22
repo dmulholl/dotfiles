@@ -169,6 +169,9 @@ let c_no_curly_error=1
 " Reselect pasted text.
 nnoremap gp `[v`]
 
+" Auto-generate the tags file on file write of *.c and *.h files.
+autocmd BufWritePost *.c,*.h silent! !ctags -R . &
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
