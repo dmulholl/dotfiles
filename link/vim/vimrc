@@ -170,7 +170,7 @@ let c_no_curly_error=1
 nnoremap gp `[v`]
 
 " Auto-generate the tags file on file write of *.c and *.h files.
-autocmd BufWritePost *.c,*.h silent! !ctags -R . &
+" autocmd BufWritePost *.c,*.h silent! !ctags -R . &
 
 " ------------------------------------------------------------
 " Search
@@ -279,7 +279,10 @@ nnoremap <leader>s :set spell!<cr>
 nnoremap <leader>sh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<cr>
 
 " Open a terminal window.
-nnoremap <leader>t :term <cr><C-w>:res 50<cr>
+" nnoremap <leader>t :term <cr><C-w>:res 50<cr>
+
+" Generate/regenerate the tags file.
+nnoremap <leader>t :wa <bar> !ctags -R . &<cr>
 
 " Toggle word-wrapping.
 nnoremap <leader>w :call ToggleWrap()<CR>
