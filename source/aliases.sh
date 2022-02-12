@@ -30,7 +30,6 @@ alias int="intspector"
 alias ptv="pyrod test -v ~/dev/src/pyro/tests/*.pyro"
 
 # Quads.
-alias ytdl="yt-dlp -f mp4"
 alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
 alias dush="du -sh"
 alias atom="atom -a"
@@ -40,6 +39,8 @@ alias code="code -a"
 alias proto="python3 ~/dev/src/proto/proto"
 alias vimvd="~/dev/src/vimv/target/debug/vimv"
 alias hosts="sudo vim /etc/hosts"
+alias ytdlv="yt-dlp -f mp4"
+alias ytdlp="yt-dlp -f mp4 -o '%(playlist_index)02d. %(title)s.%(ext)s'"
 
 # Sexts.
 alias pytest="py.test"
