@@ -172,6 +172,12 @@ nnoremap gp `[v`]
 " Auto-generate the tags file on file write of *.c and *.h files.
 " autocmd BufWritePost *.c,*.h silent! !ctags -R . &
 
+" Jump to the outermost enclosing {.
+nnoremap [[ 99[{
+
+" Jump to the outermost enclosing }.
+noremap ]] 99]}
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
