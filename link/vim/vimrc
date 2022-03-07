@@ -178,6 +178,9 @@ nnoremap [[ 99[{
 " Jump to the outermost enclosing }.
 noremap ]] 99]}
 
+" Make Y yank to the end of the line so it matches C and D.
+nnoremap Y y$
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
