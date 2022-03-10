@@ -15,7 +15,10 @@ __pycache__/
 
 # Temporary files.
 /notes.txt
-tmp/
+/tmp/
+
+# Vim tag file.
+/tags
 
 # Latex build files.
 *.aux
