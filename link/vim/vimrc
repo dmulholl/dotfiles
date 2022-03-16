@@ -145,6 +145,10 @@ set number
 " Use the system clipboard as the unnamed (i.e. default) register.
 set clipboard=unnamed
 
+" Autowrapping and formatting using 'gq'. See :help gq for details.
+set formatoptions=croql
+set textwidth=100
+
 " Hard wrap lines at 100 characters.
 " autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
 " autocmd BufNewFile,BufRead *.stx setlocal textwidth=100
