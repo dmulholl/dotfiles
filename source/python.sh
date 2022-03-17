@@ -129,4 +129,3 @@ function dotpy_delete {
         fi
     done
 }
-
