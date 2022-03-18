@@ -185,6 +185,14 @@ noremap ]] 99]}
 " Make Y yank to the end of the line so it matches C and D.
 nnoremap Y y$
 
+" Run goimports automatically after a *.go file is saved.
+augroup autorun_goimports
+    autocmd!
+    autocmd BufWritePost *.go silent !goimports -w %
+    autocmd BufWritePost *.go edit
+    autocmd BufWritePost *.go redraw!
+augroup end
+
 " ------------------------------------------------------------
 " Search
 " ------------------------------------------------------------
@@ -390,6 +398,9 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
+" Set the default width.
+let NERDTreeWinSize = 60
+
 " Close Vim if the only window left is NT.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -416,5 +427,5 @@ function! OpenURLUnderCursor()
         :redraw!
     endif
 endfunction
-nnoremap gx :call OpenURLUnderCursor()<CR>
 
+nnoremap gx :call OpenURLUnderCursor()<CR>
