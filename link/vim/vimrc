@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'matze/vim-move'
 Plug 'keith/swift.vim'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 " ------------------------------------------------------------
@@ -73,6 +74,8 @@ set splitright
 autocmd BufNewFile,BufRead *.stx set filetype=syntext
 autocmd BufNewFile,BufRead *.pyro set filetype=pyro
 autocmd BufNewFile,BufRead *.h set filetype=c
+autocmd BufNewFile,BufRead go.mod set filetype=gomod
+autocmd BufNewFile,BufRead go.sum set filetype=gosum
 
 " Use zsh highlighting for all shell scripts as the sh/bash highlighters are broken.
 autocmd BufNewFile,BufRead *.sh set filetype=zsh
