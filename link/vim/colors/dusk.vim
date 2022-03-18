@@ -15,11 +15,11 @@ hi Normal                   ctermfg=none        ctermbg=none
 
 " Interface elements. For explanations search :h highlight-groups.
 hi LineNr                   ctermfg=236
-hi CursorLineNr             ctermfg=15          ctermbg=233         cterm=none
-hi CursorLine                                   ctermbg=233         cterm=none
-hi Visual                                       ctermbg=235
+hi CursorLineNr             ctermfg=15          ctermbg=235         cterm=none
+hi CursorLine                                   ctermbg=235         cterm=none
+hi Visual                                       ctermbg=237
 hi NonText                  ctermfg=233
-hi MatchParen                                   ctermbg=236         cterm=bold
+hi MatchParen                                   ctermbg=237         cterm=bold
 hi ErrorMsg                 ctermfg=1           ctermbg=0
 hi WarningMsg               ctermfg=6           ctermbg=0
 hi VertSplit                ctermfg=234         ctermbg=234
