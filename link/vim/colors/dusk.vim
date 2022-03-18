@@ -53,7 +53,7 @@ hi StatusI2                 ctermfg=black       ctermbg=236
 hi StatusI3                 ctermfg=black       ctermbg=234
 
 " Search.
-hi Search                   ctermfg=none        ctermbg=237
+hi Search                   ctermfg=none        ctermbg=238
 
 " Spellcheck.
 hi SpellBad                                     ctermbg=52
