@@ -407,6 +407,9 @@ let NERDTreeWinSize = 60
 " Show hidden files by default. (Shift-I toggles the display of hidden files.)
 let NERDTreeShowHidden=1
 
+" Don't show files matching any of the following regexes.
+let NERDTreeIgnore = ['\~$', '\.DS_Store$']
+
 " Close Vim if the only window left is NT.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
