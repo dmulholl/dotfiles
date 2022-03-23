@@ -47,6 +47,7 @@ function dot_source {
     source ~/.dotfiles/source/z.sh
     source ~/.dotfiles/source/prompt.sh
     source ~/.dotfiles/source/jump.sh
+    source ~/.dotfiles/source/git-completion.bash
 }
 
 # Create a symlink in $HOME to each file or directory in /link.
