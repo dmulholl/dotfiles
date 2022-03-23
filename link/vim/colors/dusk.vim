@@ -127,3 +127,6 @@ hi rustCommentLineDoc       ctermfg=242
 
 " C.
 hi cTodo                    ctermfg=242                             cterm=italic
+
+" HCL.
+hi hclBraces                ctermfg=none
