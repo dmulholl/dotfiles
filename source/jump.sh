@@ -12,6 +12,8 @@ function j() {
             cd ~/dev/bin;;
         dm)
             cd ~/dev/web/dmulholl.com;;
+        vay)
+            cd ~/dev/vay;;
         vim)
             cd ~/.vim;;
         *)
