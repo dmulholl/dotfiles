@@ -12,26 +12,28 @@ print_git_branch() {
 }
 
 # Print '*' if the current git branch is dirty.
-print_git_dirty() {
+print_git_is_dirty() {
     [[ -z $(git status --porcelain 2> /dev/null) ]] || echo "*"
 }
 
-# Print the exit code from the last process, the python virtual environment,
-# and git branch name and status.
+# Print metadata about the current shell environment.
 print_prompt_meta() {
-    echo -n "[$?"
+    echo -n "["
 
-    # Python enviroment.
+    # The exit code from the last process.
+    echo -n "$?"
+
+    # The name of the current Python virtual environment.
     if [ $CONDA_PREFIX ]; then
         echo -n ":conda($(basename $CONDA_DEFAULT_ENV))"
     elif [ $VIRTUAL_ENV ]; then
         echo -n ":$(basename $VIRTUAL_ENV)"
     fi
 
-    # Git branch name.
-    local branch=$(print_git_branch)
-    local dirty=$(print_git_dirty)
-    [ $branch ] && echo -n ":${branch}${dirty}"
+    # The current git branch name.
+    local branch_name=$(print_git_branch)
+    local is_dirty=$(print_git_is_dirty)
+    [ $branch_name ] && echo -n ":${branch_name}${is_dirty}"
 
     echo -n "]"
 }
@@ -56,6 +58,7 @@ print_num_jobs() {
     jobs -p | wc -l | tr -d " "
 }
 
+# Prints 'n>' where n is the number of background jobs, or '>>' if n is zero.
 print_arrows() {
     # The number of jobs is always 1 too many when the function runs inside the prompt.
     if [[ "$(print_num_jobs)" -gt "1" ]]; then
