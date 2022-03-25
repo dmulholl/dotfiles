@@ -71,6 +71,7 @@ set splitbelow
 set splitright
 
 " Set custom filetypes.
+autocmd BufNewFile,BufRead *.txt set filetype=text
 autocmd BufNewFile,BufRead *.stx set filetype=syntext
 autocmd BufNewFile,BufRead *.pyro set filetype=pyro
 autocmd BufNewFile,BufRead *.h set filetype=c
