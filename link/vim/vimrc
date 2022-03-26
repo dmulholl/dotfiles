@@ -1,6 +1,6 @@
-" ------------------------------------------------------------
-" Plugins
-" ------------------------------------------------------------
+" --------- "
+"  Plugins  "
+" --------- "
 
 " Vim-Plug. Run :PlugUpdate to install or update plugins.
 call plug#begin('~/.vim/vimplug')
@@ -16,9 +16,9 @@ Plug 'keith/swift.vim'
 Plug 'hashivim/vim-terraform'
 call plug#end()
 
-" ------------------------------------------------------------
-" General Settings
-" ------------------------------------------------------------
+" ------------------ "
+"  General Settings  "
+" ------------------ "
 
 " Sane behaviour for <BS> and Ctrl-H in insert mode.
 " (Delete indents, line endings, and beyond the insert point.)
@@ -42,9 +42,9 @@ set hidden
 
 " Indentation.
 set autoindent          " Copy new-line indentation from the previous line.
-"set smartindent         " Insert extra level of indentation in some cases.
 set breakindent         " Maintain visual indent when wrapping lines.
-set cindent " try instead of smartindent
+"set smartindent        " Insert extra level of indentation in some cases.
+set cindent             " Alternative to smartindent.
 
 " Load language plugins and indent files.
 filetype plugin on
@@ -58,7 +58,7 @@ set shiftround          " Align indents to a multiple of 'shiftwidth'.
 set smarttab            " <BS> will delete a 'shiftwidth' worth of spaces at line start.
 
 " Alternative to using the escape key.
-inoremap jj <esc>
+"inoremap jj <esc>
 
 " Shortcuts for navigating splits.
 " nnoremap <C-J> <C-W><C-J>
@@ -197,9 +197,9 @@ augroup autorun_goimports
     autocmd BufWritePost *.go redraw!
 augroup end
 
-" ------------------------------------------------------------
-" Search
-" ------------------------------------------------------------
+" -------- "
+"  Search  "
+" -------- "
 
 " Find the next match as the search term is being typed.
 set incsearch
@@ -213,9 +213,9 @@ nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
 
-" ------------------------------------------------------------
-" Finding Files
-" ------------------------------------------------------------
+" --------------- "
+"  Finding Files  "
+" --------------- "
 
 " Set path to the directory of the current file, plus the current working
 " directory and all subfolders.
@@ -226,9 +226,9 @@ set wildmenu
 set wildignorecase
 set wildmode=longest:list,full
 
-" ------------------------------------------------------------
-" Scrolling
-" ------------------------------------------------------------
+" ----------- "
+"  Scrolling  "
+" ----------- "
 
 " Vertical scroll offset.
 set scrolloff=1
@@ -240,9 +240,9 @@ set sidescroll=5
 nnoremap <C-N> <C-E>gj
 nnoremap <C-P> <C-Y>gk
 
-" ------------------------------------------------------------
-" Leader Shortcuts
-" ------------------------------------------------------------
+" ------------------ "
+"  Leader Shortcuts  "
+" ------------------ "
 
 " Remap the <leader> key for custom shortcuts.
 let mapleader="\<space>"
@@ -315,9 +315,9 @@ nnoremap <leader>w :call ToggleWrap()<CR>
 " Save all open files, clear the screen, and execute the current file.
 nnoremap <leader>x :wa <bar> !clear -x && "%:p"<cr>
 
-" ------------------------------------------------------------
-" File-Type Specific Leader Shortcuts
-" ------------------------------------------------------------
+" ------------------------------------- "
+"  File-Type Specific Leader Shortcuts  "
+" ------------------------------------- "
 
 " Latex: save all open files and compile 'main.tex'.
 autocmd FileType tex,bib nmap <buffer> <leader>m :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
@@ -325,9 +325,9 @@ autocmd FileType tex,bib nmap <buffer> <leader>m :wa <bar> !latexmk --xelatex ma
 " Latex: open the compiled pdf.
 autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
 
-" ------------------------------------------------------------
-" Word Wrapping
-" ------------------------------------------------------------
+" --------------- "
+"  Word Wrapping  "
+" --------------- "
 
 " Wrap lines at word boundaries.
 set linebreak
@@ -361,9 +361,9 @@ endfunction
 
 call ToggleWrap()
 
-" ------------------------------------------------------------
-" Trim Whitespace
-" ------------------------------------------------------------
+" ----------------- "
+"  Trim Whitespace  "
+" ----------------- "
 
 function! TrimWhitespace()
     let l:save = winsaveview()
@@ -373,9 +373,9 @@ endfunction
 
 autocmd BufWritePre * :call TrimWhitespace()
 
-" ------------------------------------------------------------
-" Status Line
-" ------------------------------------------------------------
+" ------------- "
+"  Status Line  "
+" ------------- "
 
 " Always show the status line.
 set laststatus=2
@@ -391,9 +391,42 @@ augroup select_statusline
     autocmd WinLeave * :setlocal statusline=%#StatusI1#\ \ %n\ \ %#StatusI2#\ \ %<%f\ \ %{&modified?'[+]\ \ ':''}%#StatusI3#%=%4l/%L\ \ %3v\ \ 0x%04B\ \ %{&fo}:%{&tw}\ \ %{&fenc?&fenc:&enc}\ \ %{&ff}\ \ %y\ %{'\ '}
 augroup end
 
-" ------------------------------------------------------------
-" NERDTree
-" ------------------------------------------------------------
+" ---------- "
+"  Open URL  "
+" ---------- "
+
+" Source: https://vimtricks.com/p/open-url-under-cursor/
+
+function! OpenURLUnderCursor()
+    let s:uri = expand('<cWORD>')
+    let s:uri = substitute(s:uri, '?', '\\?', '')
+    let s:uri = shellescape(s:uri, 1)
+    if s:uri != ''
+        silent exec "!open '".s:uri."'"
+        :redraw!
+    endif
+endfunction
+
+nnoremap gx :call OpenURLUnderCursor()<CR>
+
+" ---------------------- "
+"  Plugin: vim-surround  "
+" ---------------------- "
+
+" Use 'gs' as the insert-surround command as I can never remember 'ys'.
+nmap gs ys
+
+" ------------------- "
+"  Plugin: ultisnips  "
+" ------------------- "
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+" ------------------ "
+"  Plugin: NERDTree  "
+" ------------------ "
 
 " Close NT when opening a file.
 let NERDTreeQuitOnOpen = 1
@@ -413,29 +446,3 @@ let NERDTreeIgnore = ['\~$', '\.DS_Store$']
 
 " Close Vim if the only window left is NT.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" ------------------------------------------------------------
-" UltiSnips
-" ------------------------------------------------------------
-
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-" ------------------------------------------------------------
-" Open URL under cursor.
-" ------------------------------------------------------------
-
-" Source: https://vimtricks.com/p/open-url-under-cursor/
-
-function! OpenURLUnderCursor()
-    let s:uri = expand('<cWORD>')
-    let s:uri = substitute(s:uri, '?', '\\?', '')
-    let s:uri = shellescape(s:uri, 1)
-    if s:uri != ''
-        silent exec "!open '".s:uri."'"
-        :redraw!
-    endif
-endfunction
-
-nnoremap gx :call OpenURLUnderCursor()<CR>
