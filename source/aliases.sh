@@ -103,6 +103,7 @@ alias t5="tree -F -L 5"
 # Jumps.
 alias jb="j bin"
 alias jd="j dev"
+alias jn="j notes"
 alias js="j src"
 alias jt="j tmp"
 alias jv="j vay"
