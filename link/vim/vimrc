@@ -195,6 +195,7 @@ augroup autorun_goimports
     autocmd BufWritePost *.go silent !goimports -w %
     autocmd BufWritePost *.go edit
     autocmd BufWritePost *.go redraw!
+    autocmd BufWritePost *.go normal! zz
 augroup end
 
 " -------- "
