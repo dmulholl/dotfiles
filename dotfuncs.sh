@@ -32,7 +32,7 @@ Commands:
 EOF
 }
 
-# Source all files in /source.
+# Source all files in ~/.dotfiles/source/.
 function dot_source {
     source ~/.dotfiles/source/colours.sh
     source ~/.dotfiles/source/functions.sh
@@ -50,18 +50,18 @@ function dot_source {
     source ~/.dotfiles/source/git-completion.bash
 }
 
-# Create a symlink in $HOME to each file or directory in /link.
+# Create a symlink in $HOME to each file or directory in ~/.dotfiles/link/.
 function dot_link {
-    for targetfile in ~/.dotfiles/link/*; do
-        linkfile=~/.$(basename $targetfile)
-        if test -e $linkfile; then
-            if test -L $linkfile; then
-                rm $linkfile
+    for target in ~/.dotfiles/link/*; do
+        local symlink=~/.$(basename $target)
+        if test -e $symlink; then
+            if test -L $symlink; then
+                rm $symlink
             else
-                mv $linkfile dotbackup$linkfile
+                echo "Error: failed to link '$target', a file '$symlink' already exists."
             fi
         fi
-        ln -svf $targetfile $linkfile
+        ln -svf $target $symlink
     done
 }
 
