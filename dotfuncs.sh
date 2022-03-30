@@ -59,6 +59,7 @@ function dot_link {
                 rm $symlink
             else
                 echo "Error: failed to link '$target', a file '$symlink' already exists."
+                continue
             fi
         fi
         ln -svf $target $symlink
