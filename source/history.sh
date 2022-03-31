@@ -12,6 +12,7 @@ shopt -s histverify
 export HISTIGNORE=$'?:??:???:exit:history'
 
 # Ignore commands starting with a space; ignore sequential duplicates.
+# Can also add 'erasedups' here.
 export HISTCONTROL="ignorespace:ignoredups"
 
 # Add a timestamp to history entries.
@@ -25,4 +26,4 @@ export HISTFILESIZE=250000
 
 # `history -a` appends new history lines from the currrent history list to the history file.
 # `history -n` loads new lines from the history file into the current history list.
-PROMPT_COMMAND="history -a; history -n;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
