@@ -46,15 +46,6 @@ alias ytdlp="yt-dlp -f mp4 -o '%(playlist_index)02d. %(title)s.%(ext)s'"
 alias pytest="py.test"
 
 # History.
-alias h1="history 10"
-alias h2="history 20"
-alias h3="history 30"
-alias h4="history 40"
-alias h5="history 50"
-alias h6="history 60"
-alias h7="history 70"
-alias h8="history 80"
-alias h9="history 90"
 alias hh="history 25"
 
 # Git.
