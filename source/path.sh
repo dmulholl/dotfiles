@@ -35,6 +35,11 @@ if test -d "/opt/local/bin"; then
     PATH="$PATH:/opt/local/bin:/opt/local/sbin"
 fi
 
+# Homebrew binaries.
+if test -d "/opt/homebrew/bin"; then
+    PATH="$PATH:/opt/homebrew/bin"
+fi
+
 # Add the default system path back on at the end.
 PATH="$PATH:$DEFAULT_PATH"
 
