@@ -47,7 +47,7 @@ alias pytest="py.test"
 
 # History.
 alias hh="history 25"
-alias hn="history -n"
+alias hn="history -a; history -n"
 
 # Git.
 alias ga="git add"
