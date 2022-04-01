@@ -97,7 +97,7 @@ long_prompt="
 export PS0="\$(tput sc)\$(move_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_default\]\$(tput rc)"
 
 # This is the continuation prompt for multi-line commands.
-export PS2="\[$fgc_yellow\] \$(print_arrows) \[$fgc_default\]"
+export PS2="\[$fgc_yellow\] >> \[$fgc_default\]"
 
 function prompt_help {
     cat <<EOF
