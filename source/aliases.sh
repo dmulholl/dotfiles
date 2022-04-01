@@ -68,15 +68,7 @@ alias gcar="git commit -am 'Update readme'"
 alias gcas="git commit -am Snapshot"
 
 alias gl="git log --oneline --graph -25"
-alias gl1="git log --oneline --graph -10"
-alias gl2="git log --oneline --graph -20"
-alias gl3="git log --oneline --graph -30"
-alias gl4="git log --oneline --graph -40"
-alias gl5="git log --oneline --graph -50"
-alias gl6="git log --oneline --graph -60"
-alias gl7="git log --oneline --graph -70"
-alias gl8="git log --oneline --graph -80"
-alias gl9="git log --oneline --graph -90"
+alias gll="git log --oneline --graph -50"
 
 # Directory listings.
 alias ls="ls -F"
