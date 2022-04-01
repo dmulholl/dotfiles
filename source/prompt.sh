@@ -18,10 +18,8 @@ print_git_is_dirty() {
 
 # Print metadata about the current shell environment.
 print_prompt_meta() {
-    echo -n "["
-
     # The exit code from the last process.
-    echo -n "$?"
+    echo -n "[$?"
 
     # The name of the current Python virtual environment.
     if [ $CONDA_PREFIX ]; then
