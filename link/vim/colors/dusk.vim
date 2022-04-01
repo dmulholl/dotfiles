@@ -17,7 +17,7 @@ hi Normal                   ctermfg=none        ctermbg=none
 hi LineNr                   ctermfg=236
 hi CursorLineNr             ctermfg=15          ctermbg=235         cterm=none
 hi CursorLine                                   ctermbg=235         cterm=none
-hi Visual                                       ctermbg=237
+hi Visual                                       ctermbg=236
 hi NonText                  ctermfg=233
 hi MatchParen                                   ctermbg=237         cterm=bold
 hi ErrorMsg                 ctermfg=1           ctermbg=0
@@ -53,7 +53,7 @@ hi StatusI2                 ctermfg=black       ctermbg=236
 hi StatusI3                 ctermfg=black       ctermbg=234
 
 " Search.
-hi Search                   ctermfg=none        ctermbg=238
+hi Search                   ctermfg=15        ctermbg=238
 
 " Spellcheck.
 hi SpellBad                                     ctermbg=52
@@ -62,7 +62,7 @@ hi SpellRare                                    ctermbg=none
 hi SpellCap                                     ctermbg=none
 
 " Content categories.
-hi Comment                  ctermfg=242                             cterm=italic
+hi Comment                  ctermfg=244                             cterm=italic
 hi Todo                     ctermfg=242                             cterm=italic
 hi Constant                 ctermfg=3
 hi PreProc                  ctermfg=5                               cterm=bold
