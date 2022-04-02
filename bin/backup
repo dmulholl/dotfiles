@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+print_help() {
+    cat <<EOF
+Usage: backup [COMMAND]
+
+  Run a backup script.
+
+Flags:
+  -h, --help           Print this help text and exit.
+
+Backup \$HOME Commands:
+  h2a, home2alpha      Backup all files from HOME to Alpha (SSD).
+  h2b, home2beta       Backup all files from HOME to Beta (DHD).
+  h2n, home2net        Backup important files from HOME to rsync.net.
+
+Backup Disk Commands:
+  b2g, beta2gamma      Backup content from Beta (DHD) to Gamma (PHD).
+  b2d, beta2delta      Backup 'Backups' from Beta (DHD) to Delta (PHD).
+EOF
+}
+
+if test "$#" = "0"; then
+    print_help
+    exit 0
+fi
+
+scripts="$(dirname "$0")/scripts"
+
+for arg in "$@"; do
+    case "$arg" in
+        h2a|home2alpha)
+            "$scripts/backup-home2disk.sh" Alpha
+            ;;
+        h2b|home2beta)
+            "$scripts/backup-home2disk.sh" Beta
+            ;;
+        h2n|home2net)
+            "$scripts/backup-home2net.sh"
+            ;;
+        b2g|beta2gamma)
+            "$scripts/backup-beta2gamma.sh"
+            ;;
+        b2d|beta2delta)
+            "$scripts/backup-beta2delta.sh"
+            ;;
+        ""|--help|-h)
+            print_help
+            exit 0
+            ;;
+        *)
+            echo "Error: unsupported command."
+            exit 1
+            ;;
+    esac
+done
