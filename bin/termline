@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ──────────────────────────────────────────────────────────────────────────────
-# Print a coloured line across the width of the terminal.
+# Prints a coloured line across the width of the terminal.
 # ──────────────────────────────────────────────────────────────────────────────
 
 print_help() {

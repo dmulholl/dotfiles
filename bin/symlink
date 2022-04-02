@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# Create a symbolic link. I can never remember the order of the arguments
-# for 'ln' or make sense of its man page.
+# Creates a symbolic link. I can never remember the order of the arguments for
+# the 'ln' command or make sense of its man page.
 # ------------------------------------------------------------------------------
 
 # Print the utility's help text.
@@ -9,7 +9,7 @@ print_help() {
     cat <<EOF
 Usage: symlink <linkfile> <targetfile>
 
-  Create a symbolic link at <linkfile> pointing to <targetfile>.
+  Creates a symbolic link at <linkfile> pointing to <targetfile>.
 
 Arguments:
   <linkfile>        The symlink will be created at this location.

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# Safe alternative to the rm command. This script transfers deleted files
+# Safe alternative to the 'rm' command. This script transfers deleted files
 # and directories to the trash directory, $HOME/.trash/.
 # ------------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ──────────────────────────────────────────────────────────────────────────────
-# Print a centered title across the width of the terminal.
+# Prints a centered title across the width of the terminal.
 # ──────────────────────────────────────────────────────────────────────────────
 
 import shutil
@@ -77,4 +77,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

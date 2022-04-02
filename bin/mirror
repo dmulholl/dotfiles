@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# Mirror the contents of a source directory to a destination directory.
+# Mirrors the contents of a source directory to a destination directory.
 # ------------------------------------------------------------------------------
 
 # Print the utility's help text.
@@ -43,11 +43,11 @@ dst="${2%/}"
 ulimit -n 4096
 
 # Run rsync in mirroring mode.
-rsync -av --delete \
-      --exclude ".Spotlight*" \
-      --exclude ".Trashes" \
-      --exclude ".trash" \
-      --exclude ".fseventd" \
-      --exclude ".fseventsd" \
-      --exclude ".DS_Store" \
+rsync -av --delete                  \
+      --exclude ".Spotlight*"       \
+      --exclude ".Trashes"          \
+      --exclude ".trash"            \
+      --exclude ".fseventd"         \
+      --exclude ".fseventsd"        \
+      --exclude ".DS_Store"         \
       -- "$src" "$dst"
