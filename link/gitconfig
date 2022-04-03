@@ -1,16 +1,36 @@
 [user]
 	name = Darren Mulholland
 	email = dmulholl@tcd.ie
+
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+
 [credential]
 	helper = osxkeychain
+
 [push]
 	default = simple
+
 [alias]
 	last = log -1 HEAD
 	unstage = reset HEAD --
 	amend = commit --amend
 	alias = !git config --list | grep alias | sed s/^alias.//
+
+# Git-Delta settings.
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    line-numbers = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

@@ -53,7 +53,7 @@ alias ga="git add"
 alias gaa="git add --all"
 alias gp="git push"
 alias gpt="git push && git push --tags"
-alias gd="git diff --color | diff-so-fancy | less --tabs=4 -RFX"
+alias gd="git diff"
 alias gs="git status --short --branch"
 alias gb="git branch"
 alias gco="git checkout"
@@ -67,7 +67,7 @@ alias gcar="git commit -am 'Update readme'"
 alias gcas="git commit -am Snapshot"
 
 alias gl="git log --oneline --graph -25"
-alias gll="git log --oneline --graph -50"
+alias gll="git log --oneline --graph -45"
 
 # Directory listings.
 alias ls="ls -F"
