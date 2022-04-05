@@ -22,16 +22,19 @@ print_prompt_meta() {
     echo -n "[$?"
 
     # The name of the current Python virtual environment.
-    if [ $CONDA_PREFIX ]; then
+    if test ! -z "$CONDA_PREFIX"; then
         echo -n ":conda($(basename $CONDA_DEFAULT_ENV))"
-    elif [ $VIRTUAL_ENV ]; then
+    elif test ! -z $VIRTUAL_ENV; then
         echo -n ":$(basename $VIRTUAL_ENV)"
     fi
 
     # The current git branch name.
-    local branch_name=$(print_git_branch)
-    local is_dirty=$(print_git_is_dirty)
-    [ $branch_name ] && echo -n ":${branch_name}${is_dirty}"
+    local branch_name="$(print_git_branch)"
+    local is_dirty="$(print_git_is_dirty)"
+
+    if test ! -z "$branch_name"; then
+        echo -n ":${branch_name}${is_dirty}"
+    fi
 
     echo -n "]"
 }
