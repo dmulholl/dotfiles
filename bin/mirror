@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
 # ------------------------------------------------------------------------------
 # Mirrors the contents of a source directory to a destination directory.
 # ------------------------------------------------------------------------------

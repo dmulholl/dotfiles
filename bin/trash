@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
 # ------------------------------------------------------------------------------
 # Safe alternative to the 'rm' command. This script transfers deleted files
 # and directories to the trash directory, $HOME/.trash/.
