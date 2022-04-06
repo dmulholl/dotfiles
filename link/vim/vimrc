@@ -80,7 +80,7 @@ autocmd BufNewFile,BufRead go.mod set filetype=gomod
 autocmd BufNewFile,BufRead go.sum set filetype=gosum
 
 " Use zsh highlighting for all shell scripts as the sh/bash highlighters are broken.
-autocmd BufNewFile,BufRead *.sh set filetype=zsh
+" autocmd BufNewFile,BufRead *.sh set filetype=zsh
 
 " Enable mouse support.
 set mouse=a
