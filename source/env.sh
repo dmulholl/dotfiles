@@ -9,7 +9,7 @@ export _Z_DATA="$HOME/.cache/zdata"
 export EDITOR="vim"
 
 if test -d "$HOME/.env"; then
-    for file in "$HOME/.env/*.sh"; do
-        source $file
+    for file in "$HOME/.env/*.auto.sh"; do
+        test -e "$file" && source "$file"
     done
 fi

@@ -2,38 +2,44 @@
 # Admin functions for the `dot` command.
 # ------------------------------------------------------------------------------
 
-function dot {
+dot() {
     case "$1" in
-        update)
-            dot_update;;
+        env)
+            dot_env "$2";;
         init)
             dot_init;;
-        source|src)
-            dot_source;;
         link)
             dot_link;;
+        source|src)
+            dot_source;;
         *)
             dot_help;;
     esac
 }
 
 # Print the help text for the dotfiles command.
-function dot_help {
+dot_help() {
     cat <<EOF
 Usage: dot <command>
 
-  Dotfiles management utility. To update the installation, first update
-  the local .dotfiles git repository, then run 'dot init'.
+  Dotfiles management utility.
+
+  To update the installation:
+
+    $ cd ~/.dotfiles
+    $ git pull
+    $ dot init
 
 Commands:
-  init      Initialize/reinitialize the installation.
-  link      Link all files in ~/.dotfiles/link into ~/.
-  source    Source all files in ~/.dotfiles/source.
+  env       Load environment variables from ~/.env/.
+  init      (Re)initialize the installation.
+  link      Link all files in ~/.dotfiles/link/ into ~/.
+  source    Source all files in ~/.dotfiles/source/.
 EOF
 }
 
 # Source all files in ~/.dotfiles/source/.
-function dot_source {
+dot_source() {
     source ~/.dotfiles/source/colours.sh
     source ~/.dotfiles/source/functions.sh
     source ~/.dotfiles/source/options.sh
@@ -51,24 +57,38 @@ function dot_source {
 }
 
 # Create a symlink in $HOME to each file or directory in ~/.dotfiles/link/.
-function dot_link {
-    for target in ~/.dotfiles/link/*; do
-        local symlink=~/.$(basename $target)
-        if test -e $symlink; then
-            if test -L $symlink; then
-                rm $symlink
+dot_link() {
+    for target_file in ~/.dotfiles/link/*; do
+        local link_file="~/.$(basename $target_file)"
+        if test -e $link_file; then
+            if test -L $link_file; then
+                rm $link_file
             else
-                echo "Error: failed to link '$target', a file '$symlink' already exists."
+                echo "Error: failed to link '$target_file', a file '$link_file' already exists."
                 continue
             fi
         fi
-        ln -svf $target $symlink
+        ln -svf $target_file $link_file
     done
 }
 
 # Initialize/reinitialize the dotfiles installation.
-function dot_init {
+dot_init() {
     source ~/.dotfiles/dotfuncs.sh
     dot_source
     dot_link
+}
+
+# Load environment variables.
+dot_env() {
+    if test -z "$1"; then
+        echo "Error: the 'env' command requires an argument."
+        return 1
+    fi
+
+    if test -e "$HOME/.env/$1.sh"; then
+        source "$HOME/.env/$1.sh"
+    else
+        echo "Error: the file ~/.env/$1.sh does not exist."
+    fi
 }
