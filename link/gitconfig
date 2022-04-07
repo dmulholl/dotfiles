@@ -18,6 +18,9 @@
 	amend = commit --amend
 	alias = !git config --list | grep alias | sed s/^alias.//
 
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
 # Git-Delta settings.
 [core]
     pager = delta
