@@ -79,11 +79,20 @@ dot_init() {
     dot_link
 }
 
-# Load environment variables.
+# Load environment variables from ~/.env/.
 dot_env() {
-    if test -z "$1"; then
-        echo "Error: the 'env' command requires an argument."
+    if test ! -d "$HOME/.env"; then
+        echo "Error: the ~/.env/ directory does not exist."
         return 1
+    fi
+
+    if test -z "$1"; then
+        for file in $HOME/.env/*.sh; do
+            if [[ -e "$file" && "$file" != *.auto.sh ]]; then
+                printf " - %s\n" $(basename -s ".sh" "$file")
+            fi
+        done
+        return 0
     fi
 
     if test -e "$HOME/.env/$1.sh"; then

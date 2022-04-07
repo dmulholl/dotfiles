@@ -2,9 +2,6 @@
 # Python settings.
 # ------------------------------------------------------------------------------
 
-# Add this directory to Python's import path.
-export PYTHONPATH=~/dev/lib/python
-
 # Stop fucking with my prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
