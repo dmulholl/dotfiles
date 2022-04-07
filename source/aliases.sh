@@ -14,21 +14,22 @@ alias e="vim"
 
 # Doubles.
 alias ff="fzf"
-alias dd="deploydocs"
+alias dd="ddocs"
 alias vi="vim"
+alias vv="vim"
 alias iv="python3 ~/dev/src/ivy/ivy"
 alias md="make debug"
 alias mc="make check"
-alias pd="pyrod"
-alias pr="pyror"
-alias pt="pyrod test ~/dev/src/pyro/tests/*.pyro"
+alias pd="~/dev/src/pyro/out/debug/pyro"
+alias pr="~/dev/src/pyro/out/release/pyro"
+alias pt="~/dev/src/pyro/out/debug/pyro test ~/dev/src/pyro/tests/*.pyro"
 
 # Triples.
 alias irn="ironclad"
 alias dir="open ."
 alias cal="gcal --starting-day=1"
 alias int="intspector"
-alias ptv="pyrod test -v ~/dev/src/pyro/tests/*.pyro"
+alias ptv="~/dev/src/pyro/out/debug/pyro test -v ~/dev/src/pyro/tests/*.pyro"
 
 # Quads.
 alias dush="du -sh"
