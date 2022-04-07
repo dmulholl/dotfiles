@@ -59,7 +59,7 @@ dot_source() {
 # Create a symlink in $HOME to each file or directory in ~/.dotfiles/link/.
 dot_link() {
     for target_file in ~/.dotfiles/link/*; do
-        local link_file="~/.$(basename $target_file)"
+        local link_file=~/.$(basename $target_file)
         if test -e $link_file; then
             if test -L $link_file; then
                 rm $link_file
