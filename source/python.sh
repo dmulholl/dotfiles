@@ -19,14 +19,12 @@ Usage: dotpy <command>
   Utility for managing Python virtual environments.
 
 Commands:
-
   a, activate <name>    Activate the named virtual environment.
   d, deactivate         Deactivate the current virtual environment.
      delete <names>     Delete one or more virtual environments.
   m, make <name>        Make a new virtual environment.
 
 Environments:
-
 EOF
     echo -n "  " && /bin/ls -m $DOTPYENVS
 }
