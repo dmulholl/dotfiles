@@ -39,23 +39,25 @@ print_prompt_meta() {
     echo -n "]"
 }
 
-# For single-line commands we allow for line-wrapping; for multiline commands we make a best effort,
-# ignoring the possiblity of line wrapping.
+# This command moves the cursor into the correct position to overwrite the blank (--:--) time
+# template.
+# - For single-line commands, we allow for line-wrapping.
+# - For multi-line commands, we make a best effort and ignore the possibility of line-wrapping.
 move_to_start_of_ps1() {
     local num_lines_in_last_command=$(history 1 | wc -l)
 
-    if [ "$num_lines_in_last_command" -gt 1 ]; then
-        let vertical_movement="$num_lines_in_last_command + 1"
+    if [ $num_lines_in_last_command -gt 1 ]; then
+        local lines_to_move=$(($num_lines_in_last_command + 1))
     else
         local last_command=$(history 1 | sed 's/^  [0-9]*  //' | cut -c 15-)
         local last_command_length=${#last_command}
         local ps1_prompt_length=${#PS1_PROMPT}
-        let total_length="$last_command_length + $ps1_prompt_length"
-        let num_lines="$total_length / ${COLUMNS} + 1"
-        let vertical_movement="$num_lines + 1"
+        local total_length=$(($last_command_length + $ps1_prompt_length))
+        local num_lines=$(($total_length / ${COLUMNS} + 1))
+        local lines_to_move=$(($num_lines + 1))
     fi
 
-    tput cuu $vertical_movement
+    tput cuu $lines_to_move
 }
 
 # Prints the number of jobs currently in the background.
@@ -74,15 +76,15 @@ print_arrows() {
 }
 
 print_prompt_user() {
-    local username="$USER"
-    local hostname=$(hostname -s | tr '[:upper:]' '[:lower:]')
+    local user_name="$USER"
+    local host_name=$(hostname -s | tr '[:upper:]' '[:lower:]')
 
-    if [[ $hostname == vay* ]]; then
+    if [[ $host_name == vay* ]]; then
         echo "(vay)"
-    elif [[ $hostname == "mbp16" && $username == "dmulholl" ]]; then
+    elif [[ $host_name == "mbp16" && $user_name == "dmulholl" ]]; then
         echo "(mbp16)"
     else
-        echo "$username@$hostname"
+        echo "$user_name@$host_name"
     fi
 }
 
