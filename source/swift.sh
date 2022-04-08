@@ -3,6 +3,6 @@
 # ------------------------------------------------------------------------------
 
 # Source Swift completion.
-# if is_available swift; then
+# if is_executable swift; then
 #     eval "`swift package completion-tool generate-bash-script`"
 # fi

@@ -77,6 +77,7 @@ dot_init() {
     source ~/.dotfiles/dotfuncs.sh
     dot_source
     dot_link
+    dotpy_try_activate base
 }
 
 # Load environment variables from ~/.env/.
@@ -95,11 +96,11 @@ dot_env() {
         return 0
     fi
 
-    if [[ "$1" == "-v" ]]; then
+    if [[ "$1" == "-v" || "$1" == "--view" ]]; then
         local leading_newline=""
         for file in $HOME/.env/*.sh; do
             if [[ -e "$file" ]]; then
-                printf "$leading_newline\e[32m%s\e[39m\n\n" $(basename $file)
+                printf "$leading_newline\e[32m· %s\e[39m\n\n" $(basename $file)
                 leading_newline="\n"
                 cat "$file"
             fi

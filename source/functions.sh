@@ -39,7 +39,7 @@ is_cygwin() {
     [[ "$OSTYPE" =~ ^cygwin ]]
 }
 
-# Test if an executable, alias, or function is available to be called.
+# Test if an executable, alias, or function is available on PATH.
 is_available() {
     if type $1 &> /dev/null; then
         return 0
@@ -48,10 +48,13 @@ is_available() {
     fi
 }
 
-# Test if a script or binary is available to be called.
-is_exe() {
-    if which $1 &> /dev/null; then
-        return 0
+# Test if an executable script or binary is available on PATH.
+is_executable() {
+    if which "$1" &> /dev/null; then
+        if [[ -x "$(which "$1")" ]]; then
+            return 0
+        fi
+        return 1
     else
         return 1
     fi
@@ -66,6 +69,12 @@ mkcd() {
 }
 
 # Unicommand for the clipboard on OSX.
+#
+# Usage:
+#
+#   $ echo "foobar" | clip
+#   $ clip | cat
+#
 clip() {
     test -t 0 && pbpaste || pbcopy
 }
@@ -156,12 +165,15 @@ tag() {
         echo "Usage: tag <tagname> [commit]"
         return
     fi
+
     if [ $# -eq 0 ]; then
         git tag
     fi
+
     if [ $# -eq 1 ]; then
         git tag -am "Version $1" "$1"
     fi
+
     if [ $# -eq 2 ]; then
         git tag -am "Version $1" "$1" "$2"
     fi

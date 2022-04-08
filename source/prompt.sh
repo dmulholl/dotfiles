@@ -40,13 +40,13 @@ print_prompt_meta() {
 }
 
 move_to_start_of_ps1() {
-    command_rows=$(history 1 | wc -l)
+    local command_rows=$(history 1 | wc -l)
     if [ "$command_rows" -gt 1 ]; then
         let vertical_movement="$command_rows + 1"
     else
-        command=$(history 1 | sed 's/^  [0-9]*  //' | cut -c 15-)
-        command_length=${#command}
-        ps1_prompt_length=${#PS1_PROMPT}
+        local command=$(history 1 | sed 's/^  [0-9]*  //' | cut -c 15-)
+        local command_length=${#command}
+        local ps1_prompt_length=${#PS1_PROMPT}
         let total_length="$command_length + $ps1_prompt_length"
         let lines="$total_length / ${COLUMNS} + 1"
         let vertical_movement="$lines + 1"
