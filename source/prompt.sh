@@ -102,7 +102,7 @@ export PS0="\$(tput sc)\$(move_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_defaul
 # This is the continuation prompt for multi-line commands.
 export PS2="\[$fgc_yellow\] >> \[$fgc_default\]"
 
-function prompt_help {
+prompt_help() {
     cat <<EOF
 Usage: prompt <style>
 
@@ -115,7 +115,7 @@ Styles:
 EOF
 }
 
-function prompt {
+prompt() {
     if [[ -n "$1" ]]; then
         local command="$1"
         shift

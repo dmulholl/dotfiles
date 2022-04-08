@@ -3,44 +3,44 @@
 # ------------------------------------------------------------------------------
 
 # Set the window title.
-function title {
+title() {
     if test -n "$1"; then
         echo -n -e "\e]0;$1\007"
     fi
 }
 
 # Python makes a nice command line calculator.
-function pycalc {
+pycalc() {
     python3 -c "from math import *; print($*)"
 }
 
 # Are we running on a Mac?
-function is_mac {
+is_mac() {
     [[ "$OSTYPE" =~ ^darwin ]]
 }
 
 # Are we running on a Linux box?
-function is_linux {
+is_linux() {
     [[ "$OSTYPE" =~ ^linux ]]
 }
 
 # Are we running on a BSD box?
-function is_bsd {
+is_bsd() {
     [[ "$OSTYPE" =~ ^bsd ]]
 }
 
 # Are we running on MSys on Windows?
-function is_msys {
+is_msys() {
     [[ "$OSTYPE" =~ ^msys ]]
 }
 
 # Are we running on Cygwin on Windows?
-function is_cygwin {
+is_cygwin() {
     [[ "$OSTYPE" =~ ^cygwin ]]
 }
 
 # Test if an executable, alias, or function is available to be called.
-function is_available {
+is_available() {
     if type $1 &> /dev/null; then
         return 0
     else
@@ -49,7 +49,7 @@ function is_available {
 }
 
 # Test if a script or binary is available to be called.
-function is_exe {
+is_exe() {
     if which $1 &> /dev/null; then
         return 0
     else
@@ -58,7 +58,7 @@ function is_exe {
 }
 
 # Make a directory and cd into it in one step.
-function mkcd {
+mkcd() {
     if test -n "$1"; then
         mkdir -p "$1"
         cd "$1"
@@ -66,12 +66,12 @@ function mkcd {
 }
 
 # Unicommand for the clipboard on OSX.
-function clip {
+clip() {
     test -t 0 && pbpaste || pbcopy
 }
 
 # Clean build artifacts from the current directory.
-function clean {
+clean() {
     find . -name ".DS_Store" -delete
     find . -name "._.DS_Store" -delete
     find . -name "._*" -delete
@@ -103,7 +103,7 @@ function clean {
 }
 
 # Colourized man pages.
-function man {
+man() {
     env \
         LESS_TERMCAP_mb=$(printf "\e[1;31m") \
         LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -116,7 +116,7 @@ function man {
 }
 
 # Interactive mv command for renaming files.
-function mv {
+mv() {
     if [ $# -ne 1 ]; then
         command mv "$@"
         return
@@ -126,7 +126,7 @@ function mv {
 }
 
 # Interactive cp command for copying files.
-function cp {
+cp() {
     if [ $# -ne 1 ]; then
         command cp "$@"
         return
@@ -136,7 +136,7 @@ function cp {
 }
 
 # Request user confirmation. First argument is used as the prompt string.
-function confirm {
+confirm() {
     local input
     while true; do
         echo -n -e "$@ (y/n) "
@@ -151,7 +151,7 @@ function confirm {
 }
 
 # Create a new git version tag.
-function tag {
+tag() {
     if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
         echo "Usage: tag <tagname> [commit]"
         return
@@ -168,6 +168,6 @@ function tag {
 }
 
 # Print $PATH in readable form.
-function path {
+path() {
     echo $PATH | tr ':' '\n'
 }
