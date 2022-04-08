@@ -95,6 +95,18 @@ dot_env() {
         return 0
     fi
 
+    if [[ "$1" == "-v" ]]; then
+        local leading_newline=""
+        for file in $HOME/.env/*.sh; do
+            if [[ -e "$file" ]]; then
+                printf "$leading_newline\e[32m%s\e[39m\n\n" $(basename $file)
+                leading_newline="\n"
+                cat "$file"
+            fi
+        done
+        return 0
+    fi
+
     if test -e "$HOME/.env/$1.sh"; then
         source "$HOME/.env/$1.sh"
     else
