@@ -39,18 +39,22 @@ print_prompt_meta() {
     echo -n "]"
 }
 
+# For single-line commands we allow for line-wrapping; for multiline commands we make a best effort,
+# ignoring the possiblity of line wrapping.
 move_to_start_of_ps1() {
-    local command_rows=$(history 1 | wc -l)
-    if [ "$command_rows" -gt 1 ]; then
-        let vertical_movement="$command_rows + 1"
+    local num_lines_in_last_command=$(history 1 | wc -l)
+
+    if [ "$num_lines_in_last_command" -gt 1 ]; then
+        let vertical_movement="$num_lines_in_last_command + 1"
     else
-        local command=$(history 1 | sed 's/^  [0-9]*  //' | cut -c 15-)
-        local command_length=${#command}
+        local last_command=$(history 1 | sed 's/^  [0-9]*  //' | cut -c 15-)
+        local last_command_length=${#last_command}
         local ps1_prompt_length=${#PS1_PROMPT}
-        let total_length="$command_length + $ps1_prompt_length"
-        let lines="$total_length / ${COLUMNS} + 1"
-        let vertical_movement="$lines + 1"
+        let total_length="$last_command_length + $ps1_prompt_length"
+        let num_lines="$total_length / ${COLUMNS} + 1"
+        let vertical_movement="$num_lines + 1"
     fi
+
     tput cuu $vertical_movement
 }
 
@@ -70,8 +74,8 @@ print_arrows() {
 }
 
 print_prompt_user() {
-    username="$USER"
-    hostname=$(hostname -s | tr '[:upper:]' '[:lower:]')
+    local username="$USER"
+    local hostname=$(hostname -s | tr '[:upper:]' '[:lower:]')
 
     if [[ $hostname == vay* ]]; then
         echo "(vay)"
