@@ -12,9 +12,6 @@ fmt_underline='\e[4m'
 fmt_blink='\e[5m'
 fmt_hide='\e[8m'
 
-# Foreground colour, default.
-fgc_default='\e[39m'
-
 # Foreground colours, normal.
 fgc_black='\e[30m'
 fgc_red='\e[31m'
@@ -24,35 +21,27 @@ fgc_blue='\e[34m'
 fgc_magenta='\e[35m'
 fgc_cyan='\e[36m'
 fgc_white='\e[37m'
+fgc_default='\e[39m'
 
-# Foreground colours, bright.
-fgc_bblack='\e[90m'
-fgc_bred='\e[91m'
-fgc_bgreen='\e[92m'
-fgc_byellow='\e[93m'
-fgc_bblue='\e[94m'
-fgc_bmagenta='\e[95m'
-fgc_bcyan='\e[96m'
-fgc_bwhite='\e[97m'
+# Background colours, normal.
+bgc_black='\e[40m'
+bgc_red='\e[41m'
+bgc_green='\e[42m'
+bgc_yellow='\e[43m'
+bgc_blue='\e[44m'
+bgc_magenta='\e[45m'
+bgc_cyan='\e[46m'
+bgc_white='\e[47m'
+bgc_default='\e[49m'
 
 # Print a test set of colours.
-function colours() {
-    echo -e "${fgc_default}00 - ${fgc_black}\$fgc_black"
-    echo -e "${fgc_default}01 - ${fgc_red}\$fgc_red"
-    echo -e "${fgc_default}02 - ${fgc_green}\$fgc_green"
-    echo -e "${fgc_default}03 - ${fgc_yellow}\$fgc_yellow"
-    echo -e "${fgc_default}04 - ${fgc_blue}\$fgc_blue"
-    echo -e "${fgc_default}05 - ${fgc_magenta}\$fgc_magenta"
-    echo -e "${fgc_default}06 - ${fgc_cyan}\$fgc_cyan"
-    echo -e "${fgc_default}07 - ${fgc_white}\$fgc_white"
-    echo -e
-    echo -e "${fgc_default}08 - ${fgc_bblack}\$fgc_bblack"
-    echo -e "${fgc_default}09 - ${fgc_bred}\$fgc_bred"
-    echo -e "${fgc_default}10 - ${fgc_bgreen}\$fgc_bgreen"
-    echo -e "${fgc_default}11 - ${fgc_byellow}\$fgc_byellow"
-    echo -e "${fgc_default}12 - ${fgc_bblue}\$fgc_bblue"
-    echo -e "${fgc_default}13 - ${fgc_bmagenta}\$fgc_bmagenta"
-    echo -e "${fgc_default}14 - ${fgc_bcyan}\$fgc_bcyan"
-    echo -e "${fgc_default}15 - ${fgc_bwhite}\$fgc_bwhite"
-    echo -en "${fgc_default}"
+colours() {
+    printf "0:  ${bgc_black}      ${bgc_default}${fgc_black}${fmt_bold}  bold${fmt_reset}${fgc_black}  normal${fmt_reset}  (black)\n"
+    printf "1:  ${bgc_red}      ${bgc_default}${fgc_red}${fmt_bold}  bold${fmt_reset}${fgc_red}  normal${fmt_reset}  (red)\n"
+    printf "2:  ${bgc_green}      ${bgc_default}${fgc_green}${fmt_bold}  bold${fmt_reset}${fgc_green}  normal${fmt_reset}  (green)\n"
+    printf "3:  ${bgc_yellow}      ${bgc_default}${fgc_yellow}${fmt_bold}  bold${fmt_reset}${fgc_yellow}  normal${fmt_reset}  (yellow)\n"
+    printf "4:  ${bgc_blue}      ${bgc_default}${fgc_blue}${fmt_bold}  bold${fmt_reset}${fgc_blue}  normal${fmt_reset}  (blue)\n"
+    printf "5:  ${bgc_magenta}      ${bgc_default}${fgc_magenta}${fmt_bold}  bold${fmt_reset}${fgc_magenta}  normal${fmt_reset}  (magenta)\n"
+    printf "6:  ${bgc_cyan}      ${bgc_default}${fgc_cyan}${fmt_bold}  bold${fmt_reset}${fgc_cyan}  normal${fmt_reset}  (cyan)\n"
+    printf "7:  ${bgc_white}      ${bgc_default}${fgc_white}${fmt_bold}  bold${fmt_reset}${fgc_white}  normal${fmt_reset}  (white)\n"
 }
