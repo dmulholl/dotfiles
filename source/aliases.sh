@@ -35,15 +35,13 @@ alias ddx="deploydocs"
 alias dush="du -sh"
 alias atom="atom -a"
 alias code="code -a"
+alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
 
 # Quints.
 alias vimvd="~/dev/src/vimv/target/debug/vimv"
 alias hosts="sudo vim /etc/hosts"
 alias ytdlv="yt-dlp -f mp4"
 alias ytdlp="yt-dlp -f mp4 -o '%(playlist_index)02d. %(title)s.%(ext)s'"
-
-# Octals.
-alias pyupload="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
 
 # History.
 alias hh="history 25"
