@@ -43,6 +43,9 @@ syn match stxTagLine "^\s*:.\+$"
 " HTML entities.
 syn match stxEntity "&[#a-zA-Z0-9]\+;"
 
+" HTML comments.
+syn region htmlComment start="<!--" end="-->"
+
 " Default highlighting styles.
 hi def link stxMeta Comment
-
+hi def link htmlComment Comment
