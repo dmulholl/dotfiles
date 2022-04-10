@@ -81,7 +81,7 @@ alias t2="tree -F -L 2"
 alias t3="tree -F -L 3"
 alias t4="tree -F -L 4"
 alias t5="tree -F -L 5"
-alias ts="tree -F -h"
+alias tts="tree -F -h"
 
 # Jumps.
 alias jb="j bin"
