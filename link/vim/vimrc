@@ -152,7 +152,13 @@ set number
 set clipboard=unnamed
 
 " Autowrapping and formatting using 'gq'. See :help gq for details.
-set formatoptions=croql
+" t -- auto-wrap text using textwidth.
+" c -- auto-wrap comments using textwidth, inserting current comment leader.
+" r -- auto-insert current comment leader on <enter> in insert mode.
+" o -- auto-insert current comment leader after 'o' or 'O' in normal mode.
+" q -- allow formatting of comments with 'gq'.
+" l -- already long lines are not broken in insert mode.
+set formatoptions=crq
 set textwidth=100
 
 " Hard wrap lines at 100 characters.
