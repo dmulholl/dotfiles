@@ -7,13 +7,12 @@
 # ------------------------------------------------------------------------------
 
 # Print the name of the current git branch.
-print_git_branch() {
+print_git_banch_name() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 # Print '*' if the current git branch is dirty.
 print_git_is_dirty() {
-    # [[ -z $(git status --porcelain 2> /dev/null) ]] || echo "*"
     [[ -n $(git status --porcelain 2> /dev/null) ]] && echo "*"
 }
 
@@ -30,7 +29,7 @@ print_prompt_meta() {
     fi
 
     # The current git branch name.
-    local branch_name="$(print_git_branch)"
+    local branch_name="$(print_git_banch_name)"
     local is_dirty="$(print_git_is_dirty)"
 
     if test ! -z "$branch_name"; then
