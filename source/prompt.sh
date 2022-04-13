@@ -13,7 +13,8 @@ print_git_branch() {
 
 # Print '*' if the current git branch is dirty.
 print_git_is_dirty() {
-    [[ -z $(git status --porcelain 2> /dev/null) ]] || echo "*"
+    # [[ -z $(git status --porcelain 2> /dev/null) ]] || echo "*"
+    [[ -n $(git status --porcelain 2> /dev/null) ]] && echo "*"
 }
 
 # Print metadata about the current shell environment.
