@@ -72,10 +72,9 @@ alias gll="git log --oneline --graph -45"
 
 # Directory listings.
 alias ls="ls -F"
-alias la="ls -Fa"
+alias la="ls -FA"
 alias ll="ls -Flh"
-alias lla="ls -Flha"
-alias lal="ls -Falh"
+alias lla="ls -FlhA"
 
 # Tree.
 alias tt="tree -F"
