@@ -22,6 +22,7 @@ alias mc="make check"
 alias pd="~/dev/src/pyro/out/debug/pyro"
 alias pr="~/dev/src/pyro/out/release/pyro"
 alias pt="~/dev/src/pyro/out/debug/pyro test ~/dev/src/pyro/tests/*.pyro"
+alias nn="vim ~/dev/notes/notes.txt"
 
 # Triples.
 alias irn="ironclad"
@@ -43,8 +44,9 @@ alias hosts="sudo vim /etc/hosts"
 alias ytdlv="yt-dlp -f mp4"
 alias ytdlp="yt-dlp -f mp4 -o '%(playlist_index)02d. %(title)s.%(ext)s'"
 
-# History.
+# History: 'hn' loads new history entries from other terminal windows.
 alias hh="history 25"
+alias hhh="history 45"
 alias hn="history -a; history -n"
 
 # Git.
