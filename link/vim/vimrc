@@ -326,6 +326,9 @@ nnoremap <leader>w :call ToggleWrap()<CR>
 " Save all open files, clear the screen, and execute the current file.
 nnoremap <leader>x :wa <bar> !clear -x && "%:p"<cr>
 
+" Repeat last colon command.
+nnoremap <leader>; @:
+
 " ------------------------------------- "
 "  File-Type Specific Leader Shortcuts  "
 " ------------------------------------- "
