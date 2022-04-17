@@ -2,7 +2,9 @@
 "  Plugins  "
 " --------- "
 
-" Vim-Plug. Run :PlugUpdate to install or update plugins.
+" Vim-Plug.
+" Run :PlugUpgrade to update vim-plug itself.
+" Run :PlugUpdate to install or update plugins.
 call plug#begin('~/.vim/vimplug')
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf'
@@ -79,9 +81,6 @@ autocmd BufNewFile,BufRead *.pyro set filetype=pyro
 autocmd BufNewFile,BufRead *.h set filetype=c
 autocmd BufNewFile,BufRead go.mod set filetype=gomod
 autocmd BufNewFile,BufRead go.sum set filetype=gosum
-
-" Use zsh highlighting for all shell scripts as the sh/bash highlighters are broken.
-" autocmd BufNewFile,BufRead *.sh set filetype=zsh
 
 " Enable mouse support.
 set mouse=a
@@ -160,10 +159,6 @@ set clipboard=unnamed
 " l -- already long lines are not broken in insert mode.
 set formatoptions=crq
 set textwidth=100
-
-" Hard wrap lines at 100 characters.
-" autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
-" autocmd BufNewFile,BufRead *.stx setlocal textwidth=100
 
 " Show tabs.
 set list
