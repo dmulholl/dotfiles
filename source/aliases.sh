@@ -19,9 +19,6 @@ alias vv="vim"
 alias iv="python3 ~/dev/src/ivy/ivy"
 alias md="make debug"
 alias mc="make check"
-alias pd="~/dev/src/pyro/out/debug/pyro"
-alias pr="~/dev/src/pyro/out/release/pyro"
-alias pt="~/dev/src/pyro/out/debug/pyro test ~/dev/src/pyro/tests/*.pyro"
 alias nn="vim ~/dev/notes/notes.txt"
 
 # Triples.
@@ -29,7 +26,6 @@ alias irn="ironclad"
 alias dir="open ."
 alias cal="gcal --starting-day=1"
 alias int="intspector"
-alias ptv="~/dev/src/pyro/out/debug/pyro test -v ~/dev/src/pyro/tests/*.pyro"
 alias ddx="deploydocs"
 
 # Quads.
@@ -43,6 +39,14 @@ alias vimvd="~/dev/src/vimv/target/debug/vimv"
 alias hosts="sudo vim /etc/hosts"
 alias ytdlv="yt-dlp -f mp4"
 alias ytdlp="yt-dlp -f mp4 -o '%(playlist_index)02d. %(title)s.%(ext)s'"
+
+# Pyro.
+alias pd="~/dev/src/pyro/out/debug/pyro"
+alias pr="~/dev/src/pyro/out/release/pyro"
+alias pdt="~/dev/src/pyro/out/debug/pyro test"
+alias pdtv="~/dev/src/pyro/out/debug/pyro test -v"
+alias pdta="~/dev/src/pyro/out/debug/pyro test ~/dev/src/pyro/tests/*.pyro"
+alias pdtav="~/dev/src/pyro/out/debug/pyro test -v ~/dev/src/pyro/tests/*.pyro"
 
 # History: 'hn' loads new history entries from other terminal windows.
 alias hh="history 25"
