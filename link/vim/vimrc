@@ -258,6 +258,9 @@ nnoremap <leader><space> :noh<cr>
 " Alternate buffer. Swap back and forth between the latest buffers.
 nnoremap <leader>a :b#<cr>
 
+" Type any unique substring of the filename to open the buffer. (Or hit tab to cycle names.)
+nnoremap <leader>b :ls<cr>:b<space>
+
 " Change the word under the cursor, then change subsequent occurances by hitting dot.
 " Can use 'n' to preview or skip over the next match.
 "   *   -- search for the word under the cursor
@@ -275,6 +278,7 @@ nnoremap <leader>e :e ~/.vim/vimrc<cr>
 " FZF - fuzzy file finder.
 nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fl :Lines<cr>
 nnoremap <leader>fm :Marks<cr>
 nnoremap <leader>fg :Rg<cr>
 nnoremap <leader>fs :Filetypes<cr>
