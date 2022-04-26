@@ -255,10 +255,14 @@ let mapleader="\<space>"
 " the next search.
 nnoremap <leader><space> :noh<cr>
 
+" Repeat last colon command.
+nnoremap <leader>; @:
+
 " Alternate buffer. Swap back and forth between the latest buffers.
 nnoremap <leader>a :b#<cr>
 
-" Type any unique substring of the filename to open the buffer. (Or hit tab to cycle names.)
+" List open buffers. Type the buffer number or any unique substring of the buffer name to
+" select. Or hit tab to cycle through the list of names.
 nnoremap <leader>b :ls<cr>:b<space>
 
 " Change the word under the cursor, then change subsequent occurances by hitting dot.
@@ -324,9 +328,6 @@ nnoremap <leader>w :call ToggleWrap()<CR>
 
 " Save all open files, clear the screen, and execute the current file.
 nnoremap <leader>x :wa <bar> !clear -x && "%:p"<cr>
-
-" Repeat last colon command.
-nnoremap <leader>; @:
 
 " ------------------------------------- "
 "  File-Type Specific Leader Shortcuts  "
