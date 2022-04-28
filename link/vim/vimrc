@@ -255,7 +255,7 @@ let mapleader="\<space>"
 " the next search.
 nnoremap <leader><space> :noh<cr>
 
-" Repeat last colon command.
+" Repeat the last colon command.
 nnoremap <leader>; @:
 
 " Alternate buffer. Swap back and forth between the latest buffers.
@@ -307,6 +307,9 @@ nnoremap <silent><leader>n :set relativenumber!<cr>
 
 " Toggle NerdTree file browser on and off.
 nnoremap <leader>o :NERDTreeToggle<cr>
+
+" Repeat the last macro.
+nnoremap <leader>q @@
 
 " Reload the vimrc file and redraw the screen.
 nnoremap <leader>r :source ~/.vim/vimrc <bar> noh <bar> redraw<cr>
