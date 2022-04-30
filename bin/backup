@@ -3,7 +3,7 @@ set -euo pipefail
 
 print_help() {
     cat <<EOF
-Usage: backup [COMMAND]
+Usage: backup <command>
 
   Run a backup script.
 

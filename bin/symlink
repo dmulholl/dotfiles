@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ------------------------------------------------------------------------------
-# Creates a symbolic link. I can never remember the order of the arguments for
-# the 'ln' command or make sense of its man page.
-# ------------------------------------------------------------------------------
-
-# Print the utility's help text.
 print_help() {
     cat <<EOF
 Usage: symlink <linkfile> <targetfile>
@@ -22,17 +16,14 @@ Flags:
 EOF
 }
 
-# Check for the presence of the --help flag.
 if test "$1" = "--help" || test "$1" = "-h"; then
     print_help
     exit 0
 fi
 
-# We require two arguments.
 if [[ ! $# -eq 2 ]]; then
     print_help
     exit 1
 fi
 
-# Create the symlink.
 ln -svf "$2" "$1"
