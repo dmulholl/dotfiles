@@ -17,6 +17,7 @@ Plug 'tpope/vim-repeat'
 Plug 'matze/vim-move'
 Plug 'keith/swift.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-abolish'
 call plug#end()
 
 " ------------------ "
