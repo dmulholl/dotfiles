@@ -89,8 +89,12 @@ dot_env() {
 
     if test -z "$1"; then
         for file in $HOME/.env/*.sh; do
-            if [[ -e "$file" && "$file" != *.auto.sh ]]; then
-                printf " - %s\n" $(basename -s ".sh" "$file")
+            if [[ -e "$file" ]]; then
+                if [[ "$file" = *.auto.sh ]]; then
+                    printf " + %s\n" $(basename -s ".auto.sh" "$file")
+                else
+                    printf " - %s\n" $(basename -s ".sh" "$file")
+                fi
             fi
         done
         return 0
