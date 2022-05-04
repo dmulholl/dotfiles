@@ -1,2 +1,2 @@
-" Allow preprocessor directives to be indented.
+" Stop unindenting lines starting with a '#'.
 setlocal cinkeys-=0#
