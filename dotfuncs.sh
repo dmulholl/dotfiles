@@ -114,7 +114,9 @@ dot_env() {
 
     if test -e "$HOME/.env/$1.sh"; then
         source "$HOME/.env/$1.sh"
+    elif test -e "$HOME/.env/$1.auto.sh"; then
+        source "$HOME/.env/$1.auto.sh"
     else
-        echo "Error: the file ~/.env/$1.sh does not exist."
+        echo "Error: no file in ~/.env/ for '$1'."
     fi
 }
