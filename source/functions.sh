@@ -183,3 +183,42 @@ tag() {
 path() {
     echo $PATH | tr ':' '\n'
 }
+
+# Open notes.
+nn() {
+    if test ! -d "$HOME/dev/notes"; then
+        echo "Error: the ~/dev/notes/ directory does not exist."
+        return 1
+    fi
+
+    if test -z "$1"; then
+        vim "$HOME/dev/notes/scratch.stx"
+        return 0
+    fi
+
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        echo "Usage: nn [-l|--list] [filename-substring]"
+        return 0
+    fi
+
+    if [[ "$1" == "-l" || "$1" == "--list" ]]; then
+        for file in $HOME/dev/notes/*; do
+            if [[ -e "$file" ]]; then
+                printf " - %s\n" $(basename "$file")
+            fi
+        done
+        return 0
+    fi
+
+    for file in $HOME/dev/notes/*; do
+        if [[ -e "$file" ]]; then
+            if [[ "$file" == *"$1"* ]]; then
+                vim "$file"
+                return 0
+            fi
+        fi
+    done
+
+    echo "Error: no file matching '$1'."
+    return 1
+}
