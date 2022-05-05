@@ -19,7 +19,7 @@ alias vv="vim"
 alias iv="python3 ~/dev/src/ivy/ivy"
 alias md="make debug"
 alias mc="make check"
-alias nn="vim ~/dev/notes/todo.stx"
+alias nn="vim ~/dev/notes/scratch.stx"
 
 # Triples.
 alias irn="ironclad"
