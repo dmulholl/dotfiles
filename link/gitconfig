@@ -17,12 +17,13 @@
 	unstage = reset HEAD --
 	amend = commit --amend
 	alias = !git config --list | grep alias | sed s/^alias.//
-    co = checkout
+    a = add
     b = branch
     c = commit
     ca = commit --all
     cm = commit --message
     cam = commit --all --message
+    co = checkout
 
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
