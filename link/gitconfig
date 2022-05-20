@@ -17,6 +17,9 @@
 	unstage = reset HEAD --
 	amend = commit --amend
 	alias = !git config --list | grep alias | sed s/^alias.//
+    co = checkout
+    b = branch
+    c = commit
 
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
