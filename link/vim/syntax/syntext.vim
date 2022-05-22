@@ -4,8 +4,7 @@
 syn region stxMeta start="\%^---$" end="^---$"
 
 " Headings.
-syn region stxHeadingText matchgroup=stxHeadingDelim start="^\s*#\+\s\+" end="#*\s*$" oneline
-syn match stxHeadingLine "^\s*----\+\s*$"
+syn region stxHeadingText matchgroup=stxHeadingDelim start="^#\+\s\+" end="#*\s*$" oneline
 
 " Link references.
 syn region stxRefText matchgroup=stxRefDelim start="^ \{0,3\}!\=\[" end="\]:" oneline nextgroup=stxRefUrl skipwhite
@@ -38,7 +37,6 @@ syn region stxDLTerm matchgroup=stxDLTermDelim start="\[\[" end="\]\]" oneline c
 
 " Tags.
 syn match stxTagLine "^\s*:.\+$"
-" syn region stxBlockquote matchgroup=stxTagLine start="^\s*::: quote.*$" end="^\s*::: end$"
 
 " HTML entities.
 syn match stxEntity "&[#a-zA-Z0-9]\+;"
