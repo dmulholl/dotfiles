@@ -24,6 +24,8 @@
     cm = commit --message
     cam = commit --all --message
     co = checkout
+    rb = rebase
+    st = status
 
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
