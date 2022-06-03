@@ -51,6 +51,7 @@ alias pdtav="~/dev/src/pyro/out/debug/pyro test -v ~/dev/src/pyro/tests/*.pyro"
 alias hh="history 25"
 alias hhh="history 45"
 alias hn="history -a; history -n"
+alias hl="history -a; history -n"
 
 # Git.
 alias ga="git add"
