@@ -327,6 +327,9 @@ nnoremap <leader>sh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") 
 " Generate/regenerate the tags file.
 nnoremap <leader>t :wa <bar> !uctags --recurse --exclude=.git --exclude=docs . &<cr><cr>
 
+" View the current file.
+nnoremap <leader>v :!open %<CR>
+
 " Toggle word-wrapping.
 nnoremap <leader>w :call ToggleWrap()<CR>
 
