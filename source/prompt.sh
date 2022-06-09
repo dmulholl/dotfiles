@@ -48,6 +48,8 @@ dot_print_prompt_user() {
         echo "(vay)"
     elif [[ $host_name == "mbp16" && $user_name == "dmulholl" ]]; then
         echo "(mbp16)"
+    elif [[ $host_name == ip* ]]; then
+        echo "(vpn)"
     else
         echo "$user_name@$host_name"
     fi
