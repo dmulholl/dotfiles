@@ -16,7 +16,15 @@ function dotpy_help {
     cat <<EOF
 Usage: dotpy <command>
 
-  Utility for managing Python virtual environments.
+  A utility for managing Python virtual environments.
+
+  To activate a virtual environment, use the 'activate' command:
+
+    dotpy activate <name>
+
+  Or, as a shortcut, just specify the name:
+
+    dotpy <name>
 
 Commands:
   a, activate <name>    Activate the named virtual environment.
@@ -39,7 +47,7 @@ function dotpy {
                 dotpy_activate "$@";;
             d|deactivate)
                 deactivate;;
-            h|help|--help)
+            -h|--help)
                 dotpy_help;;
             m|make)
                 dotpy_make "$@";;
