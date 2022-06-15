@@ -18,7 +18,7 @@ Usage: dotpy <command>
 
   A utility for managing Python virtual environments.
 
-  To activate a virtual environment, use the 'activate' command:
+  To activate a virtual environment, run:
 
     dotpy activate <name>
 
@@ -26,11 +26,19 @@ Usage: dotpy <command>
 
     dotpy <name>
 
+  To deactivate the current virtual environment run:
+
+    dotpy deactivate
+
+  Or simply:
+
+    deactivate
+
 Commands:
-  a, activate <name>    Activate the named virtual environment.
-  d, deactivate         Deactivate the current virtual environment.
-     delete <names>     Delete one or more virtual environments.
-  m, make <name>        Make a new virtual environment.
+  activate <name>    Activate the named virtual environment.
+  deactivate         Deactivate the current virtual environment.
+  delete <names>     Delete one or more virtual environments.
+  make <name>        Make a new virtual environment.
 
 Environments:
 EOF
