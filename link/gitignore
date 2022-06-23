@@ -36,3 +36,6 @@ __pycache__/
 
 # Rust.
 /target/
+
+# VS Code
+.vscode/
