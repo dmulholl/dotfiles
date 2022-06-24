@@ -90,58 +90,80 @@ dot_move_to_start_of_ps1() {
     tput cuu $lines_to_move
 }
 
-short_prompt="
-\[$fgc_magenta\](--:--) \[$fgc_green\]\u \[$fgc_yellow\]\w
+dot_short_prompt="
+\[$fgc_green\]\u \[$fgc_yellow\]\w
 \[$fgc_yellow\] \$(dot_print_prompt_arrows) \[$fgc_default\]"
 
-default_prompt="
+dot_default_prompt="
+\[$fgc_magenta\]\$(dot_print_prompt_meta) \[$fgc_green\]$(dot_print_prompt_user) \[$fgc_yellow\]\w
+\[$fgc_yellow\] \$(dot_print_prompt_arrows) \[$fgc_default\]"
+
+dot_long_prompt="
+\[$fgc_magenta\]\$(dot_print_prompt_meta) \[$fgc_green\]\u@\h \[$fgc_yellow\]\w
+\[$fgc_yellow\] \$(dot_print_prompt_arrows) \[$fgc_default\]"
+
+dot_time_prompt="
 \[$fgc_magenta\](--:--) \$(dot_print_prompt_meta) \[$fgc_green\]$(dot_print_prompt_user) \[$fgc_yellow\]\w
-\[$fgc_yellow\] \$(dot_print_prompt_arrows) \[$fgc_default\]"
-
-long_prompt="
-\[$fgc_magenta\](--:--) \$(dot_print_prompt_meta) \[$fgc_green\]\u@\h \[$fgc_yellow\]\w
 \[$fgc_yellow\] \$(dot_print_prompt_arrows) \[$fgc_default\]"
 
 # Bash expands and displays PS0 after it reads a command but before executing it.
 # This PS0 saves the cursor position, jumps up and overwrites the time placeholder,
 # then jumps back to the saved position.
-export PS0="\$(tput sc)\$(dot_move_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_default\]\$(tput rc)"
+dot_set_prompt_time="\$(tput sc)\$(dot_move_to_start_of_ps1)\[$fgc_magenta\](\A)\[$fgc_default\]\$(tput rc)"
 
 # This is the continuation prompt for multi-line commands.
 export PS2="\[$fgc_yellow\] >> \[$fgc_default\]"
 
 prompt_help() {
     cat <<EOF
-Usage: prompt <style>
+Usage: dot prompt <style>
 
   Sets the prompt style.
 
+Flags:
+  -h, --help    Prints this help message.
+
 Styles:
-  - short/simple
   - default
+  - short/simple
   - long/user/username
+  - time
 EOF
 }
 
-prompt() {
+dot_prompt() {
     if [[ -n "$1" ]]; then
         local command="$1"
         shift
         case "$command" in
             -h|--help)
-                prompt_help;;
+                prompt_help
+                ;;
             short|simple)
-                export PS1="$short_prompt";;
+                export PS0=""
+                export PS1="$dot_short_prompt"
+                ;;
             default)
-                export PS1="$default_prompt";;
+                export PS0=""
+                export PS1="$dot_default_prompt"
+                ;;
             long|user|username)
-                export PS1="$long_prompt";;
+                export PS0=""
+                export PS1="$dot_long_prompt"
+                ;;
+            time)
+                export PS0="$dot_set_prompt_time"
+                export PS1="$dot_time_prompt"
+                ;;
             *)
-                prompt_help;;
+                prompt_help
+                ;;
         esac
     else
-        export PS1="$default_prompt"
+        export PS0=""
+        export PS1="$dot_default_prompt"
     fi
 }
 
-export PS1="$default_prompt"
+export PS0=""
+export PS1="$dot_default_prompt"

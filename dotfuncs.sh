@@ -12,6 +12,8 @@ dot() {
             dot_link;;
         source|src)
             dot_source;;
+        prompt)
+            dot_prompt "$2";;
         *)
             dot_help;;
     esac
@@ -31,10 +33,11 @@ Usage: dot <command>
     $ dot init
 
 Commands:
-  env       Load environment variables from ~/.env/.
-  init      (Re)initialize the installation.
-  link      Link all files in ~/.dotfiles/link/ into ~/.
-  source    Source all files in ~/.dotfiles/source/.
+  env [-v|--view]     Loads environment variables from ~/.env/.
+  init                (Re)initializes the installation.
+  link                Links all files in ~/.dotfiles/link/ into ~/.
+  prompt [-h|--help]  Sets the shell prompt.
+  source              Sources all files in ~/.dotfiles/source/.
 EOF
 }
 
