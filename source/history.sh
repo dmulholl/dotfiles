@@ -22,7 +22,7 @@ export HISTTIMEFORMAT="%h %d %H:%M  "
 export HISTSIZE=10000
 
 # Maximum number of lines stored in the history file.
-export HISTFILESIZE=250000
+export HISTFILESIZE=25000
 
 # `history -a` appends new history lines from the currrent history list to the history file.
 # `history -n` loads new lines from the history file into the current history list.
