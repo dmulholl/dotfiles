@@ -197,7 +197,7 @@ nn() {
     fi
 
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-        echo "Usage: nn [-l|--list] [filename-substring]"
+        echo "Usage: nn [-l|--list] [-n|--new filename] [filename-substring]"
         return 0
     fi
 
@@ -208,6 +208,16 @@ nn() {
             fi
         done
         return 0
+    fi
+
+    if [[ "$1" == "-n" || "$1" == "--new" ]]; then
+        if [[ -z "$2" ]]; then
+            echo "Error: missing filename"
+            return 1
+        else
+            vim "$2"
+            return 0
+        fi
     fi
 
     for file in $HOME/dev/notes/*; do
