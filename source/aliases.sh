@@ -29,8 +29,6 @@ alias ddx="deploydocs"
 
 # Quads.
 alias dush="du -sh"
-alias atom="atom -a"
-alias code="code -a"
 alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
 
 # Quints.
