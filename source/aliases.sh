@@ -23,7 +23,6 @@ alias mc="make check"
 # Triples.
 alias irn="ironclad"
 alias dir="open ."
-alias cal="gcal --starting-day=1"
 alias int="intspector"
 alias ddx="deploydocs"
 
