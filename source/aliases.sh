@@ -29,6 +29,8 @@ alias ddx="deploydocs"
 # Quads.
 alias dush="du -sh"
 alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
+alias cal2="cal -A 1"
+alias cal3="cal -A 2"
 
 # Quints.
 alias vimvd="~/dev/src/vimv/target/debug/vimv"
