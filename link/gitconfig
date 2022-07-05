@@ -2,6 +2,12 @@
 	name = Darren Mulholland
 	email = dmulholl@tcd.ie
 
+[includeIf "gitdir:~/dev/src/"]
+    path = ~/dev/src/.gitconfig
+
+[includeIf "gitdir:~/dev/vay/"]
+    path = ~/dev/vay/.gitconfig
+
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
@@ -31,6 +37,7 @@
 	insteadOf = https://github.com/
 
 # Git-Delta settings.
+
 [core]
     pager = delta
 
