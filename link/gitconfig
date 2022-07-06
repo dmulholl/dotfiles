@@ -33,9 +33,6 @@
     rb = rebase
     st = status
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-
 # Git-Delta settings.
 
 [core]
