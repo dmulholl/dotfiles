@@ -3,7 +3,7 @@ set -euo pipefail
 
 print_help() {
     cat <<EOF
-Usage: init <template> [directory]
+Usage: template <type> [directory]
 
   Initializes a new project directory from a template.
 
@@ -29,8 +29,8 @@ if test "$#" -gt 2; then
 fi
 
 if test "$#" = 2; then
-    mkdir -p ./"$2"
-    cd ./"$2"
+    mkdir -p "$2"
+    cd "$2"
 fi
 
 if test -d "$HOME/.dotfiles/templates/$1"; then
