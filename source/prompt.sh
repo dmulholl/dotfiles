@@ -114,7 +114,7 @@ dot_set_prompt_time="\$(tput sc)\$(dot_move_to_start_of_ps1)\[$fgc_magenta\](\A)
 # This is the continuation prompt for multi-line commands.
 export PS2="\[$fgc_yellow\] >> \[$fgc_default\]"
 
-prompt_help() {
+dot_prompt_help() {
     cat <<EOF
 Usage: dot prompt <style>
 
@@ -133,11 +133,11 @@ EOF
 
 dot_prompt() {
     if [[ -n "$1" ]]; then
-        local command="$1"
+        local cmd="$1"
         shift
-        case "$command" in
+        case "$cmd" in
             -h|--help)
-                prompt_help
+                dot_prompt_help
                 ;;
             short|simple)
                 export PS0=""
@@ -156,7 +156,7 @@ dot_prompt() {
                 export PS1="$dot_time_prompt"
                 ;;
             *)
-                prompt_help
+                dot_prompt_help
                 ;;
         esac
     else

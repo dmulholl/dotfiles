@@ -9,7 +9,12 @@ export _Z_DATA="$HOME/.cache/zdata"
 export EDITOR="vim"
 
 if test -d "$HOME/.env"; then
-    for file in $HOME/.env/*.auto.sh; do
-        test -e "$file" && source "$file"
+    pushd "$HOME/.env" > /dev/null
+    for file in *.auto.sh; do
+        if test -e "$file"; then
+            source "$file"
+            export "DOT_ENV_LOADED_${file%.auto.sh}"="true"
+        fi
     done
+    popd > /dev/null
 fi
