@@ -9,7 +9,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Storage location for virtual environments.
-export DOT_PY_ENVS=~/.pyenvs
+export DOT_PY_ENVS=~/.dotpyenvs
 
 
 function dotpy_help {
