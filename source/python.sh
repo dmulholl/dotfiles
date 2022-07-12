@@ -9,8 +9,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Storage location for virtual environments.
-export DOT_PY_ENVS=~/.dotpyenvs
-
+export DOT_PYENVS=~/.dotpyenvs
 
 function dotpy_help {
     cat <<EOF
@@ -42,9 +41,8 @@ Commands:
 
 Environments:
 EOF
-    echo -n "  " && /bin/ls -m $DOT_PY_ENVS
+echo -n "  " && /bin/ls -m $DOT_PYENVS
 }
-
 
 function dotpy {
     if [[ -n "$1" ]]; then
@@ -69,7 +67,6 @@ function dotpy {
     fi
 }
 
-
 function dotpy_activate {
     if [[ -z "$1" ]]; then
         echo "Error: missing name argument."
@@ -77,7 +74,7 @@ function dotpy_activate {
     fi
 
     local name="$1"
-    local script="$DOT_PY_ENVS/$name/bin/activate"
+    local script="$DOT_PYENVS/$name/bin/activate"
 
     if [[ -e $script ]]; then
         source $script
@@ -87,14 +84,13 @@ function dotpy_activate {
     fi
 }
 
-
 function dotpy_try_activate {
-    local script=$DOT_PY_ENVS/$1/bin/activate
+    local name="$1"
+    local script=$DOT_PYENVS/$name/bin/activate
     if [[ -e $script ]]; then
         source $script
     fi
 }
-
 
 function dotpy_make {
     if [[ -z "$1" ]]; then
@@ -103,7 +99,7 @@ function dotpy_make {
     fi
 
     local name="$1"
-    local path=$DOT_PY_ENVS/$name
+    local path=$DOT_PYENVS/$name
 
     if [[ -d $path ]]; then
         echo "Error: '$name' already exists."
@@ -114,15 +110,14 @@ function dotpy_make {
         deactivate
     fi
 
-    if [[ ! -d $DOT_PY_ENVS ]]; then
-        mkdir -p $DOT_PY_ENVS
+    if [[ ! -d $DOT_PYENVS ]]; then
+        mkdir -p $DOT_PYENVS
     fi
 
     which python
     python --version
     python -m venv $path && dotpy_activate $name
 }
-
 
 function dotpy_delete {
     if [[ $# -eq 0 ]]; then
@@ -131,7 +126,7 @@ function dotpy_delete {
     fi
 
     for name in "$@"; do
-        local path=$DOT_PY_ENVS/$name
+        local path=$DOT_PYENVS/$name
         if [[ -d $path ]]; then
             rm -rf $path
         else

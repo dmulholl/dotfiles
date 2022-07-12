@@ -18,7 +18,7 @@ fi
 
 # The argument specifies the name of the destination disk.
 disk_name="$1"
-termtitle red "Backing up all files from ${HOME} to ${disk_name}:${backup_name} using rsync."
+termtitle green "Rsync: ${HOME} --> ${disk_name}:${backup_name}"
 
 # The slash at the end of the source directory path is important. It means
 # copy the *contents* of the directory.

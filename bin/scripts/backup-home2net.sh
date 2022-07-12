@@ -14,7 +14,7 @@ fi
 # Uncomment this line for the first run to create a new repository.
 # borg init --encryption=repokey $BORG_REPO
 
-termtitle red "Backing up selected files from ${HOME} to ${BORG_REPO}."
+termtitle green "Borg: ${HOME} --> ${BORG_REPO}"
 
 borg create --stats ::'{user}-{utcnow}' \
     ~/Books                             \
