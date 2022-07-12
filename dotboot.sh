@@ -3,10 +3,10 @@
 # ------------------------------------------------------------------------------
 
 # Only run this file once per shell instance.
-if test -n "$dotbooted"; then
+if test -n "$dot_booted"; then
     return
 fi
-dotbooted="true"
+dot_booted="true"
 
 # Load the `dot` command.
 source ~/.dotfiles/dotfuncs.sh

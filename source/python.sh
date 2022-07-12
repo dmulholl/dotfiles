@@ -9,7 +9,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Storage location for virtual environments.
-export DOTPYENVS=~/.pyenvs
+export DOT_PY_ENVS=~/.pyenvs
 
 
 function dotpy_help {
@@ -42,15 +42,15 @@ Commands:
 
 Environments:
 EOF
-    echo -n "  " && /bin/ls -m $DOTPYENVS
+    echo -n "  " && /bin/ls -m $DOT_PY_ENVS
 }
 
 
 function dotpy {
     if [[ -n "$1" ]]; then
-        local command="$1"
+        local arg="$1"
         shift
-        case "$command" in
+        case "$arg" in
             a|activate)
                 dotpy_activate "$@";;
             d|deactivate)
@@ -62,7 +62,7 @@ function dotpy {
             del|delete)
                 dotpy_delete "$@";;
             *)
-                dotpy_activate "$command";;
+                dotpy_activate "$arg";;
         esac
     else
         dotpy_help
@@ -77,7 +77,7 @@ function dotpy_activate {
     fi
 
     local name="$1"
-    local script="$DOTPYENVS/$name/bin/activate"
+    local script="$DOT_PY_ENVS/$name/bin/activate"
 
     if [[ -e $script ]]; then
         source $script
@@ -89,7 +89,7 @@ function dotpy_activate {
 
 
 function dotpy_try_activate {
-    local script=$DOTPYENVS/$1/bin/activate
+    local script=$DOT_PY_ENVS/$1/bin/activate
     if [[ -e $script ]]; then
         source $script
     fi
@@ -103,7 +103,7 @@ function dotpy_make {
     fi
 
     local name="$1"
-    local path=$DOTPYENVS/$name
+    local path=$DOT_PY_ENVS/$name
 
     if [[ -d $path ]]; then
         echo "Error: '$name' already exists."
@@ -114,8 +114,8 @@ function dotpy_make {
         deactivate
     fi
 
-    if [[ ! -d $DOTPYENVS ]]; then
-        mkdir -p $DOTPYENVS
+    if [[ ! -d $DOT_PY_ENVS ]]; then
+        mkdir -p $DOT_PY_ENVS
     fi
 
     which python
@@ -131,7 +131,7 @@ function dotpy_delete {
     fi
 
     for name in "$@"; do
-        local path=$DOTPYENVS/$name
+        local path=$DOT_PY_ENVS/$name
         if [[ -d $path ]]; then
             rm -rf $path
         else
