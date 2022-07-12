@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 
 # Make sure we have a single argument.
 if test "$#" = "0"; then

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -eo pipefail
 
-if test -z "${BORG_REPO}"; then
+if test -z "$BORG_REPO"; then
     echo "Error: the BORG_REPO environment variable must be set."
     exit 1
 fi
 
-if test -z "${BORG_PASSPHRASE}"; then
+if test -z "$BORG_PASSPHRASE"; then
     echo "Error: the BORG_PASSPHRASE environment variable must be set."
     exit 1
 fi
