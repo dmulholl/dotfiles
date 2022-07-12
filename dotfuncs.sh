@@ -16,10 +16,12 @@ dot() {
             dot_source "$@";;
         prompt)
             dot_prompt "$@";;
-        -h|--help)
+        ""|-h|--help)
             dot_help;;
         *)
-            dot_help;;
+            echo "Error: invalid command."
+            return 1
+            ;;
     esac
 }
 
