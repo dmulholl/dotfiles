@@ -14,8 +14,11 @@ fi
 disk_name="$1"
 termtitle red "Backing up all files from ${HOME} to ${disk_name} using rsync."
 
-# Get the lowercased hostname of the computer.
-host_name=$(hostname -s | tr '[:upper:]' '[:lower:]')
+# Get the backup name. Defaults to the lowercased hostname.
+backup_name=$(hostname -s | tr '[:upper:]' '[:lower:]')
+if test -n "$DOT_BACKUP_NAME"; then
+    backup_name="$DOT_BACKUP_NAME"
+fi
 
 # The slash at the end of the source directory path is important. It means
 # copy the *contents* of the directory.
@@ -23,7 +26,7 @@ src="${HOME}/"
 
 # A slash at the end of the destination path can cause problems when copying
 # to the root of a drive.
-dst="/Volumes/${disk_name}/backups/${host_name}"
+dst="/Volumes/${disk_name}/backups/${backup_name}"
 
 # Check the destination directory exists.
 if test ! -d $dst; then
