@@ -6,19 +6,19 @@ if test "$#" = "0"; then
     echo "Error: too few arguments, a disk name is required."
     exit 1
 elif test "$#" != "1"; then
-    echo "Error: too many arguments, expected 1."
+    echo "Error: too many arguments, expected 1, found $#."
     exit 1
 fi
-
-# The argument specifies the name of the destination disk.
-disk_name="$1"
-termtitle red "Backing up all files from ${HOME} to ${disk_name} using rsync."
 
 # Get the backup name. Defaults to the lowercased hostname.
 backup_name=$(hostname -s | tr '[:upper:]' '[:lower:]')
 if test -n "$DOT_BACKUP_NAME"; then
     backup_name="$DOT_BACKUP_NAME"
 fi
+
+# The argument specifies the name of the destination disk.
+disk_name="$1"
+termtitle red "Backing up all files from ${HOME} to ${disk_name}:${backup_name} using rsync."
 
 # The slash at the end of the source directory path is important. It means
 # copy the *contents* of the directory.
