@@ -90,17 +90,32 @@ dot_link() {
         return 0
     fi
 
-    for target_file in ~/.dotfiles/link/*; do
-        local link_file=~/.$(basename $target_file)
-        if test -e $link_file; then
-            if test -L $link_file; then
-                rm $link_file
+    # Names not beginning with '.'.
+    for target in ~/.dotfiles/link/*; do
+        local link=~/$(basename $target)
+        if test -e $link; then
+            if test -L $link; then
+                rm $link
             else
-                echo "Error: failed to link '$target_file', a file '$link_file' already exists."
+                echo "Error: failed to link '$target', a file '$link' already exists."
                 continue
             fi
         fi
-        ln -svf $target_file $link_file
+        ln -svf $target $link
+    done
+
+    # Names beginning with '.' but excluding '.' and '..'.
+    for target in ~/.dotfiles/link/.[^.]*; do
+        local link=~/$(basename $target)
+        if test -e $link; then
+            if test -L $link; then
+                rm $link
+            else
+                echo "Error: failed to link '$target', a file '$link' already exists."
+                continue
+            fi
+        fi
+        ln -svf $target $link
     done
 }
 
