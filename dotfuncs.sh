@@ -90,7 +90,7 @@ dot_link() {
         return 0
     fi
 
-    # Names not beginning with '.'.
+    # Names that don't begin with '.'.
     for target in ~/.dotfiles/link/*; do
         local link=~/$(basename $target)
         if test -e $link; then
@@ -104,7 +104,7 @@ dot_link() {
         ln -svf $target $link
     done
 
-    # Names beginning with '.' but excluding '.' and '..'.
+    # Names that begin with '.' (but not '.' or '..').
     for target in ~/.dotfiles/link/.[^.]*; do
         local link=~/$(basename $target)
         if test -e $link; then
@@ -221,4 +221,3 @@ Flags:
   -v, --view    Show file content.
 EOF
 }
-
