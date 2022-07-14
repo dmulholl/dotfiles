@@ -162,7 +162,9 @@ confirm() {
 # Create a new git version tag.
 tag() {
     if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-        echo "Usage: tag <tagname> [commit]"
+        echo "Usage: tag "
+        echo "       tag <tagname>"
+        echo "       tag <tagname> <commit>"
         return
     fi
 
