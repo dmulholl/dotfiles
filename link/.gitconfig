@@ -2,11 +2,8 @@
 	name = Darren Mulholland
 	email = dmulholl@tcd.ie
 
-[includeIf "gitdir:~/dev/src/"]
-    path = ~/dev/src/.gitconfig
-
-[includeIf "gitdir:~/dev/vay/"]
-    path = ~/dev/vay/.gitconfig
+[include]
+    path = ~/.gitconfig-local
 
 [core]
 	excludesfile = ~/.gitignore
