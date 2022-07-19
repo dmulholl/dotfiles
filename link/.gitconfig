@@ -3,7 +3,7 @@
 	email = dmulholl@tcd.ie
 
 [include]
-    path = ~/.gitconfig-local
+    path = ~/.gitconfig_local
 
 [core]
 	excludesfile = ~/.gitignore
