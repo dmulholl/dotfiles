@@ -28,6 +28,7 @@ borg create --stats ::'{user}-{utcnow}' \
     ~/.aws                              \
     ~/.env                              \
     ~/.vscode                           \
+    ~/.gitconfig_local                  \
     --exclude '*.pyc'                   \
     --exclude '*/__pycache__'           \
     --exclude '*.Spotlight*'            \
