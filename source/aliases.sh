@@ -71,9 +71,11 @@ alias gcas="git commit -am Snapshot"
 alias gl="git log --oneline --graph -25"
 alias gll="git log --oneline --graph -45"
 
-# Directory listings.
+# Listings.
 alias ls="ls -F"
+alias ls1="ls -F1"
 alias la="ls -FA"
+alias la1="ls -FA1"
 alias ll="ls -Flh"
 alias lla="ls -FlhA"
 
