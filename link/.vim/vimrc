@@ -168,10 +168,6 @@ set listchars=tab:\|->,trail:·
 " Set the modifier key for the vim-move plugin to Ctrl.
 let g:move_key_modifier = 'C'
 
-" Make autocompletion case-insensitive.
-au InsertEnter * set ignorecase
-au InsertLeave * set noignorecase
-
 " Set preferred cindent indentation-style for case statements.
 set cinoptions=l1
 
@@ -205,6 +201,16 @@ augroup end
 " -------- "
 "  Search  "
 " -------- "
+
+" Make pattern-matching case insensitive.
+set ignorecase
+
+" Override ignorecase if the pattern contains mixed case.
+set smartcase
+
+" Make autocompletion case-insensitive.
+" au InsertEnter * set ignorecase
+" au InsertLeave * set noignorecase
 
 " Find the next match as the search term is being typed.
 set incsearch
