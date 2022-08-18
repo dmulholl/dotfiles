@@ -38,11 +38,15 @@ alias ytdlp="yt-dlp -f mp4 -o '%(playlist_index)02d. %(title)s.%(ext)s'"
 
 # Pyro.
 alias pd="~/dev/src/pyro/out/debug/pyro"
-alias pr="~/dev/src/pyro/out/release/pyro"
 alias pdt="~/dev/src/pyro/out/debug/pyro test"
 alias pdtv="~/dev/src/pyro/out/debug/pyro test -v"
 alias pdta="~/dev/src/pyro/out/debug/pyro test ~/dev/src/pyro/tests/*.pyro"
 alias pdtav="~/dev/src/pyro/out/debug/pyro test -v ~/dev/src/pyro/tests/*.pyro"
+alias pr="~/dev/src/pyro/out/release/pyro"
+alias prt="~/dev/src/pyro/out/release/pyro test"
+alias prtv="~/dev/src/pyro/out/release/pyro test -v"
+alias prta="~/dev/src/pyro/out/release/pyro test ~/dev/src/pyro/tests/*.pyro"
+alias prtav="~/dev/src/pyro/out/release/pyro test -v ~/dev/src/pyro/tests/*.pyro"
 
 # History: 'hn' loads new history entries from other terminal windows.
 alias hh="history 25"
