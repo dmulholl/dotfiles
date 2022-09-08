@@ -198,6 +198,23 @@ augroup autorun_goimports
     autocmd BufWritePost *.go normal! zz
 augroup end
 
+" -------------- "
+"  Autocomplete  "
+" -------------- "
+
+" Ref: https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+
+" - longest -- insert the longest common text
+" - menuone -- show the menu even if there is only one match
+set completeopt=longest,menuone
+
+" Make <enter> select the highlighted item.
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Autoselect the top item.
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 " -------- "
 "  Search  "
 " -------- "
