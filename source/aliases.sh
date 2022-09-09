@@ -105,3 +105,7 @@ alias jv="j vay"
 
 # Sudo: preserve the existing shell environment; same as -E.
 alias sudo="sudo --preserve-env"
+
+# Browsers.
+alias chrome="open -a 'Google Chrome'"
+alias safari="open -a Safari"
