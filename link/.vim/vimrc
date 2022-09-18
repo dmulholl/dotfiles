@@ -198,6 +198,9 @@ augroup autorun_goimports
     autocmd BufWritePost *.go normal! zz
 augroup end
 
+" Stop silently adding a newline to the end of files.
+set nofixendofline
+
 " -------------- "
 "  Autocomplete  "
 " -------------- "

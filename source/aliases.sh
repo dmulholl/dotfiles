@@ -19,6 +19,7 @@ alias vv="vim"
 alias iv="python3 ~/dev/src/ivy/ivy"
 alias md="make debug"
 alias mc="make check"
+alias hb="hexbomb"
 
 # Triples.
 alias irn="ironclad"
