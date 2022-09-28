@@ -17,15 +17,18 @@ alias ff="fzf"
 alias vi="vim"
 alias vv="vim"
 alias iv="python3 ~/dev/src/ivy/ivy"
-alias md="make debug"
-alias mc="make check"
 alias hb="hexbomb"
+alias mc="make check"
+alias md="make debug"
+alias mr="make release"
 
 # Triples.
 alias irn="ironclad"
 alias dir="open ."
 alias int="intspector"
 alias ddx="deploydocs"
+alias mcd="make check-debug"
+alias mcr="make check-release"
 
 # Quads.
 alias dush="du -sh"
