@@ -351,7 +351,7 @@ nnoremap <leader>sh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") 
 " nnoremap <leader>t :term <cr><C-w>:res 50<cr>
 
 " Generate/regenerate the tags file.
-nnoremap <leader>t :wa <bar> !uctags --recurse --exclude=.git --exclude=docs . &<cr><cr>
+nnoremap <leader>t :wa <bar> !ctags --recurse --exclude=.git --exclude=docs . &<cr><cr>
 
 " View the current file.
 nnoremap <leader>v :!open %<CR>
