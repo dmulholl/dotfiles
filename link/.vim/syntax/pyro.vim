@@ -13,7 +13,7 @@ syn region pyroString start=+`+ end=+`+
 syn region pyroChar start=+'+ end=+'+ skip=+\\\\\|\\'+
 
 " Keywords.
-syn keyword pyroKeyword var def class typedef
+syn keyword pyroKeyword var def class typedef with
 syn keyword pyroKeyword pub pri static
 syn keyword pyroKeyword if else for while in loop
 syn keyword pyroKeyword return break continue
