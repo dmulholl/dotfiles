@@ -237,5 +237,8 @@ nn() {
 
 # Change directory using fzf.
 ff() {
-    cd $(fd --type d --exclude 'Library' | fzf)
+    local target="$(fd --type d --exclude 'Library' | fzf)"
+    if test ! -z "$target"; then
+        cd "$target"
+    fi
 }
