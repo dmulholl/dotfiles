@@ -13,7 +13,6 @@ alias v="vim"
 alias e="vim"
 
 # Doubles.
-alias ff="fzf"
 alias vi="vim"
 alias vv="vim"
 alias iv="python3 ~/dev/src/ivy/ivy"

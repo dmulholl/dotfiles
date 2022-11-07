@@ -234,3 +234,8 @@ nn() {
     echo "Error: no file matching '$1'."
     return 1
 }
+
+# Change directory using fzf.
+ff() {
+    cd $(find * -type d | fzf)
+}
