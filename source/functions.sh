@@ -237,5 +237,5 @@ nn() {
 
 # Change directory using fzf.
 ff() {
-    cd $(find * -type d | fzf)
+    cd $(fd --type d --exclude 'Library' | fzf)
 }
