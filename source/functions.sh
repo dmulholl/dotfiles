@@ -237,8 +237,15 @@ nn() {
 
 # Change directory using fzf.
 ff() {
-    local target="$(fd --type d --exclude 'Library' | fzf)"
-    if test ! -z "$target"; then
-        cd "$target"
+    if is_executable fd; then
+        local target="$(fd --type d --exclude 'Library' | fzf)"
+        if test ! -z "$target"; then
+            cd "$target"
+        fi
+    elif is_executable fdfind; then
+        local target="$(fdfind --type d --exclude 'Library' | fzf)"
+        if test ! -z "$target"; then
+            cd "$target"
+        fi
     fi
 }
