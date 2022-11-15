@@ -92,13 +92,6 @@ set nomodeline
 " Assume .tex files are latex by default.
 let g:tex_flavor = "latex"
 
-" Insert a blank line below the cursor in normal mode.
-nnoremap <Enter> :call append(line('.'), '')<CR>
-
-" Insert a blank line above the cursor in normal mode.
-" (Won't work in terminals.)
-nnoremap <S-Enter> :call append(line('.')-1, '')<CR>
-
 " Show as much of the last line as possible when wrapping is enabled.
 set display=lastline
 
@@ -200,6 +193,25 @@ augroup end
 
 " Stop silently adding a newline to the end of files.
 set nofixendofline
+
+" -------------------- "
+"  Insert Blank Lines  "
+" -------------------- "
+
+" Use the <enter> key to insert a blank line below the cursor without leaving
+" normal mode.
+nnoremap <Enter> :call append(line('.'), '')<CR>
+
+" Use the <enter> key to insert a blank line above the cursor without leaving
+" normal mode. This won't work in terminals.
+nnoremap <S-Enter> :call append(line('.')-1, '')<CR>
+
+" Keep the default <enter> behaviour in the command-line and quickfix windows.
+augroup dm_reset_insert_blank_line_on_enter
+    autocmd!
+    autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
+    autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+augroup END
 
 " -------------- "
 "  Autocomplete  "
