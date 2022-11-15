@@ -36,7 +36,10 @@ syntax enable
 
 " Colorscheme.
 colorscheme dusk
-autocmd BufRead * :colorscheme dusk
+augroup dm_set_colorscheme
+    autocmd!
+    autocmd BufRead * :colorscheme dusk
+augroup end
 
 " The default is 8 commands.
 set history=9999
@@ -75,13 +78,16 @@ set splitbelow
 set splitright
 
 " Set custom filetypes.
-autocmd BufNewFile,BufRead *.sh set filetype=bash
-autocmd BufNewFile,BufRead *.txt set filetype=text
-autocmd BufNewFile,BufRead *.stx set filetype=syntext
-autocmd BufNewFile,BufRead *.pyro set filetype=pyro
-autocmd BufNewFile,BufRead *.h set filetype=c
-autocmd BufNewFile,BufRead go.mod set filetype=gomod
-autocmd BufNewFile,BufRead go.sum set filetype=gosum
+augroup dm_custom_filetypes
+    autocmd!
+    autocmd BufNewFile,BufRead *.sh set filetype=bash
+    autocmd BufNewFile,BufRead *.txt set filetype=text
+    autocmd BufNewFile,BufRead *.stx set filetype=syntext
+    autocmd BufNewFile,BufRead *.pyro set filetype=pyro
+    autocmd BufNewFile,BufRead *.h set filetype=c
+    autocmd BufNewFile,BufRead go.mod set filetype=gomod
+    autocmd BufNewFile,BufRead go.sum set filetype=gosum
+augroup end
 
 " Enable mouse support.
 set mouse=a
@@ -183,7 +189,7 @@ noremap ]] 99]}
 nnoremap Y y$
 
 " Run goimports automatically after a *.go file is saved.
-augroup autorun_goimports
+augroup dm_autorun_goimports
     autocmd!
     autocmd BufWritePost *.go silent !goimports -w %
     autocmd BufWritePost *.go edit
@@ -378,11 +384,16 @@ nnoremap <leader>x :wa <bar> !clear -x && "%:p"<cr>
 "  File-Type Specific Leader Shortcuts  "
 " ------------------------------------- "
 
-" Latex: save all open files and compile 'main.tex'.
-autocmd FileType tex,bib nmap <buffer> <leader>m :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
+augroup dm_filetype_leader_shortcuts
+    autocmd!
 
-" Latex: open the compiled pdf.
-autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
+    " Latex: save all open files and compile 'main.tex'.
+    autocmd FileType tex,bib nmap <buffer> <leader>m :wa <bar> !latexmk --xelatex main && mv main.pdf output.pdf<cr>
+
+    " Latex: open the compiled pdf.
+    autocmd FileType tex,bib nmap <buffer> <leader>v :!open -a skim output.pdf<cr><cr>
+
+augroup end
 
 " --------------- "
 "  Word Wrapping  "
@@ -430,7 +441,10 @@ function! TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
-autocmd BufWritePre * :call TrimWhitespace()
+augroup dm_trim_whitespace
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup end
 
 " ------------- "
 "  Status Line  "
@@ -504,4 +518,7 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\~$', '\.DS_Store$']
 
 " Close Vim if the only window left is NT.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup dm_close_vim_if_only_nerdtree
+    autocmd!
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup end
