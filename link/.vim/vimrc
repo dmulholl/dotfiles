@@ -24,6 +24,9 @@ call plug#end()
 "  General Settings  "
 " ------------------ "
 
+" Had to add this line to prevent errors when running in Valhalla dev environment.
+set encoding=utf-8
+
 " Sane behaviour for <BS> and Ctrl-H in insert mode.
 " (Delete indents, line endings, and beyond the insert point.)
 set backspace=indent,eol,start
