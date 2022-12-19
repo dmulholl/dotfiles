@@ -193,6 +193,8 @@ nn() {
         return 1
     fi
 
+    cd "$HOME/dev/notes"
+
     if test -z "$1"; then
         vim "$HOME/dev/notes/scratch.stx"
         return 0
