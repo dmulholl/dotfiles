@@ -70,12 +70,10 @@ mkcd() {
 
 # Unicommand for the clipboard on OSX.
 #
-# Usage:
+#   $ echo "foobar" | cb
+#   $ cb | cat
 #
-#   $ echo "foobar" | clip
-#   $ clip | cat
-#
-clip() {
+cb() {
     test -t 0 && pbpaste || pbcopy
 }
 
