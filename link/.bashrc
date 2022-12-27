@@ -4,4 +4,4 @@
 # In theory, this file should be loaded by 'interactive non-login shells'.
 # ------------------------------------------------------------------------------
 
-source ~/.dotfiles/dotboot.sh
+source ~/.dotfiles/dot_boot.sh
