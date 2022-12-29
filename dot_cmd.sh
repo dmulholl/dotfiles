@@ -92,13 +92,13 @@ dot_link() {
 
     # Names that don't begin with '.'.
     for target in ~/.dotfiles/link/*; do
-        local link=~/$(basename $target)
-        if test -e $link; then
-            if test -L $link; then
-                rm $link
+        local link="$HOME/$(basename $target)"
+        if test -e "$link"; then
+            if test -L "$link"; then
+                rm "$link"
             else
-                echo "Error: failed to link '$target', a file '$link' already exists."
-                continue
+                echo "WARN: a file '$link' already exists, moving to '$link.dotbackup'"
+                mv "$link" "$link.dotbackup"
             fi
         fi
         ln -svf $target $link
@@ -106,13 +106,13 @@ dot_link() {
 
     # Names that begin with '.' (but not '.' or '..').
     for target in ~/.dotfiles/link/.[^.]*; do
-        local link=~/$(basename $target)
-        if test -e $link; then
-            if test -L $link; then
-                rm $link
+        local link="$HOME/$(basename $target)"
+        if test -e "$link"; then
+            if test -L "$link"; then
+                rm "$link"
             else
-                echo "Error: failed to link '$target', a file '$link' already exists."
-                continue
+                echo "WARN: a file '$link' already exists, moving to '$link.dotbackup'"
+                mv "$link" "$link.dotbackup"
             fi
         fi
         ln -svf $target $link
@@ -138,7 +138,7 @@ dot_init() {
         return 0
     fi
 
-    source ~/.dotfiles/dotfuncs.sh
+    source ~/.dotfiles/dot_cmd.sh
     dot_source
     dot_link
     dotpy_try_activate base
