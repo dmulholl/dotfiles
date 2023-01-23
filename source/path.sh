@@ -35,7 +35,7 @@ if test -d "/opt/local/bin"; then
     PATH="$PATH:/opt/local/bin:/opt/local/sbin"
 fi
 
-# Homebrew binaries.
+# Homebrew binaries on Apple silicon.
 if test -d "/opt/homebrew/bin"; then
     PATH="$PATH:/opt/homebrew/bin"
 fi

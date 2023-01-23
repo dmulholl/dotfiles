@@ -1,8 +1,14 @@
 # ------------------------------------------------------------------------------
-# Enable the bash-completion plugin.
+# Bash completion.
 # ------------------------------------------------------------------------------
 
-# MacPorts installation: sudo port install bash-completion
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-    . /opt/local/etc/profile.d/bash_completion.sh
+# Git-completion -- Homebrew on Apple silicon
+if [ -f /opt/homebrew/etc/bash_completion.d/git-completion.bash ]; then
+    . /opt/homebrew/etc/bash_completion.d/git-completion.bash
 fi
+
+# Git-completion -- Homebrew on Apple Intel.
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+    . /usr/local/etc/bash_completion.d/git-completion.bash
+fi
+
