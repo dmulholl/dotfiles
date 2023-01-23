@@ -30,10 +30,10 @@ scripts="$(dirname "$0")/scripts"
 
 for arg in "$@"; do
     case "$arg" in
-        a|alpha)
+        alpha)
             "$scripts/backup-disk.sh" Alpha
             ;;
-        b|beta)
+        beta)
             "$scripts/backup-disk.sh" Beta
             ;;
         borg)

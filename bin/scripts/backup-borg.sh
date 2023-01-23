@@ -3,8 +3,11 @@ set -eo pipefail
 
 source $HOME/.env/borg.sh
 
-# Uncomment this line for the first run to create a new repository.
-# borg init --encryption=repokey $BORG_REPO
+# Run the script with the --init flag to create a new repository.
+# This only needs to be done once.
+if [[ "$1" == "--init"  ]]; then
+    borg init --encryption=repokey $BORG_REPO
+fi
 
 termtitle green "Borg: ${HOME} --> ${BORG_REPO}"
 
