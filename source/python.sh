@@ -114,9 +114,9 @@ function dotpy_make {
         mkdir -p $DOT_PYENVS
     fi
 
-    which python
-    python --version
-    python -m venv $path && dotpy_activate $name
+    which python3
+    python3 --version
+    python3 -m venv $path && dotpy_activate $name
 }
 
 function dotpy_delete {
