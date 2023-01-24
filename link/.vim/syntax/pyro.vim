@@ -1,5 +1,5 @@
 " Syntax definition file for the Pyro programming language.
-" v0.3.4
+" v0.4.0
 
 " Comments.
 syn match pyroComment "#.*$"
@@ -8,9 +8,16 @@ syn match pyroComment "#.*$"
 syn match pyroSpecial "\$\w\+\>"
 
 " Strings and characters.
-syn region pyroString start=+"+ end=+"+ skip=+\\\\\|\\"+
-syn region pyroString start=+`+ end=+`+
-syn region pyroChar start=+'+ end=+'+ skip=+\\\\\|\\'+
+syn region pyroBacktickedString start=+`+ end=+`+
+syn region pyroDoubleQuotedString start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=pyroEscaped
+syn region pyroChar start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=pyroEscaped
+
+" Escapes inside string literals.
+syn match pyroEscaped +\\[$abfnrtv'"\\]+ contained
+syn match pyroEscaped "\\\o\{1,3}" contained
+syn match pyroEscaped "\\x\x\{2}" contained
+syn match pyroEscaped "\%(\\u\x\{4}\|\\U\x\{8}\)" contained
+syn match pyroEscaped /${[_a-zA-Z0-9 .,:;()'"]\+}/ contained
 
 " Keywords.
 syn keyword pyroKeyword var def class typedef with
@@ -34,7 +41,8 @@ syn case match
 
 " Default highlighting styles.
 hi def link pyroComment Comment
-hi def link pyroString String
+hi def link pyroDoubleQuotedString String
+hi def link pyroBacktickedString String
 hi def link pyroChar String
 hi def link pyroKeyword Statement
 hi def link pyroAssert PreProc
@@ -42,5 +50,6 @@ hi def link pyroImport PreProc
 hi def link pyroConstant Special
 hi def link pyroNumber Constant
 hi def link pyroSpecial Normal
+hi def link pyroEscaped Constant
 
 let b:current_syntax = "pyro"
