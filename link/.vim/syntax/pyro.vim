@@ -5,7 +5,7 @@
 syn match pyroComment "#.*$"
 
 " Identifiers with a '$' prefix.
-syn match pyroSpecial "\$\w\+\>"
+syn match pyroSpecial "$\w\+\>"
 
 " Strings and characters.
 syn region pyroBacktickedString start=+`+ end=+`+
@@ -49,7 +49,7 @@ hi def link pyroAssert PreProc
 hi def link pyroImport PreProc
 hi def link pyroConstant Special
 hi def link pyroNumber Constant
-hi def link pyroSpecial Normal
+hi def link pyroSpecial PreProc
 hi def link pyroEscaped Constant
 
 let b:current_syntax = "pyro"
