@@ -1,5 +1,5 @@
 " Syntax definition file for the Pyro programming language.
-" v0.4.2
+" v0.4.3
 
 " Comments.
 syn match pyroComment "#.*$"
@@ -31,7 +31,7 @@ syn keyword pyroConstant true false null self super
 
 " Numbers.
 syn case ignore
-syn match pyroNumber "\<\(\d\|_\)\+\>"
+syn match pyroNumber "\<\d\+\(\d\|_\)*\>"
 syn match pyroNumber "\<0x\(\x\|_\)\+\>"
 syn match pyroNumber "\<0o\(\o\|_\)\+\>"
 syn match pyroNumber "\<0b[01_]\+\>"
