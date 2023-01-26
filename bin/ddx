@@ -1,0 +1,79 @@
+#!/usr/bin/env pyro
+
+import $std::path;
+import $std::args;
+
+
+var helptext = "
+Usage: ddx
+
+  Deploys documentation to: .../<project>/<branch>/
+
+Options:
+  -b, --branch <name>       Use custom branch name.
+  -p, --project <name>      Use custom project name.
+
+Flags:
+  -h, --help                Print helptext.
+"
+
+
+def find_project_dir() -> str|err {
+    var dirpath = path::getcwd();
+
+    while path::is_dir(dirpath) {
+        if path::is_dir(path::join(dirpath, "docs", "out")) {
+            return dirpath;
+        }
+        dirpath = path::join(dirpath, "..");
+    }
+
+    return $err();
+}
+
+
+def $main() {
+    var parser = args::ArgParser()
+        :helptext(helptext)
+        :option("branch b")
+        :option("project p")
+        :parse();
+
+    var project_path = find_project_dir();
+    if $is_err(project_path) {
+        $eprintln("Error: unable to locate the project directory.");
+        $exit(1);
+    }
+    var project_name = parser:value("project") ?? path::basename(project_path);
+
+    var (git_code, git_stdout, git_stderr) = $shell("git symbolic-ref --short HEAD");
+    if git_code != 0 {
+        $eprintln("Error: ${git_stderr}");
+        $exit(1);
+    }
+    var branch_name = parser:value("branch") ?? git_stdout:strip();
+
+    var src = path::join(project_path, "docs", "out");
+    var dst_local = "${$env("HOME")}/dev/web/dmulholl.com/res/docs/${project_name}/${branch_name}";
+    var dst_remote = "dmulholl@www.dmulholl.com:/var/www/dmulholl.com/docs/${project_name}/${branch_name}";
+
+    echo "Source:       ${src}";
+    echo "Copying to:   ${dst_local}";
+
+    if path::is_dir(dst_local) {
+        path::remove(dst_local);
+    }
+
+    var (copy_code, _, copy_stderr) = $shell{"cp -r ${src} ${dst_local}");
+    if copy_code != 0 {
+        $eprintln("Error: ${copy_stderr}");
+        $exit(1);
+    }
+
+    echo "Uploading to: ${dst_remote}";
+    var (rsync_code, _, rsync_stderr) = $shell("rsync -avz --delete ${src}/ ${dst_remote}");
+    if rsync_code != 0 {
+        $eprintln("Error: ${rsync_stderr}");
+        $exit(1);
+    }
+}
