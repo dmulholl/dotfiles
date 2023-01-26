@@ -7,7 +7,7 @@ import std::args;
 var helptext = "
 Usage: ddx
 
-  Deploys documentation to: DST/<project-name>/<branch-name>/
+  Deploys documentation to: DEST/<project-name>/<branch-name>/
 
 Options:
   -b, --branch <name>       Use custom branch name.
