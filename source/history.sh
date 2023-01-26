@@ -9,7 +9,7 @@ shopt -s histappend
 shopt -s histverify
 
 # Don't add matching entries to the history file.
-export HISTIGNORE=$'?:??:???:exit:history'
+export HISTIGNORE=$'?:??:exit:history'
 
 # Ignore commands starting with a space; ignore sequential duplicates.
 # Can also add 'erasedups' here.
