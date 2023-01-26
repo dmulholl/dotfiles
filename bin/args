@@ -1,0 +1,5 @@
+#!/usr/bin/env pyro
+
+for (index, arg) in $args:iter():enumerate() {
+    echo "[${index}] ${arg}";
+}
