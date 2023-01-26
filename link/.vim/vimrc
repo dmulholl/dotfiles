@@ -233,12 +233,18 @@ augroup END
 " - menuone -- show the menu even if there is only one match
 set completeopt=longest,menuone
 
-" Make <enter> select the highlighted item.
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" When opening the autocomplete menu, automatically select the top item.
+" - <c-g>u sets a break point for undo
+inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
+  \ '<c-g>u<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 
-" Autoselect the top item.
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" In the autocomplete menu, make <enter> select the highlighted item.
+inoremap <expr> <cr> pumvisible() ? "<c-y>" : "<cr>"
+
+" In the autocomplete menu, make <esc>
+" - cancel the selection and exit the menu
+" - restore to the undo point we set when opening the menu
+inoremap <expr> <esc> pumvisible() ? '<c-e><c-o>u' : '<esc>'
 
 " -------- "
 "  Search  "
