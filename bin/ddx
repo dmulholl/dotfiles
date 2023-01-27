@@ -46,12 +46,12 @@ def $main() {
     }
     var project_name = parser:value("project") ?? path::basename(project_path);
 
-    var (git_code, git_stdout, git_stderr) = $shell("git symbolic-ref --short HEAD");
+    var (git_code, git_out, git_err) = $shell("git symbolic-ref --short HEAD");
     if git_code != 0 {
-        $eprintln("Error: ${git_stderr}");
+        $eprintln("Error: ${git_err}");
         $exit(1);
     }
-    var branch_name = parser:value("branch") ?? git_stdout:strip();
+    var branch_name = parser:value("branch") ?? git_out:strip();
 
     var src = path::join(project_path, "docs", "out");
     var dst_local = "${$env("HOME")}/dev/web/dmulholl.com/res/docs/${project_name}/${branch_name}";
@@ -72,9 +72,9 @@ def $main() {
      }
 
     echo "Uploading to: ${dst_server}";
-    var (rsync_code, _, rsync_stderr) = $shell("rsync -avz --delete ${src}/ ${dst_server}");
+    var (rsync_code, _, rsync_err) = $shell("rsync -avz --delete ${src}/ ${dst_server}");
      if rsync_code != 0 {
-         $eprintln("Error: ${rsync_stderr}");
+         $eprintln("Error: ${rsync_err}");
          $exit(1);
      }
 
