@@ -7,7 +7,7 @@ shopt -s cdspell
 
 # Glob patterns with no matches should expand to a null string, not
 # themselves. This breaks bash completion in Debian, including Ubuntu -.-
-shopt -s nullglob
+# shopt -s nullglob
 
 # Allow the ** pattern when globbing. Requires Bash 4.
 shopt -s globstar
