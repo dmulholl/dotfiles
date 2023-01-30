@@ -23,7 +23,7 @@ def find_project_dir() -> str|err {
 
     while path::is_dir(dirpath) {
         if path::is_dir(path::join(dirpath, "docs", "out")) {
-            return dirpath;
+            return path::abspath(dirpath);
         }
         dirpath = path::join(dirpath, "..");
     }
@@ -73,10 +73,10 @@ def $main() {
 
     echo "Uploading to: ${dst_server}";
     var (rsync_code, _, rsync_err) = $shell("rsync -avz --delete ${src}/ ${dst_server}");
-     if rsync_code != 0 {
-         $eprintln("Error: ${rsync_err}");
-         $exit(1);
-     }
+    if rsync_code != 0 {
+        $eprintln("Error: ${rsync_err}");
+        $exit(1);
+    }
 
     $print($("termline"));
 }
