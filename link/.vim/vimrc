@@ -241,6 +241,9 @@ inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
 " In the autocomplete menu, make <enter> select the highlighted item.
 inoremap <expr> <cr> pumvisible() ? "<c-y>" : "<cr>"
 
+" In the autocomplete menu, make <tab> select the highlighted item.
+inoremap <expr> <tab> pumvisible() ? "<c-y>" : "<tab>"
+
 " In the autocomplete menu, make <esc>
 " - cancel the selection and exit the menu
 " - restore to the undo point we set when opening the menu
