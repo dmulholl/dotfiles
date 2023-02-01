@@ -242,7 +242,6 @@ inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
 inoremap <expr> <cr> pumvisible() ? "<c-y>" : "<cr>"
 
 " In the autocomplete menu, make <tab> select the highlighted item.
-" (Doesn't work because <tab> is mapped for the snippets plugin.
 " inoremap <expr> <tab> pumvisible() ? "<c-y>" : "<tab>"
 
 " In the autocomplete menu, make <esc>
