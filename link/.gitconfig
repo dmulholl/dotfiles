@@ -2,12 +2,10 @@
 	name = Darren Mulholland
 	email = dmulholl@tcd.ie
 
-[include]
-    path = ~/.gitconfig_local
-
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
 	default = simple
@@ -26,3 +24,6 @@
     co = checkout
     rb = rebase
     st = status
+
+[include]
+    path = ~/.gitconfig_local
