@@ -35,13 +35,13 @@ bgc_white='\e[47m'
 bgc_default='\e[49m'
 
 # Print a test set of colours.
-colours() {
-    printf "0:  ${bgc_black}      ${bgc_default}${fgc_black}${fmt_bold}  bold${fmt_reset}${fgc_black}  normal${fmt_reset}  (black)\n"
-    printf "1:  ${bgc_red}      ${bgc_default}${fgc_red}${fmt_bold}  bold${fmt_reset}${fgc_red}  normal${fmt_reset}  (red)\n"
-    printf "2:  ${bgc_green}      ${bgc_default}${fgc_green}${fmt_bold}  bold${fmt_reset}${fgc_green}  normal${fmt_reset}  (green)\n"
-    printf "3:  ${bgc_yellow}      ${bgc_default}${fgc_yellow}${fmt_bold}  bold${fmt_reset}${fgc_yellow}  normal${fmt_reset}  (yellow)\n"
-    printf "4:  ${bgc_blue}      ${bgc_default}${fgc_blue}${fmt_bold}  bold${fmt_reset}${fgc_blue}  normal${fmt_reset}  (blue)\n"
-    printf "5:  ${bgc_magenta}      ${bgc_default}${fgc_magenta}${fmt_bold}  bold${fmt_reset}${fgc_magenta}  normal${fmt_reset}  (magenta)\n"
-    printf "6:  ${bgc_cyan}      ${bgc_default}${fgc_cyan}${fmt_bold}  bold${fmt_reset}${fgc_cyan}  normal${fmt_reset}  (cyan)\n"
-    printf "7:  ${bgc_white}      ${bgc_default}${fgc_white}${fmt_bold}  bold${fmt_reset}${fgc_white}  normal${fmt_reset}  (white)\n"
+dot_colours() {
+    printf "\e[0m0:  \e[40m      \e[0m\e[30m\e[1m  bold\e[0m\e[30m  normal\e[0m  (black)\n"
+    printf "\e[0m1:  \e[41m      \e[0m\e[31m\e[1m  bold\e[0m\e[31m  normal\e[0m  (red)\n"
+    printf "\e[0m2:  \e[42m      \e[0m\e[32m\e[1m  bold\e[0m\e[32m  normal\e[0m  (green)\n"
+    printf "\e[0m3:  \e[43m      \e[0m\e[33m\e[1m  bold\e[0m\e[33m  normal\e[0m  (yellow)\n"
+    printf "\e[0m4:  \e[44m      \e[0m\e[34m\e[1m  bold\e[0m\e[34m  normal\e[0m  (blue)\n"
+    printf "\e[0m5:  \e[45m      \e[0m\e[35m\e[1m  bold\e[0m\e[35m  normal\e[0m  (magenta)\n"
+    printf "\e[0m6:  \e[46m      \e[0m\e[36m\e[1m  bold\e[0m\e[36m  normal\e[0m  (cyan)\n"
+    printf "\e[0m7:  \e[47m      \e[0m\e[37m\e[1m  bold\e[0m\e[37m  normal\e[0m  (white)\n"
 }
