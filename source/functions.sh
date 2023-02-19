@@ -251,7 +251,7 @@ ff() {
 }
 
 # Fix Karabiner Elements after sleeping.
-fke() {
+fixke() {
     sudo pkill Karabiner-DriverKit-VirtualHIDDeviceClient
     sudo pkill karabiner_console_user_server
 }
