@@ -91,6 +91,7 @@ augroup dm_custom_filetypes
     autocmd BufNewFile,BufRead *.h set filetype=c
     autocmd BufNewFile,BufRead go.mod set filetype=gomod
     autocmd BufNewFile,BufRead go.sum set filetype=gosum
+    autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 augroup end
 
 " Enable mouse support.
