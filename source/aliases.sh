@@ -26,7 +26,9 @@ alias irn="ironclad"
 alias dir="open ."
 alias int="intspector"
 alias mcd="make check-debug"
+alias mdc="make check-debug"
 alias mcr="make check-release"
+alias mrc="make check-release"
 
 # Quads.
 alias dush="du -sh"
