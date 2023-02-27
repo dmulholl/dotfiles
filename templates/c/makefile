@@ -4,26 +4,30 @@
 
 CFLAGS = -Wall -Wextra --std=c11 --pedantic -Wno-unused-parameter -Wno-unused-function
 
-RELEASE_FLAGS = -O3 -D NDEBUG
+RELEASE_FLAGS = -O2 -D NDEBUG
 DEBUG_FLAGS = -D DEBUG
 
 # --------------- #
 #  Phony Targets  #
 # --------------- #
 
-debug: ## Builds the debug binary.
-	@mkdir -p out
-	@printf "\e[1;32mBuilding\e[0m out/app (debug)\n"
-	@$(CC) $(CFLAGS) $(DEBUG_FLAGS) -o out/app src/*.c
+all: ## Builds both the release and debug binaries.
+	@make debug
+	@make release
 
 release: ## Builds the release binary.
-	@mkdir -p out
-	@printf "\e[1;32mBuilding\e[0m out/app (release)\n"
-	@$(CC) $(CFLAGS) $(RELEASE_FLAGS) -o out/app src/*.c
+	@mkdir -p out/release
+	@printf "\e[1;32mBuilding\e[0m out/release/app (release)\n"
+	@$(CC) $(CFLAGS) $(RELEASE_FLAGS) -o out/release/app src/*.c
+
+debug: ## Builds the debug binary.
+	@mkdir -p out/debug
+	@printf "\e[1;32mBuilding\e[0m out/debug/app (debug)\n"
+	@$(CC) $(CFLAGS) $(DEBUG_FLAGS) -o out/debug/app src/*.c
 
 run: ## Builds and runs the debug binary.
 	@make debug
-	./out/app
+	./out/debug/app
 
 clean: ## Deletes all build artifacts.
 	rm -rf ./out
