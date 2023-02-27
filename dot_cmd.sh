@@ -16,6 +16,8 @@ dot() {
             dot_source "$@";;
         prompt)
             dot_prompt "$@";;
+        fix)
+            dot_fix "$@";;
         ""|-h|--help)
             dot_help;;
         *)
@@ -220,4 +222,24 @@ Flags:
   -l, --list    List available files.
   -v, --view    Show file content.
 EOF
+}
+
+dot_fix() {
+    local target="$1"
+    shift
+    case "$target" in
+        ke)
+            # Fix Karabiner Elements after sleeping.
+            sudo pkill Karabiner-DriverKit-VirtualHIDDeviceClient
+            sudo pkill karabiner_console_user_server
+            ;;
+        ""|-h|--help)
+            echo "Usage: dot fix <target>"
+            return 0
+            ;;
+        *)
+            echo "Error: invalid target for 'fix'."
+            return 1
+            ;;
+    esac
 }
