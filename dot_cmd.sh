@@ -18,6 +18,9 @@ dot() {
             dot_prompt "$@";;
         fix)
             dot_fix "$@";;
+        template)
+            template "$@"
+            ;;
         ""|-h|--help)
             dot_help;;
         *)
@@ -31,7 +34,7 @@ dot_help() {
     cat <<EOF
 Usage: dot <command>
 
-  Dotfiles management utility.
+  Dotfiles management utility. All commands support -h/--help.
 
   To update the installation:
 
@@ -44,10 +47,12 @@ Flags:
 
 Commands:
   env           Loads environment variables from ~/.env/.
+  fix           Runs a fix <target> command.
   init          (Re)initializes the dotfiles installation.
   link          Links all files in ~/.dotfiles/link/ into ~/.
   prompt        Sets the shell prompt.
   source        Sources all files in ~/.dotfiles/source/.
+  template      Initializes a new project directory from a template.
 EOF
 }
 
