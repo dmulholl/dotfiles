@@ -1,0 +1,67 @@
+#!/usr/bin/env pyro
+# Ref: https://en.wikipedia.org/wiki/ANSI_escape_code
+
+var names = {
+    0 = "black",
+    1 = "red",
+    2 = "green",
+    3 = "yellow",
+    4 = "blue",
+    5 = "magenta",
+    6 = "cyan",
+    7 = "white",
+    8 = "bright black",
+    9 = "bright red",
+    10 = "bright green",
+    11 = "bright yellow",
+    12 = "bright blue",
+    13 = "bright magenta",
+    14 = "bright cyan",
+    15 = "bright white",
+};
+
+def print_16() {
+    for i in $range(16) {
+        $print("\e[0m${i;03d}:  ");
+        $print("\e[0m\e[48;5;${i}m      ");
+        $print("\e[0m\e[38;5;${i}m\e[38;1m  bold");
+        $print("\e[0m\e[38;5;${i}m  normal");
+        $print("\e[0m  (${names[i]})\n");
+        if i == 7 {
+            $print("\n");
+        }
+    }
+}
+
+def print_256() {
+    for i in $range(256) {
+        $print("\e[0m\e[48;5;${i}m\e[38;5;15m ${i;03d} ");
+        $print("\e[0m\e[38;5;${i}m ${i;03d} ");
+
+        if i == 7 {
+            $print("\n");
+        }
+
+        if i == 15 {
+            $print("\n\n");
+        }
+
+        if i > 15 {
+            if (i - 15) % 6 == 0 {
+                $print("\n");
+            }
+            if (i - 15) % 36 == 0 {
+                $print("\n");
+            }
+        }
+    }
+    $print("\e[0m");
+}
+
+def $main() {
+    if $args:count() > 1 && $args[1] in $tup("-a", "--all", "256") {
+        print_256();
+        return;
+    }
+    print_16();
+}
