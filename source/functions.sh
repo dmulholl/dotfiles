@@ -236,18 +236,28 @@ nn() {
 }
 
 # Change directory using fzf.
-ff() {
+c() {
     if is_executable fd; then
-        local target="$(fd --type d --exclude 'Library' | fzf)"
+        local target="$(fd --type d --exclude 'Library' | fzf --height 50%)"
         if test ! -z "$target"; then
             cd "$target"
         fi
     elif is_executable fdfind; then
-        local target="$(fdfind --type d --exclude 'Library' | fzf)"
+        local target="$(fdfind --type d --exclude 'Library' | fzf --height 50%)"
         if test ! -z "$target"; then
             cd "$target"
         fi
     fi
+}
+
+# Find a file using fzf.
+f() {
+    fzf --height 50%
+}
+
+# Open a file using fzf.
+v() {
+    vim $(fzf --height 50%)
 }
 
 # Fix Karabiner Elements after sleeping.

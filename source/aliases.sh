@@ -9,8 +9,6 @@ alias ....="cd ../../.."
 alias -- -="cd -"
 
 # Singles.
-alias v="vim"
-alias e="vim"
 
 # Doubles.
 alias vi="vim"
