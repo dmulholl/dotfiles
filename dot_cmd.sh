@@ -77,6 +77,7 @@ dot_source() {
     source ~/.dotfiles/source/prompt.sh
     source ~/.dotfiles/source/jump.sh
     source ~/.dotfiles/source/git-completion.bash
+    source ~/.dotfiles/source/fzf.sh
 }
 
 dot_source_help() {
