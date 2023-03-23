@@ -106,7 +106,7 @@ function dotpy_make {
         return 1
     fi
 
-    if is_available deactivate; then
+    if is_command deactivate; then
         deactivate
     fi
 

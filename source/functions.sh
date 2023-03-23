@@ -40,12 +40,11 @@ is_cygwin() {
 }
 
 # Test if an executable, alias, or function is available on PATH.
-is_available() {
+is_command() {
     if type $1 &> /dev/null; then
         return 0
-    else
-        return 1
     fi
+    return 1
 }
 
 # Test if an executable script or binary is available on PATH.
@@ -54,10 +53,8 @@ is_executable() {
         if [[ -x "$(which "$1")" ]]; then
             return 0
         fi
-        return 1
-    else
-        return 1
     fi
+    return 1
 }
 
 # Make a directory and cd into it in one step.
