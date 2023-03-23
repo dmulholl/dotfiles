@@ -8,30 +8,25 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias -- -="cd -"
 
-# Singles.
-
-# Doubles.
-alias vi="vim"
-alias vv="vim"
-alias iv="python3 $HOME/dev/src/ivy/ivy"
-alias hb="hexbomb"
+# Make.
 alias mc="make check"
 alias md="make debug"
 alias mr="make release"
-
-# Triples.
-alias irn="ironclad"
-alias dir="open ."
-alias int="intspector"
 alias mcd="make check-debug"
 alias mcr="make check-release"
 
-# Quads.
-alias dush="du -sh"
-alias pyup="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
-
-# Quints.
+# Applications.
+alias vv="vim"
+alias iv="python3 $HOME/dev/src/ivy/ivy"
+alias hb="hexbomb"
+alias irn="ironclad"
+alias int="intspector"
 alias vimvd="$HOME/dev/src/vimv/target/debug/vimv"
+
+# Commands.
+alias dir="open ."
+alias dush="du -sh"
+alias pypi="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
 alias hosts="sudo vim /etc/hosts"
 alias ytdlv="yt-dlp -f mp4"
 alias ytdlp="yt-dlp -f mp4 -o '%(playlist_index)02d. %(title)s.%(ext)s'"
