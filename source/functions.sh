@@ -257,7 +257,11 @@ f() {
 
 # Open a file using fzf.
 v() {
-    vim $(fzf --height 50%)
+    local name="$(fzf --height 50%)"
+
+    if test ! -z "$name"; then
+        vim "$name"
+    fi
 }
 
 # Fix Karabiner Elements after sleeping.
