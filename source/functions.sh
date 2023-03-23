@@ -239,11 +239,20 @@ c() {
         if test ! -z "$target"; then
             cd "$target"
         fi
-    elif is_executable fdfind; then
+        return
+    fi
+
+    if is_executable fdfind; then
         local target="$(fdfind --type d --exclude 'Library' | fzf --height 50%)"
         if test ! -z "$target"; then
             cd "$target"
         fi
+        return
+    fi
+
+    local target="$(find * -type d | fzf --height 50%)"
+    if test ! -z "$target"; then
+        cd "$target"
     fi
 }
 
