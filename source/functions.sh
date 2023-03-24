@@ -39,7 +39,8 @@ is_cygwin() {
     [[ "$OSTYPE" =~ ^cygwin ]]
 }
 
-# Test if an executable, alias, or function is available on PATH.
+# Tests if the argument is an executable script, binary, or symlink on PATH,
+# or a shell alias or function.
 is_command() {
     if type $1 &> /dev/null; then
         return 0
@@ -47,7 +48,7 @@ is_command() {
     return 1
 }
 
-# Test if an executable script or binary is available on PATH.
+# Tests if the argument is an executable script, binary, or symlink on PATH.
 is_executable() {
     if which "$1" &> /dev/null; then
         if [[ -x "$(which "$1")" ]]; then
