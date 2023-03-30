@@ -114,6 +114,11 @@ function dotpy_make {
         mkdir -p $DOT_PYENVS
     fi
 
+    if ! is_executable python3; then
+        echo "Error: python3 is not available."
+        return 1
+    fi
+
     which python3
     python3 --version
     python3 -m venv $path && dotpy_activate $name
