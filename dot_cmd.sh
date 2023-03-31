@@ -241,13 +241,7 @@ Flags:
 EOF
 }
 
-
 dot_fix() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-        dot_fix_help
-        return 0
-    fi
-
     local target="$1"
     shift
     case "$target" in
@@ -257,7 +251,7 @@ dot_fix() {
             sudo pkill karabiner_console_user_server
             ;;
         ""|-h|--help)
-            echo "Usage: dot fix <target>"
+            dot_fix_help
             return 0
             ;;
         *)
