@@ -177,11 +177,6 @@ tag() {
     fi
 }
 
-# Print $PATH in readable form.
-path() {
-    echo $PATH | tr ':' '\n'
-}
-
 # Open notes.
 nn() {
     if test ! -d "$HOME/dev/notes"; then

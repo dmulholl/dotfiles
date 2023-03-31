@@ -2,34 +2,6 @@
 # Admin functions for the `dot` command.
 # ------------------------------------------------------------------------------
 
-dot() {
-    local cmd="$1"
-    shift
-    case "$cmd" in
-        env)
-            dot_env "$@";;
-        init)
-            dot_init "$@";;
-        link)
-            dot_link "$@";;
-        source)
-            dot_source "$@";;
-        prompt)
-            dot_prompt "$@";;
-        fix)
-            dot_fix "$@";;
-        template)
-            template "$@"
-            ;;
-        ""|-h|--help)
-            dot_help;;
-        *)
-            echo "Error: invalid command."
-            return 1
-            ;;
-    esac
-}
-
 dot_help() {
     cat <<EOF
 Usage: dot <command>
@@ -56,7 +28,46 @@ Commands:
 EOF
 }
 
-# Source all files in ~/.dotfiles/source/.
+dot() {
+    local cmd="$1"
+    shift
+    case "$cmd" in
+        env)
+            dot_env "$@";;
+        fix)
+            dot_fix "$@";;
+        init)
+            dot_init "$@";;
+        link)
+            dot_link "$@";;
+        path)
+            dot_path "$@";;
+        prompt)
+            dot_prompt "$@";;
+        source)
+            dot_source "$@";;
+        template)
+            template "$@";;
+        ""|-h|--help)
+            dot_help;;
+        *)
+            echo "Error: invalid command."
+            return 1
+            ;;
+    esac
+}
+
+dot_source_help() {
+    cat <<EOF
+Usage: dot source
+
+  Sources all files in the ~/.dotfiles/source/ directory.
+
+Flags:
+  -h, --help    Print this help text and exit.
+EOF
+}
+
 dot_source() {
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         dot_source_help
@@ -80,18 +91,18 @@ dot_source() {
     source ~/.dotfiles/source/fzf.sh
 }
 
-dot_source_help() {
+dot_link_help() {
     cat <<EOF
-Usage: dot source
+Usage: dot link
 
-  Sources all files in the ~/.dotfiles/source/ directory.
+  Creates a symlink in \$HOME to each file or directory in the
+  ~/.dotfiles/link/ directory.
 
 Flags:
   -h, --help    Print this help text and exit.
 EOF
 }
 
-# Create a symlink in $HOME to each file or directory in ~/.dotfiles/link/.
 dot_link() {
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         dot_link_help
@@ -127,19 +138,17 @@ dot_link() {
     done
 }
 
-dot_link_help() {
+dot_init_help() {
     cat <<EOF
-Usage: dot link
+Usage: dot init
 
-  Creates a symlink in \$HOME to each file or directory in the
-  ~/.dotfiles/link/ directory.
+  Initializes/re-initializes the dotfiles installation.
 
 Flags:
   -h, --help    Print this help text and exit.
 EOF
 }
 
-# Initialize/reinitialize the dotfiles installation.
 dot_init() {
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         dot_init_help
@@ -152,18 +161,19 @@ dot_init() {
     dotpy_try_activate base
 }
 
-dot_init_help() {
+dot_env_help() {
     cat <<EOF
-Usage: dot init
+Usage: dot env
 
-  Initializes or re-initializes the dotfiles installation.
+  Loads environment variables from the ~/.env/ directory.
 
 Flags:
   -h, --help    Print this help text and exit.
+  -l, --list    List available files.
+  -v, --view    Show file content.
 EOF
 }
 
-# Load environment variables from ~/.env/.
 dot_env() {
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         dot_env_help
@@ -217,20 +227,27 @@ dot_env() {
     fi
 }
 
-dot_env_help() {
+dot_fix_help() {
     cat <<EOF
-Usage: dot env
+Usage: dot fix <target>
 
-  Loads environment variables from the ~/.env/ directory.
+  Runs a fix command.
+
+Targets:
+  ke            Fix Karabiner Elements after sleeping.
 
 Flags:
   -h, --help    Print this help text and exit.
-  -l, --list    List available files.
-  -v, --view    Show file content.
 EOF
 }
 
+
 dot_fix() {
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        dot_fix_help
+        return 0
+    fi
+
     local target="$1"
     shift
     case "$target" in
@@ -248,4 +265,24 @@ dot_fix() {
             return 1
             ;;
     esac
+}
+
+dot_path_help() {
+    cat <<EOF
+Usage: dot path
+
+  Prints the PATH environment variable, one entry per line.
+
+Flags:
+  -h, --help    Print this help text and exit.
+EOF
+}
+
+dot_path() {
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        dot_path_help
+        return 0
+    fi
+
+    echo $PATH | tr ':' '\n'
 }
