@@ -90,14 +90,6 @@ alias t4="tree -F -L 4"
 alias t5="tree -F -L 5"
 alias tts="tree -F -h"
 
-# Jumps.
-alias jb="j bin"
-alias jd="j dev"
-alias jn="j notes"
-alias js="j src"
-alias jt="j tmp"
-alias jv="j vay"
-
 # Sudo: preserve the existing shell environment; same as -E.
 alias sudo="sudo --preserve-env"
 
