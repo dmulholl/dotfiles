@@ -74,19 +74,18 @@ dot_source() {
         return 0
     fi
 
+    source ~/.dotfiles/source/env.sh
+    source ~/.dotfiles/source/z.sh
     source ~/.dotfiles/source/colours.sh
     source ~/.dotfiles/source/functions.sh
     source ~/.dotfiles/source/options.sh
     source ~/.dotfiles/source/path.sh
     source ~/.dotfiles/source/aliases.sh
-    source ~/.dotfiles/source/env.sh
     source ~/.dotfiles/source/go.sh
     source ~/.dotfiles/source/history.sh
     source ~/.dotfiles/source/python.sh
     source ~/.dotfiles/source/swift.sh
-    source ~/.dotfiles/source/z.sh
     source ~/.dotfiles/source/prompt.sh
-    source ~/.dotfiles/source/jump.sh
     source ~/.dotfiles/source/git-completion.bash
     source ~/.dotfiles/source/fzf.sh
 }
@@ -109,19 +108,20 @@ dot_link() {
         return 0
     fi
 
+    # This makes a mess when * is empty.
     # Names that don't begin with '.'.
-    for target in ~/.dotfiles/link/*; do
-        local link="$HOME/$(basename $target)"
-        if test -e "$link"; then
-            if test -L "$link"; then
-                rm "$link"
-            else
-                echo "WARN: a file '$link' already exists, moving to '$link.dotbackup'"
-                mv "$link" "$link.dotbackup"
-            fi
-        fi
-        ln -svf $target $link
-    done
+    # for target in ~/.dotfiles/link/*; do
+    #     local link="$HOME/$(basename $target)"
+    #     if test -e "$link"; then
+    #         if test -L "$link"; then
+    #             rm "$link"
+    #         else
+    #             echo "WARN: a file '$link' already exists, moving to '$link.dotbackup'"
+    #             mv "$link" "$link.dotbackup"
+    #         fi
+    #     fi
+    #     ln -svf $target $link
+    # done
 
     # Names that begin with '.' (but not '.' or '..').
     for target in ~/.dotfiles/link/.[^.]*; do

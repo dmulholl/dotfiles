@@ -66,7 +66,7 @@ mkcd() {
     fi
 }
 
-# Unicommand for the clipboard on OSX.
+# Uni-command for the clipboard on OSX.
 #
 #   $ echo "foobar" | cb
 #   $ cb | cat
@@ -177,59 +177,36 @@ tag() {
     fi
 }
 
-# Open notes.
-nn() {
-    if test ! -d "$HOME/dev/notes"; then
-        echo "Error: the ~/dev/notes/ directory does not exist."
-        return 1
-    fi
-
-    cd "$HOME/dev/notes"
-
-    if test -z "$1"; then
-        vim "$HOME/dev/notes/scratch.stx"
-        return 0
-    fi
-
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-        echo "Usage: nn [-l|--list] [-n|--new filename] [filename-substring]"
-        return 0
-    fi
-
-    if [[ "$1" == "-l" || "$1" == "--list" ]]; then
-        for file in $HOME/dev/notes/*; do
-            if [[ -e "$file" ]]; then
-                printf " - %s\n" $(basename "$file")
+jj() {
+    case "$1" in
+        bin)
+            cd ~/dev/bin;;
+        dev)
+            cd ~/dev;;
+        dm)
+            cd ~/dev/web/dmulholl.com;;
+        notes)
+            cd ~/dev/notes;;
+        src)
+            cd ~/dev/src;;
+        tmp)
+            cd ~/dev/tmp;;
+        vay)
+            cd ~/dev/vay;;
+        vim)
+            cd ~/.vim;;
+        "")
+            local target="$(z | tr -s ' ' | cut -d ' ' -f 2 | fzf --height 50%)"
+            if test ! -z "$target"; then
+                cd "$target"
             fi
-        done
-        return 0
-    fi
-
-    if [[ "$1" == "-n" || "$1" == "--new" ]]; then
-        if [[ -z "$2" ]]; then
-            echo "Error: missing filename"
-            return 1
-        else
-            vim "$2"
-            return 0
-        fi
-    fi
-
-    for file in $HOME/dev/notes/*; do
-        if [[ -e "$file" ]]; then
-            if [[ "$file" == *"$1"* ]]; then
-                vim "$file"
-                return 0
-            fi
-        fi
-    done
-
-    echo "Error: no file matching '$1'."
-    return 1
+            ;;
+        *)
+            z "$@";;
+    esac
 }
 
-# Change directory using fzf.
-c() {
+jd() {
     if is_executable fd; then
         local target="$(fd --type d --exclude 'Library' | fzf --height 50%)"
         if test ! -z "$target"; then
@@ -252,13 +229,11 @@ c() {
     fi
 }
 
-# Find a file using fzf.
-f() {
+jf() {
     fzf --height 50%
 }
 
-# Open a file using fzf.
-v() {
+jv() {
     local name="$(fzf --height 50%)"
 
     if test ! -z "$name"; then
@@ -266,8 +241,19 @@ v() {
     fi
 }
 
-# Fix Karabiner Elements after sleeping.
-fixke() {
-    sudo pkill Karabiner-DriverKit-VirtualHIDDeviceClient
-    sudo pkill karabiner_console_user_server
+jn() {
+    if test ! -d "$HOME/dev/notes"; then
+        mkdir -p "$HOME/dev/notes"
+    fi
+
+    local lastdir="$(pwd)"
+    cd "$HOME/dev/notes"
+    local name="$(fzf --height 50%)"
+
+    if test ! -z "$name"; then
+        vim "$name"
+    else
+        cd "$lastdir"
+    fi
 }
+

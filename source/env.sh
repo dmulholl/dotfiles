@@ -2,10 +2,11 @@
 # Environment variables.
 # ------------------------------------------------------------------------------
 
-export LESS="--tabs=4 -RFX"
-export _Z_CMD="jj"
+# export _Z_CMD="jump"
 export _Z_DATA="$HOME/.cache/zdata"
+
 export EDITOR="vim"
+export LESS="--tabs=4 -RFX"
 
 if test -d "$HOME/.env"; then
     pushd "$HOME/.env" > /dev/null
