@@ -64,8 +64,9 @@ def $main() {
     if path::is_dir(dst_local) {
         path::remove(dst_local);
     }
+    $("mkdir -p '${dst_local}'");
 
-    var (copy_code, _, copy_stderr) = $shell("cp -r '${src}' '${dst_local}'");
+    var (copy_code, _, copy_stderr) = $shell("cp -r '${src}/' '${dst_local}'");
     if copy_code != 0 {
          $eprintln("Error: ${copy_stderr}");
          $exit(1);

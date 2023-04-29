@@ -18,6 +18,7 @@ alias mcr="make check-release"
 # Applications.
 alias vv="vim"
 alias iv="python3 $HOME/dev/src/ivy/ivy"
+alias ak="python3 $HOME/dev/src/ark/ark"
 alias hb="hexbomb"
 alias irn="ironclad"
 alias int="intspector"
