@@ -14,11 +14,11 @@ alias md="make debug"
 alias mr="make release"
 alias mcd="make check-debug"
 alias mcr="make check-release"
+alias mcs="make check-sanitize"
 
 # Applications.
 alias vv="vim"
-alias iv="python3 $HOME/dev/src/ivy/ivy"
-alias ak="python3 $HOME/dev/src/ark/ark"
+alias arkd="python3 $HOME/dev/src/ark/ark"
 alias hb="hexbomb"
 alias irn="ironclad"
 alias int="intspector"
