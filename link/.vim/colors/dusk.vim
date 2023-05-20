@@ -26,7 +26,7 @@ hi VertSplit                ctermfg=234         ctermbg=234
 hi ModeMsg                  ctermfg=8
 hi MoreMsg                  ctermfg=2
 hi Question                 ctermfg=2
-hi ColorColumn                                  ctermbg=232
+hi ColorColumn                                  ctermbg=233
 
 " Visible whitespace -- tabs and spaces.
 hi SpecialKey               ctermfg=234
