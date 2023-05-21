@@ -147,7 +147,8 @@ cnoremap <expr> <C-P> wildmenumode() ? "\<C-P>" : "\<Up>"
 cnoremap <expr> <C-N> wildmenumode() ? "\<C-N>" : "\<Down>"
 
 " Show a vertical guideline for text width.
-set colorcolumn=100
+" Allow for 100-char terminal-width less 5 for [1234 ] line numbering.
+set colorcolumn=95
 
 " Show line numbers.
 set number
