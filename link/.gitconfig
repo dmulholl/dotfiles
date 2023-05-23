@@ -15,12 +15,8 @@
 	unstage = reset HEAD --
 	amend = commit --amend
 	alias = !git config --list | grep alias | sed s/^alias.//
-    a = add
-    b = branch
-    c = commit
-    ca = commit --all
-    cm = commit --message
-    cam = commit --all --message
+    br = branch
+    ci = commit
     co = checkout
     rb = rebase
     st = status
