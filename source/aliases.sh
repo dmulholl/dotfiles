@@ -90,7 +90,9 @@ alias t2="tree -F -L 2"
 alias t3="tree -F -L 3"
 alias t4="tree -F -L 4"
 alias t5="tree -F -L 5"
+alias tta="tree -F -a"
 alias tts="tree -F -h"
+alias ttas="tree -F -a -h"
 
 # Sudo: preserve the existing shell environment; same as -E.
 alias sudo="sudo --preserve-env"
