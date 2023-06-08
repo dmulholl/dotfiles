@@ -204,7 +204,7 @@ augroup dm_autorun_goimports
 augroup end
 
 " Stop silently adding a newline to the end of files.
-set nofixendofline
+" set nofixendofline
 
 " Customize cursor shape.
 " https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
