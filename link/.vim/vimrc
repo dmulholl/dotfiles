@@ -147,8 +147,8 @@ cnoremap <expr> <C-P> wildmenumode() ? "\<C-P>" : "\<Up>"
 cnoremap <expr> <C-N> wildmenumode() ? "\<C-N>" : "\<Down>"
 
 " Show a vertical guideline for text width.
-" Allow for 100-char terminal-width less 5 for [1234 ] line numbering.
-set colorcolumn=95
+" Allow for 100-char terminal-width less 6 for [12345 ] line numbering.
+set colorcolumn=94,114
 
 " Show line numbers.
 set number
@@ -164,7 +164,7 @@ set clipboard=unnamed
 " q -- allow formatting of comments with 'gq'.
 " l -- already long lines are not broken in insert mode.
 set formatoptions=crq
-set textwidth=100
+set textwidth=94
 
 " Show tabs.
 set list
