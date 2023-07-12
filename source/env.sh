@@ -2,12 +2,6 @@
 # Environment variables.
 # ------------------------------------------------------------------------------
 
-# export _Z_CMD="jump"
-export _Z_DATA="$HOME/.cache/zdata"
-
-export EDITOR="vim"
-export LESS="--tabs=4 -RFX"
-
 if test -d "$HOME/.dotlocal/env"; then
     pushd "$HOME/.dotlocal/env" > /dev/null
     for file in *.auto.sh; do
@@ -18,3 +12,7 @@ if test -d "$HOME/.dotlocal/env"; then
     done
     popd > /dev/null
 fi
+
+export _Z_DATA="$HOME/.cache/zdata"
+export EDITOR="vim"
+export LESS="--tabs=4 -RFX"
