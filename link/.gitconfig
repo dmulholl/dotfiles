@@ -22,4 +22,4 @@
     st = status
 
 [include]
-    path = ~/.gitconfig_local
+    path = ~/.dotlocal/.gitconfig
