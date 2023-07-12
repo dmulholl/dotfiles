@@ -22,7 +22,6 @@ borg create --stats ::'{user}-{utcnow}' \
     ~/.gnupg                            \
     ~/.ssh                              \
     ~/.aws                              \
-    ~/.env                              \
     ~/.vscode                           \
     --exclude '*.pyc'                   \
     --exclude '*/__pycache__'           \
