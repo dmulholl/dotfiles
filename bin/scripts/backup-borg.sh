@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-source $HOME/.env/borg.sh
+source $HOME/.dotlocal/env/borg.sh
 
 # Run the script with the --init flag to create a new repository.
 # This only needs to be done once.
