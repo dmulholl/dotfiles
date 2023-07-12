@@ -18,12 +18,12 @@ borg create --stats ::'{user}-{utcnow}' \
     ~/dev                               \
     ~/.config                           \
     ~/.dotfiles                         \
+    ~/.dotlocal                         \
     ~/.gnupg                            \
     ~/.ssh                              \
     ~/.aws                              \
     ~/.env                              \
     ~/.vscode                           \
-    ~/.gitconfig_local                  \
     --exclude '*.pyc'                   \
     --exclude '*/__pycache__'           \
     --exclude '*.Spotlight*'            \
