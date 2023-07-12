@@ -165,7 +165,7 @@ dot_env_help() {
     cat <<EOF
 Usage: dot env
 
-  Loads environment variables from the ~/.env/ directory.
+  Loads environment variables from the ~/.dotlocal/env/ directory.
 
 Flags:
   -h, --help    Print this help text and exit.
@@ -180,14 +180,14 @@ dot_env() {
         return 0
     fi
 
-    if test ! -d "$HOME/.env"; then
-        echo "Error: the ~/.env/ directory does not exist."
+    if test ! -d "$HOME/.dotlocal/env"; then
+        echo "Error: the ~/.dotlocal/env/ directory does not exist."
         return 1
     fi
 
     if [[ "$1" == "-v" || "$1" == "--view" ]]; then
         local leading_newline=""
-        for file in $HOME/.env/*.sh; do
+        for file in $HOME/.dotlocal/env/*.sh; do
             if [[ -e "$file" ]]; then
                 printf "$leading_newline\e[32m· %s\e[39m\n\n" $(basename $file)
                 leading_newline="\n"
@@ -198,7 +198,7 @@ dot_env() {
     fi
 
     if [[ "$1" == "-l" || "$1" == "--list" || "$1" == "" ]]; then
-        pushd "$HOME/.env" > /dev/null
+        pushd "$HOME/.dotlocal/env" > /dev/null
         for file in *.sh; do
             if test -e "$file"; then
                 local name="${file%.auto.sh}"
@@ -215,14 +215,14 @@ dot_env() {
         return 0
     fi
 
-    if test -e "$HOME/.env/$1.sh"; then
-        source "$HOME/.env/$1.sh"
+    if test -e "$HOME/.dotlocal/env/$1.sh"; then
+        source "$HOME/.dotlocal/env/$1.sh"
         export "DOT_ENV_LOADED_$1"="true"
-    elif test -e "$HOME/.env/$1.auto.sh"; then
-        source "$HOME/.env/$1.auto.sh"
+    elif test -e "$HOME/.dotlocal/env/$1.auto.sh"; then
+        source "$HOME/.dotlocal/env/$1.auto.sh"
         export "DOT_ENV_LOADED_$1"="true"
     else
-        echo "Error: no file in ~/.env/ for '$1'."
+        echo "Error: no file in ~/.dotlocal/env/ for '$1'."
         return 1
     fi
 }

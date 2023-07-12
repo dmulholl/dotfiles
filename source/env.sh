@@ -8,8 +8,8 @@ export _Z_DATA="$HOME/.cache/zdata"
 export EDITOR="vim"
 export LESS="--tabs=4 -RFX"
 
-if test -d "$HOME/.env"; then
-    pushd "$HOME/.env" > /dev/null
+if test -d "$HOME/.dotlocal/env"; then
+    pushd "$HOME/.dotlocal/env" > /dev/null
     for file in *.auto.sh; do
         if test -e "$file"; then
             source "$file"
