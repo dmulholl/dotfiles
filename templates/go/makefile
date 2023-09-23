@@ -1,4 +1,4 @@
-all:
+build:
 	@rm -rf ./build/** && mkdir -p ./build
 	@set -e && \
 		for cmd in $$(find cmd/* -maxdepth 0 -type d | xargs -I {} basename {}); do \
@@ -14,6 +14,15 @@ run:
 
 test:
 	go test ./...
+
+test-verbose:
+	go test ./... -v
+
+test-integration:
+	go test ./... --tags integration
+
+test-integration-verbose:
+	go test ./... --tags integration -v
 
 clean:
 	rm -rf ./build/*
