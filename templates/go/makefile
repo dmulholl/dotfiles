@@ -1,4 +1,4 @@
-build:
+build: ## Builds all command binaries.
 	@rm -rf ./build/** && mkdir -p ./build
 	@set -e && \
 		for cmd in $$(find cmd/* -maxdepth 0 -type d | xargs -I {} basename {}); do \
@@ -6,23 +6,27 @@ build:
 			go build -o ./build/$$cmd ./cmd/$$cmd; \
 		done
 
-app:
+app: ## Builds the application binary.
 	go build -o ./build/app ./cmd/app
 
-run:
+run: ## Builds and runs the application binary.
 	go run ./cmd/app
 
-test:
+test: ## Runs unit tests.
 	go test ./...
 
-test-verbose:
+test-verbose: ## Runs unit tests verbosely.
 	go test ./... -v
 
-test-integration:
+test-integration: ## Runs unit and integration tests.
 	go test ./... --tags integration
 
-test-integration-verbose:
+test-integration-verbose: ## Runs unit and integration tests verbosely.
 	go test ./... --tags integration -v
 
-clean:
+clean: ## Deletes all build artifacts.
 	rm -rf ./build/*
+
+help: ## Prints available commands.
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / \
+	{printf "\033[1;36m%-25s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
