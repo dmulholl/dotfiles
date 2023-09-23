@@ -6,10 +6,10 @@ build: ## Builds all command binaries.
 			go build -o ./build/$$cmd ./cmd/$$cmd; \
 		done
 
-app: ## Builds the application binary.
+app: ## Builds the cmd/app binary.
 	go build -o ./build/app ./cmd/app
 
-run: ## Builds and runs the application binary.
+run: ## Builds and runs the cmd/app binary.
 	go run ./cmd/app
 
 test: ## Runs unit tests.

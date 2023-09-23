@@ -1,3 +1,3 @@
-# C++ Application Template
+# C++ Template
 
-This is a C++ application template.
+This is a C++ project template.

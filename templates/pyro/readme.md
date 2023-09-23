@@ -1,3 +1,3 @@
-# Pyro Application Template
+# Pyro Template
 
-This is a Pyro application template.
+This is a Pyro project template.

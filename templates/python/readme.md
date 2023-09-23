@@ -1,3 +1,3 @@
-# Python Application Template
+# Python Template
 
-This is a Python application template.
+This is a Python project template.
