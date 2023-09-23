@@ -1,3 +1,3 @@
-module github.com/dmulholl/module_name
+module github.com/dmulholl/modname
 
-go 1.19
+go 1.20
