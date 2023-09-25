@@ -1,4 +1,4 @@
-package testpkg
+package publicpkg
 
 import "testing"
 
