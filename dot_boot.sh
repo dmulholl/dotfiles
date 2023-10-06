@@ -11,7 +11,7 @@ dot_booted="true"
 # Load the `dot` command.
 source ~/.dotfiles/dot_cmd.sh
 
-# Source all files in the [source] directory.
+# Source all files in the .dotfiles/source/ directory.
 dot_source
 
 # Try to activate the default Python virtual environment if it's available.
