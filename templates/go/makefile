@@ -1,4 +1,8 @@
-build: ## Builds all command binaries.
+help: ## Prints available commands.
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / \
+	{printf "\033[1;36m%-25s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
+all: ## Builds all command binaries.
 	@rm -rf ./build/** && mkdir -p ./build
 	@set -e && \
 		for cmd in $$(find cmd/* -maxdepth 0 -type d | xargs -I {} basename {}); do \
@@ -26,7 +30,3 @@ test-integration-verbose: ## Runs unit and integration tests verbosely.
 
 clean: ## Deletes all build artifacts.
 	rm -rf ./build/*
-
-help: ## Prints available commands.
-	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / \
-	{printf "\033[1;36m%-25s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)

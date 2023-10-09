@@ -11,6 +11,10 @@ DEBUG_FLAGS = -D DEBUG
 #  Phony Targets  #
 # --------------- #
 
+help: ## Prints available commands.
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / \
+	{printf "\033[1;36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+
 all: ## Builds both the release and debug binaries.
 	@make debug
 	@make release
@@ -31,7 +35,3 @@ run: ## Builds and runs the debug binary.
 
 clean: ## Deletes all build artifacts.
 	rm -rf ./build
-
-help: ## Prints available commands.
-	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9_-]+:.*?## / \
-	{printf "\033[1;36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
