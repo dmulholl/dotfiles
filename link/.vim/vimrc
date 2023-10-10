@@ -168,7 +168,7 @@ set textwidth=94
 
 " Show tabs.
 set list
-set listchars=tab:\|->,trail:·
+set listchars=tab:\|->,lead:·,trail:·
 
 " Set the modifier key for the vim-move plugin to Ctrl.
 let g:move_key_modifier = 'C'
