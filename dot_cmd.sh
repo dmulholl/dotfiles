@@ -47,7 +47,7 @@ dot() {
         source)
             dot_source "$@";;
         template)
-            template "$@";;
+            ~/.dotfiles/commands/template "$@";;
         ""|-h|--help)
             dot_help;;
         *)
