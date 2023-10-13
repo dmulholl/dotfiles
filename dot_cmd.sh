@@ -6,9 +6,13 @@ dot_help() {
     cat <<EOF
 Usage: dot <command>
 
-  Dotfiles management utility. All commands support -h/--help.
+  Dotfiles management utility.
 
-  To update the installation:
+  To view help text for a command, run:
+
+    $ dot <command> [-h/--help]
+
+  To update the installation, run:
 
     $ cd ~/.dotfiles
     $ git pull
@@ -18,10 +22,12 @@ Flags:
   -h, --help    Print this help text and exit.
 
 Commands:
+  backup        Runs a backup script.
   env           Loads environment variables from ~/.env/.
-  fix           Runs a fix <target> command.
+  fix           Runs a fix command.
   init          (Re)initializes the dotfiles installation.
   link          Links all files in ~/.dotfiles/link/ into ~/.
+  path          Prints PATH environment variables.
   prompt        Sets the shell prompt.
   source        Sources all files in ~/.dotfiles/source/.
   template      Initializes a new project directory from a template.
@@ -48,6 +54,8 @@ dot() {
             dot_source "$@";;
         template)
             ~/.dotfiles/commands/template "$@";;
+        backup)
+            ~/.dotfiles/commands/backup "$@";;
         ""|-h|--help)
             dot_help;;
         *)

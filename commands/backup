@@ -3,7 +3,7 @@ set -euo pipefail
 
 print_help() {
     cat <<EOF
-Usage: backup <command>
+Usage: dot backup <command>
 
   Run a backup script.
 
@@ -26,24 +26,22 @@ if test "$#" = "0"; then
     exit 0
 fi
 
-scripts="$(dirname "$0")/scripts"
-
 for arg in "$@"; do
     case "$arg" in
         alpha)
-            "$scripts/backup-disk.sh" Alpha
+            ~/.dotfiles/scripts/backup-disk.sh Alpha
             ;;
         beta)
-            "$scripts/backup-disk.sh" Beta
+            ~/.dotfiles/scripts/backup-disk.sh Beta
             ;;
         borg)
-            "$scripts/backup-borg.sh"
+            ~/.dotfiles/scripts/backup-borg.sh
             ;;
         b2g|beta2gamma)
-            "$scripts/backup-beta2gamma.sh"
+            ~/.dotfiles/scripts/backup-beta2gamma.sh
             ;;
         b2d|beta2delta)
-            "$scripts/backup-beta2delta.sh"
+            ~/.dotfiles/scripts/backup-beta2delta.sh
             ;;
         ""|--help|-h)
             print_help
