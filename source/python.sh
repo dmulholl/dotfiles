@@ -34,10 +34,13 @@ Usage: dotpy <command>
     deactivate
 
 Commands:
-  activate <name>    Activate the named virtual environment.
-  deactivate         Deactivate the current virtual environment.
-  delete <names>     Delete one or more virtual environments.
-  make <name>        Make a new virtual environment.
+  a, activate <name>    Activate the named virtual environment.
+  d, deactivate         Deactivate the current virtual environment.
+  x, delete <names>     Delete one or more virtual environments.
+  m, make <name>        Make a new virtual environment.
+
+Flags:
+  -h, --help            Display this help text and exit.
 
 Environments:
 EOF
@@ -49,15 +52,15 @@ function dotpy {
         local arg="$1"
         shift
         case "$arg" in
+            -h|--help)
+                dotpy_help;;
             a|activate)
                 dotpy_activate "$@";;
             d|deactivate)
                 deactivate;;
-            -h|--help)
-                dotpy_help;;
             m|make)
                 dotpy_make "$@";;
-            del|delete)
+            x|delete)
                 dotpy_delete "$@";;
             *)
                 dotpy_activate "$arg";;
