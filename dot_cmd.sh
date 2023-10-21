@@ -96,6 +96,10 @@ dot_source() {
     source ~/.dotfiles/source/prompt.sh
     source ~/.dotfiles/source/git-completion.bash
     source ~/.dotfiles/source/fzf.sh
+
+    if test -e "$HOME/.dotlocal/functions.sh"; then
+        source "$HOME/.dotlocal/functions.sh"
+    fi
 }
 
 dot_link_help() {

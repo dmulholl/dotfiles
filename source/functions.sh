@@ -2,10 +2,6 @@
 # Shell functions.
 # ------------------------------------------------------------------------------
 
-if test -e "$HOME/.dotlocal/functions.sh"; then
-    source "$HOME/.dotlocal/functions.sh"
-fi
-
 # Set the window title.
 title() {
     if test -n "$1"; then
