@@ -30,9 +30,9 @@ if test -d "$HOME/.cargo/bin"; then
     PATH="$PATH:$HOME/.cargo/bin"
 fi
 
-# Python 3.11 installed from python.org.
-if test -d "/Library/Frameworks/Python.framework/Versions/3.11/bin"; then
-    PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.11/bin"
+# Python 3.12 installed from python.org.
+if test -d "/Library/Frameworks/Python.framework/Versions/3.12/bin"; then
+    PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.12/bin"
 fi
 
 # Macports binaries.
