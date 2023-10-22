@@ -94,8 +94,9 @@ dot_source() {
     source ~/.dotfiles/source/python.sh
     source ~/.dotfiles/source/swift.sh
     source ~/.dotfiles/source/prompt.sh
-    source ~/.dotfiles/source/git-completion.bash
     source ~/.dotfiles/source/fzf.sh
+    source ~/.dotfiles/source/bash-completion.sh
+    source ~/.dotfiles/source/git-completion.bash
 
     if test -e "$HOME/.dotlocal/functions.sh"; then
         source "$HOME/.dotlocal/functions.sh"
