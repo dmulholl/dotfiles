@@ -84,6 +84,7 @@ hi pythonDecoratorName      ctermfg=5
 " NERDTree plugin.
 hi NERDTreeDir              ctermfg=4
 hi NERDTreeDirSlash         ctermfg=4
+hi NERDTreeExecFile         ctermfg=5
 
 " Markdown.
 hi markdownItalic           ctermfg=5
