@@ -177,6 +177,7 @@ tag() {
     fi
 }
 
+# Jump to a fuzzily-selected directory.
 jj() {
     case "$1" in
         bin)
@@ -196,16 +197,21 @@ jj() {
         vim)
             cd ~/.vim;;
         "")
-            local target="$(z | tr -s ' ' | cut -d ' ' -f 2 | fzf --height 50%)"
-            if test ! -z "$target"; then
-                cd "$target"
-            fi
-            ;;
+            jh;;
         *)
             z "$@";;
     esac
 }
 
+# Jump to a fuzzily-selected directory from directory-history.
+jh() {
+    local target="$(z | tr -s ' ' | cut -d ' ' -f 2 | fzf --height 50%)"
+    if test ! -z "$target"; then
+        cd "$target"
+    fi
+}
+
+# Jump to a fuzzily-selected directory under the current working directory.
 jd() {
     if is_executable fd; then
         local target="$(fd --type d --exclude 'Library' | fzf --height 50%)"
@@ -229,10 +235,14 @@ jd() {
     fi
 }
 
+# Jump to a fuzzily-selected file under the current working directory.
+# This just prints the filename.
 jf() {
     fzf --height 50%
 }
 
+# Jump to a fuzzily-selected file under the current working directory.
+# This opens the file in Vim.
 jv() {
     local name="$(fzf --height 50%)"
 
@@ -241,6 +251,8 @@ jv() {
     fi
 }
 
+# Jump to a fuzzily-selected note.
+# This opens the note in Vim.
 jn() {
     if test ! -d "$HOME/dev/notes"; then
         mkdir -p "$HOME/dev/notes"
