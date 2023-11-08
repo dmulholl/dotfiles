@@ -15,6 +15,8 @@ alias mr="make release"
 alias mcd="make check-debug"
 alias mcr="make check-release"
 alias mcs="make check-sanitize"
+alias mt="make test"
+alias mti="make test-integration"
 
 # Applications.
 alias vv="vim"
