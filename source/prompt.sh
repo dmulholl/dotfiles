@@ -137,41 +137,36 @@ EOF
 }
 
 dot_prompt() {
-    if [[ -n "$1" ]]; then
-        local cmd="$1"
-        shift
-        case "$cmd" in
-            -h|--help)
-                dot_prompt_help
-                ;;
-            short|simple)
-                export PS0=""
-                export PS1="$dot_short_prompt"
-                ;;
-            default)
-                export PS0=""
-                export PS1="$dot_default_prompt"
-                ;;
-            linux)
-                export PS0=""
-                export PS1="$dot_linux_prompt"
-                ;;
-            long|user|username)
-                export PS0=""
-                export PS1="$dot_long_prompt"
-                ;;
-            time)
-                export PS0="$dot_set_prompt_time"
-                export PS1="$dot_time_prompt"
-                ;;
-            *)
-                dot_prompt_help
-                ;;
-        esac
-    else
-        export PS0=""
-        export PS1="$dot_default_prompt"
-    fi
+    local cmd="$1"
+    shift
+    case "$cmd" in
+        -h|--help)
+            dot_prompt_help
+            ;;
+        ""|default)
+            export PS0=""
+            export PS1="$dot_default_prompt"
+            ;;
+        short|simple)
+            export PS0=""
+            export PS1="$dot_short_prompt"
+            ;;
+        linux)
+            export PS0=""
+            export PS1="$dot_linux_prompt"
+            ;;
+        long|user|username)
+            export PS0=""
+            export PS1="$dot_long_prompt"
+            ;;
+        time)
+            export PS0="$dot_set_prompt_time"
+            export PS1="$dot_time_prompt"
+            ;;
+        *)
+            dot_prompt_help
+            ;;
+    esac
 }
 
 export PS0=""
