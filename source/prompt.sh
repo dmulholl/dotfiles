@@ -98,6 +98,10 @@ dot_default_prompt="
 \[$fgc_magenta\]\$(dot_print_prompt_meta) \[$fgc_green\]$(dot_print_prompt_user) \[$fgc_yellow\]\w
 \[$fgc_yellow\] \$(dot_print_prompt_arrows) \[$fgc_default\]"
 
+dot_linux_prompt="
+\[$fgc_magenta\]\$(dot_print_prompt_meta) \[$fgc_blue\]$(dot_print_prompt_user) \[$fgc_yellow\]\w
+\[$fgc_yellow\] \$(dot_print_prompt_arrows) \[$fgc_default\]"
+
 dot_long_prompt="
 \[$fgc_magenta\]\$(dot_print_prompt_meta) \[$fgc_green\]\u@\h \[$fgc_yellow\]\w
 \[$fgc_yellow\] \$(dot_print_prompt_arrows) \[$fgc_default\]"
@@ -125,6 +129,7 @@ Flags:
 
 Styles:
   - default
+  - linux
   - short/simple
   - long/user/username
   - time
@@ -147,6 +152,10 @@ dot_prompt() {
                 export PS0=""
                 export PS1="$dot_default_prompt"
                 ;;
+            linux)
+                export PS0=""
+                export PS1="$dot_linux_prompt"
+                ;;
             long|user|username)
                 export PS0=""
                 export PS1="$dot_long_prompt"
@@ -167,3 +176,7 @@ dot_prompt() {
 
 export PS0=""
 export PS1="$dot_default_prompt"
+
+if is_linux; then
+    export PS1="$dot_linux_prompt"
+fi
