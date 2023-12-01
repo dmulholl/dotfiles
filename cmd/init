@@ -3,7 +3,7 @@ set -euo pipefail
 
 print_help() {
     cat <<EOF
-Usage: dot template <type> [directory]
+Usage: dot init <type> [directory]
 
   Initializes a new project directory from a template.
 

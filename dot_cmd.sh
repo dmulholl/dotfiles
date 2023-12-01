@@ -25,12 +25,12 @@ Commands:
   backup        Runs a backup script.
   env           Loads environment variables from ~/.env/.
   fix           Runs a fix command.
+  init          Initializes a new project directory from a template.
   install       Initializes/re-initializes the dotfiles installation.
   link          Links all files in ~/.dotfiles/link/ into ~/.
   path          Prints PATH entries.
   prompt        Sets the shell prompt.
   source        Sources all files in ~/.dotfiles/source/.
-  template      Initializes a new project directory from a template.
 EOF
 }
 
@@ -52,8 +52,8 @@ dot() {
             dot_prompt "$@";;
         source)
             dot_source "$@";;
-        template)
-            ~/.dotfiles/cmd/template "$@";;
+        init)
+            ~/.dotfiles/cmd/init "$@";;
         backup)
             ~/.dotfiles/cmd/backup "$@";;
         ""|-h|--help)
