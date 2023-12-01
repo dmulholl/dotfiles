@@ -16,7 +16,7 @@ Usage: dot <command>
 
     $ cd ~/.dotfiles
     $ git pull
-    $ dot init
+    $ dot install
 
 Flags:
   -h, --help    Print this help text and exit.
@@ -25,9 +25,9 @@ Commands:
   backup        Runs a backup script.
   env           Loads environment variables from ~/.env/.
   fix           Runs a fix command.
-  init          (Re)initializes the dotfiles installation.
+  install       Initializes/re-initializes the dotfiles installation.
   link          Links all files in ~/.dotfiles/link/ into ~/.
-  path          Prints PATH environment variables.
+  path          Prints PATH entries.
   prompt        Sets the shell prompt.
   source        Sources all files in ~/.dotfiles/source/.
   template      Initializes a new project directory from a template.
@@ -42,8 +42,8 @@ dot() {
             dot_env "$@";;
         fix)
             dot_fix "$@";;
-        init)
-            dot_init "$@";;
+        install)
+            dot_install "$@";;
         link)
             dot_link "$@";;
         path)
@@ -151,9 +151,9 @@ dot_link() {
     done
 }
 
-dot_init_help() {
+dot_install_help() {
     cat <<EOF
-Usage: dot init
+Usage: dot install
 
   Initializes/re-initializes the dotfiles installation.
 
@@ -162,9 +162,9 @@ Flags:
 EOF
 }
 
-dot_init() {
+dot_install() {
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-        dot_init_help
+        dot_install_help
         return 0
     fi
 
