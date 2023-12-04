@@ -50,7 +50,7 @@ dot() {
             dot_path "$@";;
         prompt)
             dot_prompt "$@";;
-        source)
+        source|.)
             dot_source "$@";;
         init)
             ~/.dotfiles/cmd/init "$@";;
