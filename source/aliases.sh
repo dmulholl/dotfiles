@@ -72,13 +72,10 @@ alias gcah="git commit -am Housekeeping"
 alias gcad="git commit -am 'Update documentation'"
 alias gcar="git commit -am 'Update readme'"
 alias gcas="git commit -am Snapshot"
+alias gcaw="git commit -am WIP"
 
 alias gl="git log --oneline --graph -25"
 alias gll="git log --oneline --graph -45"
-
-alias gcodap="git checkout develop && git pull"
-alias gcosap="git checkout staging && git pull"
-alias gcomap="git checkout master && git pull"
 
 # Listings.
 alias ls="ls -F"
