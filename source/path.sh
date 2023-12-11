@@ -35,9 +35,19 @@ if test -d "/Library/Frameworks/Python.framework/Versions/3.12/bin"; then
     PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.12/bin"
 fi
 
-# Homebrew binaries on Apple silicon.
+# Homebrew binaries (Apple silicon).
 if test -d "/opt/homebrew/bin"; then
     PATH="$PATH:/opt/homebrew/bin"
+fi
+
+# Homebrew coreutils binaries without the 'g' prefix (Apple silicon).
+if test -d "/opt/homebrew/opt/coreutils/libexec/gnubin"; then
+    PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
+fi
+
+# Homebrew coreutils binaries without the 'g' prefix.
+if test -d "/usr/local/opt/coreutils/libexec/gnubin"; then
+    PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
 fi
 
 # Macports binaries.
