@@ -3,12 +3,9 @@ set -euo pipefail
 
 print_help() {
     cat <<EOF
-Usage: dot init <type> [directory]
+Usage: dot init <type>
 
-  Initializes a new project directory from a template.
-
-  If [directory] is specified, creates a new directory. Otherwise, initializes
-  the current directory.
+  Initializes the current directory from a project template.
 
 Templates:
   $(ls -m "$HOME/.dotfiles/templates")
@@ -23,14 +20,9 @@ if test "$#" = 0 || test "$1" = "--help" || test "$1" = "-h"; then
     exit 0
 fi
 
-if test "$#" -gt 2; then
+if test "$#" -gt 1; then
     print_help
     exit 1
-fi
-
-if test "$#" = 2; then
-    mkdir -p "$2"
-    cd "$2"
 fi
 
 if test -d "$HOME/.dotfiles/templates/$1"; then
