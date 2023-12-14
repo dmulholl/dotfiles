@@ -30,7 +30,7 @@ Commands:
   link          Links all files in ~/.dotfiles/link/ into ~/.
   path          Prints PATH entries.
   prompt        Sets the shell prompt.
-  source        Sources all files in ~/.dotfiles/source/.
+  source        Sources all files in ~/.dotfiles/source/. Alias '.'.
 EOF
 }
 
