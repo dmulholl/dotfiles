@@ -26,7 +26,7 @@ if test "$#" -gt 1; then
 fi
 
 if test -d "$HOME/.dotfiles/templates/$1"; then
-    cp -R "$HOME/.dotfiles/templates/$1/" .
+    cp -r "$HOME/.dotfiles/templates/$1/." .
 else
     echo "Error: no template for '$1'."
     exit 1
