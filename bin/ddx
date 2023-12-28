@@ -1,6 +1,7 @@
 #!/usr/bin/env pyro
 
-import std::path;
+import std::fs;
+import std::cmd;
 import std::args;
 
 
@@ -19,13 +20,13 @@ Flags:
 
 
 def find_project_dir() -> str|err {
-    var dirpath = path::getcwd();
+    var dirpath = fs::getcwd();
 
-    while path::is_dir(dirpath) {
-        if path::is_dir(path::join(dirpath, "docs", "out")) {
-            return path::abspath(dirpath);
+    while fs::is_dir(dirpath) {
+        if fs::is_dir(fs::join(dirpath, "docs", "out")) {
+            return fs::abspath(dirpath);
         }
-        dirpath = path::join(dirpath, "..");
+        dirpath = fs::join(dirpath, "..");
     }
 
     return $err();
@@ -44,7 +45,7 @@ def $main() {
         $eprintln("Error: unable to locate the project directory.");
         $exit(1);
     }
-    var project_name = parser:value("project") ?? path::basename(project_path);
+    var project_name = parser:value("project") ?? fs::basename(project_path);
 
     var (git_code, git_out, git_err) = $shell("git symbolic-ref --short HEAD");
     if git_code != 0 {
@@ -53,7 +54,7 @@ def $main() {
     }
     var branch_name = parser:value("branch") ?? git_out:strip();
 
-    var src = path::join(project_path, "docs", "out");
+    var src = fs::join(project_path, "docs", "out");
     var dst_local = "${$env("HOME")}/dev/web/dmulholl.com/res/docs/${project_name}/${branch_name}";
     var dst_server = "dmulholl@www.dmulholl.com:/var/www/dmulholl.com/docs/${project_name}/${branch_name}";
 
@@ -61,8 +62,8 @@ def $main() {
     echo "Source:       ${src}";
     echo "Copying to:   ${dst_local}";
 
-    if path::is_dir(dst_local) {
-        path::remove(dst_local);
+    if fs::is_dir(dst_local) {
+        cmd::rm(dst_local);
     }
     $("mkdir -p '${dst_local}'");
 
