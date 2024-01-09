@@ -98,8 +98,8 @@ dot_source() {
     source ~/.dotfiles/source/bash-completion.sh
     source ~/.dotfiles/source/git-completion.bash
 
-    if test -e "$HOME/.dotlocal/functions.sh"; then
-        source "$HOME/.dotlocal/functions.sh"
+    if test -e "$HOME/.dotlocal/source.sh"; then
+        source "$HOME/.dotlocal/source.sh"
     fi
 }
 
