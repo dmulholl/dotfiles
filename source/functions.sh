@@ -71,7 +71,7 @@ mkcd() {
 #   $ echo "foobar" | cb
 #   $ cb | cat
 #
-cb() {
+clip() {
     test -t 0 && pbpaste || pbcopy
 }
 
