@@ -77,7 +77,7 @@ alias gcaw="git commit -am WIP"
 alias gl="git log --oneline --graph -25"
 alias gll="git log --oneline --graph -45"
 
-alias prune-branches-check="git branch | grep -v 'develop\|staging\|master\|main\|[*]'"
+alias prune-branches-dry-run="git branch | grep -v 'develop\|staging\|master\|main\|[*]'"
 alias prune-branches="git branch | grep -v 'develop\|staging\|master\|main\|[*]' | xargs git branch -D"
 
 # Listings.
