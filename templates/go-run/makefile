@@ -20,6 +20,10 @@ build: ## Builds the primary application binary.
 run: ## Builds and runs the primary application binary.
 	go run ./cmd/app
 
+.PHONY: install
+install: ## Builds and installs the primary application binary.
+	go install ./cmd/app
+
 .PHONY: test
 test: ## Runs unit tests.
 	go test ./...
