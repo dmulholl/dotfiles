@@ -103,3 +103,7 @@ alias sudo="sudo --preserve-env"
 # Browsers.
 alias chrome="open -a 'Google Chrome'"
 alias safari="open -a Safari"
+
+# Miscellanea.
+alias mkdir="mkdir -p"
+
