@@ -289,3 +289,11 @@ prune-git-branches() {
     echo "Running with -p/--prune will delete the following branches:"
     git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]'
 }
+
+# Creates empty files. Creates the parent directories if necessary.
+poke() {
+    for name in "$@"; do
+        mkdir -p -- "$(dirname -- "$name")"
+        touch -- "$name"
+    done
+}
