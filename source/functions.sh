@@ -155,7 +155,7 @@ confirm() {
     done
 }
 
-# Create a new git version tag.
+# Create a new git tag.
 tag() {
     if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
         echo "Usage: tag "
@@ -174,27 +174,6 @@ tag() {
 
     if [ $# -eq 2 ]; then
         git tag -am "Version $1" "$1" "$2"
-    fi
-}
-
-vtag() {
-    if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-        echo "Usage: vtag "
-        echo "       vtag <version-number>"
-        echo "       vtag <version-number> <commit>"
-        return
-    fi
-
-    if [ $# -eq 0 ]; then
-        git tag
-    fi
-
-    if [ $# -eq 1 ]; then
-        git tag -am "Version $1" "v$1"
-    fi
-
-    if [ $# -eq 2 ]; then
-        git tag -am "Version $1" "v$1" "$2"
     fi
 }
 
