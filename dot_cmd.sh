@@ -26,6 +26,7 @@ Commands:
   env           Loads environment variables from ~/.env/.
   fix           Runs a fix command.
   init          Initializes a new project directory from a template.
+  keys          List keyboard shortcuts.
   install       Initializes/re-initializes the dotfiles installation.
   link          Links all files in ~/.dotfiles/link/ into ~/.
   path          Prints PATH entries.
@@ -56,6 +57,8 @@ dot() {
             ~/.dotfiles/cmd/init "$@";;
         backup)
             ~/.dotfiles/cmd/backup "$@";;
+        keys)
+            ~/.dotfiles/cmd/keys "$@";;
         ""|-h|--help)
             dot_help;;
         *)

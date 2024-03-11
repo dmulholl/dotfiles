@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+print_help() {
+    cat <<EOF
+Usage: dot keys <topic>
+
+  List keyboard shortcuts.
+
+Flags:
+  -h, --help        Print this help text and exit.
+
+Topics:
+  vscode
+EOF
+}
+
+print_vscode_keys() {
+    cat <<EOF
+In file explorer:
+  o                 -   show file in editor
+  l                 -   goto file in editor
+  cmd+shift+e       -   goto editor
+
+In editor:
+  cmd+shift+e       -   goto file explorer
+
+In terminal:
+  cmd+u             -   goto editor
+EOF
+}
+
+case "${1:-default}" in
+    vscode)
+        print_vscode_keys
+        ;;
+    ""|"default"|--help|-h)
+        print_help
+        exit 0
+        ;;
+    *)
+        echo "error: unknown topic"
+        exit 1
+        ;;
+esac
