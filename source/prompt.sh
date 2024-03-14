@@ -175,3 +175,7 @@ export PS1="$dot_default_prompt"
 if is_linux; then
     export PS1="$dot_linux_prompt"
 fi
+
+if is_executable direnv; then
+    eval "$(direnv hook bash)"
+fi
