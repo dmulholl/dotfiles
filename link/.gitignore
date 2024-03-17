@@ -42,3 +42,7 @@ __pycache__/
 
 # Build files.
 /build/
+
+# Python build files.
+/dist/
+/*.egg-info
