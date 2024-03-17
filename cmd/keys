@@ -11,6 +11,7 @@ Flags:
   -h, --help        Print this help text and exit.
 
 Topics:
+  safari
   vscode
 EOF
 }
@@ -30,9 +31,18 @@ In terminal:
 EOF
 }
 
+print_safari_keys() {
+    cat <<EOF
+  cmd+option+r      -   force reload
+EOF
+}
+
 case "${1:-default}" in
     vscode)
         print_vscode_keys
+        ;;
+    safari)
+        print_safari_keys
         ;;
     ""|"default"|--help|-h)
         print_help
