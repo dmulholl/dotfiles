@@ -9,12 +9,14 @@ alias ....="cd ../../.."
 alias -- -="cd -"
 
 # Make.
-alias mc="make check"
 alias md="make debug"
+alias mds="make debug-sanitized"
 alias mr="make release"
+
 alias mcd="make check-debug"
+alias mcds="make check-debug-sanitized"
 alias mcr="make check-release"
-alias mcs="make check-sanitize"
+
 alias mt="make test"
 alias mtv="make test-verbose"
 alias mti="make test-integration"
