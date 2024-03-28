@@ -31,6 +31,7 @@ Commands:
   link          Links all files in ~/.dotfiles/link/ into ~/.
   path          Prints PATH entries.
   prompt        Sets the shell prompt.
+  prune         Deletes git branches.
   source        Sources all files in ~/.dotfiles/source/. Alias '.'.
 EOF
 }
@@ -51,6 +52,8 @@ dot() {
             dot_path "$@";;
         prompt)
             dot_prompt "$@";;
+        prune)
+            dot_prune "$@";;
         source|.)
             dot_source "$@";;
         init)
@@ -295,4 +298,34 @@ dot_path() {
     fi
 
     echo $PATH | tr ':' '\n'
+}
+
+dot_prune_help() {
+    cat <<EOF
+Usage: dot prune
+
+  Deletes local git branches.
+
+  - Never deletes the current branch.
+  - Run without arguments to see a list of the branches that will be deleted.
+
+Flags:
+  -h, --help    Print this help text and exit.
+  -p, --prune   Delete branches.
+EOF
+}
+
+dot_prune() {
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        dot_prune_help
+        return 0
+    fi
+
+    if [ "$1" = "-p" ] || [ "$1" = "--prune" ]; then
+        git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]' | xargs git branch -D
+        return 0
+    fi
+
+    echo "Running with -p/--prune will delete the following branches:"
+    git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]'
 }

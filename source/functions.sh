@@ -268,32 +268,3 @@ jn() {
         cd "$lastdir"
     fi
 }
-
-# Deletes local git branches.
-prune-git-branches() {
-    if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-        echo "Usage:"
-        echo "  prune-git-branches"
-        echo "  prune-git-branches -h/--help"
-        echo "  prune-git-branches -p/--prune"
-        echo
-        echo "Run without arguments to see a list of the branches that will be deleted."
-        return
-    fi
-
-    if [ "$1" = "-p" ] || [ "$1" = "--prune" ]; then
-        git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]' | xargs git branch -D
-        return
-    fi
-
-    echo "Running with -p/--prune will delete the following branches:"
-    git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]'
-}
-
-# Creates empty files. Creates the parent directories if necessary.
-poke() {
-    for name in "$@"; do
-        mkdir -p -- "$(dirname -- "$name")"
-        touch -- "$name"
-    done
-}
