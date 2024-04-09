@@ -27,7 +27,7 @@ Commands:
   fix           Runs a fix command.
   init          Initializes a new project directory from a template.
   keys          List keyboard shortcuts.
-  install       Initializes/re-initializes the dotfiles installation.
+  install       (Re)initializes the dotfiles installation.
   link          Links all files in ~/.dotfiles/link/ into ~/.
   path          Prints PATH entries.
   prompt        Sets the shell prompt.
@@ -164,13 +164,19 @@ Usage: dot install
   Initializes/re-initializes the dotfiles installation.
 
 Flags:
-  -h, --help    Print this help text and exit.
+  -c, --command     Print the installation command.
+  -h, --help        Print this help text and exit.
 EOF
 }
 
 dot_install() {
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         dot_install_help
+        return 0
+    fi
+
+    if [[ "$1" == "-c" || "$1" == "--command" ]]; then
+        echo "git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles && source ~/.dotfiles/install.sh"
         return 0
     fi
 
