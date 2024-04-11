@@ -6,13 +6,11 @@ dot_help() {
     cat <<EOF
 Usage: dot <command>
 
-  Dotfiles management utility.
-
-  To view help text for a command, run:
+  Dot commands. To view the help text for a command, run:
 
     $ dot <command> [-h/--help]
 
-  To update the installation, run:
+  To update the dotfiles installation, run:
 
     $ cd ~/.dotfiles
     $ git pull
@@ -23,6 +21,7 @@ Flags:
 
 Commands:
   backup        Runs a backup script.
+  clean         Deletes build artifacts from the current directory.
   env           Loads environment variables from ~/.env/.
   fix           Runs a fix command.
   init          Initializes a new project directory from a template.
@@ -62,6 +61,8 @@ dot() {
             ~/.dotfiles/cmd/backup "$@";;
         keys)
             ~/.dotfiles/cmd/keys "$@";;
+        clean)
+            ~/.dotfiles/cmd/clean "$@";;
         ""|-h|--help)
             dot_help;;
         *)

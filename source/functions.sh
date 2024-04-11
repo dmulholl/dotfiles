@@ -75,38 +75,6 @@ clip() {
     test -t 0 && pbpaste || pbcopy
 }
 
-# Clean build artifacts from the current directory.
-clean() {
-    find . -name ".DS_Store" -delete
-    find . -name "._.DS_Store" -delete
-    find . -name "._*" -delete
-    find . -name ".*.swp" -delete
-
-    if test "$1" == "python" || test "$1" == "py" || test "$1" == "all"; then
-        find . -name "*.egg-info" -exec rm -r "{}" +
-        find . -name "__pycache__" -exec rm -r "{}" +
-        find . -name ".pytest_cache" -exec rm -r "{}" +
-        find . -name "*.pyc" -delete
-        find . -name "dist" -exec rm -r "{}" +
-        find . -name "build" -exec rm -r "{}" +
-    fi
-
-    if test "$1" == "latex" || test "$1" == "all"; then
-        find . -name "*.aux" -delete
-        find . -name "*.toc" -delete
-        find . -name "*.out" -delete
-        find . -name "*.lof" -delete
-        find . -name "*.log" -delete
-        find . -name "*.lot" -delete
-        find . -name "*.dvi" -delete
-        find . -name "*.fls" -delete
-        find . -name "*.xdv" -delete
-        find . -name "*.fdb_latexmk" -delete
-        find . -name "*.bbl" -delete
-        find . -name "*.blg" -delete
-    fi
-}
-
 # Colourized man pages.
 man() {
     env \
