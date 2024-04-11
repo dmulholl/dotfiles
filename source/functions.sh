@@ -68,8 +68,8 @@ mkcd() {
 
 # Uni-command for the clipboard on OSX.
 #
-#   $ echo "foobar" | cb
-#   $ cb | cat
+#   $ echo "foobar" | clip
+#   $ clip | cat
 #
 clip() {
     test -t 0 && pbpaste || pbcopy
