@@ -58,12 +58,41 @@ is_executable() {
     return 1
 }
 
-# Make a directory and cd into it in one step.
-mkcd() {
-    if test -n "$1"; then
-        mkdir -p "$1"
-        cd "$1"
+# Creates a file.
+mkf() {
+    if test -z "$1" || test "$1" == "-h" || test "$1" == "--help"; then
+        printf "Usage: mkf <path>\n\n  Creates a file at <path>. Creates parent directories if required.\n"
+        return 0
     fi
+
+    local dirpath=$(dirname "$1")
+
+    if ! test -d "$dirpath"; then
+        mkdir -p "$dirpath"
+    fi
+
+    touch "$1"
+}
+
+# Creates a directory.
+mkd() {
+    if test -z "$1" || test "$1" == "-h" || test "$1" == "--help"; then
+        printf "Usage: mkd <path>\n\n  Creates a directory at <path>. Creates parent directories if required.\n"
+        return 0
+    fi
+
+    mkdir -p "$1"
+}
+
+# Creates a directory and sets it as the current directory.
+mkcd() {
+    if test -z "$1" || test "$1" == "-h" || test "$1" == "--help"; then
+        printf "Usage: mkcd <path>\n\n  Creates a directory at <path> and sets it as the current directory.\n  Creates parent directories if required.\n"
+        return 0
+    fi
+
+    mkdir -p "$1"
+    cd "$1"
 }
 
 # Uni-command for the clipboard on OSX.
