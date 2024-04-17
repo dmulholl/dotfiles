@@ -2,4 +2,6 @@
 # Go environment settings.
 # ------------------------------------------------------------------------------
 
-export GOBIN=$HOME/dev/bin
+if is_executable go; then
+    export GOPATH=$HOME/dev/go
+fi

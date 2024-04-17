@@ -20,6 +20,11 @@ if test -d "$HOME/dev/bin"; then
     PATH="$PATH:$HOME/dev/bin"
 fi
 
+# Go binaries.
+if test -d "$HOME/dev/go/bin"; then
+    PATH="$PATH:$HOME/dev/go/bin"
+fi
+
 # Rust binaries.
 if test -d "$HOME/.cargo/bin"; then
     PATH="$PATH:$HOME/.cargo/bin"
