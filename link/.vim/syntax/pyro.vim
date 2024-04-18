@@ -1,5 +1,5 @@
 " Syntax definition file for the Pyro programming language.
-" v0.7.0
+" v0.7.2
 
 " Comments.
 syn match pyroComment "#.*$"
