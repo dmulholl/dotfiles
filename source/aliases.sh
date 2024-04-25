@@ -110,3 +110,6 @@ alias safari="open -a Safari"
 # Miscellanea.
 alias mkdir="mkdir -p"
 
+# Go.
+alias gt="go test ./..."
+alias gti="go test -tags integration ./..."
