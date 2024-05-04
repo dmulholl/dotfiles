@@ -229,7 +229,7 @@ dot_env() {
             if test -e "$file"; then
                 local name="${file%.auto.sh}"
                 name="${name%.sh}"
-                local env_var_name="DOT_ENV_LOADED_$name"
+                local env_var_name="DOT_ENV_LOADED_${name//-/_}"
                 if test -z "${!env_var_name}"; then
                     printf " - %s\n" "$name"
                 else
@@ -243,10 +243,10 @@ dot_env() {
 
     if test -e "$HOME/.dotlocal/env/$1.sh"; then
         source "$HOME/.dotlocal/env/$1.sh"
-        export "DOT_ENV_LOADED_$1"="true"
+        export "DOT_ENV_LOADED_${1//-/_}"="true"
     elif test -e "$HOME/.dotlocal/env/$1.auto.sh"; then
         source "$HOME/.dotlocal/env/$1.auto.sh"
-        export "DOT_ENV_LOADED_$1"="true"
+        export "DOT_ENV_LOADED_${1//-/_}"="true"
     else
         echo "Error: no file in ~/.dotlocal/env/ for '$1'."
         return 1
