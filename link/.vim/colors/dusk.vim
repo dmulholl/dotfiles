@@ -17,7 +17,7 @@ hi Normal                   ctermfg=none        ctermbg=none
 hi LineNr                   ctermfg=236
 hi CursorLineNr             ctermfg=15          ctermbg=235         cterm=none
 hi CursorLine                                   ctermbg=235         cterm=none
-hi Visual                                       ctermbg=236
+hi Visual                   ctermfg=none        ctermbg=236
 hi NonText                  ctermfg=233
 hi MatchParen                                   ctermbg=237         cterm=bold
 hi ErrorMsg                 ctermfg=1           ctermbg=0
