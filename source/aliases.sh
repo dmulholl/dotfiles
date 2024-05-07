@@ -69,6 +69,7 @@ alias gs="git status --short --branch"
 alias gb="git branch"
 alias gco="git checkout"
 alias gpb='git push -u origin $(git branch --show-current)'
+alias gpl="git pull"
 
 alias gc="git commit"
 alias gcm="git commit -m"
