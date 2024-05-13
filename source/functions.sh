@@ -58,10 +58,10 @@ is_executable() {
     return 1
 }
 
-# Creates a file.
+# Creates one or more empty files.
 mkf() {
     if test -z "$1" || test "$1" == "-h" || test "$1" == "--help"; then
-        printf "Usage: mkf <path>\n\n  Creates a file at <path>. Creates parent directories if required.\n"
+        printf "Usage: mkf <path> [<path>...]\n\n  Creates an empty file at <path>. Creates parent directories if required.\n"
         return 0
     fi
 
@@ -76,14 +76,16 @@ mkf() {
     done
 }
 
-# Creates a directory.
+# Creates one or more directories.
 mkd() {
     if test -z "$1" || test "$1" == "-h" || test "$1" == "--help"; then
-        printf "Usage: mkd <path>\n\n  Creates a directory at <path>. Creates parent directories if required.\n"
+        printf "Usage: mkd <path> [<path>...]\n\n  Creates a directory at <path>. Creates parent directories if required.\n"
         return 0
     fi
 
-    mkdir -p "$1"
+    for path in "$@"; do
+        mkdir -p "$path"
+    done
 }
 
 # Creates a directory and sets it as the current directory.
