@@ -65,13 +65,15 @@ mkf() {
         return 0
     fi
 
-    local dirpath=$(dirname "$1")
+    for file in "$@"; do
+        local dirpath=$(dirname "$file")
 
-    if ! test -d "$dirpath"; then
-        mkdir -p "$dirpath"
-    fi
+        if ! test -d "$dirpath"; then
+            mkdir -p "$dirpath"
+        fi
 
-    touch "$1"
+        touch "$file"
+    done
 }
 
 # Creates a directory.
