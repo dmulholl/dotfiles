@@ -22,6 +22,7 @@ Flags:
 Commands:
   backup        Runs a backup script.
   clean         Deletes build artifacts from the current directory.
+  dotfiles      Prints the dotfiles installation command.
   env           Loads environment variables from ~/.env/.
   fix           Runs a fix command.
   init          Initializes a new project directory from a template.
@@ -39,6 +40,8 @@ dot() {
     local cmd="$1"
     shift
     case "$cmd" in
+        dotfiles)
+            dot_dotfiles "$@";;
         env)
             dot_env "$@";;
         fix)
@@ -335,4 +338,24 @@ dot_prune() {
 
     echo "Running with -p/--prune will delete the following branches:"
     git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]'
+}
+
+dot_dotfiles_help() {
+    cat <<EOF
+Usage: dot dotfiles
+
+  Prints the dotfiles installation command.
+
+Flags:
+  -h, --help    Print this help text and exit.
+EOF
+}
+
+dot_dotfiles() {
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        dot_dotfiles_help
+        return 0
+    fi
+
+    echo "git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles && source ~/.dotfiles/install.sh"
 }
