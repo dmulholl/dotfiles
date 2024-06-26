@@ -78,6 +78,7 @@ alias gcah="git commit -am Housekeeping"
 alias gcad="git commit -am 'Update documentation'"
 alias gcar="git commit -am 'Update readme'"
 alias gcas="git commit -am Snapshot"
+alias gcac="git commit -am Cleanup"
 alias gcaw="git commit -am WIP"
 
 alias gl="git log --oneline --graph -25"
