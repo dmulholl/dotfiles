@@ -19,6 +19,16 @@ Flags:
 ";
 
 
+def term_width() -> i64 {
+    var result = $stderr:get_terminal_size();
+    if $is_err(result) {
+        return 80;
+    }
+
+    return result[0];
+}
+
+
 def find_project_dir() -> str|err {
     var dirpath = fs::getcwd();
 
@@ -42,43 +52,49 @@ def $main() {
 
     var project_path = find_project_dir();
     if $is_err(project_path) {
-        $eprintln("Error: unable to locate the project directory.");
-        $exit(1);
+        $exit("error: unable to locate the project directory");
     }
+
     var project_name = parser:value("project") ?? fs::basename(project_path);
 
-    var (git_code, git_out, git_err) = $shell("git symbolic-ref --short HEAD");
-    if git_code != 0 {
-        $eprintln("Error: ${git_err}");
-        $exit(1);
+    var current_branch_name = try $("git symbolic-ref --short HEAD");
+    if $is_err(current_branch_name) {
+        $exit("error: ${current_branch_name}");
     }
-    var branch_name = parser:value("branch") ?? git_out:strip();
+
+    var branch_name = parser:value("branch") ?? current_branch_name:strip();
 
     var src = fs::join(project_path, "docs", "out");
     var dst_local = "${$env("HOME")}/dev/web/dmulholl.com/res/docs/${project_name}/${branch_name}";
     var dst_server = "dmulholl@www.dmulholl.com:/var/www/dmulholl.com/docs/${project_name}/${branch_name}";
 
-    $print($("termline"));
+    echo "─" * term_width();
     echo "Source:       ${src}";
     echo "Copying to:   ${dst_local}";
 
     if fs::is_dir(dst_local) {
         cmd::rm(dst_local);
     }
-    $("mkdir -p '${dst_local}'");
 
-    var (copy_code, _, copy_stderr) = $shell("cp -r '${src}/.' '${dst_local}'");
-    if copy_code != 0 {
-         $eprintln("Error: ${copy_stderr}");
-         $exit(1);
-     }
-
-    echo "Uploading to: ${dst_server}";
-    var (rsync_code, _, rsync_err) = $shell("rsync -avz --delete ${src}/ ${dst_server}");
-    if rsync_code != 0 {
-        $eprintln("Error: ${rsync_err}");
-        $exit(1);
+    with result = try $("mkdir -p '${dst_local}'") {
+        if $is_err(result) {
+            $exit("error: ${result}");
+        }
     }
 
-    $print($("termline"));
+    with result = try $("cp -r '${src}/.' '${dst_local}'") {
+        if $is_err(result) {
+            $exit("error: ${result}");
+        }
+    }
+
+    echo "Uploading to: ${dst_server}";
+
+    with result = try $("rsync -avz --delete ${src}/ ${dst_server}") {
+        if $is_err(result) {
+            $exit("error: ${result}");
+        }
+    }
+
+    echo "─" * term_width();
 }
