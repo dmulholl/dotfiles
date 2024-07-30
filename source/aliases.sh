@@ -26,6 +26,7 @@ alias mtiv="make test-integration-verbose"
 # Applications.
 alias vv="vim"
 alias arkd="python3 $HOME/dev/src/ark/ark"
+alias arkbd="ark build && ark deploy"
 alias hb="hexbomb"
 alias irn="ironclad"
 alias int="intspector"
