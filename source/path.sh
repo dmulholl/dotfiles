@@ -37,7 +37,7 @@ fi
 
 # Homebrew binaries (Apple silicon).
 if test -d "/opt/homebrew/bin"; then
-    PATH="$PATH:/opt/homebrew/bin"
+    PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
 fi
 
 # Homebrew coreutils binaries without the 'g' prefix (Apple silicon).
