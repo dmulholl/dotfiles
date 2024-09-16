@@ -59,13 +59,13 @@ dot() {
         source|.)
             dot_source "$@";;
         init)
-            ~/.dotfiles/cmd/init "$@";;
+            ~/.dotfiles/commands/init "$@";;
         backup)
-            ~/.dotfiles/cmd/backup "$@";;
+            ~/.dotfiles/commands/backup "$@";;
         keys)
-            ~/.dotfiles/cmd/keys "$@";;
+            ~/.dotfiles/commands/keys "$@";;
         clean)
-            ~/.dotfiles/cmd/clean "$@";;
+            ~/.dotfiles/commands/clean "$@";;
         ""|-h|--help)
             dot_help;;
         *)
@@ -184,7 +184,7 @@ dot_install() {
         return 0
     fi
 
-    source ~/.dotfiles/dot_cmd.sh
+    source ~/.dotfiles/dot.sh
     dot_source
     dot_link
     dotpy_try_activate base

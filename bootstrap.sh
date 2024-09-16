@@ -9,7 +9,7 @@ fi
 dot_booted="true"
 
 # Load the `dot` command.
-source ~/.dotfiles/dot_cmd.sh
+source ~/.dotfiles/dot.sh
 
 # Source all files in the .dotfiles/source/ directory.
 dot_source
