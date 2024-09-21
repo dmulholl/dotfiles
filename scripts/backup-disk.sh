@@ -54,7 +54,7 @@ rsync -av --delete                          \
     --exclude "/dev/tmp"                    \
     --exclude "/dev/go"                     \
     --exclude "/Library"                    \
-    --exclude "/Torrents"                   \
+    --exclude "/Downloads"                  \
     --exclude "/Applications"               \
     --exclude "/VMs"                        \
     --exclude "/Virtual Machines"           \
