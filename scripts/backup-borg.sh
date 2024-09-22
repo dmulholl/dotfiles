@@ -9,6 +9,9 @@ if [[ "$1" == "--init"  ]]; then
     borg init --encryption=repokey $BORG_REPO
 fi
 
+# Increase the maximum number of files the process can have open.
+ulimit -n 4096
+
 termtitle green "Borg: ${HOME} --> ${BORG_REPO}"
 
 borg create --stats ::'{user}-{utcnow}' \

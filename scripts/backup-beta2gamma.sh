@@ -17,7 +17,7 @@ if test ! -d $dst; then
     exit 1
 fi
 
-# Reset the maximum number of files that the application can have open.
+# Increase the maximum number of files the process can have open.
 ulimit -n 4096
 
 # Run rsync in mirroring mode.
