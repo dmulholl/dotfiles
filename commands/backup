@@ -16,6 +16,7 @@ Backup \$HOME Commands:
   borg                  Backup important files from HOME to rsync.net.
 
 Backup Disk Commands:
+  a2b, alpha2beta       Backup content from Alpha (SSD) to Beta (DHD).
   b2g, beta2gamma       Backup content from Beta (DHD) to Gamma (PHD).
   b2d, beta2delta       Backup 'Backups' from Beta (DHD) to Delta (PHD).
 EOF
@@ -42,6 +43,9 @@ for arg in "$@"; do
             ;;
         b2d|beta2delta)
             ~/.dotfiles/scripts/backup-beta2delta.sh
+            ;;
+        a2b|alpha2beta)
+            ~/.dotfiles/scripts/backup-alpha2beta.sh
             ;;
         ""|--help|-h)
             print_help
