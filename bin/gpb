@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+branch_name=$(git branch --show-current)
+
+if test "$branch_name" = "master" || test "$branch_name" = "main"; then
+    echo "error: in branch $branch_name"
+    exit 1
+fi
+
+echo "pushing to branch $branch_name"
+git push -u origin $branch_name
