@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-termtitle red "Replicating backups from Beta (DHD) to Delta (PHD) using rsync."
+termtitle green "Replicating backups from Beta (DHD) to Delta (PHD) using rsync."
 
 # The slash at the end of the source directory path is important. It means
 # copy the *contents* of the directory.

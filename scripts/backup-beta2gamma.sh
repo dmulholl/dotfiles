@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-termtitle red "Backing up unique content from Beta (DHD) to Gamma (PHD) using rsync."
+termtitle green "Backing up unique content from Beta (DHD) to Gamma (PHD) using rsync."
 
 # The slash at the end of the source directory path is important. It means
 # copy the *contents* of the directory.
