@@ -4,9 +4,14 @@ set -euo pipefail
 branch_name=$(git branch --show-current)
 
 if test "$branch_name" = "master" || test "$branch_name" = "main"; then
-    echo "error: in branch $branch_name"
+    echo "error: in protected branch '$branch_name'"
     exit 1
 fi
 
-echo "pushing to branch $branch_name"
-git push -u origin $branch_name
+if git ls-remote --exit-code origin "$branch_name" > /dev/null; then
+    echo "error: upstream branch '$branch_name' already exists"
+    exit 1
+fi
+
+echo "pushing to new branch '$branch_name'"
+git push --set-upstream origin $branch_name
