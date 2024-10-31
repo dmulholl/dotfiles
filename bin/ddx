@@ -44,11 +44,14 @@ def find_project_dir() -> str|err {
 
 
 def $main() {
-    var parser = args::ArgParser()
+    let parser = args::ArgParser()
         :helptext(helptext)
         :option("branch b")
-        :option("project p")
-        :parse();
+        :option("project p");
+
+    if let result = parser:parse(); $is_err(result) {
+        $exit("error: ${result}");
+    }
 
     var project_path = find_project_dir();
     if $is_err(project_path) {
@@ -76,24 +79,18 @@ def $main() {
         cmd::rm(dst_local);
     }
 
-    with result = try $("mkdir -p '${dst_local}'") {
-        if $is_err(result) {
-            $exit("error: ${result}");
-        }
+    if let result = try $("mkdir -p '${dst_local}'"); $is_err(result) {
+        $exit("error: ${result}");
     }
 
-    with result = try $("cp -r '${src}/.' '${dst_local}'") {
-        if $is_err(result) {
-            $exit("error: ${result}");
-        }
+    if let result = try $("cp -r '${src}/.' '${dst_local}'"); $is_err(result) {
+        $exit("error: ${result}");
     }
 
     echo "Uploading to: ${dst_server}";
 
-    with result = try $("rsync -avz --delete ${src}/ ${dst_server}") {
-        if $is_err(result) {
-            $exit("error: ${result}");
-        }
+    if let result = try $("rsync -avz --delete ${src}/ ${dst_server}"); $is_err(result) {
+        $exit("error: ${result}");
     }
 
     echo "─" * term_width();
