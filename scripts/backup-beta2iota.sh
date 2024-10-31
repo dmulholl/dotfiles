@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-termtitle green "Replicating backups from Beta (DHD) to Delta (PHD) using rsync."
+termtitle green "Replicating backups from Beta (DHD) to Iota (PHD) using rsync."
 
 # The slash at the end of the source directory path is important. It means
 # copy the *contents* of the directory.
@@ -9,7 +9,7 @@ src="/Volumes/Beta/"
 
 # A slash at the end of the destination path can cause problems when copying
 # to the root of a drive.
-dst="/Volumes/Delta/Backups/Beta"
+dst="/Volumes/Iota/Backups/Beta"
 
 # Check the destination directory exists.
 if test ! -d $dst; then

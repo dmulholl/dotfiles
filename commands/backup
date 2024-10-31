@@ -10,15 +10,18 @@ Usage: dot backup <command>
 Flags:
   -h, --help            Print this help text and exit.
 
-Backup \$HOME Commands:
+Level 1 Commands:
   alpha                 Backup all files from HOME to Alpha (SSD).
   beta                  Backup all files from HOME to Beta (DHD).
-  borg                  Backup important files from HOME to rsync.net.
+  borg                  Backup essential files from HOME to rsync.net.
 
-Backup Disk Commands:
+Level 2 Commands:
   a2b, alpha2beta       Backup content from Alpha (SSD) to Beta (DHD).
   b2g, beta2gamma       Backup content from Beta (DHD) to Gamma (PHD).
-  b2d, beta2delta       Backup 'Backups' from Beta (DHD) to Delta (PHD).
+
+Level 3 Commands:
+  b2k, beta2kappa       Backup content from Beta (DHD) to Kappa (PHD).
+  b2i, beta2iota        Backup content from Beta (DHD) to Iota (PHD).
 EOF
 }
 
@@ -30,19 +33,19 @@ fi
 for arg in "$@"; do
     case "$arg" in
         alpha)
-            ~/.dotfiles/scripts/backup-disk.sh Alpha
+            ~/.dotfiles/scripts/backup-to-disk.sh Alpha
             ;;
         beta)
-            ~/.dotfiles/scripts/backup-disk.sh Beta
+            ~/.dotfiles/scripts/backup-to-disk.sh Beta
             ;;
         borg)
-            ~/.dotfiles/scripts/backup-borg.sh
+            ~/.dotfiles/scripts/backup-to-borg.sh
             ;;
-        b2g|beta2gamma)
-            ~/.dotfiles/scripts/backup-beta2gamma.sh
+        b2k|beta2kappa)
+            ~/.dotfiles/scripts/backup-beta2kappa.sh
             ;;
-        b2d|beta2delta)
-            ~/.dotfiles/scripts/backup-beta2delta.sh
+        b2i|beta2iota)
+            ~/.dotfiles/scripts/backup-beta2iota.sh
             ;;
         a2b|alpha2beta)
             ~/.dotfiles/scripts/backup-alpha2beta.sh

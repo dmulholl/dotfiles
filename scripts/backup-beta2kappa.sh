@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-termtitle green "Backing up Beta (DHD) to Gamma (PHD) using rsync."
+termtitle green "Backing up unique content from Beta (DHD) to Kappa (PHD) using rsync."
 
 # The slash at the end of the source directory path is important. It means
 # copy the *contents* of the directory.
@@ -9,7 +9,7 @@ src="/Volumes/Beta/"
 
 # A slash at the end of the destination path can cause problems when copying
 # to the root of a drive.
-dst="/Volumes/Gamma"
+dst="/Volumes/Kappa/Backups/Beta"
 
 # Check the destination directory exists.
 if test ! -d $dst; then
@@ -29,5 +29,6 @@ rsync -av --delete \
     --exclude ".fseventsd" \
     --exclude ".DS_Store" \
     --exclude ".TemporaryItems" \
+    --exclude "/Backups/" \
     --exclude ".DocumentRevisions-V100" \
     -- "$src" "$dst"
