@@ -50,6 +50,9 @@ for arg in "$@"; do
         a2b|alpha2beta)
             ~/.dotfiles/scripts/backup-alpha2beta.sh
             ;;
+        b2g|beta2gamma)
+            ~/.dotfiles/scripts/backup-beta2gamma.sh
+            ;;
         ""|--help|-h)
             print_help
             exit 0
