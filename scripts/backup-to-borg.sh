@@ -35,6 +35,7 @@ borg create --stats ::'{user}-{utcnow}' \
     --exclude '*.localized'             \
     --exclude '~/dev/tmp'               \
     --exclude '~/dev/go'                \
+    --exclude '~/dev/vay/maps'          \
     --exclude '~/.config/borg'
 
 borg prune --keep-daily 7 --keep-weekly 4 --keep-monthly 12
