@@ -31,6 +31,7 @@ alias irn="ironclad"
 alias int="intspector"
 alias vimvd="$HOME/dev/src/vimv/target/debug/vimv"
 alias ca="code -a ."
+alias tc="termcalc"
 
 # Commands.
 alias dir="open ."
