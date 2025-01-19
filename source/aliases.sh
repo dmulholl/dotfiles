@@ -36,10 +36,7 @@ alias tc="termcalc"
 # Commands.
 alias dir="open ."
 alias dush="du -sh"
-alias pypi="./setup.py sdist bdist_wheel && twine upload dist/* && clean python"
 alias hosts="sudo vim /etc/hosts"
-alias ytdlv="yt-dlp -f mp4"
-alias ytdlp="yt-dlp -f mp4 -o '%(playlist_index)02d. %(title)s.%(ext)s'"
 
 # Pyro.
 alias pd="$HOME/dev/src/pyro/build/debug/pyro"
