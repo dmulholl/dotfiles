@@ -30,36 +30,37 @@ if test "$#" = "0"; then
     exit 0
 fi
 
-for arg in "$@"; do
-    case "$arg" in
-        alpha)
-            ~/.dotfiles/scripts/backup-to-disk.sh Alpha
-            ;;
-        beta)
-            ~/.dotfiles/scripts/backup-to-disk.sh Beta
-            ;;
-        borg)
-            ~/.dotfiles/scripts/backup-to-borg.sh
-            ;;
-        b2k|beta2kappa)
-            ~/.dotfiles/scripts/backup-beta2kappa.sh
-            ;;
-        b2i|beta2iota)
-            ~/.dotfiles/scripts/backup-beta2iota.sh
-            ;;
-        a2b|alpha2beta)
-            ~/.dotfiles/scripts/backup-alpha2beta.sh
-            ;;
-        b2g|beta2gamma)
-            ~/.dotfiles/scripts/backup-beta2gamma.sh
-            ;;
-        ""|--help|-h)
-            print_help
-            exit 0
-            ;;
-        *)
-            echo "Error: unsupported command."
-            exit 1
-            ;;
-    esac
-done
+cmd="$1"
+shift
+
+case "$cmd" in
+    alpha)
+        ~/.dotfiles/scripts/backup-to-disk.sh Alpha
+        ;;
+    beta)
+        ~/.dotfiles/scripts/backup-to-disk.sh Beta
+        ;;
+    borg)
+        ~/.dotfiles/scripts/backup-to-borg.sh "$@"
+        ;;
+    b2k|beta2kappa)
+        ~/.dotfiles/scripts/backup-beta2kappa.sh
+        ;;
+    b2i|beta2iota)
+        ~/.dotfiles/scripts/backup-beta2iota.sh
+        ;;
+    a2b|alpha2beta)
+        ~/.dotfiles/scripts/backup-alpha2beta.sh
+        ;;
+    b2g|beta2gamma)
+        ~/.dotfiles/scripts/backup-beta2gamma.sh
+        ;;
+    ""|--help|-h)
+        print_help
+        exit 0
+        ;;
+    *)
+        echo "Error: unsupported command."
+        exit 1
+        ;;
+esac
