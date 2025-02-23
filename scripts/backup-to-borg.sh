@@ -22,7 +22,6 @@ borg create --stats ::'{user}-{utcnow}' \
     ~/.config                           \
     ~/.dotfiles                         \
     ~/.dotlocal                         \
-    ~/.gnupg                            \
     ~/.ssh                              \
     ~/.aws                              \
     ~/.vscode                           \
