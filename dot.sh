@@ -8,30 +8,37 @@ Usage: dot <command>
 
   Dot commands. To view the help text for a command, run:
 
-    $ dot <command> [-h/--help]
+    dot <command> [-h/--help]
 
   To update the dotfiles installation, run:
 
-    $ cd ~/.dotfiles
-    $ git pull
-    $ dot install
+    cd ~/.dotfiles
+    git pull
+    dot install
+
+  To install the dotfiles on a new machine, run:
+
+    git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles
+    source ~/.dotfiles/install.sh
 
 Flags:
   -h, --help    Print this help text and exit.
 
-Commands:
+Utility Commands:
   backup        Runs a backup script.
   clean         Deletes build artifacts from the current directory.
-  dotfiles      Prints the dotfiles installation command.
   env           Loads environment variables from ~/.env/.
   fix           Runs a fix command.
   init          Initializes a new project directory from a template.
   keys          Lists keyboard shortcuts.
-  install       (Re)initializes the dotfiles installation.
-  link          Links all files in ~/.dotfiles/link/ into ~/.
   path          Prints PATH entries.
   prompt        Sets the shell prompt.
   prune         Deletes git branches.
+
+Admin Commands:
+  dotfiles      Prints the dotfiles installation command.
+  install       Installs/reinstalls the dotfiles.
+  link          Links all files in ~/.dotfiles/link/ into ~/.
   source        Sources all files in ~/.dotfiles/source/. Alias '.'.
 EOF
 }
