@@ -36,7 +36,7 @@ Utility Commands:
   prune         Deletes git branches.
 
 Admin Commands:
-  dotfiles      Prints the dotfiles installation command.
+  dot           Prints the dotfiles installation command.
   install       Installs/reinstalls the dotfiles.
   link          Links all files in ~/.dotfiles/link/ into ~/.
   source        Sources all files in ~/.dotfiles/source/. Alias '.'.
@@ -47,8 +47,8 @@ dot() {
     local cmd="$1"
     shift
     case "$cmd" in
-        dotfiles)
-            dot_dotfiles "$@";;
+        dot)
+            dot_dot "$@";;
         env)
             dot_env "$@";;
         fix)
@@ -358,7 +358,7 @@ Flags:
 EOF
 }
 
-dot_dotfiles() {
+dot_dot() {
     if [[ "$1" == "-h" || "$1" == "--help" ]]; then
         dot_dotfiles_help
         return 0
