@@ -16,3 +16,7 @@ fi
 export _Z_DATA="$HOME/.cache/zdata"
 export EDITOR="vim"
 export LESS="--tabs=4 -RFX"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_EMOJI=1
