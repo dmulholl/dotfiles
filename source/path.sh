@@ -56,8 +56,8 @@ if test -d "/usr/local/opt/coreutils/libexec/gnubin"; then
 fi
 
 # Homebrew Postgres installation.
-if test -d "/opt/homebrew/opt/postgresql@16/bin"; then
-    PATH="$PATH:/opt/homebrew/opt/postgresql@16/bin"
+if test -d "/opt/homebrew/opt/postgresql@17/bin"; then
+    PATH="$PATH:/opt/homebrew/opt/postgresql@17/bin"
 fi
 
 # Macports binaries.
