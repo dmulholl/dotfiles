@@ -30,5 +30,5 @@ rsync -av --delete \
     --exclude ".DS_Store" \
     --exclude ".TemporaryItems" \
     --exclude "/Backups/" \
-    --exclude ".DocumentRevisions-V100" \
+    --exclude ".DocumentRevisions*" \
     -- "$src" "$dst"
