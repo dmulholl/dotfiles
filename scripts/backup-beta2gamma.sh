@@ -29,5 +29,5 @@ rsync -av --delete \
     --exclude ".fseventsd" \
     --exclude ".DS_Store" \
     --exclude ".TemporaryItems" \
-    --exclude ".DocumentRevisions-V100" \
+    --exclude ".DocumentRevisions*" \
     -- "$src" "$dst"
