@@ -113,3 +113,4 @@ alias mkdir="mkdir -p"
 # Go.
 alias gt="go test ./..."
 alias gti="go test -tags integration ./..."
+alias goclean="go clean --cache --testcache --modcache --fuzzcache"
