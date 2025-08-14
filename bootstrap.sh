@@ -14,5 +14,7 @@ source ~/.dotfiles/dot.sh
 # Source all files in the .dotfiles/source/ directory.
 dot_source
 
-# Try to activate the default Python virtual environment if it's available.
-dotpy_try_activate base
+# Try to activate the default Python virtual environment if it exists.
+if test -e "$DOT_PYENVS/base/bin/activate"; then
+    source "$DOT_PYENVS/base/bin/activate"
+fi

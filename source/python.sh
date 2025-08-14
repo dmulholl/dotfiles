@@ -11,22 +11,22 @@ export PIP_REQUIRE_VIRTUALENV=true
 # Storage location for virtual environments.
 export DOT_PYENVS=~/.dotpyenvs
 
-function dotpy_help {
+dot_pyenv_help() {
     cat <<EOF
-Usage: dotpy <command>
+Usage: dot pyenv <command>
 
   A utility for managing Python virtual environments.
 
   To activate a virtual environment run one of:
-    dotpy activate <name>
-    dotpy <name>
+    dot pyenv activate <name>
+    dot pyenv <name>
 
   To deactivate the current virtual environment run one of:
-    dotpy deactivate
+    dot pyenv deactivate
     deactivate
 
   To create a new virtual environment run:
-    dotpy make <name>
+    dot pyenv make <name>
 
 Commands:
   a, activate <name>    Activate the named virtual environment.
@@ -42,30 +42,33 @@ EOF
 echo -n "  " && /bin/ls -m $DOT_PYENVS
 }
 
-function dotpy {
-    if [[ -n "$1" ]]; then
-        local arg="$1"
-        shift
-        case "$arg" in
-            -h|--help)
-                dotpy_help;;
-            a|activate)
-                dotpy_activate "$@";;
-            d|deactivate)
-                deactivate;;
-            m|make)
-                dotpy_make "$@";;
-            x|delete)
-                dotpy_delete "$@";;
-            *)
-                dotpy_activate "$arg";;
-        esac
-    else
-        dotpy_help
-    fi
+dot_pyenv() {
+    local arg="$1"
+    shift
+
+    case "$arg" in
+        ""|-h|--help)
+            dot_pyenv_help
+            ;;
+        a|activate)
+            dot_pyenv_activate "$@"
+            ;;
+        d|deactivate)
+            deactivate
+            ;;
+        m|make)
+            dot_pyenv_make "$@"
+            ;;
+        x|delete)
+            dot_pyenv_delete "$@"
+            ;;
+        *)
+            dot_pyenv_activate "$arg"
+            ;;
+    esac
 }
 
-function dotpy_activate {
+dot_pyenv_activate() {
     if [[ -z "$1" ]]; then
         echo "Error: missing name argument."
         return 1
@@ -82,15 +85,7 @@ function dotpy_activate {
     fi
 }
 
-function dotpy_try_activate {
-    local name="$1"
-    local script=$DOT_PYENVS/$name/bin/activate
-    if [[ -e $script ]]; then
-        source $script
-    fi
-}
-
-function dotpy_make {
+dot_pyenv_make() {
     if [[ -z "$1" ]]; then
         echo "Error: missing name argument."
         return 1
@@ -119,10 +114,10 @@ function dotpy_make {
 
     which python3
     python3 --version
-    python3 -m venv $path && dotpy_activate $name
+    python3 -m venv $path && dot_pyenv_activate $name
 }
 
-function dotpy_delete {
+dot_pyenv_delete() {
     if [[ $# -eq 0 ]]; then
         echo "Error: missing name argument(s)."
         return 1

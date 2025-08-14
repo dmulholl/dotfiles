@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Admin functions for the `dot` command.
+# Dot commands.
 # ------------------------------------------------------------------------------
 
 dot_help() {
@@ -25,28 +25,32 @@ Flags:
   -h, --help    Print this help text and exit.
 
 Utility Commands:
-  backup        Runs a backup script.
-  clean         Deletes build artifacts from the current directory.
-  env           Loads environment variables from ~/.env/.
-  fix           Runs a fix command.
-  init          Initializes a new project directory from a template.
-  keys          Lists keyboard shortcuts.
-  path          Prints PATH entries.
-  prompt        Sets the shell prompt.
-  prune         Deletes git branches.
+  backup        Run a backup script.
+  clean         Delete build artifacts from the current directory.
+  env           Load environment variables from ~/.env/.
+  fix           Run a fix command.
+  init          Initialize a new project directory from a template.
+  keys          List keyboard shortcuts.
+  path          Print PATH entries.
+  prompt        Set the shell prompt.
+  prune         Delete git branches.
+  pyenv         Manage Python environments.
 
 Admin Commands:
-  dot           Prints the dotfiles installation command.
-  install       Installs/reinstalls the dotfiles.
-  link          Links all files in ~/.dotfiles/link/ into ~/.
-  source        Sources all files in ~/.dotfiles/source/. Alias '.'.
+  dot           Print the dotfiles installation command.
+  install       Re-run the dotfiles installation routine.
+  link          Link all files in ~/.dotfiles/link/ into ~/.
+  source        Source all files in ~/.dotfiles/source/. Alias '.'.
 EOF
 }
 
 dot() {
     local cmd="$1"
     shift
+
     case "$cmd" in
+        ""|-h|--help)
+            dot_help;;
         dot)
             dot_dot "$@";;
         env)
@@ -63,6 +67,8 @@ dot() {
             dot_prompt "$@";;
         prune)
             dot_prune "$@";;
+        pyenv)
+            dot_pyenv "$@";;
         source|.)
             dot_source "$@";;
         init)
@@ -73,8 +79,6 @@ dot() {
             ~/.dotfiles/commands/keys "$@";;
         clean)
             ~/.dotfiles/commands/clean "$@";;
-        ""|-h|--help)
-            dot_help;;
         *)
             echo "Error: invalid command."
             return 1
