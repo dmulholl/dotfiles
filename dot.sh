@@ -198,7 +198,6 @@ dot_install() {
     source ~/.dotfiles/dot.sh
     dot_source
     dot_link
-    dotpy_try_activate base
 }
 
 dot_env_help() {
