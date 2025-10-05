@@ -19,10 +19,10 @@ export HISTCONTROL="ignorespace:ignoredups"
 export HISTTIMEFORMAT="%h %d %H:%M  "
 
 # Maximum number of commands stored in memory while a Bash session is ongoing.
-export HISTSIZE=10000
+export HISTSIZE=25000
 
 # Maximum number of lines stored in the history file.
-export HISTFILESIZE=25000
+export HISTFILESIZE=100000
 
 # `history -a` appends new history lines from the currrent history list to the history file.
 # `history -n` loads new lines from the history file into the current history list.

@@ -2,4 +2,4 @@
 # Bash completion.
 # ------------------------------------------------------------------------------
 
-complete -W "backup env fix init link path prompt source template" dot
+complete -W "backup clean dot env fix init install keys link path prompt prune pyenv source" dot
