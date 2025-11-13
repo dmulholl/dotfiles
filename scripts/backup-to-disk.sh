@@ -44,6 +44,7 @@ rsync -av --delete                          \
     --exclude "/.swiftpm"                   \
     --exclude "/dev/tmp"                    \
     --exclude "/dev/go"                     \
+    --exclude '/dev/*/maps/raw'             \
     --exclude "/Library"                    \
     --exclude "/Downloads"                  \
     --exclude "/Applications"               \
