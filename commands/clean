@@ -5,7 +5,10 @@ print_help() {
     cat <<EOF
 Usage: dot clean <type>
 
-  Deletes build artifacts from the current directory.
+  Deletes junk files and build artifacts from the current directory tree.
+
+  Run without a <type> to delete junk files like .DS_Store, etc. Add a <type>
+  to also delete files of that type.
 
 Flags:
   -h, --help    Print this help text and exit.
@@ -16,31 +19,23 @@ Types:
 EOF
 }
 
-if test "$#" = 0 || test "$1" = "--help" || test "$1" = "-h"; then
-    print_help
-    exit 0
-fi
+clean_default() {
+    find . -name ".DS_Store" -delete
+    find . -name "._.DS_Store" -delete
+    find . -name "._*" -delete
+    find . -name ".*.swp" -delete
+}
 
-if test "$#" -gt 1; then
-    print_help
-    exit 1
-fi
-
-find . -name ".DS_Store" -delete
-find . -name "._.DS_Store" -delete
-find . -name "._*" -delete
-find . -name ".*.swp" -delete
-
-if test "$1" == "python" || test "$1" == "py"; then
+clean_python() {
     find . -name "*.egg-info" -exec rm -r "{}" +
     find . -name "__pycache__" -exec rm -r "{}" +
     find . -name ".pytest_cache" -exec rm -r "{}" +
     find . -name "*.pyc" -delete
     find . -name "dist" -exec rm -r "{}" +
     find . -name "build" -exec rm -r "{}" +
-fi
+}
 
-if test "$1" == "latex"; then
+clean_latex() {
     find . -name "*.aux" -delete
     find . -name "*.toc" -delete
     find . -name "*.out" -delete
@@ -53,4 +48,31 @@ if test "$1" == "latex"; then
     find . -name "*.fdb_latexmk" -delete
     find . -name "*.bbl" -delete
     find . -name "*.blg" -delete
+}
+
+if test "$#" -eq 0 ; then
+    clean_default
+    exit 0
+fi
+
+if test "$#" -gt 1; then
+    print_help
+    exit 1
+fi
+
+if test "$1" = "--help" || test "$1" = "-h"; then
+    print_help
+    exit 0
+fi
+
+if test "$1" == "python" || test "$1" == "py"; then
+    clean_default
+    clean_python
+    exit 0
+fi
+
+if test "$1" == "latex"; then
+    clean_default
+    clean_latex
+    exit 0
 fi
