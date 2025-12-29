@@ -55,6 +55,11 @@ if test -d "/usr/local/opt/coreutils/libexec/gnubin"; then
     PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
 fi
 
+# Homebrew util-linux binaries (Apple silicon).
+if test -d "/opt/homebrew/opt/util-linux/bin"; then
+    PATH="$PATH:/opt/homebrew/opt/util-linux/bin"
+fi
+
 # Homebrew Postgres installation.
 if test -d "/opt/homebrew/opt/postgresql@17/bin"; then
     PATH="$PATH:/opt/homebrew/opt/postgresql@17/bin"

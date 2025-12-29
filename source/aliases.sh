@@ -110,6 +110,7 @@ alias safari="open -a Safari"
 # Miscellanea.
 alias mkdir="mkdir -p"
 alias serve="python3 -m http.server 8080"
+alias cal="cal -3 --monday"
 
 # Go.
 alias gt="go test ./..."
