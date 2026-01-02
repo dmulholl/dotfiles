@@ -114,7 +114,7 @@ dot_pyenv_make() {
 
     which python3
     python3 --version
-    python3 -m venv $path && dot_pyenv_activate $name
+    python3 -m venv --copies --upgrade-deps $path && dot_pyenv_activate $name
 }
 
 dot_pyenv_delete() {
