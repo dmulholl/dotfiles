@@ -39,7 +39,7 @@ rsync -av --delete                          \
     --exclude "/.Trashes"                   \
     --exclude "/.[Tt]rash"                  \
     --exclude "/.cache"                     \
-    --exclude "/.pyenvs"                    \
+    --exclude "/.dotpyenvs"                 \
     --exclude "/.cargo"                     \
     --exclude "/.swiftpm"                   \
     --exclude "/dev/tmp"                    \

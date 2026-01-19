@@ -23,11 +23,11 @@ ulimit -n 4096
 # Run rsync in mirroring mode.
 rsync -av --delete \
     --exclude ".Spotlight*" \
+    --exclude ".DS_Store" \
+    --exclude ".DocumentRevisions*" \
     --exclude ".Trashes" \
     --exclude ".[Tt]rash" \
     --exclude ".fseventd" \
     --exclude ".fseventsd" \
-    --exclude ".DS_Store" \
     --exclude ".TemporaryItems" \
-    --exclude ".DocumentRevisions*" \
     -- "$src" "$dst"

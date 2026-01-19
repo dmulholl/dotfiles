@@ -25,12 +25,13 @@ borg create --stats ::'{user}-{utcnow}' \
     ~/.ssh                              \
     ~/.aws                              \
     ~/.vscode                           \
+    --exclude "*.Spotlight*"            \
+    --exclude "*.DS_Store"              \
+    --exclude "*.DocumentRevisions*"    \
     --exclude '*.pyc'                   \
     --exclude '*/__pycache__'           \
-    --exclude '*.Spotlight*'            \
     --exclude '*.fseventd'              \
     --exclude '*.fseventsd'             \
-    --exclude '*.DS_Store'              \
     --exclude '*.localized'             \
     --exclude '*.osm.pbf'               \
     --exclude '~/dev/tmp'               \
