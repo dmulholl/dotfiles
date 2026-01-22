@@ -190,7 +190,9 @@ jj() {
         notes)
             cd ~/dev/notes;;
         src)
-            cd ~/dev/src;;
+            cd ~/dev/code;;
+        code)
+            cd ~/dev/code;;
         tmp)
             cd ~/dev/tmp;;
         vay)
