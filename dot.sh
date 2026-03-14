@@ -27,7 +27,7 @@ Flags:
 Utility Commands:
   backup        Run a backup script.
   clean         Delete build artifacts from the current directory.
-  env           Load environment variables from ~/.env/.
+  env           Load environment variables from ~/.dotlocal/env/.
   fix           Run a fix command.
   init          Initialize a new project directory from a template.
   keys          List keyboard shortcuts.
