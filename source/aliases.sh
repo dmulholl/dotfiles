@@ -110,6 +110,8 @@ alias safari="open -a Safari"
 # Miscellanea.
 alias mkdir="mkdir -p"
 alias serve="python3 -m http.server 8080"
+
+# Calender: brew install util-linux
 alias cal="cal -3 --monday"
 
 # Go.
