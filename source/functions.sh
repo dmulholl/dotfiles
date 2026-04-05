@@ -51,7 +51,7 @@ is_command() {
 # Tests if the argument is an executable script, binary, or symlink on PATH.
 is_executable() {
     if which "$1" &> /dev/null; then
-        if [[ -x "$(which "$1")" ]]; then
+        if test -x "$(which "$1")"; then
             return 0
         fi
     fi
@@ -60,7 +60,7 @@ is_executable() {
 
 # Creates one or more empty files.
 mkf() {
-    if test -z "$1" || test "$1" == "-h" || test "$1" == "--help"; then
+    if test -z "$1" || test "$1" = "-h" || test "$1" = "--help"; then
         printf "Usage: mkf <path> [<path>...]\n\n  Creates an empty file at <path>. Creates parent directories if required.\n"
         return 0
     fi
@@ -78,7 +78,7 @@ mkf() {
 
 # Creates one or more directories.
 mkd() {
-    if test -z "$1" || test "$1" == "-h" || test "$1" == "--help"; then
+    if test -z "$1" || test "$1" = "-h" || test "$1" = "--help"; then
         printf "Usage: mkd <path> [<path>...]\n\n  Creates a directory at <path>. Creates parent directories if required.\n"
         return 0
     fi
@@ -90,7 +90,7 @@ mkd() {
 
 # Creates a directory and sets it as the current directory.
 mkcd() {
-    if test -z "$1" || test "$1" == "-h" || test "$1" == "--help"; then
+    if test -z "$1" || test "$1" = "-h" || test "$1" = "--help"; then
         printf "Usage: mkcd <path>\n\n  Creates a directory at <path> and sets it as the current directory.\n  Creates parent directories if required.\n"
         return 0
     fi
@@ -158,22 +158,22 @@ confirm() {
 
 # Create a new git tag.
 tag() {
-    if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    if test "$1" = "-h" || test "$1" = "--help"; then
         echo "Usage: tag "
         echo "       tag <tagname>"
         echo "       tag <tagname> <commit>"
         return
     fi
 
-    if [ $# -eq 0 ]; then
+    if test $# -eq 0; then
         git tag
     fi
 
-    if [ $# -eq 1 ]; then
+    if test $# -eq 1; then
         git tag -am "Version $1" "$1"
     fi
 
-    if [ $# -eq 2 ]; then
+    if test $# -eq 2; then
         git tag -am "Version $1" "$1" "$2"
     fi
 }

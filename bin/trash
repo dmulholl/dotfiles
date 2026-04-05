@@ -6,25 +6,24 @@ set -euo pipefail
 # and directories to the trash directory, $HOME/.trash/.
 # ------------------------------------------------------------------------------
 
-# The ~/.trash directory exists on OSX. We may need to create it on other
-# systems.
-if [[ ! -e "$HOME/.trash" ]]; then
+# The ~/.trash directory exists on OSX. We may need to create it on other systems.
+if test ! -e "$HOME/.trash"; then
     mkdir "$HOME/.trash"
 fi
 
 # Move all our arguments to the trash directory.
 for arg in "$@"; do
-    if [[ "$arg" == "." || "$arg" == ".." ]]; then
+    if test "$arg" = "." || test "$arg" = ".."; then
         continue
     fi
 
-    if [[ ! -e "$arg" ]]; then
-        echo "Error: '$arg' does not exist."
+    if test ! -e "$arg"; then
+        echo "error: '$arg' does not exist"
         continue
     fi
 
     base=$(basename "$arg")
-    while [[ -e "$HOME/.trash/$base" ]]; do
+    while test -e "$HOME/.trash/$base"; do
         base="$base.$(date "+%Y-%m-%d.%H-%M-%S")"
     done
 
