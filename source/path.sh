@@ -64,6 +64,11 @@ if test -d "/opt/homebrew/opt/postgresql@17/bin"; then
     PATH="$PATH:/opt/homebrew/opt/postgresql@17/bin"
 fi
 
+# Homebrew curl installation.
+if test -d "/opt/homebrew/opt/curl/bin"; then
+    PATH="$PATH:/opt/homebrew/opt/curl/bin"
+fi
+
 # Macports binaries.
 # if test -d "/opt/local/bin"; then
 #     PATH="$PATH:/opt/local/bin:/opt/local/sbin"
