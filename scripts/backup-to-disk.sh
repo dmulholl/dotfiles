@@ -29,7 +29,7 @@ fi
 ulimit -n 4096
 
 # Run rsync in mirroring mode.
-rsync -av --delete                          \
+rsync -av --delete --delete-excluded        \
     --exclude ".DS_Store"                   \
     --exclude ".Spotlight*"                 \
     --exclude ".fseventd"                   \
@@ -44,7 +44,7 @@ rsync -av --delete                          \
     --exclude "/.swiftpm"                   \
     --exclude "/dev/tmp"                    \
     --exclude "/dev/go"                     \
-    --exclude '/dev/*/maps/raw'             \
+    --exclude "/dev/maps"                   \
     --exclude "/Library"                    \
     --exclude "/Downloads"                  \
     --exclude "/Applications"               \
