@@ -15,12 +15,12 @@ Flags:
 EOF
 }
 
-if test "$#" = 0 || test "$1" = "--help" || test "$1" = "-h"; then
+if test $# -eq 0 || test "$1" = "--help" || test "$1" = "-h"; then
     print_help
     exit 0
 fi
 
-if test "$#" -gt 1; then
+if test $# -gt 1; then
     print_help
     exit 1
 fi
