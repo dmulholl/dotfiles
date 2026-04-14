@@ -10,20 +10,20 @@ Usage: dot backup <command>
 Flags:
   -h, --help            Print this help text and exit.
 
-Level 1 Commands:
-  alpha                 Backup HOME to Alpha (SSD).
-  beta                  Backup HOME to Beta (DHD).
-  borg                  Backup HOME to Borg.
+Level 1:
+  alpha                 Backup to Alpha (SSD).
+  beta                  Backup to Beta (DHD).
+  borg                  Backup to Borg.
 
-Level 2 Commands:
+Level 2:
   a2b, alpha2beta       Backup Alpha (SSD) to Beta (DHD).
   b2g, beta2gamma       Backup Beta (DHD) to Gamma (PHD).
 
-Level 3 Commands:
-  b2k, beta2kappa       Backup  Beta (DHD) to Kappa (PHD).
-  b2i, beta2iota        Backup  Beta (DHD) to Iota (PHD).
+Level 3:
+  b2k, beta2kappa       Backup Beta (DHD) to Kappa (PHD).
+  b2i, beta2iota        Backup Beta (DHD) to Iota (PHD).
 
-Admin Commands:
+Admin:
   init-borg             Initialize a new Borg repository.
 EOF
 }
