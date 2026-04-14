@@ -13,7 +13,7 @@ dst="/Volumes/Gamma"
 
 # Check the destination directory exists.
 if test ! -d $dst; then
-    echo "Error: cannot locate $dst."
+    echo "error: cannot locate $dst"
     exit 1
 fi
 
@@ -21,7 +21,7 @@ fi
 ulimit -n 4096
 
 # Run rsync in mirroring mode.
-rsync -av --delete \
+rsync -av --delete --delete-excluded \
     --exclude ".Spotlight*" \
     --exclude ".DS_Store" \
     --exclude ".DocumentRevisions*" \

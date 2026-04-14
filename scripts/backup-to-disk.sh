@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set -euo pipefail
 
-if test "$#" != "1"; then
-    echo "Error: expected 1 argument (the backup disk name), found $#."
+if test $# -ne 1; then
+    echo "error: expected 1 argument (the backup disk name), found $#"
     exit 1
 fi
-
-disk_name="$1"
-termtitle green "Rsync: ${HOME} --> ${disk_name}:${backup_name}"
 
 backup_name=$(hostname -s | tr '[:upper:]' '[:lower:]')
 if test -n "$DOT_BACKUP_NAME"; then
     backup_name="$DOT_BACKUP_NAME"
 fi
+
+disk_name="$1"
+termtitle green "Rsync: ${HOME} --> ${disk_name}::${backup_name}"
 
 # The slash at the end means copy the contents of the directory.
 src="${HOME}/"
