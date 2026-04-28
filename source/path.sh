@@ -20,6 +20,11 @@ if test -d "$HOME/dev/bin"; then
     PATH="$PATH:$HOME/dev/bin"
 fi
 
+# $HOME/.local binaries.
+if test -d "$HOME/.local/bin"; then
+    PATH="$PATH:$HOME/.local/bin"
+fi
+
 # Go binaries.
 if test -d "$HOME/dev/go/bin"; then
     PATH="$PATH:$HOME/dev/go/bin"
