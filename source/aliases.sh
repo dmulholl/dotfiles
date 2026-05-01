@@ -65,8 +65,6 @@ alias gd="git diff"
 alias gds="git diff --staged"
 alias gs="git status --short --branch"
 alias gb="git branch"
-alias gco="git checkout"
-alias gpl="git pull"
 
 alias gc="git commit"
 alias gcm="git commit -m"
@@ -99,6 +97,7 @@ alias t5="tree -F -L 5"
 alias tta="tree -F -a"
 alias tts="tree -F -h"
 alias ttas="tree -F -a -h"
+alias ttsa="tree -F -a -h"
 
 # Sudo: preserve the existing shell environment; same as -E.
 alias sudo="sudo --preserve-env"
