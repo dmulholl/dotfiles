@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Push a new branch to the remote.
+
 branch_name=$(git branch --show-current)
 
 if test "$branch_name" = "master" || test "$branch_name" = "main"; then
@@ -13,5 +15,5 @@ if git ls-remote --exit-code origin "$branch_name" > /dev/null; then
     exit 1
 fi
 
-echo "pushing to new branch '$branch_name'"
+echo "pushing new branch '$branch_name'"
 git push --set-upstream origin $branch_name

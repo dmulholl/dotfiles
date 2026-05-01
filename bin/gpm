@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Shortcut for 'git push' when pushing to master/main.
+
+branch_name=$(git branch --show-current)
+
+if test "$branch_name" != "master" && test "$branch_name" != "main"; then
+    echo "error: not in master/main, branch is '$branch_name', use gp to push anyway"
+    exit 1
+fi
+
+git push && git push --tags
