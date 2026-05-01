@@ -80,6 +80,8 @@ alias gcaw="git commit -am WIP"
 alias gl="git log --oneline --graph -25"
 alias gll="git log --oneline --graph -45"
 
+alias gpt="git push --tags"
+
 # Listings.
 alias ls="ls -F"
 alias ls1="ls -F1"
