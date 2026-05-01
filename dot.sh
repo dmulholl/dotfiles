@@ -98,7 +98,7 @@ EOF
 }
 
 dot_source() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if test "$1" = "-h" || test "$1" = "--help"; then
         dot_source_help
         return 0
     fi
@@ -137,7 +137,7 @@ EOF
 }
 
 dot_link() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if test "$1" = "-h" || test "$1" = "--help"; then
         dot_link_help
         return 0
     fi
@@ -185,12 +185,12 @@ EOF
 }
 
 dot_install() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if test "$1" = "-h" || test "$1" = "--help"; then
         dot_install_help
         return 0
     fi
 
-    if [[ "$1" == "-c" || "$1" == "--command" ]]; then
+    if test "$1" = "-c" || test "$1" = "--command"; then
         echo "git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles && source ~/.dotfiles/install.sh"
         return 0
     fi
@@ -214,7 +214,7 @@ EOF
 }
 
 dot_env() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if test "$1" = "-h" || test "$1" = "--help"; then
         dot_env_help
         return 0
     fi
@@ -224,7 +224,7 @@ dot_env() {
         return 1
     fi
 
-    if [[ "$1" == "-v" || "$1" == "--view" ]]; then
+    if test "$1" = "-v" || test "$1" = "--view"; then
         local leading_newline=""
         for file in $HOME/.dotlocal/env/*.sh; do
             if [[ -e "$file" ]]; then
@@ -236,7 +236,7 @@ dot_env() {
         return 0
     fi
 
-    if [[ "$1" == "-l" || "$1" == "--list" || "$1" == "" ]]; then
+    if test "$1" = "-l" || test "$1" = "--list" || test "$1" = ""; then
         pushd "$HOME/.dotlocal/env" > /dev/null
         for file in *.sh; do
             if test -e "$file"; then
@@ -312,7 +312,7 @@ EOF
 }
 
 dot_path() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if test "$1" = "-h" || test "$1" = "--help"; then
         dot_path_help
         return 0
     fi
@@ -336,12 +336,12 @@ EOF
 }
 
 dot_prune() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if test "$1" = "-h" || test "$1" = "--help"; then
         dot_prune_help
         return 0
     fi
 
-    if [ "$1" = "-p" ] || [ "$1" = "--prune" ]; then
+    if test "$1" = "-p" || test "$1" = "--prune"; then
         git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]' | xargs git branch -D
         return 0
     fi
@@ -362,7 +362,7 @@ EOF
 }
 
 dot_dot() {
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if test "$1" = "-h" || test "$1" = "--help"; then
         dot_dotfiles_help
         return 0
     fi
