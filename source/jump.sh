@@ -2,9 +2,16 @@
 # Jump functions.
 # ------------------------------------------------------------------------------
 
-# Jump to a fuzzily-selected directory.
+# Jumps to a directory.
 jj() {
     case "$1" in
+        -h|--help)
+            echo "Usage: jj [target]"
+            echo ""
+            echo "  - Jumps to a fuzzily-selected target directory from location history."
+            echo "  - If no target is specified, interactively searches the history."
+            echo "  - If the target is '.', interactively searches the current directory."
+            ;;
         bin)
             cd ~/dev/bin;;
         dev)
@@ -24,22 +31,37 @@ jj() {
         vim)
             cd ~/.vim;;
         "")
-            jh;;
+            ji;;
+        ".")
+            jd;;
         *)
             z "$@";;
     esac
 }
 
-# Jump to a fuzzily-selected directory from directory-history.
-jh() {
-    local target="$(z | tr -s ' ' | cut -d ' ' -f 2 | fzf --height 50%)"
+# Interactively jumps to a directory from location history.
+ji() {
+    if test "$1" = "-h" || test "$1" = "--help"; then
+        echo "Usage: ji"
+        echo ""
+        echo "  - Interactively jumps to a directory from location history."
+    fi
+
+    local target="$(z | awk '{print $2}' | fzf --height 50%)"
+
     if test ! -z "$target"; then
         cd "$target"
     fi
 }
 
-# Jump to a fuzzily-selected directory under the current working directory.
+# Interactively jumps to a directory under the current working directory.
 jd() {
+    if test "$1" = "-h" || test "$1" = "--help"; then
+        echo "Usage: jd"
+        echo ""
+        echo "  - Interactively jumps to a directory under the current working directory."
+    fi
+
     if is_executable fd; then
         local target="$(fd --type d --exclude 'Library' | fzf --height 50%)"
         if test ! -z "$target"; then
@@ -62,36 +84,8 @@ jd() {
     fi
 }
 
-# Jump to a fuzzily-selected file under the current working directory.
+# Interactively jumps to a file under the current working directory.
 # This just prints the filename.
 jf() {
     fzf --height 50%
-}
-
-# Jump to a fuzzily-selected file under the current working directory.
-# This opens the file in Vim.
-jv() {
-    local name="$(fzf --height 50%)"
-
-    if test ! -z "$name"; then
-        vim "$name"
-    fi
-}
-
-# Jump to a fuzzily-selected note.
-# This opens the note in Vim.
-jn() {
-    if test ! -d "$HOME/dev/notes"; then
-        mkdir -p "$HOME/dev/notes"
-    fi
-
-    local lastdir="$(pwd)"
-    cd "$HOME/dev/notes"
-    local name="$(fzf --height 50%)"
-
-    if test ! -z "$name"; then
-        vim "$name"
-    else
-        cd "$lastdir"
-    fi
 }
