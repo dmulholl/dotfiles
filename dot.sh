@@ -107,6 +107,7 @@ dot_source() {
     source ~/.dotfiles/source/z.sh
     source ~/.dotfiles/source/colours.sh
     source ~/.dotfiles/source/functions.sh
+    source ~/.dotfiles/source/jump.sh
     source ~/.dotfiles/source/options.sh
     source ~/.dotfiles/source/path.sh
     source ~/.dotfiles/source/aliases.sh

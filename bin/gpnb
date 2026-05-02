@@ -16,6 +16,6 @@ if git ls-remote --exit-code origin "$branch_name" > /dev/null; then
 fi
 
 remote=$(git config --get remote.origin.url)
-echo "pushing new branch $branch_name to $remote"
+echo "gpnb: pushing new branch $branch_name to $remote"
 
 git push --set-upstream origin $branch_name
