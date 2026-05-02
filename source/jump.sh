@@ -2,16 +2,29 @@
 # Jump functions.
 # ------------------------------------------------------------------------------
 
+print_jj_help() {
+    cat <<EOF
+Usage: jj [target]
+
+  - Jumps to a fuzzily-selected target directory from location history.
+  - If no target is specified, interactively searches the history.
+  - If the target is '.', interactively searches the current directory.
+
+Flags:
+  -h, --help        Print this help text and exit.
+
+Also:
+  jd        Interactively jumps to a directory under the current directory.
+  jf        Interactively finds a file under the current directory.
+  ji        Interactively jumps to a directory from location history.
+EOF
+}
+
 # Jumps to a directory.
 jj() {
     case "$1" in
         -h|--help)
-            echo "Usage: jj [target]"
-            echo ""
-            echo "  - Jumps to a fuzzily-selected target directory from location history."
-            echo "  - If no target is specified, interactively searches the history."
-            echo "  - If the target is '.', interactively searches the current directory."
-            ;;
+            print_jj_help;;
         bin)
             cd ~/dev/bin;;
         dev)
