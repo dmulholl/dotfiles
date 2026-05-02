@@ -45,6 +45,7 @@ ji() {
         echo "Usage: ji"
         echo ""
         echo "  - Interactively jumps to a directory from location history."
+        return 0
     fi
 
     local target="$(z | awk '{print $2}' | fzf --height 50%)"
@@ -60,6 +61,7 @@ jd() {
         echo "Usage: jd"
         echo ""
         echo "  - Interactively jumps to a directory under the current working directory."
+        return 0
     fi
 
     if is_executable fd; then
@@ -85,7 +87,15 @@ jd() {
 }
 
 # Interactively jumps to a file under the current working directory.
-# This just prints the filename.
+# This just prints the file path.
 jf() {
+    if test "$1" = "-h" || test "$1" = "--help"; then
+        echo "Usage: jf"
+        echo ""
+        echo "  - Interactively jumps to a file under the current working directory."
+        echo "    (This just prints the file path.)"
+        return 0
+    fi
+
     fzf --height 50%
 }
