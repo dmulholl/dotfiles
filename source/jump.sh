@@ -14,9 +14,9 @@ Flags:
   -h, --help        Print this help text and exit.
 
 Also:
-  jd        Interactively jumps to a directory under the current directory.
-  jf        Interactively finds a file under the current directory.
-  ji        Interactively jumps to a directory from location history.
+  jd    Interactively jumps to a directory under the current directory.
+  jf    Interactively finds a file under the current directory.
+  ji    Interactively jumps to a directory from location history.
 EOF
 }
 
