@@ -7,7 +7,7 @@ print_jj_help() {
 Usage: jj [target]
 
   - Jumps to a fuzzily-selected target directory from location history.
-  - If no target is specified, interactively searches the history.
+  - If no target is specified, interactively searches location history.
   - If the target is '.', interactively searches the current directory.
 
 Flags:
@@ -39,8 +39,6 @@ jj() {
             cd ~/dev/code;;
         tmp)
             cd ~/dev/tmp;;
-        vay)
-            cd ~/dev/vay;;
         vim)
             cd ~/.vim;;
         "")
