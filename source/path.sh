@@ -49,13 +49,10 @@ if test -d "/opt/homebrew/bin"; then
     PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
 fi
 
-# Homebrew coreutils binaries without the 'g' prefix (Apple silicon).
+# Homebrew coreutils binaries without the 'g' prefix.
 if test -d "/opt/homebrew/opt/coreutils/libexec/gnubin"; then
     PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
-fi
-
-# Homebrew coreutils binaries without the 'g' prefix.
-if test -d "/usr/local/opt/coreutils/libexec/gnubin"; then
+elif test -d "/usr/local/opt/coreutils/libexec/gnubin"; then
     PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
 fi
 
