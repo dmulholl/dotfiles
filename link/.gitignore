@@ -46,3 +46,6 @@ __pycache__/
 # Python build files.
 /dist/
 /*.egg-info
+
+# Agents.
+**/.claude/settings.local.json
