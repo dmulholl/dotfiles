@@ -1,6 +1,6 @@
 //go:build integration
 
-package internalpkg
+package intpkg
 
 import (
 	"testing"

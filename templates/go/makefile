@@ -12,17 +12,29 @@ all: ## Builds all command binaries.
 			go build -o ./build/$$cmd ./cmd/$$cmd; \
 		done
 
-.PHONY: build
-build: ## Builds the primary application binary.
-	go build -o ./build/app ./cmd/app
+.PHONY: service
+service: ## Builds the service binary.
+	go build -o ./build/service ./cmd/service
 
-.PHONY: run
-run: ## Builds and runs the primary application binary.
-	go run ./cmd/app
+.PHONY: run-service
+run-service: ## Builds and runs the service binary.
+	go run ./cmd/service
 
-.PHONY: install
-install: ## Builds and installs the primary application binary.
-	go install ./cmd/app
+.PHONY: install-service
+install-service: ## Builds and installs the service binary.
+	go install ./cmd/service
+
+.PHONY: script
+script: ## Builds the script binary.
+	go build -o ./build/script ./cmd/script
+
+.PHONY: run-script
+run-script: ## Builds and runs the script binary.
+	go run ./cmd/script
+
+.PHONY: install-script
+install-script: ## Builds and installs the script binary.
+	go install ./cmd/script
 
 .PHONY: test
 test: ## Runs unit tests.
@@ -43,3 +55,4 @@ test-integration-verbose: ## Runs unit and integration tests verbosely.
 .PHONY: clean
 clean: ## Deletes all build artifacts.
 	@rm -rf ./build
+	@go clean ./...

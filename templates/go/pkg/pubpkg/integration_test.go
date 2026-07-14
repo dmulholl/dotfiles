@@ -1,6 +1,6 @@
 //go:build integration
 
-package publicpkg
+package pubpkg
 
 import (
 	"testing"
