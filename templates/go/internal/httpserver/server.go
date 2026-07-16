@@ -114,8 +114,6 @@ func (s *Server) HandleNotFound(w http.ResponseWriter, r *http.Request) {
 func writeJSON(w http.ResponseWriter, statusCode int, v any) {
 	body, err := json.Marshal(v)
 	if err != nil {
-		// This should not happen for the types we marshal, but if it does we
-		// still return a well-formed JSON error rather than a partial response.
 		log.Printf("error: failed to marshal response: %s", err)
 		body = []byte(`{"status":"error","error":"internal server error"}`)
 		statusCode = http.StatusInternalServerError
