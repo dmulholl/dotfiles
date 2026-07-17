@@ -28,9 +28,9 @@ borg create --stats ::'{user}-{utcnow}' \
     --exclude "*.fseventsd"             \
     --exclude "*.localized"             \
     --exclude "*.osm.pbf"               \
-    --exclude "~/dev/tmp"               \
-    --exclude "~/dev/go"                \
-    --exclude "~/dev/maps"              \
-    --exclude "~/.config/borg"
+    --exclude "$HOME/dev/tmp"           \
+    --exclude "$HOME/dev/go"            \
+    --exclude "$HOME/dev/maps"          \
+    --exclude "$HOME/.config/borg"
 
 borg prune --keep-daily 7 --keep-weekly 4 --keep-monthly 12
