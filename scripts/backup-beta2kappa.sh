@@ -12,7 +12,7 @@ src="/Volumes/Beta/"
 dst="/Volumes/Kappa/Backups/Beta"
 
 # Check the destination directory exists.
-if test ! -d $dst; then
+if test ! -d "$dst"; then
     echo "error: cannot locate $dst"
     exit 1
 fi
@@ -21,7 +21,7 @@ fi
 ulimit -n 4096
 
 # Run rsync in mirroring mode.
-rsync -av --delete --delete-excluded \
+rsync -av --delete \
     --exclude ".Spotlight*" \
     --exclude ".DS_Store" \
     --exclude ".DocumentRevisions*" \

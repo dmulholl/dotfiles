@@ -7,7 +7,7 @@ if test $# -ne 1; then
 fi
 
 backup_name=$(hostname -s | tr '[:upper:]' '[:lower:]')
-if test -n "$DOT_BACKUP_NAME"; then
+if test -v DOT_BACKUP_NAME; then
     backup_name="$DOT_BACKUP_NAME"
 fi
 
@@ -20,7 +20,7 @@ src="${HOME}/"
 # A slash at the end can cause problems when copying to the root of a drive.
 dst="/Volumes/${disk_name}/Backups/${backup_name}"
 
-if test ! -d $dst; then
+if test ! -d "$dst"; then
     echo "Error: cannot locate $dst."
     exit 1
 fi
@@ -29,7 +29,7 @@ fi
 ulimit -n 4096
 
 # Run rsync in mirroring mode.
-rsync -av --delete --delete-excluded        \
+rsync -av --delete        \
     --exclude ".DS_Store"                   \
     --exclude ".Spotlight*"                 \
     --exclude ".fseventd"                   \
