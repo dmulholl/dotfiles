@@ -7,7 +7,12 @@ import shutil
 import sys
 import math
 
-helptext = "Usage: termtitle [line-color] [text-color] <text>"
+helptext = """
+Usage:
+  termtitle <text>
+  termtitle <line-color> <text>
+  termtitle <line-color> <text-color> <text>
+""".strip()
 
 def get_color_code(arg):
     if arg == "black":
@@ -45,29 +50,41 @@ def get_color_code(arg):
     else:
         return "\x1B[38;5;%sm" % arg
 
-def parse_args():
+def parse_args(args):
     line_color = ""
     text_color = ""
-    if len(sys.argv) == 1:
-        sys.exit(helptext)
-    elif len(sys.argv) == 2:
-        text = sys.argv[1]
-    elif len(sys.argv) == 3:
-        line_color = get_color_code(sys.argv[1])
-        text = sys.argv[2]
-    elif len(sys.argv) == 4:
-        line_color = get_color_code(sys.argv[1])
-        text_color = get_color_code(sys.argv[2])
-        text = sys.argv[3]
+    text = ""
+
+    if len(args) == 1:
+        return None, None, None
+    elif len(args) == 2:
+        text = args[1]
+    elif len(args) == 3:
+        line_color = get_color_code(args[1])
+        text = args[2]
+    elif len(args) == 4:
+        line_color = get_color_code(args[1])
+        text_color = get_color_code(args[2])
+        text = args[3]
     else:
-        sys.exit(helptext)
+        return None, None, None
+
     return line_color, text_color, text
 
 def main():
-    line_color, text_color, text = parse_args()
+    if "-h" in sys.argv or "--help" in sys.argv:
+        print(helptext)
+        sys.exit()
+
+    line_color, text_color, text = parse_args(sys.argv)
+
+    if line_color is None:
+        sys.exit(helptext)
+
     cols, _ = shutil.get_terminal_size()
     leading = math.floor((cols - len(text) - 4)/2)
     trailing = cols - len(text) - 4 - leading
+
     sys.stdout.write(line_color)
     sys.stdout.write("─" * cols + "\n ·" + "\x1B[39m")
     sys.stdout.write(text_color)

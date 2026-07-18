@@ -9,13 +9,13 @@ set -euo pipefail
 #   $ ./helloworld
 # ------------------------------------------------------------------------------
 
-if [[ $# -eq 0 ]]; then
-    echo "Error: you must provide the name of a Java archive file."
+if test $# -eq 0; then
+    echo "error: you must provide the name of a Java archive file"
     exit 1
 fi
 
-if [[ ! -e "$1" ]]; then
-    echo "Error: the specified Java archive file does not exist."
+if test ! -e "$1" then
+    echo "error: the specified Java archive file does not exist"
     exit 1
 fi
 
