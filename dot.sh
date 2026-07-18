@@ -103,6 +103,7 @@ dot_source() {
         return 0
     fi
 
+    source ~/.dotfiles/dot.sh
     source ~/.dotfiles/source/env.sh
     source ~/.dotfiles/source/z.sh
     source ~/.dotfiles/source/colours.sh
@@ -143,33 +144,33 @@ dot_link() {
         return 0
     fi
 
-    # This makes a mess when * is empty.
-    # Names that don't begin with '.'.
-    # for target in ~/.dotfiles/link/*; do
-    #     local link="$HOME/$(basename $target)"
-    #     if test -e "$link"; then
-    #         if test -L "$link"; then
-    #             rm "$link"
-    #         else
-    #             echo "WARN: a file '$link' already exists, moving to '$link.dotbackup'"
-    #             mv "$link" "$link.dotbackup"
-    #         fi
-    #     fi
-    #     ln -svf $target $link
-    # done
+    for targetfile in $HOME/.dotfiles/link/* $HOME/.dotfiles/link/.*; do
+        if test "$targetfile" = "$HOME/.dotfiles/link/*"; then
+            continue
+        fi
 
-    # Names that begin with '.' (but not '.' or '..').
-    for target in ~/.dotfiles/link/.[^.]*; do
-        local link="$HOME/$(basename $target)"
-        if test -e "$link"; then
-            if test -L "$link"; then
-                rm "$link"
+        if test "$targetfile" = "$HOME/.dotfiles/link/.*"; then
+            continue
+        fi
+
+        local name=$(basename "$targetfile")
+
+        if test "$name" = "." || test "$name" = ".."; then
+            continue
+        fi
+
+        local linkfile="$HOME/$name"
+
+        if test -e "$linkfile"; then
+            if test -L "$linkfile"; then
+                rm "$linkfile"
             else
-                echo "WARN: a file '$link' already exists, moving to '$link.dotbackup'"
-                mv "$link" "$link.dotbackup"
+                echo "warning: a file '$linkfile' already exists, moving it to '$linkfile.dotbackup'"
+                mv "$linkfile" "$linkfile.dotbackup"
             fi
         fi
-        ln -svf $target $link
+
+        ln -svf $targetfile $linkfile
     done
 }
 
