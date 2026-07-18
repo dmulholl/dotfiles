@@ -211,14 +211,14 @@ dot_env() {
     fi
 
     if test ! -d "$HOME/.dotlocal/env"; then
-        echo "Error: the ~/.dotlocal/env/ directory does not exist."
+        echo "error: the ~/.dotlocal/env/ directory does not exist"
         return 1
     fi
 
     if test "$1" = "-v" || test "$1" = "--view"; then
         local leading_newline=""
         for file in $HOME/.dotlocal/env/*.sh; do
-            if [[ -e "$file" ]]; then
+            if test -e "$file"; then
                 printf "$leading_newline\e[32m· %s\e[39m\n\n" $(basename $file)
                 leading_newline="\n"
                 cat "$file"
@@ -252,7 +252,7 @@ dot_env() {
         source "$HOME/.dotlocal/env/$1.auto.sh"
         export "DOT_ENV_LOADED_${1//-/_}"="true"
     else
-        echo "Error: no file in ~/.dotlocal/env/ for '$1'."
+        echo "error: no file in ~/.dotlocal/env/ for '$1'"
         return 1
     fi
 }
@@ -285,7 +285,7 @@ dot_fix() {
             return 0
             ;;
         *)
-            echo "Error: invalid target for 'fix'."
+            echo "error: invalid target for 'fix'"
             return 1
             ;;
     esac
@@ -339,15 +339,4 @@ dot_prune() {
 
     echo "Running with -p/--prune will delete the following branches:"
     git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]'
-}
-
-dot_dotfiles_help() {
-    cat <<EOF
-Usage: dot dotfiles
-
-  Prints the dotfiles installation command.
-
-Flags:
-  -h, --help    Print this help text and exit.
-EOF
 }
