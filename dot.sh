@@ -37,10 +37,9 @@ Utility Commands:
   pyenv         Manage Python environments.
 
 Admin Commands:
-  dot           Print the dotfiles installation command.
-  install       Re-run the dotfiles installation routine.
+  install       Prints the installation command.
   link          Link all files in ~/.dotfiles/link/ into ~/.
-  source        Source all files in ~/.dotfiles/source/. Alias '.'.
+  source        Source all files in ~/.dotfiles/source/ (alias '.').
 EOF
 }
 
@@ -51,8 +50,6 @@ dot() {
     case "$cmd" in
         ""|-h|--help)
             dot_help;;
-        dot)
-            dot_dot "$@";;
         env)
             dot_env "$@";;
         fix)
@@ -178,10 +175,9 @@ dot_install_help() {
     cat <<EOF
 Usage: dot install
 
-  Initializes/re-initializes the dotfiles installation.
+  Prints the dotfiles installation command.
 
 Flags:
-  -c, --command     Print the installation command.
   -h, --help        Print this help text and exit.
 EOF
 }
@@ -192,14 +188,7 @@ dot_install() {
         return 0
     fi
 
-    if test "$1" = "-c" || test "$1" = "--command"; then
-        echo "git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles && source ~/.dotfiles/install.sh"
-        return 0
-    fi
-
-    source ~/.dotfiles/dot.sh
-    dot_source
-    dot_link
+    echo "git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles && source ~/.dotfiles/install.sh"
 }
 
 dot_env_help() {
@@ -361,13 +350,4 @@ Usage: dot dotfiles
 Flags:
   -h, --help    Print this help text and exit.
 EOF
-}
-
-dot_dot() {
-    if test "$1" = "-h" || test "$1" = "--help"; then
-        dot_dotfiles_help
-        return 0
-    fi
-
-    echo "git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles && source ~/.dotfiles/install.sh"
 }

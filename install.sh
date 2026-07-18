@@ -4,4 +4,5 @@
 # ------------------------------------------------------------------------------
 
 source ~/.dotfiles/dot.sh
-dot install
+dot source
+dot link
