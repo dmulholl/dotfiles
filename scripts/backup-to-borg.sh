@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source $HOME/.dotlocal/env/borg.sh
-
 # Increase the maximum number of files the process can have open.
 ulimit -n 4096
+
+source $HOME/.dotlocal/env/borg.sh
+
+if test ! -v BORG_REPO; then
+    echo "error: missing environment variable BORG_REPO"
+    exit 1
+fi
 
 termtitle green "Borg: ${HOME} --> ${BORG_REPO}"
 
