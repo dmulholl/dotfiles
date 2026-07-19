@@ -70,7 +70,7 @@ dot_pyenv() {
 
 dot_pyenv_activate() {
     if [[ -z "$1" ]]; then
-        echo "Error: missing name argument."
+        echo "error: missing name argument"
         return 1
     fi
 
@@ -80,14 +80,14 @@ dot_pyenv_activate() {
     if [[ -e $script ]]; then
         source $script
     else
-        echo "Error: no virtual environment named '$name'."
+        echo "error: no virtual environment named '$name'"
         return 1
     fi
 }
 
 dot_pyenv_make() {
     if [[ -z "$1" ]]; then
-        echo "Error: missing name argument."
+        echo "error: missing name argument"
         return 1
     fi
 
@@ -95,7 +95,7 @@ dot_pyenv_make() {
     local path=$DOT_PYENVS/$name
 
     if [[ -d $path ]]; then
-        echo "Error: '$name' already exists."
+        echo "error: '$name' already exists"
         return 1
     fi
 
@@ -108,7 +108,7 @@ dot_pyenv_make() {
     fi
 
     if ! is_executable python3; then
-        echo "Error: python3 is not available."
+        echo "error: python3 is not available"
         return 1
     fi
 
@@ -119,7 +119,7 @@ dot_pyenv_make() {
 
 dot_pyenv_delete() {
     if [[ $# -eq 0 ]]; then
-        echo "Error: missing name argument(s)."
+        echo "error: missing name argument(s)"
         return 1
     fi
 
@@ -128,7 +128,7 @@ dot_pyenv_delete() {
         if [[ -d $path ]]; then
             rm -rf $path
         else
-            echo "Error: no virtual environment named '$name'."
+            echo "error: no virtual environment named '$name'"
             return 1
         fi
     done

@@ -77,7 +77,7 @@ dot() {
         clean)
             ~/.dotfiles/commands/clean "$@";;
         *)
-            echo "Error: invalid command."
+            echo "error: invalid command"
             return 1
             ;;
     esac

@@ -28,6 +28,6 @@ fi
 if test -d "$HOME/.dotfiles/templates/$1"; then
     cp -r "$HOME/.dotfiles/templates/$1/." .
 else
-    echo "Error: no template for '$1'."
+    echo "error: no template for '$1'"
     exit 1
 fi

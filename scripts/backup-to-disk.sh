@@ -21,7 +21,7 @@ src="${HOME}/"
 dst="/Volumes/${disk_name}/Backups/${backup_name}"
 
 if test ! -d "$dst"; then
-    echo "Error: cannot locate $dst."
+    echo "error: cannot locate $dst"
     exit 1
 fi
 
