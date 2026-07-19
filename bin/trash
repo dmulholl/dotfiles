@@ -12,20 +12,23 @@ if test ! -e "$HOME/.trash"; then
 fi
 
 # Move all our arguments to the trash directory.
-for arg in "$@"; do
-    if test "$arg" = "." || test "$arg" = ".."; then
+for path in "$@"; do
+    name=$(basename "$path")
+
+    if test "$name" = "." || test "$name" = ".."; then
+        echo "warning: skipping '$name'"
         continue
     fi
 
-    if test ! -e "$arg"; then
-        echo "error: '$arg' does not exist"
+    if test ! -e "$path"; then
+        echo "error: '$path' does not exist"
         continue
     fi
 
-    base=$(basename "$arg")
-    while test -e "$HOME/.trash/$base"; do
-        base="$base.$(date "+%Y-%m-%d.%H-%M-%S")"
+
+    while test -e "$HOME/.trash/$name"; do
+        name="$name.$(date "+%Y-%m-%d.%H-%M-%S")"
     done
 
-    mv "$arg" "$HOME/.trash/$base"
+    mv "$path" "$HOME/.trash/$name"
 done
