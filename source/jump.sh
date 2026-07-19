@@ -12,11 +12,6 @@ Usage: jj [target]
 
 Flags:
   -h, --help        Print this help text and exit.
-
-Also:
-  jd    Interactively jumps to a directory under the current directory.
-  jf    Interactively finds a file under the current directory.
-  ji    Interactively jumps to a directory from location history.
 EOF
 }
 
@@ -42,39 +37,24 @@ jj() {
         vim)
             cd ~/.vim;;
         "")
-            ji;;
+            _dot_jj_directory_from_history;;
         ".")
-            jd;;
+            _dot_jj_directory_from_current;;
         *)
             z "$@";;
     esac
 }
 
 # Interactively jumps to a directory from location history.
-ji() {
-    if test "$1" = "-h" || test "$1" = "--help"; then
-        echo "Usage: ji"
-        echo ""
-        echo "  - Interactively jumps to a directory from location history."
-        return 0
-    fi
-
+_dot_jj_directory_from_history() {
     local target="$(z | awk '{print $2}' | fzf --height 50%)"
-
     if test ! -z "$target"; then
         cd "$target"
     fi
 }
 
-# Interactively jumps to a directory under the current working directory.
-jd() {
-    if test "$1" = "-h" || test "$1" = "--help"; then
-        echo "Usage: jd"
-        echo ""
-        echo "  - Interactively jumps to a directory under the current working directory."
-        return 0
-    fi
-
+# Interactively jumps to a directory under the current directory.
+_dot_jj_directory_from_current() {
     if is_executable fd; then
         local target="$(fd --type d --exclude 'Library' | fzf --height 50%)"
         if test ! -z "$target"; then
@@ -97,16 +77,27 @@ jd() {
     fi
 }
 
-# Interactively jumps to a file under the current working directory.
-# This just prints the file path.
-jf() {
+print_ff_help() {
+    cat <<EOF
+Usage: ff
+
+  Interactively searches for and copies a filepath under the current directory.
+
+Flags:
+  -h, --help        Print this help text and exit.
+EOF
+}
+
+# Interactively searches for and copies a filepath under the current directory.
+ff() {
     if test "$1" = "-h" || test "$1" = "--help"; then
-        echo "Usage: jf"
-        echo ""
-        echo "  - Interactively jumps to a file under the current working directory."
-        echo "    (This just prints the file path.)"
+        print_ff_help
         return 0
     fi
 
-    fzf --height 50%
+    local target="$(fzf --height 50%)"
+    if test ! -z "$target"; then
+        echo "copied: $target"
+        echo -n "$target" | pbcopy
+    fi
 }
