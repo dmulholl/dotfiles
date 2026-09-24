@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+print_help() {
+    cat <<EOF
+Usage: serve [port]
+
+  Serves the contents of the current directory over HTTP.
+
+Arguments:
+  [port]            Port number (default: 8080).
+
+Flags:
+  -h, --help        Print this help text and exit.
+EOF
+}
+
+port=8080
+
+if test $# -eq 1; then
+    if test "$1" = "--help" || test "$1" = "-h"; then
+        print_help
+        exit 0
+    fi
+    port="$1"
+elif test $# -gt 1; then
+    print_help
+    exit 1
+fi
+
+python3 -m http.server $port
