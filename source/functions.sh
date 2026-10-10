@@ -177,3 +177,12 @@ tag() {
         git tag -am "Version $1" "$1" "$2"
     fi
 }
+
+# Make `brew update` behave like `brew upgrade`.
+brew() {
+    if test "$1" = "update"; then
+        command brew upgrade "${@:2}"
+    else
+        command brew "$@"
+    fi
+}
