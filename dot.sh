@@ -10,16 +10,16 @@ Usage: dot <command>
 
     dot <command> [-h/--help]
 
-  To update the dotfiles installation, run:
-
-    cd ~/.dotfiles
-    git pull
-    dot install
-
   To install the dotfiles on a new machine, run:
 
     git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles
     source ~/.dotfiles/install.sh
+
+  To install the dotfiles in a Dockerfile, use:
+
+    SHELL ["/bin/bash", "-c"]
+    RUN git clone https://github.com/dmulholl/dotfiles.git ~/.dotfiles
+    RUN source ~/.dotfiles/install.sh
 
 Flags:
   -h, --help    Print this help text and exit.
@@ -37,8 +37,9 @@ Utility Commands:
   pyenv         Manage Python environments.
 
 Admin Commands:
-  install       Prints the installation command.
+  install       Print the installation command.
   link          Link all files in ~/.dotfiles/link/ into ~/.
+  refresh       Refresh the shell by re-linking and re-sourcing the dotfiles.
   source        Source all files in ~/.dotfiles/source/ (alias '.').
 EOF
 }
@@ -58,6 +59,8 @@ dot() {
             dot_install "$@";;
         link)
             dot_link "$@";;
+        refresh)
+            dot_refresh "$@";;
         path)
             dot_path "$@";;
         prompt)
@@ -339,4 +342,24 @@ dot_prune() {
 
     echo "Running with -p/--prune will delete the following branches:"
     git branch | grep --invert-match 'develop\|staging\|master\|main\|[*]'
+}
+
+dot_refresh_help() {
+    cat <<EOF
+Usage: dot refresh
+
+  Refreshes the shell by re-linking and re-sourcing the dotfiles.
+
+Flags:
+  -h, --help    Print this help text and exit.
+EOF
+}
+
+dot_refresh() {
+    if test "$1" = "-h" || test "$1" = "--help"; then
+        dot_refresh_help
+        return 0
+    fi
+
+    source ~/.dotfiles/install.sh
 }
