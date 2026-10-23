@@ -36,7 +36,9 @@ if test -d "$HOME/.cargo/bin"; then
 fi
 
 # Python installed from python.org.
-if test -d "/Library/Frameworks/Python.framework/Versions/3.14/bin"; then
+if test -d "/Library/Frameworks/Python.framework/Versions/3.15/bin"; then
+    PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.15/bin"
+elif test -d "/Library/Frameworks/Python.framework/Versions/3.14/bin"; then
     PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.14/bin"
 elif test -d "/Library/Frameworks/Python.framework/Versions/3.13/bin"; then
     PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.13/bin"
