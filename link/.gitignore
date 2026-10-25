@@ -13,9 +13,9 @@ __pycache__/
 *.swp
 .netrwhist
 
-# Temporary files.
-/notes.txt
+# Local files.
 /tmp/
+/local/
 
 # Vim tag file.
 /tags
