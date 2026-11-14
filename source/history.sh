@@ -13,7 +13,7 @@ export HISTIGNORE="?:??:exit"
 
 # Ignore commands starting with a space; ignore sequential duplicates.
 # Can also add 'erasedups' here.
-export HISTCONTROL="ignorespace:ignoredups"
+export HISTCONTROL="ignorespace:ignoredups:erasedups"
 
 # Add a timestamp to history entries.
 export HISTTIMEFORMAT="%h %d %H:%M  "
