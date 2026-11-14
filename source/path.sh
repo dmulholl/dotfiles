@@ -74,9 +74,9 @@ if test -d "/opt/homebrew/opt/curl/bin"; then
 fi
 
 # Macports binaries.
-# if test -d "/opt/local/bin"; then
-#     PATH="$PATH:/opt/local/bin:/opt/local/sbin"
-# fi
+if test -d "/opt/local/bin"; then
+    PATH="$PATH:/opt/local/bin:/opt/local/sbin"
+fi
 
 # Add the default system path back on at the end.
 PATH="$PATH:$DEFAULT_PATH"
