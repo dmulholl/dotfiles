@@ -13,7 +13,7 @@ dot_print_git_branch_name() {
 
 # Prints '*' if the current git branch is dirty.
 dot_print_git_is_dirty() {
-    [[ -n $(git status --porcelain 2> /dev/null) ]] && echo "*"
+    test -n "$(git status --porcelain 2> /dev/null)" && echo "*"
 }
 
 # Prints metadata about the current shell environment.
@@ -64,9 +64,10 @@ dot_print_num_background_jobs() {
 
 # Prints 'n>' where n is the number of background jobs, or '>>' if n is zero.
 dot_print_prompt_arrows() {
-    # The number of jobs is always 1 too many when the function runs inside the prompt.
-    if [[ "$(dot_print_num_background_jobs)" -gt "1" ]]; then
-        echo -n "$(($(dot_print_num_background_jobs) - 1))>"
+    local num_jobs="$(dot_print_num_background_jobs)"
+
+    if test "$num_jobs" -gt 0; then
+        echo -n "$num_jobs>"
     else
         echo -n ">>"
     fi
